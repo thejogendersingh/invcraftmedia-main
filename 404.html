@@ -3,59 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Invitation Not Found | InvCraft Media</title>
+  <title>Invitation Link Not Found | InvCraft Media</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Cormorant+Garamond:wght@600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     body {
-      background: #0f1115;
-      color: #f5f5f7;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #fcf9f5;
+      color: #1f1d1a;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 1.5rem;
       margin: 0;
+      background-image: 
+        radial-gradient(circle at 50% 10%, rgba(255, 107, 0, 0.08) 0%, transparent 60%);
     }
     .badge {
-      color: #d4af37;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.25em;
+      color: #e65100;
+      background: #fff3e6;
+      border: 1px solid rgba(255, 107, 0, 0.2);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 1rem;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      margin-bottom: 1.25rem;
     }
     h1 {
-      font-size: 2.2rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 6vw, 3rem);
       margin: 0 0 1rem;
-      font-weight: 400;
-      color: #fff;
+      font-weight: 600;
+      color: #1f1d1a;
+      line-height: 1.2;
     }
     p {
-      color: #a1a1aa;
+      color: #6b635b;
       max-width: 480px;
       line-height: 1.6;
       margin: 0 auto 2rem;
+      font-size: 0.95rem;
+    }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
     }
     a.btn {
       display: inline-block;
-      background: linear-gradient(135deg, #d4af37 0%, #aa771c 100%);
-      color: #000;
-      font-weight: 600;
-      padding: 0.8rem 1.8rem;
-      border-radius: 30px;
+      background: linear-gradient(135deg, #ff6b00 0%, #ff8f00 50%, #f59e0b 100%);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 1.8rem;
+      border-radius: 40px;
       text-decoration: none;
       font-size: 0.9rem;
-      letter-spacing: 0.05em;
+      box-shadow: 0 6px 20px rgba(255, 107, 0, 0.35);
+    }
+    a.btn-whatsapp {
+      background: #25d366;
+      color: #ffffff;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
     }
   </style>
 </head>
 <body>
   <div class="badge">InvCraft Media</div>
   <h1>Invitation Link Not Found</h1>
-  <p>The invitation page you are searching for might have moved, or the link has a slight spelling difference. Please double-check the invitation link sent on WhatsApp.</p>
-  <a href="/" class="btn">Return to Homepage</a>
+  <p>The invitation URL you are looking for might have a slight typo or has not been published yet. Please verify the WhatsApp link received or contact our team for assistance.</p>
+  <div class="btn-group">
+    <a href="/" class="btn">Return to Home</a>
+    <a href="https://wa.me/918209415303?text=Namaste!%20I%20need%20help%20locating%20a%20wedding%20invitation%20link." class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp Support: 8209415303</a>
+  </div>
 </body>
 </html>
-

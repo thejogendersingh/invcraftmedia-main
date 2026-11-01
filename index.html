@@ -3,92 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>InvCraft Media | Bespoke Digital Wedding Invitations & Event Experiences</title>
-  <meta name="description" content="InvCraft Media crafts bespoke, interactive digital wedding invitations and luxury event websites. Seamless, elegant, and mobile-first.">
+  <title>InvCraft Media | Luxury Digital Wedding Invitations &amp; Event Portals</title>
+  <meta name="description" content="InvCraft Media crafts bespoke, interactive digital wedding invitations with music, Google Maps, countdown, and WhatsApp RSVP. Premium Indian wedding websites.">
   
-  <!-- Open Graph -->
+  <!-- Open Graph / WhatsApp Preview -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://invcraftmedia.com/">
-  <meta property="og:title" content="InvCraft Media | Bespoke Digital Wedding Invitations">
-  <meta property="og:description" content="Interactive, elegant, and mobile-first wedding invitation websites.">
-  <meta property="og:image" content="https://invcraftmedia.com/shared/shared-assets/invcraft-og.jpg">
+  <meta property="og:title" content="InvCraft Media – Luxury Digital Wedding Invitations">
+  <meta property="og:description" content="Handcrafted, animated, and interactive wedding invitations. Chat on WhatsApp: +91 8209415303.">
+  <meta property="og:image" content="https://invcraftmedia.com/invitations/krishna-weds-shreya/assets/ks-logo.webp">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C5A059'><path d='M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z'/></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF6B00'><path d='M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z'/></svg>">
 
-  <!-- Google Fonts Preconnect & Styles -->
+  <!-- Google Fonts Preconnect & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-dark: #0f1115;
-      --bg-card: #181b22;
-      --gold-primary: #d4af37;
-      --gold-light: #f3e5ab;
-      --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f7e7ce 50%, #aa771c 100%);
-      --text-main: #f5f5f7;
-      --text-muted: #a1a1aa;
-      --border-subtle: rgba(212, 175, 55, 0.2);
-      --font-serif: 'Cormorant Garamond', Georgia, serif;
-      --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+      /* Premium White & Royal Orange Theme */
+      --bg-body: #fcf9f5;
+      --bg-surface: #ffffff;
+      --bg-card: #ffffff;
+      --orange-primary: #ff6b00;
+      --orange-deep: #e65100;
+      --orange-light: #fff3e6;
+      --orange-soft: #ffe0b2;
+      --amber-gold: #f59e0b;
+      --orange-gradient: linear-gradient(135deg, #ff6b00 0%, #ff8f00 50%, #f59e0b 100%);
+      --orange-glow: rgba(255, 107, 0, 0.25);
+      --text-main: #1f1d1a;
+      --text-muted: #6b635b;
+      --text-light: #948b81;
+      --border-subtle: rgba(255, 107, 0, 0.15);
+      --border-card: rgba(255, 107, 0, 0.18);
+      --shadow-luxury: 0 20px 45px -12px rgba(230, 81, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.04);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-title: 'Cinzel', serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
-      background-color: var(--bg-dark);
+      background-color: var(--bg-body);
       color: var(--text-main);
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       overflow-x: hidden;
       line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(255, 107, 0, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.05) 0%, transparent 45%),
+        radial-gradient(circle at 50% 90%, rgba(255, 107, 0, 0.04) 0%, transparent 50%);
     }
 
-    .ambient-glow {
+    /* Ambient Decorative Elements */
+    .ambient-mesh {
       position: fixed;
-      top: -20%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(15, 17, 21, 0) 70%);
-      z-index: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
+      z-index: 0;
+      background: 
+        radial-gradient(800px circle at 50% -100px, rgba(255, 107, 0, 0.08), transparent 80%);
     }
 
+    /* Top Brand Navigation */
     header {
       position: relative;
       z-index: 10;
-      padding: 2.5rem 1.5rem 1rem;
+      padding: 2.2rem 1.5rem 1rem;
       text-align: center;
     }
 
-    .brand-mark {
-      display: inline-block;
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.35em;
-      color: var(--gold-primary);
-      margin-bottom: 0.5rem;
+    .brand-emblem {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      text-decoration: none;
     }
 
-    .main-container {
+    .brand-crown {
+      width: 32px;
+      height: 32px;
+      color: var(--orange-primary);
+      filter: drop-shadow(0 2px 8px var(--orange-glow));
+    }
+
+    .brand-name {
+      font-family: var(--font-title);
+      font-size: clamp(1rem, 3.5vw, 1.25rem);
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      background: var(--orange-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-subtitle {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Main Container */
+    .main-wrap {
       position: relative;
       z-index: 10;
-      max-width: 800px;
+      max-width: 640px;
       margin: 0 auto;
-      padding: 2rem 1.5rem;
+      padding: 1.5rem 1.25rem 3rem;
       text-align: center;
       flex-grow: 1;
       display: flex;
@@ -97,142 +138,398 @@
       align-items: center;
     }
 
-    h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.5rem, 6vw, 4.2rem);
-      font-weight: 400;
-      line-height: 1.15;
-      margin-bottom: 1.25rem;
-      background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    p.tagline {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: var(--text-muted);
-      font-weight: 300;
-      max-width: 620px;
-      margin-bottom: 2.5rem;
-    }
-
-    .status-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 2rem;
-      width: 100%;
-      max-width: 540px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-      margin-bottom: 2rem;
-      backdrop-filter: blur(10px);
-    }
-
-    .status-card h2 {
-      font-family: var(--font-serif);
-      font-size: 1.6rem;
-      color: var(--gold-light);
-      margin-bottom: 0.75rem;
-      font-weight: 400;
-    }
-
-    .status-card p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-
-    .btn {
+    /* Tag Badge */
+    .pill-badge {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.85rem 1.8rem;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 30px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--gold-gradient);
-      color: #000;
-      font-weight: 600;
-      box-shadow: 0 4px 18px rgba(212, 175, 55, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(212, 175, 55, 0.45);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text-main);
+      gap: 0.45rem;
+      padding: 0.45rem 1.1rem;
+      background: var(--orange-light);
       border: 1px solid var(--border-subtle);
+      border-radius: 30px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--orange-deep);
+      letter-spacing: 0.04em;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 10px rgba(255, 107, 0, 0.08);
     }
 
-    .btn-secondary:hover {
-      border-color: var(--gold-primary);
-      background: rgba(212, 175, 55, 0.05);
+    .pill-badge .sparkle {
+      font-size: 0.95rem;
+      color: var(--orange-primary);
     }
 
+    /* Hero Typography */
+    h1.hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 8vw, 3.8rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    h1.hero-title .highlight {
+      background: var(--orange-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      font-style: italic;
+    }
+
+    p.hero-description {
+      font-size: clamp(0.95rem, 3vw, 1.05rem);
+      color: var(--text-muted);
+      font-weight: 400;
+      max-width: 520px;
+      margin: 0 auto 2.2rem;
+      line-height: 1.65;
+    }
+
+    /* Luxury Surface Card */
+    .luxury-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 24px;
+      padding: 2.2rem 1.75rem;
+      width: 100%;
+      box-shadow: var(--shadow-luxury);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(8px);
+    }
+
+    .luxury-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--orange-gradient);
+    }
+
+    .card-badge-top {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--orange-deep);
+      margin-bottom: 0.6rem;
+    }
+
+    .luxury-card h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 5vw, 2.1rem);
+      color: var(--text-main);
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+
+    .luxury-card p.card-info {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+    }
+
+    /* Feature Grid Chips */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.65rem;
+      margin-bottom: 1.75rem;
+      text-align: left;
+    }
+
+    .feature-chip {
+      background: #fffaf5;
+      border: 1px solid rgba(255, 107, 0, 0.12);
+      border-radius: 12px;
+      padding: 0.75rem 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .feature-chip svg {
+      width: 16px;
+      height: 16px;
+      color: var(--orange-primary);
+      flex-shrink: 0;
+    }
+
+    /* Master WhatsApp CTA Button */
+    .cta-button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .btn-whatsapp-luxury {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 1.05rem 1.6rem;
+      background: var(--orange-gradient);
+      color: #ffffff;
+      font-family: var(--font-body);
+      font-size: clamp(0.92rem, 3.2vw, 1.02rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 8px 24px -4px rgba(255, 107, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-whatsapp-luxury:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -4px rgba(255, 107, 0, 0.55), 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-whatsapp-luxury:active {
+      transform: translateY(0);
+    }
+
+    .btn-whatsapp-luxury svg {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      fill: currentColor;
+    }
+
+    .whatsapp-subtext {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .whatsapp-subtext strong {
+      color: var(--orange-deep);
+      font-weight: 600;
+    }
+
+    /* Live Preview Secondary Button */
+    .btn-sample-preview {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #ffffff;
+      color: var(--orange-deep);
+      border: 1px solid var(--border-card);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(255, 107, 0, 0.08);
+      transition: all 0.25s ease;
+      margin-top: 0.5rem;
+    }
+
+    .btn-sample-preview:hover {
+      border-color: var(--orange-primary);
+      background: var(--orange-light);
+      transform: translateY(-1px);
+    }
+
+    /* Floating WhatsApp Quick Action on Mobile */
+    .floating-wa-pill {
+      position: fixed;
+      bottom: max(1.2rem, env(safe-area-inset-bottom, 1.2rem));
+      right: 1.2rem;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #25d366;
+      color: #ffffff;
+      padding: 0.65rem 1.15rem 0.65rem 0.9rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.38);
+      transition: transform 0.25s ease;
+    }
+
+    .floating-wa-pill:hover {
+      transform: scale(1.04);
+    }
+
+    .floating-wa-pill svg {
+      width: 20px;
+      height: 20px;
+      fill: #ffffff;
+    }
+
+    /* Footer */
     footer {
       position: relative;
       z-index: 10;
-      padding: 2rem 1.5rem;
+      padding: 2.5rem 1.5rem 2rem;
       text-align: center;
       font-size: 0.8rem;
-      color: var(--text-muted);
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-light);
+      border-top: 1px solid rgba(255, 107, 0, 0.08);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    footer p {
+      margin-bottom: 0.4rem;
     }
 
     footer a {
-      color: var(--gold-primary);
+      color: var(--orange-primary);
       text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+      .luxury-card {
+        padding: 1.75rem 1.25rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="ambient-glow"></div>
+  <div class="ambient-mesh"></div>
 
+  <!-- Header -->
   <header>
-    <div class="brand-mark">InvCraft Media</div>
+    <a href="/" class="brand-emblem" aria-label="InvCraft Media Homepage">
+      <!-- Royal Crown / Lotus Emblem -->
+      <svg class="brand-crown" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z"/>
+      </svg>
+      <span class="brand-name">InvCraft Media</span>
+      <span class="brand-subtitle">Royal Digital Wedding Invitations</span>
+    </a>
   </header>
 
-  <main class="main-container">
-    <h1>Bespoke Wedding Invitations</h1>
-    <p class="tagline">
-      Crafting personalized, high-performance digital wedding experiences for couples around the world.
+  <!-- Main Hero -->
+  <main class="main-wrap">
+    
+    <!-- Top Sparkle Tag -->
+    <div class="pill-badge">
+      <span class="sparkle">✨</span> Premium White &amp; Royal Orange Edition
+    </div>
+
+    <h1 class="hero-title">
+      Bespoke Wedding <br>
+      <span class="highlight">Invitations</span>
+    </h1>
+
+    <p class="hero-description">
+      Handcrafted, interactive digital wedding websites designed to give your guests an unforgettable first impression.
     </p>
 
-    <div class="status-card">
-      <h2>Guest Access Notice</h2>
-      <p>
-        Every wedding invitation on InvCraft Media is hosted on its own dedicated private URL. Please use the personalized invitation link received on WhatsApp or your physical card.
+    <!-- Guest Access & Inquire Card -->
+    <div class="luxury-card">
+      <div class="card-badge-top">Private Guest Access</div>
+      <h2>Personalized Guest Experience</h2>
+      <p class="card-info">
+        Every wedding hosted on InvCraft Media has its own dedicated private link. Please use the personalized link sent to you on WhatsApp or printed on your physical card.
       </p>
 
-      <div class="cta-group">
-        <a href="https://wa.me/?text=Hello%20InvCraft%20Media,%20I%20am%20looking%20to%20create%20a%20digital%20wedding%20invitation." class="btn btn-primary" target="_blank" rel="noopener">
-          Inquire for Your Wedding
+      <!-- Key Features -->
+      <div class="feature-grid">
+        <div class="feature-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+          </svg>
+          Background Song
+        </div>
+        <div class="feature-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          Google Maps Direction
+        </div>
+        <div class="feature-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          Live Countdown
+        </div>
+        <div class="feature-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+          </svg>
+          WhatsApp RSVP
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="cta-button-container">
+        <!-- WhatsApp Call to Action -->
+        <a href="https://wa.me/918209415303?text=Namaste%20InvCraft%20Media!%20I%20want%20to%20create%20a%20luxury%20digital%20wedding%20invitation." 
+           class="btn-whatsapp-luxury" 
+           target="_blank" 
+           rel="noopener"
+           aria-label="Chat on WhatsApp with InvCraft Media at 8209415303">
+          <!-- WhatsApp Official Icon -->
+          <svg viewBox="0 0 24 24">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.33C8.94 7.33 8.66 7.4 8.43 7.65C8.2 7.9 7.55 8.51 7.55 9.75C7.55 11 8.46 12.2 8.58 12.37C8.71 12.54 10.36 15.09 12.88 16.18C13.48 16.44 13.95 16.6 14.31 16.71C14.92 16.91 15.47 16.88 15.91 16.81C16.4 16.74 17.42 16.19 17.64 15.59C17.85 14.98 17.85 14.47 17.79 14.36C17.73 14.25 17.56 14.19 17.31 14.06C17.06 13.94 15.82 13.33 15.59 13.25C15.36 13.16 15.2 13.12 15.03 13.37C14.86 13.62 14.39 14.19 14.25 14.36C14.1 14.53 13.96 14.55 13.71 14.42C13.46 14.3 12.42 13.96 11.19 12.87C10.23 12.02 9.58 10.96 9.46 10.75C9.33 10.55 9.44 10.43 9.57 10.31C9.68 10.2 9.82 10.02 9.95 9.87C10.08 9.72 10.12 9.61 10.2 9.45C10.29 9.28 10.25 9.14 10.19 9.01C10.12 8.89 9.66 7.74 9.46 7.27C9.27 6.81 9.08 6.87 8.94 6.86C8.8 6.86 8.63 6.85 8.46 6.85"/>
+          </svg>
+          Chat on WhatsApp • 8209415303
+        </a>
+
+        <div class="whatsapp-subtext">
+          <span>Direct booking &amp; inquiries:</span>
+          <strong>+91 8209415303</strong>
+        </div>
+
+        <!-- Sample Live Preview Link -->
+        <a href="/krishna-weds-shreya/" class="btn-sample-preview">
+          <span>✨</span> View Sample Invitation (Krishna &amp; Shreya)
         </a>
       </div>
     </div>
+
   </main>
 
+  <!-- Floating Mobile WhatsApp Quick Button -->
+  <a href="https://wa.me/918209415303?text=Namaste%20InvCraft%20Media!%20I%20want%20to%20create%20a%20luxury%20digital%20wedding%20invitation." 
+     class="floating-wa-pill" 
+     target="_blank" 
+     rel="noopener"
+     aria-label="Direct WhatsApp Chat with InvCraft Media">
+    <svg viewBox="0 0 24 24">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.33C8.94 7.33 8.66 7.4 8.43 7.65C8.2 7.9 7.55 8.51 7.55 9.75C7.55 11 8.46 12.2 8.58 12.37C8.71 12.54 10.36 15.09 12.88 16.18C13.48 16.44 13.95 16.6 14.31 16.71C14.92 16.91 15.47 16.88 15.91 16.81C16.4 16.74 17.42 16.19 17.64 15.59C17.85 14.98 17.85 14.47 17.79 14.36C17.73 14.25 17.56 14.19 17.31 14.06C17.06 13.94 15.82 13.33 15.59 13.25C15.36 13.16 15.2 13.12 15.03 13.37C14.86 13.62 14.39 14.19 14.25 14.36C14.1 14.53 13.96 14.55 13.71 14.42C13.46 14.3 12.42 13.96 11.19 12.87C10.23 12.02 9.58 10.96 9.46 10.75C9.33 10.55 9.44 10.43 9.57 10.31C9.68 10.2 9.82 10.02 9.95 9.87C10.08 9.72 10.12 9.61 10.2 9.45C10.29 9.28 10.25 9.14 10.19 9.01C10.12 8.89 9.66 7.74 9.46 7.27C9.27 6.81 9.08 6.87 8.94 6.86C8.8 6.86 8.63 6.85 8.46 6.85"/>
+    </svg>
+    <span>WhatsApp</span>
+  </a>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; <span id="year">2026</span> InvCraft Media. All rights reserved. High-Speed Global Hosting powered by Cloudflare.</p>
+    <p>&copy; <span id="year">2026</span> InvCraft Media. All rights reserved.</p>
+    <p>Premium Digital Wedding Invitations • WhatsApp Support: <a href="https://wa.me/918209415303">+91 8209415303</a></p>
   </footer>
 
   <script>
@@ -240,4 +537,3 @@
   </script>
 </body>
 </html>
-
