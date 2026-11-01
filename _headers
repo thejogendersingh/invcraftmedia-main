@@ -1,0 +1,17 @@
+# ==============================================================================
+# INVCRAFT MEDIA – HTTP CACHING & SECURITY HEADERS (Cloudflare Pages)
+# ==============================================================================
+
+# HTML pages: Always revalidate so couples see live updates instantly
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Static media & assets: Aggressively cache for 1 year
+/invitations/*/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Shared assets
+/shared/*
+  Cache-Control: public, max-age=31536000, immutable

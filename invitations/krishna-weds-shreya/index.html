@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Krishna & Shreya | Wedding Celebration</title>
+  
+  <!-- SEO & Social Sharing (WhatsApp / Facebook / iMessage) -->
+  <meta name="title" content="Krishna & Shreya – Wedding Invitation">
+  <meta name="description" content="We invite you to celebrate the wedding of Krishna and Shreya. Tap to view the schedule, venue details, and RSVP.">
+  
+  <!-- Open Graph / WhatsApp Preview Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://invcraftmedia.com/krishna-weds-shreya/">
+  <meta property="og:title" content="Krishna & Shreya – Wedding Invitation">
+  <meta property="og:description" content="We warmly invite you to join our wedding celebration. Tap to view invitation & venue details.">
+  <meta property="og:image" content="https://invcraftmedia.com/krishna-weds-shreya/assets/images/og-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Krishna & Shreya – Wedding Invitation">
+  <meta name="twitter:description" content="We warmly invite you to join our wedding celebration.">
+  <meta name="twitter:image" content="https://invcraftmedia.com/krishna-weds-shreya/assets/images/og-preview.jpg">
+
+  <!-- Invitation Local Stylesheet (Strictly Scoped) -->
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="invitation-page">
+
+  <!-- Background Music Control Widget -->
+  <div class="music-controller" id="musicController" role="button" aria-label="Toggle background music" tabindex="0">
+    <div class="music-disc" id="musicDisc">
+      <svg class="icon-music" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+      </svg>
+    </div>
+    <span class="music-label" id="musicLabel">Play Music</span>
+    <!-- Local Audio Element -->
+    <!-- [SOURCE CONTENT PENDING]: Place original client audio file at ./assets/audio/wedding-song.mp3 -->
+    <audio id="invitationAudio" loop preload="none">
+      <source src="./assets/audio/wedding-song.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="sub-heading">The Wedding Celebration of</p>
+      <h1 class="couple-names">Krishna &amp; Shreya</h1>
+      <div class="decorative-divider">
+        <span>❖</span>
+      </div>
+      <!-- [SOURCE CONTENT PENDING]: Insert confirmed wedding date & auspicious muhurat from client source files -->
+      <div class="wedding-date-badge">
+        <span class="wedding-date">[Event Date Confirmed Upon Receipt of Client Schedule]</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Countdown Timer Container -->
+  <section class="countdown-section" aria-label="Countdown to wedding">
+    <div class="container">
+      <h2 class="section-title">Counting Down to the Big Day</h2>
+      <!-- [SOURCE CONTENT PENDING]: Set data-event-date attribute to actual ISO timestamp (e.g., 2026-12-15T10:00:00) -->
+      <div class="countdown-grid" id="countdownGrid" data-event-date="2026-12-31T00:00:00">
+        <div class="countdown-card">
+          <span class="num" id="cdDays">--</span>
+          <span class="label">Days</span>
+        </div>
+        <div class="countdown-card">
+          <span class="num" id="cdHours">--</span>
+          <span class="label">Hours</span>
+        </div>
+        <div class="countdown-card">
+          <span class="num" id="cdMinutes">--</span>
+          <span class="label">Minutes</span>
+        </div>
+        <div class="countdown-card">
+          <span class="num" id="cdSeconds">--</span>
+          <span class="label">Seconds</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events & Functions Schedule -->
+  <section class="events-section">
+    <div class="container">
+      <h2 class="section-title">Events &amp; Celebrations</h2>
+      <p class="section-desc">Join us in each auspicious moment of our union.</p>
+
+      <!-- [SOURCE CONTENT PENDING]: Replace with original ceremony events from client schedule (e.g. Haldi, Mehendi, Sangeet, Varmala) -->
+      <div class="event-cards-grid">
+        <div class="event-card">
+          <div class="event-badge">Ceremony</div>
+          <h3 class="event-name">[Ceremony / Function Name]</h3>
+          <p class="event-time">[Date &amp; Time from Client Files]</p>
+          <p class="event-venue">[Venue Name &amp; Address]</p>
+          <div class="event-actions">
+            <!-- [SOURCE CONTENT PENDING]: Insert exact Google Maps coordinate URL -->
+            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-card">
+              View on Map
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue & Directions Section -->
+  <section class="venue-section">
+    <div class="container">
+      <h2 class="section-title">Wedding Venue &amp; Directions</h2>
+      <!-- [SOURCE CONTENT PENDING]: Insert client confirmed venue name and physical address -->
+      <div class="venue-card">
+        <h3 class="venue-title">[Venue Name Pending Client Files]</h3>
+        <p class="venue-address">[Full Address, Landmark, City &amp; Pincode]</p>
+        <div class="venue-btn-wrap">
+          <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-primary">
+            Open in Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP Section -->
+  <section class="rsvp-section">
+    <div class="container">
+      <h2 class="section-title">Kindly RSVP</h2>
+      <p class="section-desc">Your presence will double our joy. Please confirm your attendance.</p>
+      <div class="rsvp-btn-wrap">
+        <!-- [SOURCE CONTENT PENDING]: Update client RSVP WhatsApp contact number -->
+        <a href="https://wa.me/?text=Hello!%20I%20received%20the%20wedding%20invitation%20for%20Krishna%20%26%20Shreya%20and%20would%20love%20to%20confirm%20my%20presence." target="_blank" rel="noopener" class="btn-whatsapp">
+          Confirm via WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="invitation-footer">
+    <div class="container">
+      <p class="with-love">With Love &amp; Warm Regards</p>
+      <p class="family-names">[Family Names from Original Client Files]</p>
+      <p class="invcraft-attribution">Digital Invitation Hosted by <a href="https://invcraftmedia.com" target="_blank" rel="noopener">InvCraft Media</a></p>
+    </div>
+  </footer>
+
+  <!-- Invitation Local Script (Strictly Scoped) -->
+  <script src="./script.js" defer></script>
+</body>
+</html>

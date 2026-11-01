@@ -1,0 +1,326 @@
+/* ==============================================================================
+   INVITATION STYLESHEET: Rohit & Priya
+   Strictly Scoped – Independent CSS for /rohit-weds-priya/
+   ============================================================================== */
+
+:root {
+  --rp-bg: #1c0e14;
+  --rp-card: #27141d;
+  --rp-rose-gold: #e2a76f;
+  --rp-champagne: #fdf0d5;
+  --rp-accent-red: #8b1e3f;
+  --rp-text-main: #fcf8f2;
+  --rp-text-muted: #b89b9e;
+  --rp-border: rgba(226, 167, 111, 0.25);
+  --rp-font-display: 'Cinzel', serif;
+  --rp-font-script: 'Great Vibes', cursive;
+  --rp-font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.theme-royal-rose {
+  background-color: var(--rp-bg);
+  color: var(--rp-text-main);
+  font-family: var(--rp-font-body);
+  line-height: 1.6;
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Audio Control Widget */
+.audio-control-bar {
+  position: fixed;
+  bottom: max(1.2rem, env(safe-area-inset-bottom, 1.2rem));
+  right: 1.2rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(39, 20, 29, 0.9);
+  border: 1px solid var(--rp-border);
+  border-radius: 40px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+.audio-wave-icon {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 16px;
+}
+
+.audio-wave-icon .bar {
+  width: 3px;
+  height: 6px;
+  background: var(--rp-rose-gold);
+  border-radius: 2px;
+  transition: height 0.2s ease;
+}
+
+.audio-wave-icon.playing .bar:nth-child(1) { animation: wavePulse 0.8s ease-in-out infinite alternate; }
+.audio-wave-icon.playing .bar:nth-child(2) { animation: wavePulse 1.2s ease-in-out infinite 0.2s alternate; }
+.audio-wave-icon.playing .bar:nth-child(3) { animation: wavePulse 0.9s ease-in-out infinite 0.4s alternate; }
+.audio-wave-icon.playing .bar:nth-child(4) { animation: wavePulse 1.1s ease-in-out infinite 0.1s alternate; }
+
+@keyframes wavePulse {
+  0% { height: 4px; }
+  100% { height: 16px; }
+}
+
+.audio-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--rp-rose-gold);
+}
+
+/* Hero Header */
+.header-hero {
+  padding: 5rem 1.5rem 4rem;
+  text-align: center;
+  background: radial-gradient(circle at 50% 20%, #361725 0%, var(--rp-bg) 80%);
+  position: relative;
+}
+
+.inner-frame {
+  max-width: 580px;
+  margin: 0 auto;
+  border: 1px solid var(--rp-border);
+  padding: 3rem 1.5rem;
+  border-radius: 20px;
+  background: rgba(39, 20, 29, 0.4);
+}
+
+.greeting-tag {
+  font-size: 0.85rem;
+  color: var(--rp-rose-gold);
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+}
+
+.invite-preamble {
+  font-size: 0.9rem;
+  color: var(--rp-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.main-title {
+  font-family: var(--rp-font-display);
+  font-size: clamp(2.4rem, 7vw, 3.8rem);
+  font-weight: 600;
+  color: var(--rp-champagne);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.main-title .ampersand {
+  font-family: var(--rp-font-script);
+  font-size: 1.2em;
+  color: var(--rp-rose-gold);
+  vertical-align: middle;
+}
+
+.invite-subtext {
+  font-size: 0.95rem;
+  color: var(--rp-text-muted);
+  margin-bottom: 2rem;
+}
+
+.date-capsule {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  background: rgba(226, 167, 111, 0.1);
+  border: 1px solid var(--rp-border);
+  border-radius: 30px;
+  font-size: 0.85rem;
+  color: var(--rp-rose-gold);
+}
+
+/* Sections */
+section {
+  padding: 3.5rem 0;
+}
+
+.sub-heading-title {
+  font-family: var(--rp-font-display);
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  text-align: center;
+  color: var(--rp-champagne);
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--rp-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+/* Countdown */
+.section-countdown {
+  background: #170b10;
+  border-top: 1px solid rgba(226, 167, 111, 0.1);
+  border-bottom: 1px solid rgba(226, 167, 111, 0.1);
+}
+
+.timer-box-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.time-block {
+  background: var(--rp-card);
+  border: 1px solid var(--rp-border);
+  border-radius: 12px;
+  padding: 1rem 0.5rem;
+  text-align: center;
+}
+
+.time-digit {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--rp-rose-gold);
+}
+
+.time-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--rp-text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Program Cards */
+.itinerary-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.program-card {
+  background: var(--rp-card);
+  border: 1px solid var(--rp-border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  text-align: center;
+}
+
+.program-ribbon {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--rp-rose-gold);
+  margin-bottom: 0.5rem;
+}
+
+.program-title {
+  font-family: var(--rp-font-display);
+  font-size: 1.5rem;
+  color: var(--rp-champagne);
+  margin-bottom: 0.5rem;
+}
+
+.program-schedule {
+  color: var(--rp-text-main);
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.program-hall {
+  color: var(--rp-text-muted);
+  font-size: 0.9rem;
+}
+
+/* Location Card */
+.location-details-box {
+  background: var(--rp-card);
+  border: 1px solid var(--rp-border);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.venue-spot-name {
+  font-family: var(--rp-font-display);
+  font-size: 1.5rem;
+  color: var(--rp-champagne);
+  margin-bottom: 0.5rem;
+}
+
+.venue-full-address {
+  color: var(--rp-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-location-action, .btn-rsvp-wa {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-location-action {
+  background: transparent;
+  color: var(--rp-rose-gold);
+  border: 1px solid var(--rp-rose-gold);
+}
+
+.btn-rsvp-wa {
+  background: #25d366;
+  color: #fff;
+}
+
+.section-rsvp {
+  text-align: center;
+  background: #170b10;
+}
+
+/* Footer */
+.footer-wrap {
+  padding: 3rem 0;
+  text-align: center;
+  border-top: 1px solid rgba(226, 167, 111, 0.15);
+}
+
+.inviting-family {
+  color: var(--rp-champagne);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.credit-line {
+  font-size: 0.75rem;
+  color: var(--rp-text-muted);
+}
+
+.credit-line a {
+  color: var(--rp-rose-gold);
+  text-decoration: none;
+}

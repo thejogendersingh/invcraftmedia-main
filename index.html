@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>InvCraft Media | Bespoke Digital Wedding Invitations & Event Experiences</title>
+  <meta name="description" content="InvCraft Media crafts bespoke, interactive digital wedding invitations and luxury event websites. Seamless, elegant, and mobile-first.">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://invcraftmedia.com/">
+  <meta property="og:title" content="InvCraft Media | Bespoke Digital Wedding Invitations">
+  <meta property="og:description" content="Interactive, elegant, and mobile-first wedding invitation websites.">
+  <meta property="og:image" content="https://invcraftmedia.com/shared/shared-assets/invcraft-og.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C5A059'><path d='M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z'/></svg>">
+
+  <!-- Google Fonts Preconnect & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0f1115;
+      --bg-card: #181b22;
+      --gold-primary: #d4af37;
+      --gold-light: #f3e5ab;
+      --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f7e7ce 50%, #aa771c 100%);
+      --text-main: #f5f5f7;
+      --text-muted: #a1a1aa;
+      --border-subtle: rgba(212, 175, 55, 0.2);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(15, 17, 21, 0) 70%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header {
+      position: relative;
+      z-index: 10;
+      padding: 2.5rem 1.5rem 1rem;
+      text-align: center;
+    }
+
+    .brand-mark {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      color: var(--gold-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .main-container {
+      position: relative;
+      z-index: 10;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.tagline {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--text-muted);
+      font-weight: 300;
+      max-width: 620px;
+      margin-bottom: 2.5rem;
+    }
+
+    .status-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 540px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .status-card h2 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      margin-bottom: 0.75rem;
+      font-weight: 400;
+    }
+
+    .status-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.8rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--gold-gradient);
+      color: #000;
+      font-weight: 600;
+      box-shadow: 0 4px 18px rgba(212, 175, 55, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(212, 175, 55, 0.45);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold-primary);
+      background: rgba(212, 175, 55, 0.05);
+    }
+
+    footer {
+      position: relative;
+      z-index: 10;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer a {
+      color: var(--gold-primary);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-glow"></div>
+
+  <header>
+    <div class="brand-mark">InvCraft Media</div>
+  </header>
+
+  <main class="main-container">
+    <h1>Bespoke Wedding Invitations</h1>
+    <p class="tagline">
+      Crafting personalized, high-performance digital wedding experiences for couples around the world.
+    </p>
+
+    <div class="status-card">
+      <h2>Guest Access Notice</h2>
+      <p>
+        Every wedding invitation on InvCraft Media is hosted on its own dedicated private URL. Please use the personalized invitation link received on WhatsApp or your physical card.
+      </p>
+
+      <div class="cta-group">
+        <a href="https://wa.me/?text=Hello%20InvCraft%20Media,%20I%20am%20looking%20to%20create%20a%20digital%20wedding%20invitation." class="btn btn-primary" target="_blank" rel="noopener">
+          Inquire for Your Wedding
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year">2026</span> InvCraft Media. All rights reserved. High-Speed Global Hosting powered by Cloudflare.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

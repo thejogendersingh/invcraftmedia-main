@@ -1,0 +1,360 @@
+/* ==============================================================================
+   INVITATION STYLESHEET: Krishna & Shreya
+   Strictly Scoped – Independent CSS for /krishna-weds-shreya/
+   ============================================================================== */
+
+:root {
+  --inv-bg-main: #0d1117;
+  --inv-bg-card: #161b22;
+  --inv-accent-gold: #c5a059;
+  --inv-accent-gold-light: #f4e8c1;
+  --inv-accent-gold-dark: #8c6d31;
+  --inv-text-light: #f0f6fc;
+  --inv-text-muted: #8b949e;
+  --inv-border-gold: rgba(197, 160, 89, 0.25);
+  --inv-font-script: 'Alex Brush', cursive;
+  --inv-font-serif: 'Cormorant Garamond', Georgia, serif;
+  --inv-font-sans: 'Montserrat', -apple-system, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.invitation-page {
+  background-color: var(--inv-bg-main);
+  color: var(--inv-text-light);
+  font-family: var(--inv-font-sans);
+  line-height: 1.6;
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Floating Music Control */
+.music-controller {
+  position: fixed;
+  top: max(1.2rem, env(safe-area-inset-top, 1.2rem));
+  right: 1.2rem;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(22, 27, 34, 0.85);
+  border: 1px solid var(--inv-border-gold);
+  border-radius: 30px;
+  padding: 0.4rem 0.85rem 0.4rem 0.4rem;
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.music-controller:hover {
+  border-color: var(--inv-accent-gold);
+  transform: scale(1.03);
+}
+
+.music-disc {
+  width: 32px;
+  height: 32px;
+  background: var(--inv-accent-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d1117;
+  transition: transform 0.5s ease;
+}
+
+.music-disc.playing {
+  animation: spinDisc 3s linear infinite;
+}
+
+@keyframes spinDisc {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.icon-music {
+  width: 18px;
+  height: 18px;
+}
+
+.music-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--inv-accent-gold-light);
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem 1.5rem 3rem;
+  background: radial-gradient(circle at center, #1b222d 0%, #0d1117 70%);
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(197, 160, 89, 0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 580px;
+}
+
+.sub-heading {
+  font-family: var(--inv-font-sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--inv-accent-gold);
+  margin-bottom: 1rem;
+}
+
+.couple-names {
+  font-family: var(--inv-font-serif);
+  font-size: clamp(2.6rem, 8vw, 4.4rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--inv-accent-gold-light);
+  margin-bottom: 1.25rem;
+  text-shadow: 0 4px 20px rgba(197, 160, 89, 0.2);
+}
+
+.decorative-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--inv-accent-gold);
+  margin: 1rem auto 1.5rem;
+  font-size: 1.2rem;
+}
+
+.wedding-date-badge {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  background: rgba(197, 160, 89, 0.08);
+  border: 1px solid var(--inv-border-gold);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: var(--inv-text-light);
+}
+
+/* Common Section Titles */
+section {
+  padding: 3.5rem 0;
+}
+
+.section-title {
+  font-family: var(--inv-font-serif);
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  color: var(--inv-accent-gold-light);
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.section-desc {
+  text-align: center;
+  color: var(--inv-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+/* Countdown */
+.countdown-section {
+  background-color: #11151c;
+  border-top: 1px solid rgba(197, 160, 89, 0.1);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  max-width: 480px;
+  margin: 1.5rem auto 0;
+}
+
+.countdown-card {
+  background: var(--inv-bg-card);
+  border: 1px solid var(--inv-border-gold);
+  border-radius: 12px;
+  padding: 1rem 0.5rem;
+  text-align: center;
+}
+
+.countdown-card .num {
+  display: block;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 600;
+  color: var(--inv-accent-gold);
+  line-height: 1.2;
+}
+
+.countdown-card .label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--inv-text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Event Cards */
+.event-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.event-card {
+  background: var(--inv-bg-card);
+  border: 1px solid var(--inv-border-gold);
+  border-radius: 16px;
+  padding: 1.75rem;
+  text-align: center;
+}
+
+.event-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--inv-accent-gold);
+  margin-bottom: 0.5rem;
+}
+
+.event-name {
+  font-family: var(--inv-font-serif);
+  font-size: 1.6rem;
+  color: var(--inv-accent-gold-light);
+  margin-bottom: 0.5rem;
+}
+
+.event-time {
+  color: var(--inv-text-light);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.event-venue {
+  color: var(--inv-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Venue Card */
+.venue-card {
+  background: var(--inv-bg-card);
+  border: 1px solid var(--inv-border-gold);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.venue-title {
+  font-family: var(--inv-font-serif);
+  font-size: 1.6rem;
+  color: var(--inv-accent-gold-light);
+  margin-bottom: 0.5rem;
+}
+
+.venue-address {
+  color: var(--inv-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.btn-primary, .btn-whatsapp, .btn-card {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: 30px;
+  padding: 0.8rem 1.6rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--inv-accent-gold) 0%, var(--inv-accent-gold-dark) 100%);
+  color: #0d1117;
+}
+
+.btn-card {
+  background: transparent;
+  color: var(--inv-accent-gold-light);
+  border: 1px solid var(--inv-border-gold);
+  padding: 0.5rem 1.25rem;
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+}
+
+.rsvp-section {
+  text-align: center;
+  background: #11151c;
+}
+
+/* Footer */
+.invitation-footer {
+  padding: 3rem 0;
+  text-align: center;
+  border-top: 1px solid rgba(197, 160, 89, 0.15);
+}
+
+.with-love {
+  font-family: var(--inv-font-script);
+  font-size: 2rem;
+  color: var(--inv-accent-gold);
+  margin-bottom: 0.25rem;
+}
+
+.family-names {
+  font-size: 0.95rem;
+  color: var(--inv-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.invcraft-attribution {
+  font-size: 0.75rem;
+  color: #6e7681;
+}
+
+.invcraft-attribution a {
+  color: var(--inv-accent-gold);
+  text-decoration: none;
+}
