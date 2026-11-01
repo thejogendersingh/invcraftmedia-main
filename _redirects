@@ -10,13 +10,9 @@
 # 3. Add each new client invitation here as a pair.
 # ==============================================================================
 
-# Client: Krishna Weds Shreya
+# Client: Krishna Weds Shreya (LIVE)
 /krishna-weds-shreya/*    /invitations/krishna-weds-shreya/:splat    200
 /krishna-weds-shreya      /invitations/krishna-weds-shreya/          301
-
-# Client: Rohit Weds Priya
-/rohit-weds-priya/*       /invitations/rohit-weds-priya/:splat       200
-/rohit-weds-priya         /invitations/rohit-weds-priya/             301
 
 # Default Fallback (Optional clean 404 handling)
 # /*                      /404.html                                  404

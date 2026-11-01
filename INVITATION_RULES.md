@@ -223,3 +223,4 @@ Every invitation must pass this checklist before merging into `main`:
 - [ ] "Add to Calendar" / RSVP WhatsApp link functions with pre-filled text.
 - [ ] No console errors or broken 404 network requests in DevTools.
 - [ ] No other client folder or file was modified in this commit.
+
