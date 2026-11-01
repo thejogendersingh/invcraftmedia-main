@@ -224,3 +224,51 @@ Every invitation must pass this checklist before merging into `main`:
 - [ ] No console errors or broken 404 network requests in DevTools.
 - [ ] No other client folder or file was modified in this commit.
 
+---
+
+## 11. Cloudflare Pages Resource Limits & Deployment Management
+
+### 11.1 Total File Count — 20,000 Files
+- Cloudflare Pages Free plan supports a maximum of 20,000 files per site.
+- Count all deployed files across the complete central project, including HTML, CSS, JavaScript, images, audio, video, fonts and icons.
+- Keep the total file count safely below 20,000.
+- Avoid unnecessary duplicate assets and unused files.
+- Check available file capacity before adding new invitations.
+- Maintain a reasonable safety buffer.
+
+### 11.2 Individual File Size — 25 MiB
+- No individual deployed file must exceed 25 MiB.
+- Check every file before deployment.
+- Optimize large images using WebP or AVIF where appropriate.
+- Compress audio without noticeably damaging quality.
+- Identify oversized videos and other large assets.
+- If a file cannot be optimized below 25 MiB without unacceptable quality loss, use a suitable external storage or media hosting service.
+- Never delete or replace original client assets without approval.
+
+### 11.3 Monthly Build Limit — 500 Builds
+- Cloudflare Pages Free plan allows 500 builds per month.
+- Avoid unnecessary Git pushes and repeated deployments.
+- Combine multiple completed changes into one commit and push whenever practical.
+- Test changes locally before pushing.
+- Do not trigger a new deployment for every minor correction.
+- Monitor monthly build usage and maintain a safety buffer.
+- Remember that preview deployments may also consume build resources.
+
+### 11.4 Large Video & External Storage
+- Do not use Cloudflare Pages as a general-purpose large video hosting or storage server.
+- Identify large video files during the audit.
+- Recommend suitable external video hosting or object storage when needed.
+- Keep the Pages project focused on static website code and optimized assets.
+- Do not migrate or remove existing media without approval and a verified alternative.
+
+### 11.5 Pre-Deployment Resource Audit
+Before every production deployment:
+- Check total deployed file count.
+- Check individual file sizes.
+- Identify files exceeding 25 MiB.
+- Check for duplicate and unused assets.
+- Review monthly build usage.
+- Verify all invitation URLs and asset paths.
+- Report any resource-limit risks before deployment.
+
+
