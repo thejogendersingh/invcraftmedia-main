@@ -80,6 +80,11 @@
 /krishna-weds-shreya/       /invitations/krishna-weds-shreya/index.html              200
 /krishna-weds-shreya/*      /invitations/krishna-weds-shreya/:splat                  200
 
+# Client: krishna-weds-shreya-invitation
+/krishna-weds-shreya-invitation        /krishna-weds-shreya-invitation/                                    301
+/krishna-weds-shreya-invitation/       /invitations/krishna-weds-shreya-invitation/index.html              200
+/krishna-weds-shreya-invitation/*      /invitations/krishna-weds-shreya-invitation/:splat                  200
+
 # Client: manohar-weds-harshitha
 /manohar-weds-harshitha        /manohar-weds-harshitha/                                    301
 /manohar-weds-harshitha/       /invitations/manohar-weds-harshitha/index.html              200
@@ -134,4 +139,12 @@
 /unnati-weds-nisarg        /unnati-weds-nisarg/                                    301
 /unnati-weds-nisarg/       /invitations/unnati-weds-nisarg/index.html              200
 /unnati-weds-nisarg/*      /invitations/unnati-weds-nisarg/:splat                  200
+
+# Aliases for Krishna Weds Shreya Invitation 2
+/krishna-weds-shreya-2               /krishna-weds-shreya-invitation/            301
+/krishna-weds-shreya-2/              /krishna-weds-shreya-invitation/            301
+/krishna-weds-shreya-2/*             /invitations/krishna-weds-shreya-invitation/:splat 200
+/krishna-weds-Shreya-Invitation      /krishna-weds-shreya-invitation/            301
+/krishna-weds-Shreya-Invitation/     /krishna-weds-shreya-invitation/            301
+/krishna-weds-Shreya-Invitation/*    /invitations/krishna-weds-shreya-invitation/:splat 200
 
