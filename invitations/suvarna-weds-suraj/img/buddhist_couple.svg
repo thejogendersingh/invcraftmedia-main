@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 280" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldSheen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE0AD"/>
+      <stop offset="50%" stop-color="#DFAC57"/>
+      <stop offset="100%" stop-color="#9A6B1F"/>
+    </linearGradient>
+    <linearGradient id="royalBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A3E72"/>
+      <stop offset="100%" stop-color="#0B2040"/>
+    </linearGradient>
+    <linearGradient id="maroonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#801826"/>
+      <stop offset="100%" stop-color="#4F0A14"/>
+    </linearGradient>
+    <radialGradient id="coupleGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FCE0AD" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#FCE0AD" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Aura / Arch -->
+  <ellipse cx="160" cy="140" rx="140" ry="120" fill="url(#coupleGlow)"/>
+  <path d="M40 250 C40 100, 280 100, 280 250" fill="none" stroke="url(#goldSheen)" stroke-width="2.5" stroke-dasharray="6 4"/>
+
+  <!-- Bodhi leaves hanging from the arch -->
+  <g fill="url(#goldSheen)">
+    <circle cx="160" cy="98" r="4"/>
+    <path d="M160 85 C154 94, 142 98, 142 108 C142 118, 154 124, 160 124 C166 124, 178 118, 178 108 C178 98, 166 94, 160 85 Z" opacity="0.6"/>
+  </g>
+
+  <!-- GROOM (Left Side) - सूरज -->
+  <g id="groom">
+    <!-- Pheta / Royal Blue & Gold Turban with Kalgi -->
+    <!-- Kalgi Feather -->
+    <path d="M110 52 C108 38, 115 32, 116 28 C118 34, 122 42, 114 52 Z" fill="url(#goldSheen)"/>
+    <circle cx="114" cy="53" r="3" fill="#D22B2B"/>
+    <!-- Turban Wrap -->
+    <ellipse cx="115" cy="72" rx="24" ry="18" fill="url(#royalBlue)"/>
+    <path d="M92 74 Q115 62 138 74 Q115 84 92 74 Z" fill="url(#goldSheen)"/>
+    <path d="M95 70 Q115 58 135 70" stroke="url(#goldSheen)" stroke-width="2" fill="none"/>
+    <path d="M132 75 C138 82, 142 98, 140 106 C136 102, 134 90, 131 82 Z" fill="url(#royalBlue)"/> <!-- Turban tail / zala -->
+
+    <!-- Groom Face -->
+    <ellipse cx="115" cy="96" rx="15" ry="18" fill="#FADCB6"/>
+    <!-- Beard / Jawline subtle shadow -->
+    <path d="M103 98 C105 110, 125 110, 127 98" stroke="#D19C65" stroke-width="1.2" fill="none"/>
+    <ellipse cx="115" cy="98" rx="2" ry="1.5" fill="#784E2D"/>
+    <!-- Mundavalya (Auspicious Maharashtrian forehead pearl ornament) -->
+    <path d="M98 86 Q115 84 132 86" stroke="url(#goldSheen)" stroke-width="2.5" fill="none"/>
+    <line x1="102" y1="87" x2="102" y2="104" stroke="url(#goldSheen)" stroke-width="1.8" stroke-dasharray="2 1.5"/>
+    <line x1="128" y1="87" x2="128" y2="104" stroke="url(#goldSheen)" stroke-width="1.8" stroke-dasharray="2 1.5"/>
+
+    <!-- Groom Attire: Royal Sherwani & Dupatta -->
+    <path d="M80 125 C80 115, 100 112, 115 112 C130 112, 145 118, 146 128 L142 240 L72 240 Z" fill="#FDFBF7" stroke="url(#goldSheen)" stroke-width="1.5"/>
+    <!-- Royal Blue & Gold Angavastra / Stole -->
+    <path d="M82 124 C95 145, 96 195, 92 240 L82 240 C84 195, 82 145, 74 126 Z" fill="url(#royalBlue)"/>
+    <path d="M82 124 C95 145, 96 195, 92 240" stroke="url(#goldSheen)" stroke-width="1.5" fill="none"/>
+    <!-- Button placket -->
+    <line x1="115" y1="112" x2="115" y2="185" stroke="url(#goldSheen)" stroke-width="2"/>
+    <circle cx="115" cy="122" r="1.5" fill="url(#goldSheen)"/>
+    <circle cx="115" cy="132" r="1.5" fill="url(#goldSheen)"/>
+    <circle cx="115" cy="142" r="1.5" fill="url(#goldSheen)"/>
+  </g>
+
+  <!-- BRIDE (Right Side) - सुवर्णा -->
+  <g id="bride">
+    <!-- Traditional Bun / Hair adorned with Gajra (Mogra flowers) -->
+    <circle cx="220" cy="92" r="14" fill="#2E1C14"/>
+    <!-- Gajra ring around bun -->
+    <ellipse cx="222" cy="92" rx="14" ry="12" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-dasharray="3 3"/>
+
+    <!-- Bride Face -->
+    <ellipse cx="205" cy="98" rx="14" ry="17" fill="#FDE2C4"/>
+    <!-- Hair Front -->
+    <path d="M192 90 C198 84, 212 84, 218 90 C212 88, 198 88, 192 90 Z" fill="#2E1C14"/>
+    <!-- Bindi & Chandrakor (Auspicious crescent bindi) -->
+    <path d="M203 91 Q205 93 207 91" stroke="#A31D1D" stroke-width="1.5" fill="none"/>
+    <circle cx="205" cy="89" r="1.2" fill="#A31D1D"/>
+    <!-- Maharashtrian Nath (Pearl Nose-ring) -->
+    <circle cx="199" cy="99" r="2.2" fill="none" stroke="url(#goldSheen)" stroke-width="1.2"/>
+    <circle cx="198" cy="98" r="0.9" fill="#D22B2B"/>
+    <!-- Mundavalya for Bride -->
+    <path d="M194 88 Q206 86 218 88" stroke="url(#goldSheen)" stroke-width="2.5" fill="none"/>
+    <line x1="196" y1="89" x2="196" y2="106" stroke="url(#goldSheen)" stroke-width="1.8" stroke-dasharray="2 1.5"/>
+    <line x1="216" y1="89" x2="216" y2="106" stroke="url(#goldSheen)" stroke-width="1.8" stroke-dasharray="2 1.5"/>
+
+    <!-- Pallu / Nauvari Saree (Royal Blue & Zari Gold border) -->
+    <path d="M188 126 C182 116, 212 114, 226 122 L248 240 L174 240 Z" fill="url(#royalBlue)"/>
+    <!-- Rich Golden Zari Pallu Border -->
+    <path d="M196 120 Q180 155 174 240" stroke="url(#goldSheen)" stroke-width="6" fill="none"/>
+    <path d="M196 120 Q180 155 174 240" stroke="#801826" stroke-width="1.5" fill="none"/>
+    <!-- Golden Necklace / Kolhapuri Saaj -->
+    <path d="M198 116 Q205 125 212 116" stroke="url(#goldSheen)" stroke-width="2.5" fill="none"/>
+  </g>
+
+  <!-- Jaimala / Floral Garland connecting Couple -->
+  <path d="M125 128 Q160 185 195 128" stroke="none" fill="none"/>
+  <g stroke="none">
+    <!-- Red & Gold roses/marigold garland -->
+    <circle cx="132" cy="138" r="4.5" fill="#C92A2A"/>
+    <circle cx="138" cy="148" r="4.5" fill="url(#goldSheen)"/>
+    <circle cx="145" cy="156" r="4.5" fill="#FFFFFF"/>
+    <circle cx="153" cy="162" r="5" fill="#C92A2A"/>
+    <circle cx="160" cy="164" r="5.5" fill="url(#goldSheen)"/>
+    <circle cx="167" cy="162" r="5" fill="#C92A2A"/>
+    <circle cx="175" cy="156" r="4.5" fill="#FFFFFF"/>
+    <circle cx="182" cy="148" r="4.5" fill="url(#goldSheen)"/>
+    <circle cx="188" cy="138" r="4.5" fill="#C92A2A"/>
+  </g>
+
+  <!-- Namaskar Mudra / Hands Joined in Front -->
+  <g fill="#FADCB6" stroke="url(#goldSheen)" stroke-width="1">
+    <ellipse cx="160" cy="136" rx="9" ry="11"/>
+    <!-- Gold Kangans / Bangles -->
+    <ellipse cx="160" cy="143" rx="8" ry="2" fill="url(#goldSheen)"/>
+    <ellipse cx="160" cy="145" rx="8" ry="2" fill="#0B2040"/>
+  </g>
+
+  <!-- Base Inscription in Gold -->
+  <rect x="70" y="244" width="180" height="26" rx="13" fill="#0C254B" stroke="url(#goldSheen)" stroke-width="1.5"/>
+  <text x="160" y="261" font-family="'Yatra One', 'Rozha One', serif" font-size="12" fill="url(#goldSheen)" font-weight="bold" text-anchor="middle">
+    उपासक सूरज ♥ उपासिका सुवर्णा
+  </text>
+</svg>

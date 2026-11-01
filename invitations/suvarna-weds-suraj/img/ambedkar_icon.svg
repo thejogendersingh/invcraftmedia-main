@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE0AD"/>
+      <stop offset="50%" stop-color="#DFAC57"/>
+      <stop offset="100%" stop-color="#9A6B1F"/>
+    </linearGradient>
+    <radialGradient id="halo2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFEDB3" stop-opacity="0.7"/>
+      <stop offset="70%" stop-color="#DFAC57" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#DFAC57" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Background Circle & Halo -->
+  <circle cx="100" cy="100" r="94" fill="#0C254B" stroke="url(#goldGrad2)" stroke-width="4"/>
+  <circle cx="100" cy="100" r="86" fill="none" stroke="url(#goldGrad2)" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="100" cy="85" r="55" fill="url(#halo2)"/>
+
+  <!-- Hair -->
+  <path d="M78 60 C76 42, 124 42, 122 60 C124 64, 76 64, 78 60 Z" fill="url(#goldGrad2)"/>
+  
+  <!-- Face -->
+  <ellipse cx="100" cy="74" rx="22" ry="26" fill="url(#goldGrad2)"/>
+  <!-- Ears -->
+  <ellipse cx="77" cy="74" rx="4" ry="7" fill="url(#goldGrad2)"/>
+  <ellipse cx="123" cy="74" rx="4" ry="7" fill="url(#goldGrad2)"/>
+
+  <!-- Spectacles (Iconic round/oval frame) -->
+  <rect x="83" y="66" width="14" height="11" rx="4" fill="none" stroke="#0C254B" stroke-width="1.8"/>
+  <rect x="103" y="66" width="14" height="11" rx="4" fill="none" stroke="#0C254B" stroke-width="1.8"/>
+  <line x1="97" y1="71" x2="103" y2="71" stroke="#0C254B" stroke-width="1.8"/>
+  <line x1="77" y1="70" x2="83" y2="70" stroke="#0C254B" stroke-width="1.4"/>
+  <line x1="117" y1="70" x2="123" y2="70" stroke="#0C254B" stroke-width="1.4"/>
+
+  <!-- Eyes behind glasses -->
+  <circle cx="90" cy="71" r="1.8" fill="#0C254B"/>
+  <circle cx="110" cy="71" r="1.8" fill="#0C254B"/>
+
+  <!-- Smile / Expression -->
+  <path d="M94 88 Q100 91 106 88" stroke="#0C254B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Suit & Tie Silhouette -->
+  <!-- Shirt & Tie Collar -->
+  <polygon points="100,102 91,114 109,114" fill="#FFFFFF"/>
+  <polygon points="98,114 102,114 104,136 100,140 96,136" fill="#0C254B"/>
+
+  <!-- Coat Shoulders & Lapels -->
+  <path d="M52 165 L52 142 C54 118, 80 108, 91 114 L100 135 L109 114 C120 108, 146 118, 148 142 L148 165 Z" fill="url(#goldGrad2)"/>
+  <!-- Lapel edges -->
+  <path d="M78 116 L90 148 L100 135 L110 148 L122 116" stroke="#0C254B" stroke-width="1.6" fill="none"/>
+  <!-- Pen in pocket -->
+  <rect x="122" y="136" width="3" height="10" rx="1" fill="#FFFFFF"/>
+  <circle cx="123.5" cy="135" r="1.5" fill="#DFAC57"/>
+
+  <!-- Laurel / Floral Base -->
+  <path d="M50 172 Q100 185 150 172" stroke="url(#goldGrad2)" stroke-width="3" fill="none"/>
+  <circle cx="100" cy="177" r="3.5" fill="url(#goldGrad2)"/>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE0AD"/>
+      <stop offset="50%" stop-color="#DFAC57"/>
+      <stop offset="100%" stop-color="#9A6B1F"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFEDB3" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#DFAC57" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#DFAC57" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Background Circle & Halo -->
+  <circle cx="100" cy="100" r="94" fill="#0C254B" stroke="url(#goldGrad)" stroke-width="4"/>
+  <circle cx="100" cy="100" r="86" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="100" cy="85" r="55" fill="url(#halo)"/>
+
+  <!-- Buddha Silhouette / Face & Ushnisha -->
+  <!-- Ushnisha / Topknot -->
+  <circle cx="100" cy="38" r="7" fill="url(#goldGrad)"/>
+  <path d="M96 35 C96 28, 104 28, 104 35 Z" fill="url(#goldGrad)"/>
+  <path d="M82 60 C82 45, 118 45, 118 60 C118 64, 82 64, 82 60 Z" fill="url(#goldGrad)"/>
+  
+  <!-- Head & Elongated Ears -->
+  <ellipse cx="100" cy="68" rx="20" ry="24" fill="url(#goldGrad)"/>
+  <!-- Left Ear -->
+  <path d="M78 62 C74 65, 74 78, 77 84 C79 86, 81 80, 81 74 Z" fill="url(#goldGrad)"/>
+  <!-- Right Ear -->
+  <path d="M122 62 C126 65, 126 78, 123 84 C121 86, 119 80, 119 74 Z" fill="url(#goldGrad)"/>
+
+  <!-- Meditative Eyes & Brow -->
+  <path d="M90 66 Q94 63 98 67" stroke="#0C254B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M102 67 Q106 63 110 66" stroke="#0C254B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Urna (forehead dot) -->
+  <circle cx="100" cy="61" r="1.8" fill="#FFF2D6"/>
+  <!-- Gentle Smile -->
+  <path d="M95 78 Q100 81 105 78" stroke="#0C254B" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+
+  <!-- Robe & Body (Meditating in Dhyana Mudra) -->
+  <path d="M60 145 C60 105, 80 94, 100 94 C120 94, 140 105, 140 145 L158 152 C155 160, 45 160, 42 152 Z" fill="url(#goldGrad)"/>
+  <!-- Sanghati / Robe fold lines -->
+  <path d="M78 102 Q100 120 128 145" stroke="#9A6B1F" stroke-width="1.8" fill="none"/>
+  <path d="M85 115 Q105 130 135 148" stroke="#9A6B1F" stroke-width="1.8" fill="none"/>
+
+  <!-- Lotus Pedestal -->
+  <g fill="url(#goldGrad)" opacity="0.95">
+    <path d="M100 156 C90 150, 75 162, 70 172 C85 174, 98 166, 100 156 Z"/>
+    <path d="M100 156 C110 150, 125 162, 130 172 C115 174, 102 166, 100 156 Z"/>
+    <path d="M100 154 C94 148, 86 160, 85 170 C95 171, 100 162, 100 154 Z"/>
+    <path d="M100 154 C106 148, 114 160, 115 170 C105 171, 100 162, 100 154 Z"/>
+    <path d="M100 152 C97 146, 100 160, 100 168 C100 160, 103 146, 100 152 Z"/>
+  </g>
+</svg>

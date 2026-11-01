@@ -46,9 +46,8 @@ function loadRedirectRules() {
   return rules;
 }
 
-const redirectRules = loadRedirectRules();
-
 function applyRedirects(requestPath) {
+  const redirectRules = loadRedirectRules();
   for (const rule of redirectRules) {
     if (rule.from.endsWith('/*')) {
       const prefix = rule.from.slice(0, -2);

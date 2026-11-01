@@ -16,3 +16,99 @@
 
 # Default Fallback (Optional clean 404 handling)
 # /*                      /404.html                                  404
+
+# Client: manohar-weds-harshitha
+/manohar-weds-harshitha/*    /invitations/manohar-weds-harshitha/:splat    200
+/manohar-weds-harshitha      /invitations/manohar-weds-harshitha/          301
+
+# Client: harshitha-weds-manohar
+/harshitha-weds-manohar/*    /invitations/harshitha-weds-manohar/:splat    200
+/harshitha-weds-manohar      /invitations/harshitha-weds-manohar/          301
+
+# Client: ankush-weds-muskan
+/ankush-weds-muskan/*    /invitations/ankush-weds-muskan/:splat    200
+/ankush-weds-muskan      /invitations/ankush-weds-muskan/          301
+
+# Client: sanchita-weds-dharmendhra
+/sanchita-weds-dharmendhra/*    /invitations/sanchita-weds-dharmendhra/:splat    200
+/sanchita-weds-dharmendhra      /invitations/sanchita-weds-dharmendhra/          301
+
+# Client: navtinder-weds-shubham
+/navtinder-weds-shubham/*    /invitations/navtinder-weds-shubham/:splat    200
+/navtinder-weds-shubham      /invitations/navtinder-weds-shubham/          301
+
+# Client: apurva-weds-srishti
+/apurva-weds-srishti/*    /invitations/apurva-weds-srishti/:splat    200
+/apurva-weds-srishti      /invitations/apurva-weds-srishti/          301
+
+# Client: abhijit-weds-sumona
+/abhijit-weds-sumona/*    /invitations/abhijit-weds-sumona/:splat    200
+/abhijit-weds-sumona      /invitations/abhijit-weds-sumona/          301
+
+# Client: shubham-weds-navtinder
+/shubham-weds-navtinder/*    /invitations/shubham-weds-navtinder/:splat    200
+/shubham-weds-navtinder      /invitations/shubham-weds-navtinder/          301
+
+# Client: fresin-weds-leema
+/fresin-weds-leema/*    /invitations/fresin-weds-leema/:splat    200
+/fresin-weds-leema      /invitations/fresin-weds-leema/          301
+
+# Client: shagun-weds-chakshu
+/shagun-weds-chakshu/*    /invitations/shagun-weds-chakshu/:splat    200
+/shagun-weds-chakshu      /invitations/shagun-weds-chakshu/          301
+
+# Client: amit-weds-urvashi
+/amit-weds-urvashi/*    /invitations/amit-weds-urvashi/:splat    200
+/amit-weds-urvashi      /invitations/amit-weds-urvashi/          301
+
+# Client: gaurav-weds-shilpi
+/gaurav-weds-shilpi/*    /invitations/gaurav-weds-shilpi/:splat    200
+/gaurav-weds-shilpi      /invitations/gaurav-weds-shilpi/          301
+
+# Client: atishay-weds-shivani
+/atishay-weds-shivani/*    /invitations/atishay-weds-shivani/:splat    200
+/atishay-weds-shivani      /invitations/atishay-weds-shivani/          301
+
+# Client: rsvp-unnati-weds-nisarg
+/rsvp-unnati-weds-nisarg/*    /invitations/rsvp-unnati-weds-nisarg/:splat    200
+/rsvp-unnati-weds-nisarg      /invitations/rsvp-unnati-weds-nisarg/          301
+
+# Client: unnati-weds-nisarg
+/unnati-weds-nisarg/*    /invitations/unnati-weds-nisarg/:splat    200
+/unnati-weds-nisarg      /invitations/unnati-weds-nisarg/          301
+
+# Client: shivani-weds-atishay
+/shivani-weds-atishay/*    /invitations/shivani-weds-atishay/:splat    200
+/shivani-weds-atishay      /invitations/shivani-weds-atishay/          301
+
+# Client: dharmendra-weds-sanchita
+/dharmendra-weds-sanchita/*    /invitations/dharmendra-weds-sanchita/:splat    200
+/dharmendra-weds-sanchita      /invitations/dharmendra-weds-sanchita/          301
+
+# Client: palkesh-weds-khushbu
+/palkesh-weds-khushbu/*    /invitations/palkesh-weds-khushbu/:splat    200
+/palkesh-weds-khushbu      /invitations/palkesh-weds-khushbu/          301
+
+# Client: suvarna-weds-suraj
+/suvarna-weds-suraj/*    /invitations/suvarna-weds-suraj/:splat    200
+/suvarna-weds-suraj      /invitations/suvarna-weds-suraj/          301
+
+# Client: shubham-weds-anjali
+/shubham-weds-anjali/*    /invitations/shubham-weds-anjali/:splat    200
+/shubham-weds-anjali      /invitations/shubham-weds-anjali/          301
+
+# Client: khusbhu-weds-palkesh
+/khusbhu-weds-palkesh/*    /invitations/khusbhu-weds-palkesh/:splat    200
+/khusbhu-weds-palkesh      /invitations/khusbhu-weds-palkesh/          301
+
+# Client: harsh-weds-bhavana
+/harsh-weds-bhavana/*    /invitations/harsh-weds-bhavana/:splat    200
+/harsh-weds-bhavana      /invitations/harsh-weds-bhavana/          301
+
+# Client: arpan-weds-kirti
+/arpan-weds-kirti/*    /invitations/arpan-weds-kirti/:splat    200
+/arpan-weds-kirti      /invitations/arpan-weds-kirti/          301
+
+# Client: kaushal-weds-priya
+/kaushal-weds-priya/*    /invitations/kaushal-weds-priya/:splat    200
+/kaushal-weds-priya      /invitations/kaushal-weds-priya/          301

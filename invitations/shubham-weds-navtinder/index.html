@@ -1,0 +1,3421 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow">
+  <!--
+    Nikhil & Sanya wedding invitation
+    (c) 2026 JoyInvite. All rights reserved.
+    Build 20260926-77c55b002a9c
+    This layout, its animation code and its assets are not licensed for reuse.
+  -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#fffaf6">
+  <meta name="description" content="The wedding celebration of Shubham Bugreja and Navtinder Kaur — 13 November 2026.">
+  <title>Shubham Bugreja weds Navtinder Kaur — Wedding Invitation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,600&family=Jost:wght@400;500;600&family=Marcellus&family=Great+Vibes&family=Tangerine:wght@400;700&family=Pinyon+Script&display=swap');
+
+    :root {
+      /* ---- type faces (see FONTS section in README to swap) ----
+         --font-script : ornate roundhand, for couple names and titles
+         --font-calli  : chancery italic, for the calligraphic body lines
+         --font-serif  : the plain serif for dates and small caps        */
+      --font-script: "Great Vibes", "Pinyon Script", cursive;
+      --font-calli: "Tangerine", "Great Vibes", cursive;
+      /* Tangerine has a small x-height, so text set in it is scaled up.
+         A different script needs a different scale/weight - the chooser
+         in font-preview.html gives you all three values. */
+      --calli-scale: 1.4;
+      --calli-weight: 700;
+      --font-serif: "Marcellus", "Times New Roman", serif;
+      --ink: #f6ebe4;
+      --muted: #bda69c;
+      --paper: #1d1210;
+      --white: #ffffff;
+      --marigold: #f1a51c;
+      --coral: #ec6a5c;
+      --pink: #e67b9f;
+      --rose: #f0899f;
+      --teal: #4ec8c2;
+      --peacock: #075e68;
+      --lavender: #865ba8;
+      --gold: #c68d2d;
+      --line: rgba(255, 234, 222, .15);
+      --shadow: 0 30px 90px rgba(0, 0, 0, .48);
+      --mx: 0;
+      --my: 0;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Jost", Arial, sans-serif;
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.is-locked { overflow: hidden; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    a { color: inherit; }
+    img, video { display: block; max-width: 100%; }
+    ::selection { color: white; background: var(--rose); }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--rose);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+
+    .display {
+      font-family: "Marcellus", "Times New Roman", serif;
+      font-weight: 400;
+      letter-spacing: -.005em;
+    }
+
+    .script {
+      font-family: "Great Vibes", "Segoe Script", cursive;
+      font-weight: 400;
+    }
+
+    .enter-gate {
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      min-height: 100svh;
+      overflow: hidden;
+      color: white;
+      background: #32151b;
+      transition: opacity .85s ease, visibility .85s ease, transform .85s cubic-bezier(.22,.75,.22,1);
+    }
+    .enter-gate::before {
+      content: "";
+      position: absolute;
+      inset: -6%;
+      background:
+        linear-gradient(180deg, rgba(32, 7, 12, .25), rgba(32, 7, 12, .82)),
+        url("assets/preloader.webp") center 50% / cover no-repeat;
+      filter: saturate(.95);
+      transform: scale(1.08);
+      animation: gateDrift 12s ease-in-out infinite alternate;
+    }
+    .enter-gate::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 40%, transparent 0 20%, rgba(26, 5, 10, .34) 70%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.018) 0 1px, transparent 1px 6px);
+      pointer-events: none;
+    }
+    @keyframes gateDrift { to { transform: scale(1.14) translate3d(0, -1.3%, 0); } }
+    .enter-gate.is-open {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.05);
+      pointer-events: none;
+    }
+
+    .gate-content {
+      position: relative;
+      z-index: 2;
+      width: min(92vw, 740px);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .gate-kicker {
+      margin: 0 0 26px;
+      font-size: clamp(11px, 1.5vw, 13.5px);
+      font-weight: 600;
+      line-height: 2;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      opacity: .82;
+    }
+    .gate-forever {
+      margin: 18px 0 0;
+      font-size: clamp(10px, 1.4vw, 12.5px);
+      font-weight: 600;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      opacity: .9;
+    }
+    .gate-seal {
+      position: relative;
+      width: 116px;
+      height: 116px;
+      margin: 18px auto 28px;
+      display: grid;
+      place-items: center;
+      border: 3.5px solid #dfb064;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(223, 176, 100, 0.14) 0%, rgba(20, 8, 12, 0.4) 75%);
+      box-shadow: 
+        0 0 0 2px rgba(255, 235, 190, 0.35),
+        0 0 22px rgba(241, 165, 28, 0.38),
+        inset 0 0 16px rgba(223, 176, 100, 0.28);
+    }
+    /* Diamond gem crown on top of ring */
+    .gate-seal::before {
+      content: "💎";
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      line-height: 1;
+      filter: drop-shadow(0 0 10px rgba(255, 235, 190, 0.95)) drop-shadow(0 0 18px rgba(241, 165, 28, 0.6));
+      animation: diamondGlow 3s ease-in-out infinite alternate;
+      z-index: 3;
+    }
+    /* Outer subtle rotating halo */
+    .gate-seal::after {
+      content: "";
+      position: absolute;
+      inset: -14px;
+      border: 1px dashed rgba(255, 225, 177, 0.45);
+      border-radius: 50%;
+      animation: sealSpin 20s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes diamondGlow {
+      0% { transform: translateX(-50%) scale(0.96); filter: drop-shadow(0 0 8px rgba(255, 235, 190, 0.8)); }
+      100% { transform: translateX(-50%) scale(1.08); filter: drop-shadow(0 0 16px rgba(255, 235, 190, 1)) drop-shadow(0 0 24px rgba(241, 165, 28, 0.8)); }
+    }
+    @keyframes sealSpin { to { transform: rotate(360deg); } }
+    .gate-seal span {
+      font-family: "Marcellus", serif;
+      font-size: 29px;
+      letter-spacing: .02em;
+      color: #fff4e0;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    }
+    .gate-title {
+      margin: 0;
+      font-family: var(--font-script);
+      font-size: clamp(38px, 8.2vw, 96px);
+      font-weight: 400;
+      line-height: 1.28;
+      letter-spacing: 0;
+      text-shadow: 0 10px 40px rgba(0,0,0,.45);
+    }
+    .gate-title span {
+      display: block;
+      white-space: nowrap;
+    }
+    .gate-title em {
+      display: block;
+      margin: 4px 0 6px;
+      color: #ffdbaa;
+      font-family: var(--font-script);
+      font-size: .7em;
+      font-style: normal;
+      letter-spacing: 0;
+    }
+    .hashtag-enter {
+      position: relative;
+      margin-top: 26px;
+      padding: 0;
+      border: 0;
+      color: white;
+      background: none;
+      cursor: pointer;
+    }
+    .hashtag-enter strong {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-width: min(280px, 86vw);
+      padding: 15px 46px;
+      white-space: nowrap;
+      border: 1.5px solid rgba(255, 222, 170, 0.75);
+      border-radius: 999px;
+      background: linear-gradient(135deg, #8a1325 0%, #b81d36 50%, #d82b46 100%);
+      box-shadow: 
+        0 14px 42px rgba(138, 19, 37, 0.52),
+        0 0 24px rgba(216, 43, 70, 0.32),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(18px, 4vw, 22px);
+      font-weight: 600;
+      letter-spacing: .03em;
+      color: #fffaf0;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      animation: buttonPulse 2.2s ease-in-out infinite alternate;
+      transition: transform .3s ease, background .3s ease, box-shadow .3s ease;
+    }
+    .hashtag-enter strong::after {
+      content: "👆";
+      font-size: 19px;
+      display: inline-block;
+      animation: handBounce 1.4s ease-in-out infinite alternate;
+    }
+    @keyframes buttonPulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 12px 35px rgba(138, 19, 37, 0.45), 0 0 18px rgba(216, 43, 70, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+      }
+      100% {
+        transform: scale(1.045);
+        box-shadow: 0 18px 55px rgba(138, 19, 37, 0.7), 0 0 35px rgba(255, 140, 160, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+        border-color: rgba(255, 240, 200, 1);
+      }
+    }
+    @keyframes handBounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-5px); }
+    }
+    .hashtag-enter span {
+      display: block;
+      margin-top: 13px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: #ffdcb5;
+      text-shadow: 0 1px 4px rgba(0,0,0,.7);
+    }
+    .hashtag-enter:hover strong,
+    .hashtag-enter:focus-visible strong {
+      transform: translateY(-4px) scale(1.06);
+      background: linear-gradient(135deg, #a0172e 0%, #c9223e 50%, #e8334f 100%);
+      box-shadow: 0 20px 65px rgba(160, 23, 46, 0.75), 0 0 30px rgba(255, 180, 195, 0.6);
+    }
+
+    .site-nav {
+      position: fixed;
+      z-index: 100;
+      top: 14px;
+      left: 50%;
+      width: min(calc(100% - 28px), 1180px);
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 9px 8px 18px;
+      border: 1px solid rgba(255,255,255,.6);
+      border-radius: 999px;
+      background: rgba(255, 250, 246, .78);
+      box-shadow: 0 12px 50px rgba(56, 31, 28, .09);
+      backdrop-filter: blur(18px) saturate(1.25);
+      transform: translate(-50%, -130%);
+      transition: transform .7s cubic-bezier(.22,.75,.22,1);
+    }
+    body.has-entered .site-nav { transform: translate(-50%, 0); }
+    .nav-mark {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+    }
+    .nav-monogram {
+      width: 39px;
+      height: 39px;
+      display: grid;
+      place-items: center;
+      color: white;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose), var(--coral));
+      font-family: "Marcellus", serif;
+      font-size: 15px;
+      box-shadow: 0 6px 20px rgba(167,47,84,.26);
+    }
+    .nav-mark b {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .nav-rsvp {
+      padding: 13px 18px;
+      color: white !important;
+      border-radius: 999px;
+      background: var(--ink);
+    }
+
+    main { position: relative; }
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      padding: 120px 5vw 72px;
+      background:
+        radial-gradient(circle at 8% 13%, rgba(241,165,28,.16), transparent 28%),
+        radial-gradient(circle at 90% 76%, rgba(10,139,137,.15), transparent 33%),
+        linear-gradient(145deg, #fffdf9, #fff6f2 55%, #f3fbf9);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      left: -170px;
+      bottom: 7%;
+      border: 70px solid rgba(230,123,159,.08);
+      border-radius: 50%;
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, 100%);
+      margin: auto;
+      display: grid;
+      grid-template-columns: minmax(0, .88fr) minmax(370px, .72fr);
+      align-items: center;
+      gap: clamp(50px, 8vw, 120px);
+    }
+    .hero-copy { position: relative; }
+    .hero-scratch-title {
+      margin: 14px 0 22px;
+      font-size: clamp(38px, 5.2vw, 66px);
+      line-height: 1.02;
+    }
+    .hero-copy .scratch-wrap { margin: 0 0 6px; }
+    .hero-copy .scratch-stage { width: min(100%, 380px); margin: 0 auto 0 0; }
+    .hero-copy .scratch-hint { left: 190px; }
+    .hero-copy .countdown { margin-top: 16px; max-width: 430px; }
+    .hero-copy .countdown-label { margin: 74px 0 6px !important; }
+    .hero-copy .hero-sub { margin-top: 30px; }
+    .hero-copy h1 {
+      margin: 0;
+      font-size: clamp(74px, 10.8vw, 152px);
+      line-height: .86;
+    }
+    .hero-copy h1 span { display: block; }
+    .hero-copy h1 .amp {
+      margin: 5px 0 4px 18%;
+      color: var(--rose);
+      font-size: .56em;
+      line-height: 1;
+    }
+    .hero-copy h1 .name-two { margin-left: 12%; }
+    .hero-sub {
+      max-width: 500px;
+      margin: 48px 0 0 12%;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .hero-date {
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      width: 86px;
+      height: 86px;
+      color: white;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 18px 42px rgba(10,139,137,.25);
+      text-align: center;
+      transform: rotate(-7deg);
+    }
+    .hero-date b {
+      display: block;
+      font-family: "Marcellus", serif;
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .hero-date span {
+      display: block;
+      margin-top: 5px;
+      font-size: 8px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .hero-sub p {
+      margin: 0;
+      color: var(--muted);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(19px, 2vw, 25px);
+      line-height: 1.45;
+    }
+    .hero-hash {
+      display: inline-flex;
+      margin-top: 32px;
+      margin-left: 12%;
+      align-items: center;
+      gap: 10px;
+      color: var(--rose);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 19px;
+      font-weight: 600;
+    }
+    .hero-hash::before {
+      content: "";
+      width: 38px;
+      height: 1px;
+      background: currentColor;
+    }
+    .hero-visual {
+      position: relative;
+      min-height: min(70vh, 760px);
+      perspective: 1200px;
+    }
+    .hero-portrait {
+      position: absolute;
+      inset: 0 8% 0 0;
+      overflow: hidden;
+      border-radius: 48% 48% 28px 28px;
+      box-shadow: var(--shadow);
+      transform: rotateY(calc(var(--mx) * 5deg)) rotateX(calc(var(--my) * -5deg));
+      transition: transform .18s ease-out;
+      will-change: transform;
+    }
+    .hero-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 52% 55%;
+      transform: scale(1.025) translate3d(calc(var(--mx) * -7px), calc(var(--my) * -7px), 0);
+      transition: transform .18s ease-out;
+    }
+    .hero-portrait::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(67,22,25,.18));
+    }
+    .hero-orbit {
+      position: absolute;
+      z-index: -1;
+      inset: -25px 0 -25px -25px;
+      border: 1px solid rgba(167,47,84,.25);
+      border-radius: 50% 50% 25px 25px;
+      transform: translate3d(calc(var(--mx) * 10px), calc(var(--my) * 10px), 0);
+    }
+    .scroll-cue {
+      position: absolute;
+      z-index: 3;
+      left: 5vw;
+      bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .scroll-cue i {
+      position: relative;
+      width: 30px;
+      height: 48px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+    }
+    .scroll-cue i::after {
+      content: "";
+      position: absolute;
+      top: 9px;
+      left: 50%;
+      width: 3px;
+      height: 9px;
+      border-radius: 99px;
+      background: var(--rose);
+      transform: translateX(-50%);
+      animation: scrollDot 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollDot { 65% { transform: translate(-50%, 18px); opacity: .15; } 100% { opacity: 0; } }
+
+    .ribbon {
+      position: relative;
+      z-index: 4;
+      overflow: hidden;
+      padding: 17px 0;
+      color: white;
+      background: linear-gradient(90deg, var(--rose), var(--coral), var(--marigold), var(--teal), var(--lavender));
+      transform: rotate(-1deg) scale(1.02);
+      box-shadow: 0 15px 50px rgba(91,41,54,.15);
+    }
+    .ribbon-track {
+      width: max-content;
+      display: flex;
+      gap: 45px;
+      animation: ribbonMove 24s linear infinite;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 19px;
+      font-style: italic;
+    }
+    .ribbon-track span::after { content: "✦"; margin-left: 45px; font-style: normal; }
+    @keyframes ribbonMove { to { transform: translateX(-50%); } }
+
+    .film-scroll {
+      position: relative;
+      height: 620vh;
+      color: white;
+      background: #140c0d;
+    }
+    .film-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      height: 100lvh;
+      overflow: hidden;
+      background: #170e0f;
+    }
+    /* iOS Safari stops compositing a PAUSED <video> that is being seeked
+       quickly - that showed up as black flashes while scrolling. Frames are
+       painted into a canvas instead, which always keeps the last good frame.
+       The <video> stays in the layout at opacity 0 as the frame source; it
+       must NOT be display:none or iOS refuses to decode it. */
+    .film-sticky video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .film-sticky canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      filter: saturate(1.04);
+      background: #170e0f url("assets/hero-poster.jpg") center / cover no-repeat;
+      transition: background 0.4s ease;
+    }
+    body.film-ready .film-sticky canvas {
+      background-image: none;
+      background-color: #170e0f;
+    }
+    .film-sticky::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(15,8,9,.35), transparent 25%, transparent 68%, rgba(15,8,9,.72)),
+        linear-gradient(90deg, rgba(15,8,9,.35), transparent 45%, rgba(15,8,9,.08));
+      pointer-events: none;
+    }
+    .film-label {
+      position: absolute;
+      z-index: 3;
+      top: 100px;
+      left: clamp(24px, 6vw, 90px);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0,0,0,.85), 0 0 20px rgba(0,0,0,.6);
+    }
+    .film-label::before { content: ""; width: 45px; height: 2px; background: #ffffff; box-shadow: 0 0 8px rgba(255,255,255,.8); }
+    .film-copy {
+      position: absolute;
+      z-index: 3;
+      left: 50%;
+      top: 50%;
+      width: min(920px, calc(100% - 24px));
+      text-align: center;
+      transform: translate(-50%, -50%);
+    }
+    .fw-lead {
+      margin: 0 0 4px;
+      font-family: var(--font-script);
+      font-size: clamp(22px, 2.9vw, 36px);
+      line-height: 1.5;
+    }
+    .fw-name {
+      margin: 2px 0;
+      color: #ffd9a1;
+      font-family: var(--font-script);
+      font-size: clamp(44px, 6.6vw, 86px);
+      font-weight: 400;
+      line-height: 1.32;
+    }
+    .fw-rel {
+      margin: 0 0 2px;
+      font-family: var(--font-script);
+      font-size: clamp(21px, 2.5vw, 30px);
+    }
+    .fw-parents {
+      margin: 0;
+      font-family: var(--font-script);
+      font-size: clamp(21px, 2.6vw, 32px);
+      line-height: 1.5;
+    }
+    .fw-with {
+      margin: 14px 0 2px;
+      font-family: var(--font-script);
+      font-size: clamp(21px, 2.5vw, 30px);
+      opacity: .9;
+    }
+    .film-caption {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      margin: 0;
+      opacity: 0;
+      transform: translateY(calc(-50% + 34px));
+      padding: clamp(24px, 4vw, 44px) clamp(10px, 2.5vw, 28px);
+      text-shadow: 0 2px 10px rgba(0,0,0,.6), 0 12px 46px rgba(0,0,0,.5);
+      pointer-events: none;
+      will-change: opacity, transform, filter;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .film-caption::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: -22% -16%;
+      background: radial-gradient(ellipse at center,
+        rgba(10,4,6,.75) 0%,
+        rgba(10,4,6,.58) 35%,
+        rgba(10,4,6,.28) 58%,
+        rgba(10,4,6,.08) 75%,
+        transparent 88%);
+      filter: blur(28px);
+      pointer-events: none;
+    }
+    .film-caption.is-active { opacity: 1; transform: translateY(-50%); }
+    .film-lines {
+      margin: 0 0 22px;
+      font-size: clamp(12px, 1.7vw, 17px);
+      font-weight: 600;
+      line-height: 2;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+    }
+    .film-forever {
+      margin: 0 0 18px;
+      font-size: clamp(11px, 1.6vw, 15px);
+      font-weight: 600;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      opacity: .92;
+    }
+    .film-names {
+      margin: 0;
+      color: #ffd9a1;
+      font-family: var(--font-script);
+      font-size: clamp(46px, 7.8vw, 106px);
+      font-weight: 400;
+      line-height: 1.28;
+      letter-spacing: 0;
+    }
+    .film-names span {
+      display: block;
+      white-space: nowrap;
+    }
+    .film-names em {
+      display: block;
+      margin: -.12em 0;
+      font-family: var(--font-script);
+      font-size: .68em;
+      font-style: normal;
+    }
+    .film-progress {
+      position: absolute;
+      z-index: 4;
+      right: clamp(18px, 3vw, 40px);
+      top: 50%;
+      width: 2px;
+      height: min(42vh, 330px);
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255,255,255,.25);
+      transform: translateY(-50%);
+    }
+    .film-progress span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(#ffddae, #e67b9f);
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+    .film-percent {
+      position: absolute;
+      z-index: 4;
+      right: clamp(14px, 3vw, 34px);
+      top: calc(50% + min(24vh, 185px));
+      font-family: "Cormorant Garamond", serif;
+      font-size: 12px;
+    }
+
+    .story {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(90px, 12vw, 170px) 5vw;
+      background:
+        radial-gradient(circle at 82% 20%, rgba(230,123,159,.13), transparent 25%),
+        radial-gradient(circle at 10% 86%, rgba(241,165,28,.14), transparent 25%),
+        #fffdfb;
+    }
+    .story-grid {
+      width: min(1160px, 100%);
+      margin: auto;
+      display: grid;
+      grid-template-columns: .78fr 1fr;
+      align-items: center;
+      gap: clamp(60px, 10vw, 150px);
+    }
+    .story-copy h2 {
+      margin: 0 0 27px;
+      font-size: clamp(55px, 7vw, 96px);
+      line-height: .99;
+    }
+    .story-copy h2 em {
+      display: block;
+      margin-left: 18%;
+      color: var(--teal);
+      font-family: var(--font-script);
+      font-size: .67em;
+      font-style: normal;
+      letter-spacing: 0;
+    }
+    .story-copy > p:not(.eyebrow) {
+      max-width: 540px;
+      margin: 0;
+      color: var(--muted);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(20px, 2vw, 26px);
+      line-height: 1.55;
+    }
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 38px;
+    }
+    .count-unit {
+      padding: 17px 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.7);
+      text-align: center;
+    }
+    .count-unit b {
+      display: block;
+      font-family: "Marcellus", serif;
+      font-size: clamp(23px, 3vw, 34px);
+      font-weight: 400;
+      line-height: 1;
+    }
+    .count-unit span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .scratch-wrap { position: relative; perspective: 1100px; }
+    .shape-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+    .countdown-label {
+      margin: 26px 0 12px !important;
+      color: var(--rose) !important;
+      font-family: var(--font-script) !important;
+      font-size: clamp(24px, 3vw, 34px) !important;
+      line-height: 1.2 !important;
+    }
+    .scratch-stage.is-heart {
+      aspect-ratio: 1 / 1;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      -webkit-clip-path: url(#heartClip);
+      clip-path: url(#heartClip);
+      filter: drop-shadow(0 22px 40px rgba(61,36,15,.22));
+    }
+    .scratch-stage.is-heart .scratch-reveal {
+      align-content: center;
+      padding: 20% 16% 26%;
+      background:
+        radial-gradient(circle at 30% 22%, rgba(255,255,255,.55), transparent 40%),
+        linear-gradient(150deg, #ffd0cf, #ffe6d2 46%, #ffc9c4);
+    }
+    .scratch-stage.is-heart .scratch-reveal::before,
+    .scratch-stage.is-heart .scratch-reveal::after { display: none; }
+    .scratch-stage.is-heart .scratch-reveal h3 { font-size: clamp(32px, 4.4vw, 52px); margin: 12px 0 4px; }
+    .scratch-stage.is-heart .scratch-reveal p { margin-top: 10px; font-size: 15px; }
+    .scratch-stage.is-heart .scratch-reset {
+      right: auto;
+      left: 50%;
+      bottom: 16%;
+      transform: translateX(-50%) translateY(7px);
+    }
+    .scratch-stage.is-heart.is-revealed .scratch-reset { transform: translateX(-50%); }
+    .scratch-stage {
+      position: relative;
+      width: min(100%, 520px);
+      aspect-ratio: 1.25 / 1;
+      margin-left: auto;
+      overflow: hidden;
+      border: 11px solid white;
+      border-radius: 34px;
+      background: linear-gradient(145deg, #fff7ed, #fff);
+      box-shadow: var(--shadow);
+      transform: rotateY(calc(var(--mx) * -4deg)) rotateX(calc(var(--my) * 4deg)) rotate(2deg);
+      transition: transform .18s ease-out;
+    }
+    .scratch-reveal {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 25% 20%, rgba(241,165,28,.24), transparent 27%),
+        radial-gradient(circle at 80% 80%, rgba(10,139,137,.22), transparent 30%),
+        linear-gradient(140deg, #fffdf7, #fff0f1);
+    }
+    .scratch-reveal::before,
+    .scratch-reveal::after {
+      content: "✦";
+      position: absolute;
+      color: var(--marigold);
+      font-size: 34px;
+    }
+    .scratch-reveal::before { top: 22px; left: 26px; }
+    .scratch-reveal::after { right: 26px; bottom: 22px; color: var(--teal); }
+    .scratch-reveal small {
+      display: block;
+      color: var(--rose);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+    }
+    .scratch-reveal h3 {
+      margin: 18px 0 5px;
+      font-family: "Marcellus", serif;
+      font-size: clamp(42px, 6vw, 70px);
+      font-weight: 400;
+      line-height: .96;
+      letter-spacing: -.01em;
+    }
+    .scratch-reveal h3 em {
+      display: block;
+      color: var(--rose);
+      font-family: var(--font-script);
+      font-size: .68em;
+      font-style: normal;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+    .scratch-reveal p {
+      margin: 17px 0 0;
+      color: var(--peacock);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: .06em;
+    }
+    #scratchCanvas {
+      position: absolute;
+      z-index: 3;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      cursor: crosshair;
+      touch-action: none;
+      transition: opacity .6s ease;
+    }
+    .scratch-stage.is-revealed #scratchCanvas { opacity: 0; pointer-events: none; }
+    .scratch-hint {
+      position: absolute;
+      z-index: 4;
+      left: 50%;
+      bottom: -50px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+    .scratch-hint svg { width: 23px; animation: hintMove 1.3s ease-in-out infinite alternate; }
+    @keyframes hintMove { to { transform: translateX(9px) rotate(5deg); } }
+    .scratch-reset {
+      position: absolute;
+      z-index: 5;
+      right: 18px;
+      bottom: 17px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255,255,255,.82);
+      cursor: pointer;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(7px);
+      transition: .3s ease;
+    }
+    .scratch-stage.is-revealed .scratch-reset { opacity: 1; transform: none; }
+
+    .events {
+      position: relative;
+      padding: clamp(100px, 12vw, 170px) 0;
+      background: #f8f2ed;
+    }
+    .events-heading {
+      width: min(1160px, 90%);
+      margin: 0 auto 52px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .events-heading h2 {
+      margin: 0;
+      font-size: clamp(55px, 7vw, 94px);
+      line-height: .99;
+    }
+    .events-heading h2 em {
+      display: block;
+      margin-left: 18%;
+      color: var(--rose);
+      font-family: var(--font-script);
+      font-size: .7em;
+      font-style: normal;
+      letter-spacing: 0;
+    }
+    .slide-hint {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .slide-hint span {
+      position: relative;
+      width: 54px;
+      height: 1px;
+      background: rgba(50,32,31,.24);
+    }
+    .slide-hint span::after {
+      content: "↑";
+      position: absolute;
+      right: -2px;
+      top: 50%;
+      color: var(--rose);
+      font-size: 16px;
+      transform: translateY(-54%);
+      animation: arrowNudge 1.3s ease-in-out infinite alternate;
+    }
+    @keyframes arrowNudge { to { transform: translate(0, -104%); } }
+    .event-stack {
+      position: relative;
+      width: min(700px, 92%);
+      margin: auto;
+    }
+    .event-card {
+      position: sticky;
+      top: 104px;
+      display: flex;
+      flex-direction: column;
+      height: min(760px, calc(100svh - 132px));
+      overflow: hidden;
+      border: 9px solid #fffdf8;
+      border-radius: 34px;
+      background: var(--slide-bg, #fff8ef);
+      box-shadow: 0 -10px 30px rgba(58,32,26,.10), 0 26px 70px rgba(77,49,42,.18);
+    }
+    .event-card + .event-card { margin-top: 44svh; }
+    .event-stack::after {
+      content: "";
+      display: block;
+      height: 30svh;
+    }
+    .event-badge {
+      position: absolute;
+      z-index: 3;
+      top: 14px;
+      left: 14px;
+      padding: 9px 15px;
+      color: white;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--accent, var(--rose)) 88%, #2b1614);
+      box-shadow: 0 8px 22px rgba(40,20,16,.28);
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .event-media {
+      position: relative;
+      flex: 1 1 auto;
+      min-height: 200px;
+      overflow: hidden;
+      border-radius: 26px 26px 0 0;
+      background: var(--slide-bg, #fff8ef);
+    }
+    .event-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      transform: scale(1.02);
+      transition: transform 5s ease;
+    }
+    .event-card:hover .event-media img { transform: scale(1.06); }
+    .event-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 72%, var(--slide-bg, #fff8ef) 100%);
+      pointer-events: none;
+    }
+    .event-copy {
+      position: relative;
+      flex: 0 0 auto;
+      padding: 6px clamp(22px, 3.4vw, 36px) clamp(22px, 3vw, 30px);
+      text-align: left;
+    }
+    .event-copy h3 {
+      margin: 0 0 10px;
+      font-family: "Marcellus", serif;
+      font-size: clamp(32px, 4.4vw, 48px);
+      font-weight: 400;
+      line-height: 1.04;
+      letter-spacing: -.005em;
+    }
+    .event-copy p {
+      max-width: 520px;
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(15.5px, 1.8vw, 18px);
+      line-height: 1.45;
+    }
+    .event-when {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .event-when b {
+      color: var(--accent, var(--rose));
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(17px, 1.9vw, 21px);
+      font-weight: 600;
+    }
+    .event-divider {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      width: min(280px, 100%);
+      margin: 10px 0 9px;
+      color: var(--accent, var(--rose));
+    }
+    .event-divider i { flex: 1; height: 1px; background: currentColor; opacity: .45; }
+    .event-divider span { font-size: 12px; opacity: .8; }
+    .event-place {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .event-place b {
+      color: var(--accent, var(--rose));
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(17px, 1.9vw, 21px);
+      font-weight: 600;
+    }
+    .event-place span {
+      color: var(--accent, var(--rose));
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(16px, 1.8vw, 20px);
+      opacity: .9;
+    }
+
+    .families {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(100px, 12vw, 170px) 5vw;
+      background: white;
+    }
+    .families-inner { width: min(1120px, 100%); margin: auto; }
+    .families-head { text-align: center; }
+    .families-head h2 {
+      margin: 0;
+      font-size: clamp(54px, 7vw, 90px);
+      line-height: .98;
+    }
+    .families-head h2 em {
+      display: block;
+      color: var(--teal);
+      font-family: var(--font-script);
+      font-size: .66em;
+      font-style: normal;
+      letter-spacing: 0;
+    }
+    .welcome-card {
+      position: relative;
+      width: min(760px, 100%);
+      margin: 54px auto 0;
+      padding: clamp(38px, 5vw, 64px) clamp(24px, 4vw, 56px);
+      overflow: hidden;
+      border-radius: 30px;
+      background: linear-gradient(150deg, #fff1e5, #fffaf3 45%, #eaf8f5);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .welcome-card::before,
+    .welcome-card::after {
+      content: "✦";
+      position: absolute;
+      color: var(--marigold);
+      font-size: 26px;
+      opacity: .55;
+    }
+    .welcome-card::before { top: 22px; left: 28px; }
+    .welcome-card::after { right: 28px; bottom: 22px; color: var(--teal); }
+    .welcome-lead {
+      margin: 0 0 6px;
+      color: #7c1020;
+      font-family: var(--font-script);
+      font-size: clamp(22px, 2.8vw, 33px);
+      line-height: 1.55;
+    }
+    .welcome-name {
+      margin: 4px 0 2px;
+      color: #7c1020;
+      font-family: var(--font-script);
+      font-size: clamp(46px, 7vw, 82px);
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: 0;
+    }
+    .welcome-rel {
+      margin: 0 0 4px;
+      color: #7c1020;
+      font-family: var(--font-script);
+      font-size: clamp(21px, 2.4vw, 28px);
+      letter-spacing: 0;
+    }
+    .welcome-parents {
+      margin: 0;
+      color: #7c1020;
+      font-family: var(--font-script);
+      font-size: clamp(21px, 2.5vw, 30px);
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .welcome-with {
+      margin: 18px 0 4px;
+      color: #7c1020;
+      font-family: var(--font-script);
+      font-size: clamp(21px, 2.4vw, 28px);
+      opacity: .9;
+    }
+    .family-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 60px;
+    }
+    .family-card {
+      position: relative;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 30px;
+      overflow: hidden;
+      border-radius: 30px;
+      text-align: center;
+      transform-style: preserve-3d;
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+    .family-card:first-child { background: #fff1e5; }
+    .family-card:last-child { background: #eaf8f5; }
+    .family-card:hover { transform: translateY(-8px) rotateX(2deg); box-shadow: var(--shadow); }
+    .family-card::before {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      top: -125px;
+      right: -80px;
+      border: 45px solid rgba(255,255,255,.5);
+      border-radius: 50%;
+    }
+    .family-card small {
+      color: var(--rose);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    .family-card:last-child small { color: var(--teal); }
+    .family-card h3 {
+      margin: 24px 0 6px;
+      font-family: "Marcellus", serif;
+      font-size: clamp(42px, 5vw, 68px);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -.01em;
+    }
+    .family-card p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+      font-style: italic;
+    }
+    .family-amp {
+      position: absolute;
+      z-index: 3;
+      left: 50%;
+      top: 50%;
+      width: 74px;
+      height: 74px;
+      display: grid;
+      place-items: center;
+      color: white;
+      border: 8px solid white;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--coral), var(--teal));
+      font-family: var(--font-script);
+      font-size: 38px;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 12px 30px rgba(60,35,33,.18);
+    }
+
+    .venue {
+      position: relative;
+      min-height: 92svh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding: 100px 5vw;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(22,10,12,.82), rgba(22,10,12,.28) 62%, rgba(22,10,12,.14)),
+        url("assets/images/reception.webp") center 42% / cover;
+    }
+    .venue::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 75% 25%, rgba(241,165,28,.2), transparent 35%);
+      pointer-events: none;
+    }
+    .venue-inner {
+      position: relative;
+      z-index: 2;
+      width: min(1120px, 100%);
+      margin: auto;
+    }
+    .venue-card {
+      width: min(600px, 100%);
+      padding: clamp(36px, 6vw, 76px);
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 36px;
+      background: rgba(36,16,18,.42);
+      box-shadow: 0 30px 100px rgba(0,0,0,.26);
+      backdrop-filter: blur(20px);
+    }
+    .venue-card .eyebrow { color: #ffd6a1; }
+    .venue-card { text-align: center; }
+    .venue-card .closing-message {
+      max-width: 560px;
+      margin: 26px auto 0;
+      color: rgba(255,255,255,.86);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(18px, 2.1vw, 23px);
+      line-height: 1.55;
+    }
+    .venue-card .closing-signoff {
+      margin: 26px 0 2px !important;
+      color: rgba(255,255,255,.82);
+    }
+    .venue-card .closing-names {
+      color: #ffd6a1 !important;
+    }
+    .venue-card .final-hash {
+      margin: 26px 0 0;
+      color: rgba(255,255,255,.72);
+      font-size: clamp(30px, 4vw, 46px);
+    }
+    .venue-card .venue-actions { justify-content: center; margin-top: 30px; }
+    .venue-card .whatsapp-card.on-dark { text-align: left; }
+    .venue-card h2 {
+      margin: 0;
+      font-family: "Marcellus", serif;
+      font-size: clamp(55px, 7vw, 94px);
+      font-weight: 400;
+      line-height: .98;
+      letter-spacing: -.012em;
+    }
+    .venue-card h2 em {
+      display: block;
+      color: #ffd6a1;
+      font-family: var(--font-script);
+      font-size: .57em;
+      font-style: normal;
+      letter-spacing: 0;
+    }
+    .venue-address {
+      margin: 30px 0 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 23px;
+      line-height: 1.5;
+    }
+    .venue-meta {
+      margin-top: 10px;
+      color: rgba(255,255,255,.7);
+      font-size: 10px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .venue-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 35px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 0 20px;
+      border: 1px solid rgba(255,255,255,.4);
+      border-radius: 999px;
+      color: white;
+      background: rgba(255,255,255,.08);
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      transition: transform .25s ease, background .25s ease, color .25s ease;
+    }
+    .button.primary { color: var(--ink); border-color: white; background: white; }
+    .button:hover { transform: translateY(-3px); }
+    .button.primary:hover { background: #ffd6a1; border-color: #ffd6a1; }
+    .button svg { width: 17px; height: 17px; }
+
+    .rsvp {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(100px, 12vw, 160px) 5vw 70px;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(10,139,137,.16), transparent 27%),
+        radial-gradient(circle at 90% 80%, rgba(230,123,159,.16), transparent 30%),
+        #fffaf6;
+      text-align: center;
+    }
+    .rsvp-inner { width: min(850px, 100%); margin: auto; }
+    .closing-signoff {
+      margin: 22px 0 2px !important;
+      font-family: "Cormorant Garamond", serif !important;
+      font-size: clamp(19px, 2.2vw, 24px) !important;
+      font-style: italic;
+      opacity: .9;
+    }
+    .closing-names {
+      margin: 0 0 6px !important;
+      color: var(--marigold) !important;
+      font-family: var(--font-script) !important;
+      font-size: clamp(34px, 5vw, 54px) !important;
+      line-height: 1.2 !important;
+      max-width: none !important;
+    }
+    .rsvp h2 {
+      margin: 0;
+      font-family: "Marcellus", serif;
+      font-size: clamp(61px, 9vw, 120px);
+      font-weight: 400;
+      line-height: .95;
+      letter-spacing: -.012em;
+    }
+    .rsvp h2 em {
+      display: block;
+      color: var(--rose);
+      font-family: var(--font-script);
+      font-size: .63em;
+      font-style: normal;
+      letter-spacing: 0;
+    }
+    .rsvp > .rsvp-inner > p {
+      max-width: 610px;
+      margin: 30px auto 0;
+      color: var(--muted);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 23px;
+      line-height: 1.55;
+    }
+    .whatsapp-card {
+      width: min(560px, 100%);
+      margin: 38px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 18px 18px 25px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.8);
+      box-shadow: 0 20px 70px rgba(70,43,38,.09);
+      text-align: left;
+    }
+    .whatsapp-card small {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+    .whatsapp-card b {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(20px, 4vw, 27px);
+      font-weight: 600;
+    }
+    .whatsapp-card a {
+      flex: 0 0 auto;
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      color: white;
+      border-radius: 50%;
+      background: #25d366;
+      box-shadow: 0 12px 28px rgba(37,211,102,.25);
+      transition: transform .25s ease;
+    }
+    .whatsapp-card a:hover { transform: rotate(-8deg) scale(1.08); }
+    .whatsapp-card svg { width: 24px; }
+    .whatsapp-card.on-dark {
+      width: 100%;
+      margin: 26px 0 0;
+      scroll-margin-top: 110px;
+      color: white;
+      border-color: rgba(255,255,255,.28);
+      background: rgba(255,255,255,.09);
+      box-shadow: 0 20px 60px rgba(0,0,0,.24);
+      backdrop-filter: blur(12px);
+    }
+    .whatsapp-card.on-dark small { color: #ffd6a1; }
+    .final-hash {
+      margin: 60px 0 0;
+      color: var(--rose);
+      font-family: var(--font-script);
+      font-size: clamp(36px, 5vw, 58px);
+    }
+    .footer-line {
+      width: min(1120px, 100%);
+      margin: 75px auto 0;
+      padding-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.62);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .petals { position: fixed; z-index: 90; inset: 0; overflow: hidden; pointer-events: none; }
+    .petal {
+      position: absolute;
+      top: -40px;
+      left: var(--left);
+      width: var(--size);
+      height: calc(var(--size) * .64);
+      border-radius: 80% 10% 70% 20%;
+      background: var(--petal-color);
+      opacity: 0;
+      filter: blur(var(--blur));
+      animation: petalFall var(--duration) linear var(--delay) infinite;
+    }
+    @keyframes petalFall {
+      0% { opacity: 0; transform: translate3d(0,-5vh,0) rotate(0); }
+      10% { opacity: .55; }
+      100% { opacity: 0; transform: translate3d(var(--drift),110vh,0) rotate(720deg); }
+    }
+
+    .fireworks-canvas {
+      position: fixed;
+      z-index: 140;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .reveal { opacity: 0; transform: translateY(35px); transition: opacity .8s ease, transform .9s cubic-bezier(.22,.75,.22,1); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .nav-links a:not(.nav-rsvp) { display: none; }
+      .hero { padding-top: 105px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 65px; }
+      .hero-copy { text-align: center; }
+      .hero-copy h1 .amp { margin-left: 0; }
+      .hero-copy h1 .name-two { margin-left: 0; }
+      .hero-sub { justify-content: center; margin-left: auto; margin-right: auto; text-align: left; }
+      .hero-hash { margin-left: 0; }
+      .hero-visual { width: min(520px, 95%); min-height: 72svh; margin: auto; }
+      .hero-portrait { inset-right: 4%; }
+      .scroll-cue { display: none; }
+      .story-grid { grid-template-columns: 1fr; }
+      .story-copy { text-align: center; }
+      .story-copy h2 em { margin-left: 0; }
+      .story-copy > p:not(.eyebrow) { margin: auto; }
+      .scratch-stage { margin: auto; }
+      .hero-copy .scratch-stage { margin: 0 auto; }
+      .hero-copy .scratch-hint { left: 50%; }
+      .hero-copy .countdown { margin-left: auto; margin-right: auto; }
+      .event-media::after { background: linear-gradient(180deg, transparent 68%, var(--slide-bg, #fff8ef)); }
+      .event-copy h3 { margin: 18px 0 14px; font-size: clamp(52px, 12vw, 76px); }
+        .event-dots { left: 34px; bottom: 38px; }
+    }
+
+    @media (max-width: 650px) {
+      .gate-content { padding: 26px 18px; max-width: 390px; margin: auto; }
+      .gate-kicker { margin: 0 0 22px; font-size: 10.5px; letter-spacing: .22em; line-height: 1.75; }
+      .gate-seal { width: 84px; height: 84px; margin: 20px auto 26px; border-width: 3px; }
+      .gate-seal span { font-size: 22px; }
+      .gate-seal::before { font-size: 19px; top: -19px; }
+      .gate-seal::after { inset: -11px; }
+      .gate-title { font-size: clamp(33px, 8.8vw, 42px); line-height: 1.28; }
+      .gate-title span { line-height: 1.26; }
+      .gate-title em { margin: 6px 0 8px; font-size: .62em; }
+      .gate-forever { margin: 24px 0 0; font-size: 10px; letter-spacing: .22em; line-height: 1.75; }
+      .hashtag-enter { margin-top: 34px; }
+      .hashtag-enter strong { padding: 14px 40px; min-width: min(250px, 84vw); font-size: 18.5px; gap: 10px; white-space: nowrap; }
+      .hashtag-enter strong::after { font-size: 18px; }
+      .hashtag-enter span { margin-top: 11px; font-size: 9px; letter-spacing: .2em; }
+      .site-nav { top: 9px; min-height: 54px; }
+      .nav-mark b { display: none; }
+      .nav-rsvp { padding: 11px 16px; }
+      .hero { min-height: auto; padding-left: 22px; padding-right: 22px; }
+      .hero-copy h1 { font-size: clamp(66px, 24vw, 105px); }
+      .hero-sub { gap: 15px; margin-top: 38px; }
+      .hero-date { width: 72px; height: 72px; }
+      .hero-date b { font-size: 22px; }
+      .hero-sub p { flex: 1; font-size: 18px; }
+      .hero-visual { min-height: 69svh; }
+      .film-scroll { height: 520vh; }
+      .film-label { top: 86px; }
+
+      .film-names { font-size: clamp(34px, 10vw, 64px); }
+      .fw-name { font-size: clamp(34px, 9.6vw, 58px); }
+      .fw-lead, .fw-parents { font-size: clamp(17px, 5vw, 23px); }
+      .fw-rel, .fw-with { font-size: clamp(16px, 4.6vw, 21px); }
+      .film-lines { letter-spacing: .18em; line-height: 1.9; }
+      .film-progress { right: 15px; }
+      .film-percent { right: 10px; }
+      .story { padding-left: 22px; padding-right: 22px; }
+      .countdown { gap: 5px; }
+      .count-unit { padding: 14px 5px 12px; border-radius: 14px; }
+      .scratch-stage { border-width: 7px; border-radius: 27px; }
+      .scratch-hint { bottom: -46px; }
+      .events-heading { display: block; margin-bottom: 34px; }
+      .slide-hint { margin-top: 28px; }
+      .events { padding: 76px 0 90px; }
+      .event-card { top: 84px; border-width: 7px; border-radius: 26px; height: min(760px, calc(100svh - 156px)); }
+      .event-card + .event-card { margin-top: 40svh; }
+      .event-media { border-radius: 19px 19px 0 0; min-height: 160px; height: 26svh; }
+      .event-copy { padding: 4px 18px 20px; }
+      .event-stack { width: calc(100% - 24px); }
+      .firework-button,
+      .music-button {
+        bottom: max(14px, env(safe-area-inset-bottom));
+        min-height: 44px;
+        height: 44px;
+        padding: 0 16px;
+      }
+      .firework-button { right: 14px; }
+      .music-button { left: 14px; }
+      .firework-button span,
+      .music-button span { font-size: 9px; line-height: 1; }
+      .family-grid { grid-template-columns: 1fr; }
+      .family-amp { top: 50%; }
+      .family-card { min-height: 310px; }
+      .venue { background-position: 58% 42%; padding-bottom: 118px; }
+      .venue-card { padding: 38px 25px; border-radius: 28px; }
+      .whatsapp-card { padding: 15px 15px 15px 19px; }
+      .footer-line { display: block; line-height: 2; text-align: center; }
+      .footer-line span { display: block; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+      .hero-portrait, .scratch-stage { transform: none !important; }
+    }
+
+    /* ==================================================================
+       DARK CELEBRATION THEME
+       The whole site now sits on the same warm dark brown as the final
+       card. Everything below re-tones the surfaces that were built for
+       a cream background. Delete this block to go back to light.
+       ================================================================== */
+    body {
+      background:
+        radial-gradient(circle at 12% 6%, rgba(241,165,28,.10), transparent 40%),
+        radial-gradient(circle at 88% 88%, rgba(240,137,159,.10), transparent 42%),
+        #1d1210;
+      background-attachment: fixed;
+    }
+    ::selection { color: #2a1512; background: var(--rose); }
+
+    .site-nav {
+      border-color: rgba(255,235,225,.16);
+      background: rgba(42,25,21,.74);
+      box-shadow: 0 12px 50px rgba(0,0,0,.42);
+    }
+    .nav-rsvp { color: #2a1512 !important; background: #ffdcb8; }
+
+    .hero {
+      background:
+        radial-gradient(circle at 8% 13%, rgba(241,165,28,.15), transparent 30%),
+        radial-gradient(circle at 90% 76%, rgba(240,137,159,.10), transparent 34%),
+        linear-gradient(145deg, #33201a, #211412 55%, #2b1820);
+    }
+    .hero::before { border-color: rgba(240,137,159,.07); }
+    .hero-orbit { border-color: rgba(240,137,159,.22); }
+    .hero-date { color: #0e2f2e; box-shadow: 0 18px 42px rgba(0,0,0,.38); }
+
+    .count-unit {
+      border-color: rgba(255,235,225,.15);
+      background: rgba(255,255,255,.06);
+    }
+
+    /* scratch card: dark reveal under the red cover */
+    .scratch-stage { border-color: #2f1d19; background: linear-gradient(145deg, #2f1d19, #241512); }
+    .scratch-reveal {
+      background:
+        radial-gradient(circle at 25% 20%, rgba(241,165,28,.20), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(78,200,194,.16), transparent 32%),
+        linear-gradient(140deg, #2e1c18, #2a1519);
+    }
+    .scratch-reveal p { color: #8fe0da; }
+    /* .scratch-stage.is-heart .scratch-reveal is more specific than the rule
+       above, so the heart needs its own dark treatment or the light text
+       inside it disappears. */
+    .scratch-stage.is-heart .scratch-reveal {
+      background:
+        radial-gradient(circle at 30% 22%, rgba(255,214,161,.22), transparent 46%),
+        linear-gradient(150deg, #4d2029, #3a1a1c 48%, #4f2420);
+    }
+    .scratch-reveal h3 em { color: #ffd6a1; }
+    .hero-copy .scratch-stage { width: min(84%, 318px) !important; }
+    .scratch-stage.is-heart .scratch-reveal { padding: 20% 12% 24%; }
+
+    /* "Save the Date" sits above a bordered date plate: year | month+day | weekday */
+    .scratch-stage.is-heart .scratch-reveal small {
+      font-size: clamp(13px, 3.8vw, 17px);
+      letter-spacing: .18em;
+    }
+    .date-badge {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: 0;
+      margin-top: 12px;
+      padding: 7px 0;
+      border-top: 1px solid rgba(255,214,161,.5);
+      border-bottom: 1px solid rgba(255,214,161,.5);
+      color: #fff3e6;
+      font-family: "Marcellus", serif;
+      line-height: 1;
+    }
+    .date-badge .db-side {
+      display: flex;
+      align-items: center;
+      padding: 0 9px;
+      font-size: clamp(12px, 3.4vw, 15px);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .date-badge .db-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      padding: 0 11px;
+      border-left: 1px solid rgba(255,214,161,.45);
+      border-right: 1px solid rgba(255,214,161,.45);
+    }
+    .date-badge .db-main b {
+      color: #ffd6a1;
+      font-size: clamp(11px, 3vw, 13px);
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .date-badge .db-main i {
+      font-size: clamp(34px, 10vw, 46px);
+      font-style: normal;
+      line-height: .95;
+    }
+
+    /* Scratch again now lives under the heart, not inside it */
+    .scratch-wrap .scratch-reset {
+      position: static;
+      display: block;
+      margin: 18px auto 0;
+      opacity: 0;
+      transform: translateY(6px);
+      pointer-events: none;
+      transition: opacity .4s ease, transform .4s ease;
+    }
+    .scratch-wrap.is-revealed .scratch-reset { opacity: 1; transform: none; pointer-events: auto; }
+
+    /* "Scratch to Reveal" dialled back */
+    .hero-scratch-title { font-size: clamp(26px, 6.4vw, 40px) !important; }
+
+    /* Function cards: name in script, tagline in italic (image 5) */
+    .event-copy h3 {
+      font-family: var(--font-script) !important;
+      font-size: clamp(40px, 8vw, 62px) !important;
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+    .event-copy .event-note {
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: clamp(15px, 3.6vw, 19px);
+      line-height: 1.45;
+    }
+    .event-where { display: flex; align-items: flex-start; gap: 8px; }
+    .event-where svg { flex: 0 0 auto; width: 16px; margin-top: 3px; color: var(--accent, #ffd9a1); opacity: 1; }
+    .event-where-text { display: flex; flex-direction: column; gap: 2px; }
+    .event-map-link {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      border-radius: 8px;
+      padding: 6px 8px;
+      margin: -6px -8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px dashed rgba(255, 255, 255, 0.30);
+      transition: background .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .event-where-text b {
+      color: #fff6eb;
+      text-decoration: underline;
+      text-decoration-color: rgba(255, 255, 255, 0.5);
+      text-underline-offset: 3px;
+    }
+    .event-where-text span {
+      text-decoration: underline;
+      text-decoration-color: rgba(255, 255, 255, 0.75);
+      text-underline-offset: 3px;
+      line-height: 1.4;
+    }
+    .event-map-link:hover,
+    .event-map-link:focus-visible {
+      background: rgba(255,255,255,.14);
+      border-color: rgba(255, 255, 255, 0.6);
+      transform: translateX(3px);
+    }
+    .event-map-link:hover .event-where-text b,
+    .event-map-link:hover .event-where-text span {
+      text-decoration-color: #ffffff;
+    }
+
+    /* Final card in the image-6 script style */
+    .venue-card .closing-message {
+      font-family: var(--font-script);
+      font-size: clamp(21px, 5.4vw, 30px);
+      line-height: 1.45;
+      color: rgba(255,244,236,.94);
+    }
+    .venue-card .closing-signoff { font-size: clamp(19px, 4.6vw, 25px); }
+    .venue-card .whatsapp-card.on-dark { text-align: center; }
+    .venue-card .whatsapp-card.on-dark small {
+      font-family: var(--font-script);
+      font-size: clamp(17px, 4.4vw, 21px);
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .venue-card .whatsapp-card.on-dark b {
+      font-family: var(--font-script);
+      font-size: clamp(24px, 6vw, 32px);
+      font-weight: 400;
+    }
+
+    /* Function card image focal points — ensures main subject/faces are fully visible */
+    .event-card[data-image*="mehndi"] .event-media img,
+    .event-card[data-image*="mehandi"] .event-media img { object-position: center 20%; }
+    .event-card[data-image*="haldi"] .event-media img { object-position: center 20%; }
+    .event-card[data-image*="sangeet"] .event-media img { object-position: center 22%; }
+    .event-card[data-image*="the-big-day"] .event-media img,
+    .event-card[data-image*="baraat"] .event-media img { object-position: center 20%; }
+    .event-card[data-image$="ganesh-pooja.webp"] .event-media img { object-position: center 20%; }
+    .event-card[data-image$="mehendi.webp"] .event-media img { object-position: center 22%; }
+    .event-card[data-image$="haldi.webp"] .event-media img { object-position: center 24%; }
+    .event-card[data-image$="sangeet.webp"] .event-media img { object-position: center 25%; }
+    .event-card[data-image$="baraat.webp"] .event-media img { object-position: center 28%; }
+    .event-card[data-image$="wedding.webp"] .event-media img { object-position: center 20%; }
+    .event-card[data-image$="engagement.webp"] .event-media img { object-position: center 22%; }
+    .event-card[data-image$="mayra.webp"] .event-media img { object-position: center 25%; }
+    .event-card[data-image$="carnival.webp"] .event-media img { object-position: center 25%; }
+    .event-card[data-image$="pool-party.webp"] .event-media img { object-position: center 25%; }
+    .event-card[data-image$="reception.webp"] .event-media img { object-position: center 22%; }
+    .scratch-reveal small { color: #ffc2d1; }
+    .scratch-reset {
+      color: #2a1512;
+      border-color: rgba(255,255,255,.5);
+      background: rgba(255,236,222,.9);
+    }
+
+    .events { background: linear-gradient(180deg, #26160f, #1d1210); }
+    .slide-hint span { background: rgba(255,235,225,.26); }
+
+    .event-card {
+      border-color: rgba(255,238,228,.10);
+      box-shadow: 0 -10px 30px rgba(0,0,0,.30), 0 26px 70px rgba(0,0,0,.42);
+    }
+    .event-badge { box-shadow: 0 8px 22px rgba(0,0,0,.42); }
+
+    .ribbon { box-shadow: 0 15px 50px rgba(0,0,0,.42); }
+
+    .button.primary { color: #2a1512; border-color: #ffe4c6; background: #ffe4c6; }
+    .button.primary:hover { background: #ffd6a1; border-color: #ffd6a1; }
+
+    /* ---- hero is now a single centred column (portrait + intro removed) ---- */
+    .hero-grid { grid-template-columns: 1fr !important; max-width: 640px; }
+    .hero-copy { text-align: center; }
+    .hero-copy .scratch-stage { margin: 0 auto !important; }
+    .hero-copy .scratch-hint { left: 50% !important; }
+    .hero-copy .countdown { margin-left: auto; margin-right: auto; }
+    .hero-copy .countdown-label { margin-top: 58px !important; }
+
+    /* ---- floating action buttons: music toggle and fireworks trigger ---- */
+    .music-button,
+    .firework-button {
+      position: fixed;
+      z-index: 150;
+      bottom: max(24px, env(safe-area-inset-bottom));
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      box-sizing: border-box;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(16px);
+      transition: opacity .5s ease, transform .5s cubic-bezier(.22,.75,.22,1), background .25s ease, box-shadow .25s ease;
+    }
+    body.has-entered .music-button,
+    body.has-entered .firework-button {
+      opacity: 1;
+      pointer-events: auto;
+      transform: none;
+    }
+
+    .music-button {
+      left: 24px;
+      border: 1px solid rgba(255,255,255,.34);
+      color: #ffe7d2;
+      background: rgba(46,26,22,.75);
+      box-shadow: 0 14px 38px rgba(0,0,0,.34);
+      backdrop-filter: blur(14px);
+    }
+    .music-button:hover,
+    .music-button:focus-visible {
+      background: rgba(66,38,32,.90);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 18px 46px rgba(0,0,0,.42);
+      outline: none;
+    }
+    .music-button:active { transform: scale(.96); }
+    .music-button svg { width: 19px; height: 19px; display: block; flex-shrink: 0; }
+    .music-button .music-off { display: none; }
+    .music-button.is-muted { color: rgba(255,231,210,.6); }
+    .music-button.is-muted .music-on { display: none; }
+    .music-button.is-muted .music-off { display: block; }
+    .music-button.is-playing svg { animation: musicPulse 2.4s ease-in-out infinite; }
+    @keyframes musicPulse { 50% { transform: scale(1.12); } }
+
+    .firework-button {
+      right: 24px;
+      border: 1px solid rgba(255,255,255,.62);
+      color: white;
+      background: linear-gradient(135deg, #a72f54, #ec6a5c 55%, #f1a51c);
+      box-shadow: 0 14px 38px rgba(103,35,52,.28), inset 0 1px rgba(255,255,255,.28);
+    }
+    .firework-button:hover,
+    .firework-button:focus-visible {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 18px 46px rgba(103,35,52,.36), 0 0 0 5px rgba(236,106,92,.11);
+      outline: none;
+    }
+    .firework-button:active { transform: scale(.96); }
+    .firework-button svg { width: 19px; height: 19px; display: block; flex-shrink: 0; }
+
+    /* ==================================================================
+       TYPOGRAPHY TO MATCH THE REFERENCE CARDS
+       The references use three faces: an ornate roundhand for names and
+       titles, a chancery italic for the flowing body lines, and a plain
+       serif for dates and small caps. Tangerine has a small x-height, so
+       everything set in it is sized up to compensate.
+       ================================================================== */
+    .hero-scratch-title {
+      font-family: var(--font-calli) !important;
+      font-size: calc(clamp(29px, 7.1vw, 44px) * var(--calli-scale)) !important;
+      font-weight: var(--calli-weight);
+      font-style: normal;
+      line-height: 1.05;
+    }
+    .hero-scratch-title em { font-family: inherit; font-style: normal; }
+
+    .countdown-label {
+      font-family: var(--font-calli) !important;
+      font-size: calc(clamp(21px, 5.3vw, 30px) * var(--calli-scale)) !important;
+      font-weight: var(--calli-weight);
+    }
+
+    .event-copy .event-note {
+      font-family: var(--font-calli);
+      font-style: normal;
+      font-weight: var(--calli-weight);
+      font-size: calc(clamp(16px, 3.9vw, 20px) * var(--calli-scale));
+      line-height: 1.25;
+    }
+
+    .venue-card .closing-message {
+      font-family: var(--font-calli);
+      font-weight: var(--calli-weight);
+      font-size: calc(clamp(19px, 4.7vw, 25px) * var(--calli-scale));
+      line-height: 1.3;
+    }
+    .venue-card .closing-signoff {
+      font-family: var(--font-calli);
+      font-weight: var(--calli-weight);
+      font-size: calc(clamp(16px, 4vw, 21px) * var(--calli-scale));
+    }
+    .venue-card .whatsapp-card.on-dark small {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: .14em;
+      color: #ffd6a1;
+      text-transform: uppercase;
+    }
+    .venue-card .whatsapp-card.on-dark b {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: 21px;
+      letter-spacing: .08em;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+    .venue-card .whatsapp-card.on-dark b a,
+    .venue-card .whatsapp-card.on-dark b {
+      text-decoration: none;
+    }
+
+    /* the uppercase lines around the names, tighter like the reference */
+    .film-lines, .film-forever, .gate-kicker, .gate-forever {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      letter-spacing: .12em;
+    }
+    .film-lines { font-size: clamp(13px, 3.4vw, 19px); }
+    .film-forever { font-size: clamp(12px, 3vw, 16px); }
+
+    /* quiet download indicator on the gate, so a slow connection looks like
+       progress rather than a broken page */
+    .film-status {
+      min-height: 15px;
+      margin: 14px 0 0;
+      color: rgba(255,231,210,.62);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      transition: opacity .4s ease;
+    }
+    body.film-ready .film-status { opacity: 0; }
+  </style>
+</head>
+<body class="is-locked" data-build="20260926-77c55b002a9c">
+  <div class="enter-gate" id="enterGate" aria-label="Open wedding invitation">
+    <div class="gate-content">
+      <p class="gate-kicker" id="gateKicker">Some journeys begin with a glance.<br>Ours begins with a promise.</p>
+      <div class="gate-seal" aria-hidden="true"><span id="gateInitials">S · N</span></div>
+      <h1 class="gate-title" id="gateTitle">Shubham Bugreja <em>weds</em> Navtinder Kaur</h1>
+      <p class="gate-forever" id="gateForever">Invite you to witness the beginning of their forever.</p>
+      <button class="hashtag-enter" id="enterButton" type="button">
+        <strong id="gateHashtag">#Shubhnav</strong>
+        <span>Click the hashtag to enter</span>
+      </button>
+      <p class="film-status" id="filmStatus" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div class="petals" id="petals" aria-hidden="true"></div>
+  <canvas class="fireworks-canvas" id="fireworksCanvas" aria-hidden="true"></canvas>
+  <button class="firework-button" id="fireworkButton" type="button" aria-label="Launch celebration fireworks">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg>
+    <span>Fireworks</span>
+  </button>
+  <span class="sr-only" id="fireworkStatus" aria-live="polite"></span>
+
+  <audio id="bgMusic" src="assets/bg-music.mp3" loop preload="auto"></audio>
+  <button class="music-button" id="musicButton" type="button" aria-pressed="false" aria-label="Turn wedding music on or off">
+    <svg class="music-on" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18V6l10-2v12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.7"/><circle cx="16.5" cy="16" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg>
+    <svg class="music-off" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18V6l10-2v12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.7"/><circle cx="16.5" cy="16" r="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M3 3l18 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+    <span id="musicLabel">Music</span>
+  </button>
+
+  <nav class="site-nav" aria-label="Wedding navigation">
+    <a class="nav-mark" href="#home">
+      <span class="nav-monogram" id="navInitials">SN</span>
+      <b id="navNames">Shubham Bugreja weds Navtinder Kaur</b>
+    </a>
+    <div class="nav-links">
+      <a href="#film">Our Film</a>
+      <a href="#events">Functions</a>
+      <a href="#venue">Venue</a>
+      <a class="nav-rsvp" href="#rsvp">RSVP</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="film-scroll" id="film" aria-label="Scroll-controlled wedding film">
+      <div class="film-sticky">
+        <video id="scrollVideo" poster="assets/hero-poster.jpg" preload="auto" muted playsinline webkit-playsinline disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1"></video>
+        <canvas id="filmCanvas" aria-label="Wedding film"></canvas>
+        <div class="film-label">Scroll-controlled wedding film</div>
+        <div class="film-copy">
+          <div class="film-caption" data-start="0.52" data-end="0.76">
+            <p class="film-lines" id="filmLines">With the blessings of grandparents<br>Smt. Sita Devi &amp; Late Sh. Diwan Chand</p>
+            <h2 class="film-names" id="filmNames"><span>Shubham Bugreja</span><em>weds</em><span>Navtinder Kaur</span></h2>
+            <p class="film-forever" id="filmForever">Request the pleasure of your gracious presence on the auspicious occasion of the wedding</p>
+          </div>
+          <div class="film-caption film-welcome" data-start="0.77" data-end="1.00">
+            <p class="fw-lead" id="filmWelcomeLead">Request the pleasure of your gracious presence on the wedding of their beloved son</p>
+            <h2 class="fw-name" id="filmGroomName">Shubham Bugreja</h2>
+            <p class="fw-rel" id="filmGroomRelation">S/O</p>
+            <p class="fw-parents" id="filmGroomParents">Mrs. Punita Rani &amp; Mr. Umesh Kumar</p>
+            <p class="fw-with">with</p>
+            <h2 class="fw-name" id="filmBrideName">Navtinder Kaur</h2>
+            <p class="fw-rel" id="filmBrideRelation">D/O</p>
+            <p class="fw-parents" id="filmBrideParents">Sdn. Kamlesh Kaur &amp; S. Gurbhag Singh</p>
+          </div>
+        </div>
+        <div class="film-progress"><span id="filmProgress"></span></div>
+        <div class="film-percent" id="filmPercent">00</div>
+      </div>
+    </section>
+
+    <div class="ribbon" aria-hidden="true">
+      <div class="ribbon-track">
+        <span>Mohali · 13 November 2026</span><span>Two hearts, one celebration</span><span>#Shubhnav</span><span>Mohali · 13 November 2026</span><span>Two hearts, one celebration</span><span>#Shubhnav</span>
+        <span>Mohali · 13 November 2026</span><span>Two hearts, one celebration</span><span>#Shubhnav</span><span>Mohali · 13 November 2026</span><span>Two hearts, one celebration</span><span>#Shubhnav</span>
+      </div>
+    </div>
+
+
+    <section class="hero" id="home">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <h2 class="display hero-scratch-title">Scratch to <em>Reveal</em></h2>
+          <div class="scratch-wrap reveal">
+            <svg class="shape-defs" width="0" height="0" aria-hidden="true" focusable="false">
+              <defs>
+                <clipPath id="heartClip" clipPathUnits="objectBoundingBox">
+                  <path d="M0.5,0.95 C0.5,0.95 0.03,0.62 0.03,0.31 C0.03,0.13 0.16,0.03 0.31,0.03 C0.41,0.03 0.47,0.09 0.5,0.16 C0.53,0.09 0.59,0.03 0.69,0.03 C0.84,0.03 0.97,0.13 0.97,0.31 C0.97,0.62 0.5,0.95 0.5,0.95 Z"/>
+              </defs>
+            </svg>
+            <div class="scratch-stage is-heart" id="scratchStage">
+              <div class="scratch-reveal">
+                <div>
+                  <small>Save the Date</small>
+                  <div class="date-badge">
+                    <span class="db-side" id="scratchYear">2026</span>
+                    <span class="db-main"><b id="scratchMonth">Nov</b><i id="scratchDay">13</i></span>
+                    <span class="db-side" id="scratchDow">Fri</span>
+                  </div>
+                </div>
+              </div>
+              <canvas id="scratchCanvas" aria-label="Scratch to reveal the date"></canvas>
+            </div>
+            <button class="scratch-reset" id="scratchReset" type="button">Scratch again</button>
+          </div>
+          <p class="countdown-label">Count Down Board</p>
+          <div class="countdown" id="countdown" aria-label="Wedding countdown">
+            <div class="count-unit"><b id="days">00</b><span>Days</span></div>
+            <div class="count-unit"><b id="hours">00</b><span>Hours</span></div>
+            <div class="count-unit"><b id="minutes">00</b><span>Mins</span></div>
+            <div class="count-unit"><b id="seconds">00</b><span>Secs</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-cue"><i aria-hidden="true"></i><span>Scroll into our story</span></div>
+    </section>
+
+    <section class="events" id="events">
+      <div class="events-heading reveal">
+        <div>
+            <h2 class="display">The wedding <em>celebrations</em></h2>
+        </div>
+        <div class="slide-hint">Scroll to stack the next function <span></span></div>
+      </div>
+
+      <div class="event-stack" id="eventStack"></div>
+    </section>
+
+
+    <section class="venue" id="venue">
+      <div class="venue-inner">
+        <div class="venue-card reveal">
+          <p class="closing-message" id="closingMessage">The best moments in life are meant to be shared. Thank you for being a part of our story. We can't wait to celebrate this beautiful beginning with you!</p>
+          <p class="closing-signoff" id="closingSignOff">With Best Compliments From:</p>
+          <p class="closing-names" id="closingNames">All Relatives &amp; Friends</p>
+          
+          <div style="margin-top: 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;" id="rsvp">
+            <div class="whatsapp-card on-dark" style="margin: 0;">
+              <div><small>R.S.V.P &middot; Shubham</small><b>9569853596</b></div>
+              <a href="https://wa.me/919569853596?text=Hello%20Shubham%2C%20RSVPing%20for%20the%20wedding%20celebration!" target="_blank" rel="noopener" aria-label="WhatsApp Shubham">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.4-4.2a8.5 8.5 0 1 1 15.6-4.6Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.2 7.7c.3-.5.6-.5.9-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.3 0 .5-.2.7l-.6.7c-.2.2-.1.4 0 .6.5.9 1.2 1.7 2.1 2.2.3.2.5.2.7 0l.8-1c.2-.2.4-.3.7-.2l1.8.8c.3.1.5.3.5.5 0 .3-.1 1.2-.7 1.7-.5.5-1.3.8-2.2.6-1-.2-2.8-.9-4.6-2.5-2.3-2-3-4.3-3.1-5.1 0-.4.1-.6.2-.8Z" fill="currentColor"/></svg>
+              </a>
+            </div>
+
+            <div class="whatsapp-card on-dark" style="margin: 0;">
+              <div><small>R.S.V.P &middot; Karan</small><b>6284668552</b></div>
+              <a href="https://wa.me/916284668552?text=Hello%20Karan%2C%20RSVPing%20for%20Shubham%20Bugreja%20and%20Navtinder%20Kaur%27s%20wedding!" target="_blank" rel="noopener" aria-label="WhatsApp Karan">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.4-4.2a8.5 8.5 0 1 1 15.6-4.6Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.2 7.7c.3-.5.6-.5.9-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.3 0 .5-.2.7l-.6.7c-.2.2-.1.4 0 .6.5.9 1.2 1.7 2.1 2.2.3.2.5.2.7 0l.8-1c.2-.2.4-.3.7-.2l1.8.8c.3.1.5.3.5.5 0 .3-.1 1.2-.7 1.7-.5.5-1.3.8-2.2.6-1-.2-2.8-.9-4.6-2.5-2.3-2-3-4.3-3.1-5.1 0-.4.1-.6.2-.8Z" fill="currentColor"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-line"><span id="footerNamesDate">Shubham Bugreja weds Navtinder Kaur · 13 November 2026</span><span>Made with love for one beautiful beginning</span></div>
+    </section>
+  </main>
+
+  <script>
+    const CONFIG = {
+      groomName: "Shubham Bugreja",
+      brideName: "Navtinder Kaur",
+      heroMessage: "Invite you to a celebration of colour, laughter and a lifetime of togetherness.",
+      hashtag: "#Shubhnav",
+      countdownIso: "2026-11-13T18:00:00+05:30",
+      functionsEyebrow: "Three days of joy & blessings",
+
+      /* ---- ENTRY GATE (screen 1) ---- */
+      gateLine1: "With the blessings of grandparents",
+      gateLine2: "Smt. Sita Devi & Late Sh. Diwan Chand",
+      gateForever: "Request the pleasure of your gracious presence on the wedding of their beloved son",
+
+      /* ---- WELCOME + PARENTS (screen 2) ---- */
+      welcomeLead: "Request the pleasure of your gracious presence on the wedding of their beloved son",
+      brideRelation: "D/O",
+      brideParents: "Sdn. Kamlesh Kaur & S. Gurbhag Singh",
+      groomRelation: "S/O",
+      groomParents: "Mrs. Punita Rani & Mr. Umesh Kumar",
+
+      /* ---- CLOSING NOTE (screen 5) ---- */
+      closingMessage: "The best moments in life are meant to be shared. Thank you for being a part of our story. We can't wait to celebrate this beautiful beginning with you!",
+      closingSignOff: "With Best Compliments From:",
+      closingNames: "All Relatives & Friends",
+      contactLabel: "R.S.V.P Details",
+
+      venueName: "Palki Palace",
+      venueSubtitle: "Chandigarh-Kharar Road, Balongi, Mohali (Pb.)",
+      venueAddressLine1: "Palki Palace",
+      venueAddressLine2: "Mohali, Punjab",
+      venueSchedule: "Celebrations · 11–13 November 2026",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Palki%20Palace%20Chandigarh-Kharar%20Road%2C%20Balongi%2C%20Mohali",
+      residenceCoordinates: "30°44'11.5\"N 76°40'06.1\"E",
+      residenceMapUrl: "https://www.google.com/maps/search/?api=1&query=30%C2%B044%2711.5%22N+76%C2%B040%2706.1%22E",
+      rsvpNumber: "+91 9569853596",
+      locationWhatsappMessage: "Hello, I would like the location for Shubham Bugreja and Navtinder Kaur's wedding celebration.",
+      rsvpWhatsappMessage: "Hello, I am RSVPing for Shubham Bugreja and Navtinder Kaur's wedding celebration.",
+
+      /* ---- EXACT FUNCTIONS FROM WEDDING INVITATION CARD ---- */
+      functions: [
+        {
+          enabled: true,
+          name: "Mehndi Magic",
+          tagline: "green leaves, red hearts",
+          details: "A beautiful evening dipped in love, music and shagan mehndi.",
+          day: "Wednesday",
+          date: "11th November, 2026",
+          time: "04:00 PM",
+          venueArea: "At Residence",
+          venueName: "#110/A, Rajdhani Enclave, Sector-126, Kharar, Mohali (Pb.)",
+          mapUrl: "https://www.google.com/maps/search/?api=1&query=30%C2%B044%2711.5%22N+76%C2%B040%2706.1%22E",
+          image: "assets/mehndi-v2.webp"
+        },
+        {
+          enabled: true,
+          name: "Rang-e-Haldi",
+          tagline: "sunshine & laughter",
+          details: "Like haldi, may our bond become brighter and stronger with timeless blessings.",
+          day: "Thursday",
+          date: "12th November, 2026",
+          time: "09:00 AM",
+          venueArea: "At Residence",
+          venueName: "#110/A, Rajdhani Enclave, Sector-126, Kharar, Mohali (Pb.)",
+          mapUrl: "https://www.google.com/maps/search/?api=1&query=30%C2%B044%2711.5%22N+76%C2%B040%2706.1%22E",
+          image: "assets/haldi-v2.webp"
+        },
+        {
+          enabled: true,
+          name: "Musical Night",
+          tagline: "dance under the stars",
+          details: "Dancing through the sweetest memories and celebrating togetherness.",
+          day: "Thursday",
+          date: "12th November, 2026",
+          time: "07:00 PM",
+          venueArea: "Hotel G.K. International",
+          venueName: "Sector-35, Chandigarh",
+          mapUrl: "https://www.google.com/maps/search/?api=1&query=Hotel%20G.K.%20International%20Sector-35%2C%20Chandigarh",
+          image: "assets/sangeet-v2.webp"
+        },
+        {
+          enabled: true,
+          name: "The Big Day",
+          tagline: "the grand celebration",
+          details: "Barat departure from Residence to Palki Palace.",
+          day: "Friday",
+          date: "13th November, 2026",
+          time: "06:00 PM",
+          venueArea: "Palki Palace",
+          venueName: "Chandigarh-Kharar Road, Balongi, Mohali (Pb.)",
+          mapUrl: "https://www.google.com/maps/search/?api=1&query=Palki%20Palace%2C%20Chandigarh-Kharar%20Road%2C%20Balongi%2C%20Mohali",
+          image: "assets/the-big-day-v2.webp"
+        }
+      ]
+    };
+
+    const EVENT_THEMES = [
+      { background: "#2c1c11", accent: "#f0b45a", image: "assets/images/ganesh-pooja.webp" },
+      { background: "#2f1813", accent: "#f4907b", image: "assets/images/engagement.webp" },
+      { background: "#2b1b10", accent: "#e5a862", image: "assets/images/mayra.webp" },
+      { background: "#102630", accent: "#5cc6ea", image: "assets/images/pool-party.webp" },
+      { background: "#152a11", accent: "#96d47f", image: "assets/images/mehendi.webp" },
+      { background: "#2d1526", accent: "#f291c4", image: "assets/images/carnival.webp" },
+      { background: "#2e250b", accent: "#f5c748", image: "assets/images/haldi.webp" },
+      { background: "#231737", accent: "#bd9bee", image: "assets/images/sangeet.webp" },
+      { background: "#301d0d", accent: "#f2ad57", image: "assets/images/baraat.webp" },
+      { background: "#2f121a", accent: "#f486a3", image: "assets/images/wedding.webp" },
+      { background: "#0e2625", accent: "#5ccdc6", image: "assets/images/reception.webp" }
+    ];
+
+    function inviteEscape(value) {
+      return String(value == null ? "" : value).replace(/[&<>"']/g, character => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;"
+      })[character]);
+    }
+
+    function inviteDateParts(iso) {
+      const date = new Date(iso);
+      const safeDate = Number.isNaN(date.getTime()) ? new Date("2028-07-14T00:00:00+05:30") : date;
+      const longParts = new Intl.DateTimeFormat("en-IN", {
+        timeZone: "Asia/Kolkata", day: "2-digit", month: "long", year: "numeric"
+      }).formatToParts(safeDate);
+      const shortMonth = new Intl.DateTimeFormat("en-IN", {
+        timeZone: "Asia/Kolkata", month: "short"
+      }).format(safeDate);
+      const weekday = new Intl.DateTimeFormat("en-IN", {
+        timeZone: "Asia/Kolkata", weekday: "short"
+      }).format(safeDate);
+      const pick = type => (longParts.find(part => part.type === type) || {}).value || "";
+      return { day: pick("day"), month: pick("month"), shortMonth, weekday, year: pick("year") };
+    }
+
+    function inviteWhatsappNumber(value) {
+      let digits = String(value || "").replace(/\D/g, "");
+      if (digits.length === 10) digits = "91" + digits;
+      return digits;
+    }
+
+    function render() {
+      const setText = (id, value) => {
+        const node = document.getElementById(id);
+        if (node) node.textContent = value == null ? "" : value;
+      };
+      const groom = String(CONFIG.groomName || "Groom").trim();
+      const bride = String(CONFIG.brideName || "Bride").trim();
+      const names = groom + " weds " + bride;
+      const initials = (groom.charAt(0) + bride.charAt(0)).toUpperCase();
+      const spacedInitials = groom.charAt(0).toUpperCase() + " · " + bride.charAt(0).toUpperCase();
+      const date = inviteDateParts(CONFIG.countdownIso);
+
+      setText("gateInitials", spacedInitials);
+      const gateTitle = document.getElementById("gateTitle");
+      if (gateTitle) gateTitle.innerHTML = "<span>" + inviteEscape(groom) + "</span><em>weds</em><span>" + inviteEscape(bride) + "</span>";
+      setText("gateHashtag", CONFIG.hashtag);
+      const gateKicker = document.getElementById("gateKicker");
+      if (gateKicker) gateKicker.innerHTML = inviteEscape(CONFIG.gateLine1) + "<br>" + inviteEscape(CONFIG.gateLine2);
+      setText("gateForever", CONFIG.gateForever);
+      setText("welcomeBrideName", bride);
+      setText("welcomeBrideRelation", CONFIG.brideRelation);
+      setText("welcomeBrideParents", CONFIG.brideParents);
+      setText("welcomeGroomName", groom);
+      setText("welcomeGroomRelation", CONFIG.groomRelation);
+      setText("welcomeGroomParents", CONFIG.groomParents);
+      const welcomeLead = document.getElementById("welcomeLead");
+      if (welcomeLead) welcomeLead.textContent = CONFIG.welcomeLead;
+      setText("filmWelcomeLead", CONFIG.welcomeLead);
+      setText("filmBrideName", bride);
+      setText("filmBrideRelation", CONFIG.brideRelation);
+      setText("filmBrideParents", CONFIG.brideParents);
+      setText("filmGroomName", groom);
+      setText("filmGroomRelation", CONFIG.groomRelation);
+      setText("filmGroomParents", CONFIG.groomParents);
+      setText("closingMessage", CONFIG.closingMessage);
+      setText("closingSignOff", CONFIG.closingSignOff);
+      setText("closingNames", CONFIG.closingNames || names);
+      setText("contactLabel", CONFIG.contactLabel);
+
+      setText("navInitials", initials);
+      setText("navNames", names);
+      setText("heroGroom", groom);
+      setText("heroBride", bride);
+      setText("heroDateDay", String(Number(date.day) || date.day));
+      setText("heroDateRest", date.shortMonth + " · " + date.year);
+      setText("heroIntro", CONFIG.heroMessage);
+      setText("heroHashtag", CONFIG.hashtag);
+      const filmLines = document.getElementById("filmLines");
+      if (filmLines) filmLines.innerHTML = inviteEscape(CONFIG.gateLine1) + "<br>" + inviteEscape(CONFIG.gateLine2);
+      setText("filmForever", CONFIG.gateForever);
+      const filmNames = document.getElementById("filmNames");
+      if (filmNames) filmNames.innerHTML = "<span>" + inviteEscape(groom) + "</span><em>weds</em><span>" + inviteEscape(bride) + "</span>";
+      setText("scratchYear", date.year);
+      setText("scratchMonth", date.shortMonth);
+      setText("scratchDay", String(Number(date.day) || date.day));
+      setText("scratchDow", date.weekday);
+      setText("functionsEyebrow", CONFIG.functionsEyebrow);
+      setText("venueName", CONFIG.venueName);
+      setText("venueSubtitle", CONFIG.venueSubtitle);
+      setText("venueAddressLine1", CONFIG.venueAddressLine1);
+      setText("venueAddressLine2", CONFIG.venueAddressLine2);
+      setText("venueSchedule", CONFIG.venueSchedule);
+      setText("rsvpNumber", CONFIG.rsvpNumber);
+      setText("finalHashtag", CONFIG.hashtag);
+      setText("footerNamesDate", names + " · 13 " + date.month + " " + date.year);
+
+      const countdown = document.getElementById("countdown");
+      if (countdown) countdown.setAttribute("aria-label", "Countdown to " + date.day + " " + date.month + " " + date.year);
+      const mapLink = document.getElementById("mapLink");
+      if (mapLink) mapLink.href = CONFIG.mapUrl || "#";
+      const phone = inviteWhatsappNumber(CONFIG.rsvpNumber);
+      const locationLink = document.getElementById("locationWhatsappLink");
+      const rsvpLink = document.getElementById("rsvpWhatsappLink");
+      if (locationLink) locationLink.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(CONFIG.locationWhatsappMessage || "");
+      if (rsvpLink) rsvpLink.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(CONFIG.rsvpWhatsappMessage || "");
+
+      const ribbonValues = [
+        (CONFIG.venueAddressLine2 || "") + " · 13 " + date.month + " " + date.year,
+        "Two hearts, one celebration",
+        CONFIG.hashtag || "#Shubhnav"
+      ];
+      document.querySelectorAll(".ribbon-track span").forEach((node, index) => {
+        node.textContent = ribbonValues[index % ribbonValues.length];
+      });
+
+      const eventsSection = document.getElementById("events");
+      const track = document.getElementById("eventStack");
+      const visibleFunctions = Array.isArray(CONFIG.functions)
+        ? CONFIG.functions.filter(item => item && item.enabled !== false)
+        : [];
+      if (eventsSection) eventsSection.hidden = visibleFunctions.length === 0;
+      if (track) {
+        track.innerHTML = visibleFunctions.map((event, index) => {
+          const theme = EVENT_THEMES[index % EVENT_THEMES.length];
+          const title = event.name || "Celebration";
+          const image = event.image || theme.image;
+          const pin = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+            '<path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.7"/>' +
+            '<circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg>';
+          const mapQuery = encodeURIComponent((event.venueArea || "") + " " + (event.venueName || ""));
+          const mapUrl = event.mapUrl || ("https://www.google.com/maps/search/?api=1&query=" + mapQuery);
+          return '<article class="event-card" data-image="' + inviteEscape(image) + '" style="--slide-bg:' + theme.background + ';--accent:' + theme.accent + ';--i:' + index + ';z-index:' + (index + 1) + '">' +
+            '<span class="event-badge">Function ' + String(index + 1).padStart(2, "0") + '</span>' +
+            '<div class="event-media">' +
+            '<img src="' + inviteEscape(image) + '" alt="' + inviteEscape(title) + ' celebration" loading="lazy"></div>' +
+            '<div class="event-copy">' +
+            '<h3>' + inviteEscape(title) + '</h3>' +
+            (event.details ? '<p class="event-note">' + inviteEscape(event.details) + '</p>' : '') +
+            '<div class="event-when">' +
+            '<b>On ' + inviteEscape(event.day) + ' | ' + inviteEscape(event.date) + '</b>' +
+            '<b>' + inviteEscape(event.time) + '</b></div>' +
+            '<div class="event-divider" aria-hidden="true"><i></i><span>&#10086;</span><i></i></div>' +
+            '<a class="event-place event-where event-map-link" href="' + mapUrl + '" target="_blank" rel="noopener" title="Open location in Google Maps">' + pin + '<span class="event-where-text">' +
+            '<b>' + inviteEscape(event.venueArea) + '</b>' +
+            '<span>' + inviteEscape(event.venueName) + '</span></span></a>' +
+            '</div></article>';
+        }).join("");
+      }
+      if (typeof window.__updateCountdown === "function") window.__updateCountdown();
+    }
+
+    render();
+  </script>
+
+  <script>
+    (() => {
+      const body = document.body;
+      const gate = document.getElementById('enterGate');
+      const enterButton = document.getElementById('enterButton');
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      window.scrollTo(0, 0);
+
+      enterButton.addEventListener('click', () => {
+        gate.classList.add('is-open');
+        body.classList.remove('is-locked');
+        body.classList.add('has-entered');
+        if (typeof window.__primeFilm === 'function') window.__primeFilm();
+        if (typeof window.__startMusic === 'function') window.__startMusic();
+        /* the page was locked behind the gate, so repaint the film once the
+           gate opens instead of waiting for the first scroll */
+        if (typeof window.__refreshFilm === 'function') {
+          window.__refreshFilm();
+          setTimeout(window.__refreshFilm, 120);
+        }
+        setTimeout(() => gate.setAttribute('aria-hidden', 'true'), 900);
+      });
+
+      document.addEventListener('pointermove', (event) => {
+        if (window.__freezeTilt) return;
+        const x = (event.clientX / window.innerWidth - .5) * 2;
+        const y = (event.clientY / window.innerHeight - .5) * 2;
+        document.documentElement.style.setProperty('--mx', x.toFixed(3));
+        document.documentElement.style.setProperty('--my', y.toFixed(3));
+      }, { passive: true });
+
+      const petals = document.getElementById('petals');
+      const petalColours = ['#f2a7b7', '#f7c85f', '#eb7f70', '#ffffff'];
+      for (let i = 0; i < 18; i++) {
+        const petal = document.createElement('i');
+        petal.className = 'petal';
+        petal.style.setProperty('--left', `${Math.random() * 100}%`);
+        petal.style.setProperty('--size', `${7 + Math.random() * 9}px`);
+        petal.style.setProperty('--petal-color', petalColours[i % petalColours.length]);
+        petal.style.setProperty('--duration', `${10 + Math.random() * 12}s`);
+        petal.style.setProperty('--delay', `${-Math.random() * 18}s`);
+        petal.style.setProperty('--drift', `${-90 + Math.random() * 180}px`);
+        petal.style.setProperty('--blur', `${Math.random() > .75 ? 2 : 0}px`);
+        petals.appendChild(petal);
+      }
+
+      const fireworksCanvas = document.getElementById('fireworksCanvas');
+      const fireworksCtx = fireworksCanvas.getContext('2d');
+      const fireworkButton = document.getElementById('fireworkButton');
+      const fireworkStatus = document.getElementById('fireworkStatus');
+      const fireworkColours = ['#ffd166', '#ff7a90', '#7ee8df', '#ffffff', '#c9a7ff', '#ff9f43'];
+      const fireworkParticles = [];
+      const confettiColours = ['#ffd166', '#ff7a90', '#7ee8df', '#ffffff', '#c9a7ff', '#ff9f43', '#f0899f', '#ffd6a1'];
+      const confettiParticles = [];
+      let fireworksRaf = 0;
+
+      /* Confetti is paper, not sparks: solid tumbling rectangles drawn with
+         source-over, unlike the additive firework streaks. */
+      function createConfettiBurst(x, y) {
+        const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const total = reduced ? 24 : (window.innerWidth < 650 ? 95 : 160);
+        for (let i = 0; i < total; i++) {
+          const angle = -Math.PI / 2 + (Math.random() - .5) * Math.PI * 1.2;
+          const speed = 4 + Math.random() * 9.5;
+          confettiParticles.push({
+            x: x + (Math.random() - .5) * 46,
+            y: y + (Math.random() - .5) * 24,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            gravity: .14 + Math.random() * .09,
+            w: 5 + Math.random() * 6,
+            h: 8 + Math.random() * 8,
+            rot: Math.random() * Math.PI * 2,
+            spin: (Math.random() - .5) * .3,
+            alpha: 1,
+            decay: .005 + Math.random() * .006,
+            colour: confettiColours[i % confettiColours.length]
+          });
+        }
+        if (!fireworksRaf) fireworksRaf = requestAnimationFrame(drawFireworks);
+      }
+      window.__confetti = createConfettiBurst;
+
+      function sizeFireworksCanvas() {
+        const dpr = Math.min(2, window.devicePixelRatio || 1);
+        fireworksCanvas.width = Math.round(window.innerWidth * dpr);
+        fireworksCanvas.height = Math.round(window.innerHeight * dpr);
+        fireworksCanvas.style.width = `${window.innerWidth}px`;
+        fireworksCanvas.style.height = `${window.innerHeight}px`;
+        fireworksCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function createFireworkBurst(x, y, colour) {
+        const total = window.innerWidth < 650 ? 38 : 56;
+        for (let i = 0; i < total; i++) {
+          const angle = Math.PI * 2 * i / total + Math.random() * .12;
+          const speed = 2.2 + Math.random() * 4.8;
+          fireworkParticles.push({
+            x, y,
+            lastX: x,
+            lastY: y,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            gravity: .035 + Math.random() * .025,
+            alpha: 1,
+            decay: .012 + Math.random() * .012,
+            colour,
+            width: .8 + Math.random() * 1.7
+          });
+        }
+        if (!fireworksRaf) fireworksRaf = requestAnimationFrame(drawFireworks);
+      }
+
+      function drawFireworks() {
+        fireworksCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        fireworksCtx.globalCompositeOperation = 'lighter';
+        for (let i = fireworkParticles.length - 1; i >= 0; i--) {
+          const particle = fireworkParticles[i];
+          particle.lastX = particle.x;
+          particle.lastY = particle.y;
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+          particle.vx *= .988;
+          particle.vy = particle.vy * .988 + particle.gravity;
+          particle.alpha -= particle.decay;
+          if (particle.alpha <= 0) {
+            fireworkParticles.splice(i, 1);
+            continue;
+          }
+          fireworksCtx.beginPath();
+          fireworksCtx.moveTo(particle.lastX, particle.lastY);
+          fireworksCtx.lineTo(particle.x, particle.y);
+          fireworksCtx.strokeStyle = particle.colour;
+          fireworksCtx.globalAlpha = particle.alpha;
+          fireworksCtx.lineWidth = particle.width;
+          fireworksCtx.stroke();
+        }
+        fireworksCtx.globalAlpha = 1;
+        fireworksCtx.globalCompositeOperation = 'source-over';
+
+        for (let i = confettiParticles.length - 1; i >= 0; i--) {
+          const flake = confettiParticles[i];
+          flake.x += flake.vx;
+          flake.y += flake.vy;
+          flake.vx *= .986;
+          flake.vy = flake.vy * .986 + flake.gravity;
+          flake.rot += flake.spin;
+          flake.alpha -= flake.decay;
+          if (flake.alpha <= 0 || flake.y > window.innerHeight + 80) {
+            confettiParticles.splice(i, 1);
+            continue;
+          }
+          fireworksCtx.save();
+          fireworksCtx.translate(flake.x, flake.y);
+          fireworksCtx.rotate(flake.rot);
+          fireworksCtx.globalAlpha = Math.min(1, flake.alpha);
+          fireworksCtx.fillStyle = flake.colour;
+          /* squash the height as it spins so each piece looks like it is
+             tumbling in 3D rather than sliding flat */
+          fireworksCtx.fillRect(-flake.w / 2, -flake.h / 2, flake.w,
+            flake.h * (.3 + Math.abs(Math.cos(flake.rot)) * .7));
+          fireworksCtx.restore();
+        }
+        fireworksCtx.globalAlpha = 1;
+
+        if (fireworkParticles.length || confettiParticles.length) {
+          fireworksRaf = requestAnimationFrame(drawFireworks);
+        } else {
+          fireworksRaf = 0;
+          fireworksCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        }
+      }
+
+      sizeFireworksCanvas();
+      addEventListener('resize', sizeFireworksCanvas, { passive: true });
+      fireworkButton.addEventListener('click', () => {
+        fireworkStatus.textContent = 'Celebration fireworks launched';
+        const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const bursts = reducedMotion ? 1 : (window.innerWidth < 650 ? 5 : 7);
+        for (let i = 0; i < bursts; i++) {
+          setTimeout(() => {
+            const x = window.innerWidth * (.14 + Math.random() * .72);
+            const y = window.innerHeight * (.12 + Math.random() * .45);
+            createFireworkBurst(x, y, fireworkColours[i % fireworkColours.length]);
+          }, reducedMotion ? 0 : i * 150);
+        }
+        setTimeout(() => { fireworkStatus.textContent = ''; }, 1800);
+      });
+
+
+      /* ---------------- wedding music ----------------
+         Browsers block audio until a real user gesture, so playback starts on
+         the gate tap. The toggle then works anywhere on the page. */
+      const music = document.getElementById('bgMusic');
+      const musicButton = document.getElementById('musicButton');
+      const musicLabel = document.getElementById('musicLabel');
+      const MUSIC_VOLUME = 0.55;
+      let fadeTimer = 0;
+
+      function fadeMusic(to, done) {
+        clearInterval(fadeTimer);
+        fadeTimer = setInterval(() => {
+          const delta = to - music.volume;
+          if (Math.abs(delta) < 0.04) {
+            music.volume = to;
+            clearInterval(fadeTimer);
+            if (done) done();
+            return;
+          }
+          music.volume = Math.min(1, Math.max(0, music.volume + delta * 0.2));
+        }, 40);
+      }
+
+      function setMusicUi(playing) {
+        musicButton.classList.toggle('is-muted', !playing);
+        musicButton.classList.toggle('is-playing', playing);
+        musicButton.setAttribute('aria-pressed', playing ? 'true' : 'false');
+        musicLabel.textContent = playing ? 'Music' : 'Music off';
+      }
+
+      let musicWanted = false;
+
+      function startMusic() {
+        musicWanted = true;
+        music.volume = 0;
+        const attempt = music.play();
+        if (attempt && typeof attempt.then === 'function') {
+          attempt.then(() => { setMusicUi(true); fadeMusic(MUSIC_VOLUME); })
+                 .catch(() => setMusicUi(false));
+        } else {
+          setMusicUi(true);
+          fadeMusic(MUSIC_VOLUME);
+        }
+      }
+
+      function stopMusic() {
+        musicWanted = false;
+        fadeMusic(0, () => music.pause());
+        /* guarantee silence even if the fade interval is throttled or dropped */
+        setTimeout(() => { if (!musicWanted) { music.pause(); music.volume = 0; } }, 420);
+        setMusicUi(false);
+      }
+
+      window.__startMusic = startMusic;
+      setMusicUi(false);
+      musicButton.addEventListener('click', () => {
+        if (music.paused) startMusic(); else stopMusic();
+      });
+      /* pause while the tab is hidden; only resume if the user still wants music */
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) music.pause();
+        else if (musicWanted) music.play().catch(() => {});
+      });
+      /* nothing may restart it behind the user's back */
+      music.addEventListener('play', () => { if (!musicWanted) music.pause(); });
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .14 });
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+      const film = document.getElementById('film');
+      const video = document.getElementById('scrollVideo');
+      const filmCanvas = document.getElementById('filmCanvas');
+      const filmCtx = filmCanvas.getContext('2d');
+      const progress = document.getElementById('filmProgress');
+      const percent = document.getElementById('filmPercent');
+      const captions = [...document.querySelectorAll('.film-caption')];
+      const filmStatus = document.getElementById('filmStatus');
+
+      /* Chrome ignores the `media` attribute on <source> inside <video>, so
+         the source is chosen here instead of in the markup. */
+      /* Decoding is what makes scrubbing stutter: every seek has to decode
+         from the previous keyframe forward. Phones get a 720p build with a
+         keyframe every 4 frames, so a seek decodes 4 frames of 720p instead
+         of 6 frames of 1080p - roughly a third of the work. Quality is high
+         (CRF 25); the earlier soft-looking 720p was heavily compressed, which
+         was the actual problem, not the resolution. Desktops keep the 1080p
+         master. */
+      const DESKTOP_SRC = 'assets/hero-optimized.mp4';
+      const isHandheld = /Android|iPhone|iPod/i.test(navigator.userAgent)
+        || (window.matchMedia('(pointer: coarse)').matches && window.innerWidth < 1024);
+      const FILM_SRC = DESKTOP_SRC;
+
+      /* ================= frame sequence (handhelds) =================
+         Scrubbing a video means SEEKING, and a seek has to decode from the
+         previous keyframe forward. On a phone that is what drops frames, and
+         no amount of tuning removes it. So handhelds do not scrub a video at
+         all: they flip through still frames. Showing frame N is one
+         drawImage of an already-decoded picture - no decoder, no seeking, no
+         buffering wait. Desktop keeps the full film. */
+      const FRAME_COUNT = 100;
+      const useFrames = isHandheld;
+      const frames = new Array(FRAME_COUNT);
+      let framesLoaded = 0;
+      let lastFrameDrawn = -1;
+
+      function framePath(i) {
+        return 'assets/frames/f' + String(i + 1).padStart(3, '0') + '.jpg';
+      }
+
+      function loadFrame(i) {
+        if (frames[i]) return;
+        const img = new Image();
+        img.decoding = 'async';
+        frames[i] = img;
+        img.onload = () => {
+          framesLoaded++;
+          if (framesLoaded === 1) { ready = true; document.body.classList.add('film-ready'); }
+          showProgress(framesLoaded / FRAME_COUNT);
+          requestFilmUpdate();
+        };
+        img.onerror = () => { frames[i] = null; };
+        img.src = framePath(i);
+      }
+
+      /* Load first frame immediately for instant visual rendering, then coarse pass, then fill */
+      function loadFrameSequence() {
+        loadFrame(0);
+        loadFrame(1);
+        for (let i = 8; i < FRAME_COUNT; i += 8) loadFrame(i);
+        let next = 2;
+        const fill = () => {
+          let started = 0;
+          while (next < FRAME_COUNT && started < 8) {
+            if (!frames[next]) { loadFrame(next); started++; }
+            next++;
+          }
+          if (next < FRAME_COUNT) setTimeout(fill, 80);
+        };
+        setTimeout(fill, 200);
+      }
+
+      /* Nearest frame that has actually arrived, so early scrolling still
+         shows a picture instead of nothing. */
+      function nearestReadyFrame(idx) {
+        for (let d = 0; d < FRAME_COUNT; d++) {
+          const a = idx - d, b = idx + d;
+          if (a >= 0 && frames[a] && frames[a].complete && frames[a].naturalWidth) return a;
+          if (b < FRAME_COUNT && frames[b] && frames[b].complete && frames[b].naturalWidth) return b;
+        }
+        return -1;
+      }
+
+      function paintSequenceFrame(force) {
+        if (!canvasW || !canvasH) return;
+        const idx = nearestReadyFrame(Math.round(amount * (FRAME_COUNT - 1)));
+        if (idx < 0 || (!force && idx === lastFrameDrawn)) return;
+        const img = frames[idx];
+        const scale = Math.max(canvasW / img.naturalWidth, canvasH / img.naturalHeight);
+        const dw = img.naturalWidth * scale;
+        const dh = img.naturalHeight * scale;
+        try {
+          filmCtx.drawImage(img, (canvasW - dw) / 2, (canvasH - dh) / 2, dw, dh);
+          lastFrameDrawn = idx;
+        } catch (e) { /* keep the last good frame */ }
+      }
+      let currentSrc = FILM_SRC;
+
+
+      let duration = 10.0;
+      let filmRaf = 0;
+      let ready = false;
+      let seeking = false;
+      let smoothTime = 0;
+      let targetTime = 0;
+      let amount = 0;
+      let lastPaint = 0;
+      let lastTick = 0;
+      let triedFallback = false;
+      let blobUrl = null;
+      let lastPaintedTime = -1;
+      let canvasW = 0;
+      let canvasH = 0;
+
+      /* ================= loading =================
+         WebKit (every browser on iPhone/iPad, and Safari) CANNOT play or seek
+         a video from a blob: URL - blob URLs do not answer byte-range requests
+         there, so the element just never becomes ready. Blobs are therefore
+         used only on Chromium/Gecko, where a fully in-memory video makes
+         scrubbing instant. WebKit gets the plain URL and is buffered up front
+         instead. */
+      const isWebKit = /iPad|iPhone|iPod/.test(navigator.userAgent)
+        || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+        || (/^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent));
+
+      let watchdog = 0;
+
+      function loadFilm(src) {
+        currentSrc = src;
+        clearTimeout(watchdog);
+        /* Attach the direct video source immediately so browser starts streaming & decoding right away */
+        attach(src);
+
+        if (isWebKit || location.protocol === 'file:') return;
+
+        /* In background on Chromium/Gecko, cache blob to make scrubbing 100% memory-instant */
+        try {
+          const xhr = new XMLHttpRequest();
+          xhr.open('GET', src, true);
+          xhr.responseType = 'blob';
+          xhr.onload = () => {
+            if (xhr.status >= 200 && xhr.status < 300 && xhr.response && xhr.response.size) {
+              if (blobUrl) URL.revokeObjectURL(blobUrl);
+              blobUrl = URL.createObjectURL(xhr.response);
+              const curTime = video.currentTime;
+              attach(blobUrl);
+              try { video.currentTime = curTime; } catch (e) {}
+            }
+          };
+          xhr.send();
+        } catch (e) {}
+      }
+
+      function showProgress(fraction) {
+        if (!filmStatus) return;
+        const pct = Math.round(Math.min(1, Math.max(0, fraction)) * 100);
+        filmStatus.textContent = pct < 100 ? 'Preparing the film \u00b7 ' + pct + '%' : '';
+      }
+
+      /* On WebKit the progress readout comes from the element's own buffer. */
+      video.addEventListener('progress', () => {
+        if (!video.buffered.length || !Number.isFinite(video.duration) || !video.duration) return;
+        showProgress(video.buffered.end(video.buffered.length - 1) / video.duration);
+      });
+
+      function attach(url) {
+        if (video.src === url && video.readyState > 0) return;
+        video.src = url;
+        try { video.load(); } catch (e) {}
+      }
+
+      function filmReady() {
+        if (video.readyState < 2) return;
+        ready = true;
+        clearTimeout(watchdog);
+        if (filmStatus) filmStatus.textContent = '';
+        document.body.classList.add('film-ready');
+        sizeFilmCanvas();
+        paintFrame(true);
+        requestFilmUpdate();
+      }
+
+      video.addEventListener('loadedmetadata', () => {
+        if (Number.isFinite(video.duration) && video.duration > 0) duration = video.duration;
+        /* resume where the scroll is - the blob swap reloads the element and
+           used to snap the film back to frame 0 */
+        try { video.currentTime = Math.min(duration - 0.05, Math.max(0.02, smoothTime)); } catch (e) {}
+        filmReady();
+      });
+      video.addEventListener('loadeddata', filmReady);
+      video.addEventListener('canplay', filmReady);
+      let seekCost = 120;
+      video.addEventListener('seeked', () => {
+        if (lastPaint) seekCost = Math.max(60, Math.min(600, (performance.now() - lastPaint) * 0.5 + seekCost * 0.5));
+        seeking = false;
+        paintFrame(true);
+        requestFilmUpdate();
+      });
+
+      /* The film is scrubbed, never played. Anything that starts playback
+         (autoplay heuristics, a gesture, the OS media session) would race the
+         scroll position, so pause it straight away. */
+      video.addEventListener('play', () => { if (!priming) video.pause(); });
+
+      /* One retry on the lighter file, then leave the poster showing rather
+         than a black box. */
+      video.addEventListener('error', () => {
+        if (triedFallback) return;
+        triedFallback = true;
+        setTimeout(() => attach(DESKTOP_SRC), 300);
+      });
+
+      /* iOS will not decode or seek a video that has never been activated by
+         a user gesture. One muted play/pause on first touch unlocks it. */
+      let primed = false;
+      let priming = false;
+      function primeFilm() {
+        /* phones scrub image frames, not the video - playing it there painted
+           the whole film over the canvas */
+        if (useFrames) return;
+        if (primed) return;
+        primed = true;
+        priming = true;
+        const done = () => {
+          priming = false;
+          try { video.pause(); video.currentTime = Math.max(0.02, smoothTime); } catch (e) {}
+        };
+        /* Only reload if nothing has loaded yet. Calling load() on an already
+           ready video threw away the decoded film on every Enter click, so it
+           randomly showed the poster image instead of the film. */
+        if (video.readyState === 0) { try { video.load(); } catch (e) {} }
+        const attempt = video.play();
+        if (attempt && typeof attempt.then === 'function') {
+          attempt.then(done).catch(() => { priming = false; primed = false; });
+        } else {
+          done();
+        }
+      }
+      window.__primeFilm = primeFilm;
+      ['pointerdown', 'touchstart', 'keydown', 'wheel'].forEach(evt => {
+        addEventListener(evt, primeFilm, { once: true, passive: true });
+      });
+
+      /* ================= painting ================= */
+      function sizeFilmCanvas() {
+        /* Capped at 2. At dpr 3 the canvas was 1170x2532 - over 3 megapixels
+           repainted every frame - which is a big part of why scrolling
+           stuttered. The source is 1080 wide and cover-crop only shows about
+           80% of it, so a 2x canvas is already downsampling: the film stays
+           sharp and the paint costs less than half as much. */
+        const dpr = Math.min(2, window.devicePixelRatio || 1);
+        const w = Math.round(filmCanvas.clientWidth * dpr);
+        const h = Math.round(filmCanvas.clientHeight * dpr);
+        if (!w || !h || (w === canvasW && h === canvasH)) return;
+        canvasW = filmCanvas.width = w;
+        canvasH = filmCanvas.height = h;
+        lastPaintedTime = -1;
+        lastFrameDrawn = -1;
+        if (useFrames) paintSequenceFrame(true); else paintFrame(true);
+      }
+
+      /* Cover-fit, matching the old object-fit: cover. Never clears first, so
+         a failed draw leaves the previous frame on screen instead of black. */
+      function paintFrame(force) {
+        if (!canvasW || !canvasH) return;
+        const vw = video.videoWidth;
+        const vh = video.videoHeight;
+        if (!vw || !vh || video.readyState < 2) return;
+        if (!force && video.currentTime === lastPaintedTime) return;
+        const scale = Math.max(canvasW / vw, canvasH / vh);
+        const dw = vw * scale;
+        const dh = vh * scale;
+        try {
+          filmCtx.drawImage(video, (canvasW - dw) / 2, (canvasH - dh) / 2, dw, dh);
+          lastPaintedTime = video.currentTime;
+        } catch (e) { /* keep the last good frame */ }
+      }
+
+      /* requestVideoFrameCallback already fires on every presented frame, so
+         the scroll loop must not paint as well - doing both drew each frame
+         twice and stole time from seeking. */
+      const hasRvfc = 'requestVideoFrameCallback' in HTMLVideoElement.prototype;
+      if (hasRvfc && !useFrames) {
+        /* skip frames presented while the priming play() is running, or the
+           film visibly plays on its own for a moment */
+        const onFrame = () => {
+          if (!priming && video.paused) paintFrame(true);
+          video.requestVideoFrameCallback(onFrame);
+        };
+        video.requestVideoFrameCallback(onFrame);
+      }
+      /* Only measured on resize now. It used to run inside the scroll loop,
+         and reading clientWidth there forced a layout on every frame. */
+      addEventListener('resize', sizeFilmCanvas, { passive: true });
+      addEventListener('orientationchange', () => setTimeout(sizeFilmCanvas, 250), { passive: true });
+
+      /* ================= scroll ================= */
+      function readScroll() {
+        const rect = film.getBoundingClientRect();
+        const total = Math.max(1, film.offsetHeight - window.innerHeight);
+        amount = Math.min(1, Math.max(0, -rect.top / total));
+        targetTime = Math.min(duration - 0.05, Math.max(0.02, amount * duration));
+      }
+
+      function paintOverlays() {
+        progress.style.transform = 'scaleY(' + amount.toFixed(4) + ')';
+        percent.textContent = String(Math.round(amount * 100)).padStart(2, '0');
+        captions.forEach(caption => {
+          const from = parseFloat(caption.dataset.start || '0');
+          const to = parseFloat(caption.dataset.end || '1');
+          const mid = (from + to) / 2;
+          const half = Math.max(0.001, (to - from) / 2);
+          const raw = 1 - Math.abs(amount - mid) / half;
+          const visibility = Math.max(0, Math.min(1, raw * 1.4));
+          caption.style.opacity = visibility.toFixed(3);
+          caption.style.filter = visibility < 0.98 ? 'blur(' + ((1 - visibility) * 4).toFixed(1) + 'px)' : 'none';
+          caption.style.transform = 'translateY(calc(-50% + ' + ((1 - visibility) * 22).toFixed(1) +
+            'px)) scale(' + (0.975 + visibility * 0.025).toFixed(4) + ')';
+          caption.classList.toggle('is-active', visibility > 0.4);
+        });
+      }
+
+      function tick(now) {
+        filmRaf = 0;
+        readScroll();
+        paintOverlays();
+        if (!hasRvfc && !useFrames && !priming) paintFrame(false);
+
+        if (useFrames) {
+          paintSequenceFrame(false);
+          return;
+        }
+
+        if (ready) {
+          /* Frame-rate independent easing: a fixed step per frame moved half
+             as fast on a 30fps phone, which made the opening feel choppy. */
+          const dt = lastTick ? Math.min(64, now - lastTick) : 16.7;
+          lastTick = now;
+          const ease = 1 - Math.pow(1 - 0.22, dt / 16.7);
+          const delta = targetTime - smoothTime;
+          smoothTime += Math.abs(delta) > 0.9 ? delta : delta * ease;
+
+          const drift = Math.abs(video.currentTime - smoothTime);
+          if (!seeking && drift > 0.035) {
+            seeking = true;
+            lastPaint = now;
+            try {
+              /* NOT fastSeek: that snaps to the nearest keyframe, which on
+                 this film would jump in ~1 second steps on Safari and
+                 Firefox. Precise seeking lands on the exact frame. */
+              video.currentTime = smoothTime;
+            } catch (e) { seeking = false; }
+            /* Give a seek up to twice the time the slowest one has taken so
+               far before assuming it was dropped. A fixed short timeout made
+               us fire a second seek on top of one still in flight, and on a
+               slow decoder they queued up and fell behind. */
+            const guard = Math.min(600, Math.max(160, seekCost * 2));
+            setTimeout(() => { seeking = false; }, guard);
+          }
+          /* Keep the loop alive until the VIDEO has caught up, not just until
+             the easing has settled - otherwise it parked on a stale frame. */
+          if (Math.abs(delta) > 0.004 || drift > 0.035) requestFilmUpdate();
+        }
+      }
+
+      function requestFilmUpdate() {
+        if (!filmRaf) filmRaf = requestAnimationFrame(tick);
+      }
+
+      addEventListener('scroll', requestFilmUpdate, { passive: true });
+      addEventListener('resize', requestFilmUpdate, { passive: true });
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(entries => {
+          entries.forEach(entry => { if (entry.isIntersecting) requestFilmUpdate(); });
+        }, { threshold: 0 }).observe(film);
+      }
+
+      if (useFrames) {
+        video.removeAttribute('poster');
+        loadFrameSequence();
+      } else {
+        loadFilm(currentSrc);
+      }
+      sizeFilmCanvas();
+      readScroll();
+      smoothTime = targetTime;
+      paintOverlays();
+      requestFilmUpdate();
+
+      window.__refreshFilm = () => {
+        sizeFilmCanvas();
+        lastPaintedTime = -1;
+        lastFrameDrawn = -1;
+        if (useFrames) paintSequenceFrame(true); else paintFrame(true);
+        requestFilmUpdate();
+      };
+      addEventListener('pageshow', () => window.__refreshFilm());
+
+      const countEls = {
+        days: document.getElementById('days'),
+        hours: document.getElementById('hours'),
+        minutes: document.getElementById('minutes'),
+        seconds: document.getElementById('seconds')
+      };
+      function updateCountdown() {
+        const configuredTarget = new Date(CONFIG.countdownIso).getTime();
+        const target = Number.isFinite(configuredTarget) ? configuredTarget : Date.now();
+        const delta = Math.max(0, target - Date.now());
+        const days = Math.floor(delta / 86400000);
+        const hours = Math.floor(delta % 86400000 / 3600000);
+        const minutes = Math.floor(delta % 3600000 / 60000);
+        const seconds = Math.floor(delta % 60000 / 1000);
+        countEls.days.textContent = String(days).padStart(2, '0');
+        countEls.hours.textContent = String(hours).padStart(2, '0');
+        countEls.minutes.textContent = String(minutes).padStart(2, '0');
+        countEls.seconds.textContent = String(seconds).padStart(2, '0');
+      }
+      window.__updateCountdown = updateCountdown;
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      const scratchStage = document.getElementById('scratchStage');
+      const scratchCanvas = document.getElementById('scratchCanvas');
+      const scratchReset = document.getElementById('scratchReset');
+      const scratchCtx = scratchCanvas.getContext('2d', { willReadFrequently: true });
+      let scratching = false;
+
+      function drawScratchCover() {
+        /* Use the LAYOUT size, not getBoundingClientRect: the card is tilted, so
+           its bounding box is ~3% larger than the element and the canvas ended up
+           stretched, making the brush drift away from the cursor near the edges. */
+        const rect = { width: scratchCanvas.offsetWidth, height: scratchCanvas.offsetHeight };
+        if (!rect.width || !rect.height) return;
+        const dpr = Math.min(2, devicePixelRatio || 1);
+        scratchCanvas.width = Math.max(1, Math.round(rect.width * dpr));
+        scratchCanvas.height = Math.max(1, Math.round(rect.height * dpr));
+        scratchCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        scratchCtx.globalCompositeOperation = 'source-over';
+        const gradient = scratchCtx.createLinearGradient(0, 0, rect.width, rect.height);
+        gradient.addColorStop(0, '#e8455a');
+        gradient.addColorStop(.35, '#c4162f');
+        gradient.addColorStop(.62, '#e05469');
+        gradient.addColorStop(1, '#a80f26');
+        scratchCtx.fillStyle = gradient;
+        scratchCtx.fillRect(0, 0, rect.width, rect.height);
+        scratchCtx.globalAlpha = .16;
+        for (let i = 0; i < 150; i++) {
+          scratchCtx.fillStyle = i % 2 ? '#fff' : '#7d0a1c';
+          scratchCtx.beginPath();
+          scratchCtx.arc(Math.random() * rect.width, Math.random() * rect.height, Math.random() * 2.2, 0, Math.PI * 2);
+          scratchCtx.fill();
+        }
+        scratchCtx.globalAlpha = 1;
+        scratchCtx.fillStyle = 'rgba(255,255,255,.92)';
+        scratchCtx.textAlign = 'center';
+        scratchCtx.textBaseline = 'middle';
+        scratchCtx.font = `600 ${Math.max(11, rect.width * .03)}px Jost, Arial`;
+        scratchCtx.fillText('SCRATCH TO REVEAL', rect.width / 2, rect.height * .42 - 10);
+        scratchCtx.font = `500 ${Math.max(9, rect.width * .022)}px Jost, Arial`;
+        scratchCtx.fillText('A DATE MADE FOR CELEBRATION', rect.width / 2, rect.height * .42 + 16);
+        scratchCtx.shadowBlur = 0;
+        refreshScratchMatrix();
+        scratchStage.classList.remove('is-revealed');
+        if (scratchStage.parentElement) scratchStage.parentElement.classList.remove('is-revealed');
+        lastX = null;
+        lastY = null;
+      }
+
+      /* Brush radius scales with the card, with a bigger floor than before. */
+      function scratchRadius() {
+        const rect = scratchCanvas.getBoundingClientRect();
+        return Math.max(38, rect.width * 0.105);
+      }
+
+      let lastX = null, lastY = null, checkQueued = false;
+
+      /* The card is tilted with rotateX/rotateY/rotate, so clientX-rect.left is
+         NOT where the finger actually is on the canvas — the brush used to land
+         offset from the cursor. Invert the accumulated transform instead. */
+      function accumulatedMatrix(el) {
+        let matrix = new DOMMatrix();
+        let node = el;
+        while (node && node !== document.body) {
+          const value = getComputedStyle(node).transform;
+          if (value && value !== 'none') matrix = new DOMMatrix(value).multiply(matrix);
+          node = node.parentElement;
+        }
+        return matrix;
+      }
+
+      let scratchInverse = null;
+
+      function refreshScratchMatrix() {
+        try { scratchInverse = accumulatedMatrix(scratchCanvas).inverse(); }
+        catch (e) { scratchInverse = null; }
+      }
+
+      function toCanvasPoint(clientX, clientY) {
+        const rect = scratchCanvas.getBoundingClientRect();
+        /* the transforms rotate about the centre, so the centre is trustworthy
+           even though the bounding box is not */
+        let dx = clientX - (rect.left + rect.width / 2);
+        let dy = clientY - (rect.top + rect.height / 2);
+        if (scratchInverse) {
+          const point = scratchInverse.transformPoint(new DOMPoint(dx, dy, 0, 1));
+          dx = point.x; dy = point.y;
+        }
+        return { x: dx + scratchCanvas.offsetWidth / 2, y: dy + scratchCanvas.offsetHeight / 2 };
+      }
+
+      function scratchPoint(x, y) {
+        const radius = scratchRadius();
+        scratchCtx.globalCompositeOperation = 'destination-out';
+        /* soft edge so the reveal does not look like stamped circles */
+        scratchCtx.shadowColor = 'rgba(0,0,0,1)';
+        scratchCtx.shadowBlur = radius * 0.45;
+        scratchCtx.lineCap = 'round';
+        scratchCtx.lineJoin = 'round';
+        scratchCtx.lineWidth = radius * 2;
+        scratchCtx.strokeStyle = 'rgba(0,0,0,1)';
+        scratchCtx.beginPath();
+        if (lastX === null) {
+          /* a tap with no movement still needs a mark */
+          scratchCtx.moveTo(x, y);
+          scratchCtx.lineTo(x + 0.01, y + 0.01);
+        } else {
+          scratchCtx.moveTo(lastX, lastY);
+          scratchCtx.lineTo(x, y);
+        }
+        scratchCtx.stroke();
+        scratchCtx.shadowBlur = 0;
+        lastX = x; lastY = y;
+      }
+
+      function scratchAt(event) {
+        if (!scratching || scratchStage.classList.contains('is-revealed')) return;
+        /* the tilt transition is still settling right after pointerdown, so keep
+           the inverse matrix current instead of trusting the pointerdown value */
+        refreshScratchMatrix();
+        /* coalesced events give every sample the OS captured between frames,
+           so a fast swipe draws a continuous line instead of a dotted trail */
+        const points = (typeof event.getCoalescedEvents === 'function')
+          ? event.getCoalescedEvents() : [event];
+        (points.length ? points : [event]).forEach(raw => {
+          const point = toCanvasPoint(raw.clientX, raw.clientY);
+          scratchPoint(point.x, point.y);
+        });
+        queueScratchCheck();
+        sparkleWhileScratching();
+      }
+
+      /* small crackers going off around the heart as you scratch */
+      let lastSpark = 0;
+      function sparkleWhileScratching() {
+        if (typeof createFireworkBurst !== 'function') return;
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const now = performance.now();
+        if (now - lastSpark < 430) return;
+        lastSpark = now;
+        const rect = scratchStage.getBoundingClientRect();
+        const x = rect.left + rect.width * (Math.random() < .5 ? -.12 - Math.random() * .18 : 1.12 + Math.random() * .18);
+        const y = rect.top + rect.height * (0.05 + Math.random() * 0.55);
+        createFireworkBurst(
+          Math.min(window.innerWidth - 10, Math.max(10, x)),
+          Math.max(40, y),
+          fireworkColours[Math.floor(Math.random() * fireworkColours.length)]
+        );
+      }
+
+      /* The coverage test reads the whole bitmap, so run it at most once a
+         frame instead of on every pointer sample. */
+      function queueScratchCheck() {
+        if (checkQueued) return;
+        checkQueued = true;
+        requestAnimationFrame(() => {
+          checkQueued = false;
+          checkScratch();
+        });
+      }
+
+      function checkScratch() {
+        const sample = scratchCtx.getImageData(0, 0, scratchCanvas.width, scratchCanvas.height).data;
+        const step = 4 * 64;
+        let transparent = 0, total = 0;
+        for (let i = 3; i < sample.length; i += step) {
+          total++;
+          if (sample[i] < 30) transparent++;
+        }
+        if (total && transparent / total > .28 && !scratchStage.classList.contains('is-revealed')) {
+          scratchStage.classList.add('is-revealed');
+          if (scratchStage.parentElement) scratchStage.parentElement.classList.add('is-revealed');
+          celebrateScratch();
+        }
+      }
+
+      /* burst from the middle of the heart, plus a couple of side pops */
+      function celebrateScratch() {
+        if (typeof window.__confetti !== 'function') return;
+        const rect = scratchStage.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        window.__confetti(cx, cy);
+        setTimeout(() => window.__confetti(cx - rect.width * .32, cy + 20), 160);
+        setTimeout(() => window.__confetti(cx + rect.width * .32, cy + 20), 300);
+      }
+
+      function endScratch() {
+        scratching = false;
+        window.__freezeTilt = false;
+        lastX = null; lastY = null;
+        checkScratch();
+      }
+
+      scratchCanvas.addEventListener('pointerdown', event => {
+        if (scratchStage.classList.contains('is-revealed')) return;
+        scratching = true;
+        lastX = null; lastY = null;
+        window.__freezeTilt = true;
+        refreshScratchMatrix();
+        try { scratchCanvas.setPointerCapture(event.pointerId); } catch (e) {}
+        scratchAt(event);
+      });
+      scratchCanvas.addEventListener('pointermove', scratchAt);
+      scratchCanvas.addEventListener('pointerup', endScratch);
+      scratchCanvas.addEventListener('pointerleave', () => { lastX = null; lastY = null; });
+      scratchCanvas.addEventListener('pointercancel', endScratch);
+      scratchReset.addEventListener('click', drawScratchCover);
+      new ResizeObserver(drawScratchCover).observe(scratchStage);
+    })();
+  </script>
+</body>
+</html>

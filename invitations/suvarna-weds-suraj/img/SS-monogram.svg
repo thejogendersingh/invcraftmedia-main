@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <!-- Rich Imperial Gold Gradients -->
+    <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2D6"/>
+      <stop offset="25%" stop-color="#E5C178"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="75%" stop-color="#AA7C26"/>
+      <stop offset="100%" stop-color="#7A5314"/>
+    </linearGradient>
+
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF6E0"/>
+      <stop offset="35%" stop-color="#E8C67E"/>
+      <stop offset="70%" stop-color="#C59632"/>
+      <stop offset="100%" stop-color="#8F6215"/>
+    </linearGradient>
+
+    <!-- Premium Glassmorphic White & Ivory Radial Base -->
+    <radialGradient id="glassWhite" cx="38%" cy="32%" r="68%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.98"/>
+      <stop offset="45%" stop-color="#FDFBF7" stop-opacity="0.94"/>
+      <stop offset="78%" stop-color="#F5EFE1" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#EADBBE" stop-opacity="0.96"/>
+    </radialGradient>
+
+    <!-- Glass Specular Highlight Sheen -->
+    <linearGradient id="glassSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8"/>
+      <stop offset="40%" stop-color="#FFFFFF" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Subtle Drop Shadow Filter -->
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#5C3B0E" flood-opacity="0.35"/>
+    </filter>
+    <filter id="emboss" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1" flood-color="#4A3008" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Traditional Beaded Border (Gold) -->
+  <circle cx="80" cy="80" r="77" fill="none" stroke="url(#goldRim)" stroke-width="2.5" filter="url(#softShadow)"/>
+  
+  <!-- Main Glassmorphic White Disc -->
+  <circle cx="80" cy="80" r="74" fill="url(#glassWhite)" stroke="url(#goldRim)" stroke-width="3"/>
+
+  <!-- Concentric Traditional Rings -->
+  <circle cx="80" cy="80" r="67" fill="none" stroke="url(#goldRim)" stroke-width="1.2" stroke-dasharray="3.5 2.5"/>
+  <circle cx="80" cy="80" r="63" fill="none" stroke="url(#goldRim)" stroke-width="0.8"/>
+
+  <!-- Glass Arc Highlight (Glossy Reflection) -->
+  <path d="M22 66 A64 64 0 0 1 138 66 A64 45 0 0 0 22 66 Z" fill="url(#glassSheen)"/>
+
+  <!-- Traditional Sacred Floral / Dhammachakra Filigree in Background -->
+  <g opacity="0.3" stroke="url(#goldRim)" stroke-width="1.1" fill="none">
+    <circle cx="80" cy="80" r="32"/>
+    <circle cx="80" cy="80" r="14"/>
+    <!-- 12 Petals / Spokes -->
+    <line x1="80" y1="48" x2="80" y2="112"/>
+    <line x1="48" y1="80" x2="112" y2="80"/>
+    <line x1="57" y1="57" x2="103" y2="103"/>
+    <line x1="57" y1="103" x2="103" y2="57"/>
+    <line x1="80" y1="48" x2="80" y2="112" transform="rotate(30 80 80)"/>
+    <line x1="80" y1="48" x2="80" y2="112" transform="rotate(60 80 80)"/>
+    <line x1="80" y1="48" x2="80" y2="112" transform="rotate(120 80 80)"/>
+    <line x1="80" y1="48" x2="80" y2="112" transform="rotate(150 80 80)"/>
+  </g>
+
+  <!-- Embossed Interlocking "SS" Monogram in Antique Gold -->
+  <g filter="url(#emboss)">
+    <!-- First 'S' -->
+    <text x="65" y="93" font-family="'Cinzel', 'Great Vibes', serif" font-size="44" font-weight="800" fill="url(#goldText)" text-anchor="middle" letter-spacing="-1">S</text>
+    <!-- Ampersand & Floral Knot -->
+    <text x="80" y="85" font-family="'Cinzel', serif" font-size="16" font-weight="700" fill="url(#goldRim)" text-anchor="middle">&amp;</text>
+    <circle cx="80" cy="74" r="1.8" fill="url(#goldRim)"/>
+    <circle cx="80" cy="94" r="1.8" fill="url(#goldRim)"/>
+    <!-- Second 'S' -->
+    <text x="95" y="93" font-family="'Cinzel', 'Great Vibes', serif" font-size="44" font-weight="800" fill="url(#goldText)" text-anchor="middle" letter-spacing="-1">S</text>
+  </g>
+
+  <!-- Traditional Golden Ribbon & Devanagari Names -->
+  <path d="M42 108 Q80 114 118 108" stroke="url(#goldRim)" stroke-width="1.2" fill="none"/>
+  <text x="80" y="121" font-family="'Yatra One', 'Noto Serif Devanagari', serif" font-size="10.5" fill="url(#goldText)" font-weight="bold" text-anchor="middle" letter-spacing="1.2" filter="url(#emboss)">
+    सुवर्णा • सूरज
+  </text>
+</svg>

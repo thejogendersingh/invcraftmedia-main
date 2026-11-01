@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanchita weds Dharmendra — Modern Indian Luxury Wedding Experience</title>
+
+  <!-- SEO & Favicon Links -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+  <meta property="og:title" content="Sanchita weds Dharmendra — Royal Indian Wedding Invitation" />
+  <meta property="og:description" content="You are cordially invited to celebrate the royal matrimony of Sanchita weds Dharmendra at Prasang Lawn." />
+  <meta property="og:image" content="assets/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="assets/logo.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Great+Vibes&family=Pinyon+Script&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Tailwind Custom Colors Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: { 50: '#FFFFFF', 100: '#FFFFFF', 200: '#F9F9FB' },
+            champagne: '#FDE8EB',
+            royal: { 
+              green: '#8A3E4E', // Deep Luxury Rose
+              greenLight: '#A35263', // Soft Rose Highlight
+              greenDark: '#5E222F', // Deep Wine/Berry
+              gold: '#C5A059' // Warm Gold
+            },
+            burgundy: '#8A3E4E',
+            charcoal: { DEFAULT: '#111111', muted: '#555555' }
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'serif'],
+            cinzel: ['Cinzel Decorative', 'serif'],
+            pinyon: ['Pinyon Script', 'cursive'],
+            cursive: ['Great Vibes', 'cursive'],
+            display: ['Instrument Serif', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Preload Critical Above-The-Fold Assets & Poster -->
+  <link rel="preload" as="image" href="assets/envelope-poster.jpg" />
+  <link rel="preload" as="video" href="assets/hero-bg.mp4" type="video/mp4" />
+  <link rel="preload" as="image" href="assets/hero-bg(1).webp" type="image/webp" />
+  <link rel="stylesheet" href="style.css?v=5.1" />
+</head>
+<body class="bg-ivory-100 text-charcoal font-sans antialiased overflow-x-hidden">
+
+  <!-- BACKGROUND WEDDING AUDIO ELEMENT -->
+  <audio id="wedding-audio" loop preload="auto">
+    <source src="assets/wedding_tune.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- FLOATING LUXURY MUSIC TOGGLE BUTTON -->
+  <button id="audio-toggle-btn" class="fixed top-4 right-4 z-[50] flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-[#C5A059]/60 shadow-[0_4px_16px_rgba(0,0,0,0.3)] text-white transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" title="Toggle Music" aria-label="Toggle Wedding Music">
+    <i data-lucide="volume-2" class="w-3.5 h-3.5 text-[#C5A059]"></i>
+    <span id="audio-label" class="text-[9px] font-bold tracking-[0.18em] text-[#C5A059] uppercase">MUSIC</span>
+  </button>
+
+  <!-- ENVELOPE ENTRANCE OVERLAY -->
+  <div id="door-overlay" class="door-overlay flex flex-col items-center justify-center cursor-pointer overflow-hidden" onclick="openRoyalDoor()">
+    <!-- Background Video Wrapper (Guaranteed Full Width Mobile Fit) -->
+    <div class="absolute inset-0 z-0 pointer-events-none w-full h-full overflow-hidden flex items-center justify-center">
+      <video id="envelope-video" muted playsinline preload="auto" poster="assets/envelope-poster.jpg" class="w-full h-full object-cover object-center min-w-full min-h-full">
+        <source src="assets/envolp-open.mp4?v=3" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- Bottom Tap to Open Text -->
+    <div id="overlay-cta" class="absolute bottom-[14%] left-0 right-0 w-full text-center z-10 opacity-0 envelope-text-bottom">
+      <p class="font-cursive text-4xl sm:text-5xl text-white font-medium tracking-wide drop-shadow-md">
+        Tap to open
+      </p>
+    </div>
+  </div>
+
+  <!-- 60FPS PETAL SIMULATION CANVAS - FLOATING ON TOP OF ALL SECTIONS (z-[40]) -->
+  <canvas id="petals-canvas" class="fixed inset-0 pointer-events-none z-[40] opacity-80"></canvas>
+
+  <!-- CUSTOM MAGNETIC CURSOR -->
+  <div id="custom-cursor-dot" class="custom-cursor-dot"></div>
+  <div id="custom-cursor-ring" class="custom-cursor-ring"><span id="cursor-text"></span></div>  <!-- HERO SECTION WITH INTEGRATED SCRATCH & REVEAL COUNTDOWN -->
+  <section class="hero-section relative w-full h-[100dvh] min-h-[720px] max-h-[960px] flex items-center justify-center bg-[#0A1118] overflow-hidden">
+    
+    <!-- Full-Bleed Edge-to-Edge Video Background -->
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden hero-bg-anim">
+      <video id="hero-bg-video" autoplay loop muted playsinline poster="assets/hero-bg(1).webp" class="w-full h-full object-cover object-center">
+        <source src="assets/hero-bg.mp4" type="video/mp4" />
+        <img src="assets/hero-bg(1).webp" alt="Royal Palace Background" class="w-full h-full object-cover object-center" />
+      </video>
+    </div>
+
+    <!-- PERFECT UNIFIED OVERLAY CONTAINER (Framed Gracefully Inside Upper Palace Arch with Royal Proportions) -->
+    <div class="absolute inset-0 z-10 flex flex-col items-center justify-center max-w-[310px] sm:max-w-[380px] md:max-w-[420px] w-full mx-auto px-2 sm:px-4 text-center pointer-events-auto my-auto -mt-12 sm:-mt-20 py-2 space-y-2.5 sm:space-y-4">
+      
+      <!-- 1. Ganesha Avatar Medal & Traditional Mantra -->
+      <div class="flex flex-col items-center">
+        <div class="relative w-[66px] h-[66px] sm:w-[82px] sm:h-[82px] rounded-full p-[2.5px] bg-gradient-to-tr from-[#B38728] via-[#FBF5B7] to-[#AA771C] shadow-[0_6px_22px_rgba(0,0,0,0.25)] transition-transform duration-500 hover:scale-105">
+          <div class="w-full h-full rounded-full p-[1.5px] bg-[#0C3839]">
+            <div class="w-full h-full rounded-full overflow-hidden border border-[#C5A059]/60 bg-white flex items-center justify-center shadow-inner">
+              <img src="assets/ganesh-ji.jpg" alt="Lord Ganesha" class="w-full h-full object-cover object-center" style="transform: scale(1.58);" decoding="async" />
+            </div>
+          </div>
+        </div>
+
+        <div data-trans="mantra" class="text-[9.5px] sm:text-[11px] uppercase tracking-[0.25em] text-[#C5A059] font-serif font-bold mt-1.5 sm:mt-2">
+          || Shree Ganeshay Namah ||
+        </div>
+      </div>
+
+      <!-- 2. Subtitle & Grand Royal Couple Names with Parents Details -->
+      <div class="flex flex-col items-center justify-center w-full space-y-1.5 sm:space-y-2">
+        <p data-trans="subtitle" class="font-sans text-[9px] sm:text-[10.5px] uppercase tracking-[0.32em] text-[#164E40] font-bold mb-0.5">
+          THE WEDDING CELEBRATION OF
+        </p>
+
+        <!-- Bride (on top) -->
+        <div class="flex flex-col items-center text-center space-y-0.5">
+          <h1 class="font-serif text-3xl sm:text-5xl md:text-[50px] font-bold tracking-wide text-[#0D3B3E] drop-shadow-md leading-tight">
+            <span class="font-sans text-xs sm:text-sm font-semibold text-[#8A3E4E] tracking-widest uppercase mr-1.5">Ms.</span><span data-trans="bride">Sanchita</span>
+          </h1>
+          <div class="font-sans text-[9.5px] sm:text-[11px] font-semibold text-[#8A3E4E] tracking-wider">(Preeti)</div>
+          <div class="font-serif italic text-[11px] sm:text-[13px] text-charcoal/85 font-medium tracking-wide pt-0.5 leading-snug">
+            D/O Mrs. Bharti and Mr. Mukesh Kakwani
+          </div>
+        </div>
+
+        <!-- Weds Divider -->
+        <div class="flex items-center justify-center gap-2.5 sm:gap-4 my-1.5 sm:my-2.5 w-full">
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-r from-transparent via-[#C5A059] to-[#C5A059]"></div>
+          <span data-trans="weds" class="font-cursive text-[#C5A059] text-2xl sm:text-3xl font-normal tracking-widest transform -rotate-3 drop-shadow-sm px-1.5">weds</span>
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-l from-transparent via-[#C5A059] to-[#C5A059]"></div>
+        </div>
+
+        <!-- Groom (below) -->
+        <div class="flex flex-col items-center text-center space-y-0.5">
+          <h2 class="font-serif text-3xl sm:text-5xl md:text-[50px] font-bold tracking-wide text-[#0D3B3E] drop-shadow-md leading-tight">
+            <span class="font-sans text-xs sm:text-sm font-semibold text-[#8A3E4E] tracking-widest uppercase mr-1.5">Mr.</span><span data-trans="groom">Dharmendra</span>
+          </h2>
+          <div class="font-sans text-[9.5px] sm:text-[11px] font-semibold text-[#8A3E4E] tracking-wider">(Monu)</div>
+          <div class="font-serif italic text-[11px] sm:text-[13px] text-charcoal/85 font-medium tracking-wide pt-0.5 leading-snug">
+            S/O Late Mrs. Mamta &amp; Late Mr. Choithmal Ahuja <span class="font-sans not-italic text-[9.5px] sm:text-[11px] font-bold text-[#C5A059]">[Betul (M.P.)]</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Date & Venue Details -->
+      <div class="flex flex-col items-center w-full pt-1 sm:pt-2 space-y-1">
+        <span data-trans="date" class="font-serif text-xs sm:text-base md:text-lg font-bold tracking-[0.18em] text-[#8A2E40] uppercase drop-shadow-sm">
+          1st &amp; 2nd December 2026
+        </span>
+        <span data-trans="venue" class="font-sans text-[8.5px] sm:text-[10.5px] font-bold tracking-[0.22em] text-[#C5A059] uppercase">
+          Accord Wildlife, Pench
+        </span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DEDICATED WEDDING COUNTDOWN & SCRATCH-TO-REVEAL SECTION -->
+  <section id="countdown-section" class="py-10 sm:py-16 px-4 sm:px-8 bg-[#FAF9F6] relative z-10 border-t border-[#E5E5EA]">
+    <div class="max-w-3xl mx-auto space-y-6 sm:space-y-8 text-center">
+      
+      <!-- Section Header -->
+      <div class="space-y-1.5 scroll-reveal">
+        <span class="font-sans text-[9px] sm:text-[10px] tracking-[0.25em] text-[#C5A059] font-bold uppercase block">THE AUSPICIOUS CELEBRATION</span>
+        <h2 class="font-cursive text-3xl sm:text-4xl md:text-5xl text-black font-medium tracking-wide leading-tight py-0.5">Counting Down to Forever</h2>
+        <div class="flex items-center justify-center gap-3 pt-0.5">
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/50"></div>
+          <span class="text-[#C5A059] text-xs select-none">✦</span>
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/50"></div>
+        </div>
+        <p class="font-serif italic text-xs sm:text-[13px] text-charcoal-muted max-w-md mx-auto pt-0.5">
+          &quot;Every passing second brings us closer to the sacred vows of love, blessings &amp; eternal togetherness.&quot;
+        </p>
+      </div>
+
+      <!-- ROYAL LUXURY SCRATCH CARD BOX -->
+      <div class="relative rounded-3xl p-4 sm:p-7 bg-gradient-to-b from-[#FFFDF9] via-white to-[#FAF6ED] border-2 border-[#C5A059] shadow-[0_14px_45px_rgba(197,160,89,0.18)] max-w-lg mx-auto scroll-reveal">
+        
+        <!-- Inner Inset Frame & Corner Stars -->
+        <div class="absolute inset-2 sm:inset-2.5 rounded-[22px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+        <span class="absolute top-2 left-3 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
+        <span class="absolute top-2 right-3 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
+        <span class="absolute bottom-2 left-3 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
+        <span class="absolute bottom-2 right-3 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
+
+        <!-- Scratch Canvas Container Wrapper -->
+        <div id="scratch-card-wrapper" class="relative w-full rounded-2xl overflow-hidden min-h-[110px] sm:min-h-[130px] flex items-center justify-center border border-[#C5A059]/50 bg-white/95 shadow-inner">
+          
+          <!-- MATTE CHAMPAGNE METALLIC SCRATCH CANVAS OVERLAY -->
+          <canvas id="scratch-canvas" class="absolute inset-0 w-full h-full z-20 cursor-pointer rounded-2xl touch-none transition-opacity duration-700"></canvas>
+          
+          <!-- REVEALED TICKER GRID UNDERNEATH (Spacious, Clear & Elegant) -->
+          <div class="relative z-10 grid grid-cols-4 gap-2 sm:gap-3 w-full text-center p-2 sm:p-3">
+            
+            <!-- Days Tile -->
+            <div class="py-2.5 sm:py-3.5 px-1 rounded-xl bg-gradient-to-b from-[#FFFDF9] to-[#FAF6ED] border border-[#C5A059]/40 flex flex-col items-center shadow-sm">
+              <span id="cnt-days" class="font-serif text-2xl sm:text-4xl font-bold text-[#0D3B3E] tracking-tight leading-none">00</span>
+              <span data-trans="days" class="font-sans text-[7.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#C5A059] font-bold mt-1">DAYS</span>
+            </div>
+
+            <!-- Hours Tile -->
+            <div class="py-2.5 sm:py-3.5 px-1 rounded-xl bg-gradient-to-b from-[#FFFDF9] to-[#FAF6ED] border border-[#C5A059]/40 flex flex-col items-center shadow-sm">
+              <span id="cnt-hours" class="font-serif text-2xl sm:text-4xl font-bold text-[#0D3B3E] tracking-tight leading-none">00</span>
+              <span data-trans="hours" class="font-sans text-[7.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#C5A059] font-bold mt-1">HOURS</span>
+            </div>
+
+            <!-- Mins Tile -->
+            <div class="py-2.5 sm:py-3.5 px-1 rounded-xl bg-gradient-to-b from-[#FFFDF9] to-[#FAF6ED] border border-[#C5A059]/40 flex flex-col items-center shadow-sm">
+              <span id="cnt-mins" class="font-serif text-2xl sm:text-4xl font-bold text-[#0D3B3E] tracking-tight leading-none">00</span>
+              <span data-trans="mins" class="font-sans text-[7.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#C5A059] font-bold mt-1">MINUTES</span>
+            </div>
+
+            <!-- Secs Tile -->
+            <div class="py-2.5 sm:py-3.5 px-1 rounded-xl bg-gradient-to-b from-[#FFFDF9] to-[#FAF6ED] border border-[#C5A059]/40 flex flex-col items-center shadow-sm">
+              <span id="cnt-secs" class="font-serif text-2xl sm:text-4xl font-bold text-[#8A2E40] tracking-tight leading-none">00</span>
+              <span data-trans="secs" class="font-sans text-[7.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#C5A059] font-bold mt-1">SECONDS</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Gentle Interactive Hint -->
+        <p class="font-sans text-[9px] sm:text-[10px] text-[#C5A059] font-semibold tracking-[0.25em] uppercase pt-3 select-none">
+          ✨ Scratch the golden card to reveal the timer ✨
+        </p>
+
+      </div>
+
+      <!-- Elegant Horizontal Rose Garland Section Divider -->
+      <div class="pt-6 sm:pt-8 flex items-center justify-center gap-3 max-w-xl mx-auto scroll-reveal">
+        <div class="flex-1 h-[1px] bg-gradient-to-r from-transparent via-[#C5A059]/30 to-[#C5A059]/60"></div>
+        <img src="assets/divider-flower.png" alt="Floral Garland Divider" class="w-48 sm:w-60 h-auto object-contain select-none pointer-events-none filter drop-shadow-[0_4px_10px_rgba(197,160,89,0.15)]" loading="lazy" decoding="async" />
+        <div class="flex-1 h-[1px] bg-gradient-to-l from-transparent via-[#C5A059]/30 to-[#C5A059]/60"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EVENTS ITINERARY SECTION (PURE EVENT INVITATION E-CARD POSTER BANNERS) -->
+  <section id="events" class="py-16 px-4 sm:px-8 bg-white relative z-10 border-t border-[#E5E5EA]">
+    <div class="max-w-4xl mx-auto space-y-12 text-center">
+      
+      <!-- Section Header (Matches Bride & Groom Section Header) -->
+      <div class="space-y-2 scroll-reveal">
+        <span class="font-sans text-[10px] tracking-[0.3em] text-[#C5A059] font-bold uppercase block">THE ITINERARY</span>
+        <h2 data-trans="eventsTitle" class="font-cursive text-5xl sm:text-6xl text-black font-medium tracking-wide">Sacred Ceremonies</h2>
+        <div class="flex items-center justify-center gap-3 pt-1">
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/50"></div>
+          <span class="text-[#C5A059] text-xs select-none">✦</span>
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/50"></div>
+        </div>
+      </div>
+
+      <!-- Pure Event Invitation Poster Cards (Theme Background + Frosted Invitation Plaque + Bottom Couple Cutout) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-4xl mx-auto">
+        
+        <!-- Event Card 1: Saath and Telbuki -->
+        <div class="group relative aspect-[9/15] sm:aspect-[9/14] min-h-[540px] rounded-[30px] overflow-hidden shadow-2xl border-2 border-[#C5A059] scroll-reveal transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_20px_50px_rgba(197,160,89,0.25)] flex flex-col justify-between">
+          <!-- Themed Background Image (Toran and garlands at top) -->
+          <img src="assets/g-haldi-bg-CB-4YaJG.png" alt="Saath and Telbuki Background" class="absolute inset-0 w-full h-full object-cover object-top z-0 pointer-events-none transform group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+          
+          <!-- Inner Decorative Gold Inset Frame -->
+          <div class="absolute inset-2 sm:inset-2.5 rounded-[24px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+
+          <!-- Floating Petals Decorative Layer -->
+          <div class="absolute inset-0 pointer-events-none z-20 overflow-hidden select-none">
+            <span class="absolute top-10 left-3 text-base opacity-75 animate-float-slow">🌹</span>
+            <span class="absolute top-28 right-4 text-xs opacity-80 animate-float-mid">🌼</span>
+            <span class="absolute top-44 left-6 text-sm opacity-85 animate-float-fast">🌹</span>
+            <span class="absolute bottom-24 right-5 text-sm opacity-80 animate-float-slow">🌼</span>
+            <span class="absolute bottom-36 left-4 text-base opacity-75 animate-float-mid">🌹</span>
+          </div>
+
+          <!-- Top Frosted Glass Invitation Plaque (Matches User Mockup 1:1) -->
+          <div class="relative z-20 mx-2.5 sm:mx-4 mt-6 sm:mt-8 p-3.5 sm:p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-[#C5A059]/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)] text-center space-y-1.5">
+            <h3 class="font-cursive text-4xl sm:text-5xl text-[#8A3E4E] font-medium tracking-wide leading-tight">
+              Saath and Telbuki
+            </h3>
+            <p class="font-serif italic text-[13px] sm:text-[14.5px] text-charcoal-muted leading-snug max-w-[280px] mx-auto">
+              Traditional auspicious Saath &amp; Telbuki ritual invoked with divine blessings
+            </p>
+            
+            <!-- Floral Gold Divider -->
+            <div class="flex items-center justify-center gap-2 py-0.5">
+              <div class="w-10 sm:w-14 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60"></div>
+              <span class="text-[#C5A059] text-xs select-none">✿</span>
+              <div class="w-10 sm:w-14 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60"></div>
+            </div>
+
+            <!-- Two-Column Date, Time & Venue Block -->
+            <div class="inline-block w-full max-w-[320px] sm:max-w-[350px] px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl border border-[#C5A059]/60 bg-[#FAF6ED]/95 shadow-sm text-center">
+              <div class="grid grid-cols-2 gap-2 border-b border-[#C5A059]/30 pb-2 mb-2">
+                <div class="border-r border-[#C5A059]/30 pr-2">
+                  <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">DATE</span>
+                  <span class="font-serif text-[15px] sm:text-[16.5px] font-bold text-[#8A3E4E] block">Mon · 30 Nov. 2026</span>
+                </div>
+                <div class="pl-2">
+                  <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">TIME</span>
+                  <span class="font-serif text-[15px] sm:text-[16.5px] font-bold text-[#8A3E4E] block">10:00 AM onwards</span>
+                </div>
+              </div>
+              <div>
+                <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">VENUE</span>
+                <span class="font-serif text-[12px] sm:text-[13.5px] font-bold text-[#8A3E4E] block leading-snug">At Own Residence (Mukesh Kakwani, A-7, Seth Surajmal Bagicha, Adarsh Colony, Gondia, Maharashtra 441601)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Couple Cutout Image -->
+          <img src="assets/sath-groom.PNG?v=2" alt="Saath Groom" class="absolute bottom-0 left-1/2 -translate-x-1/2 max-h-[48%] sm:max-h-[50%] w-auto object-contain pointer-events-none z-10 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]" loading="lazy" decoding="async" />
+        </div>
+
+        <!-- Event Card 2: Mehendi Rasam -->
+        <div class="group relative aspect-[9/15] sm:aspect-[9/14] min-h-[540px] rounded-[30px] overflow-hidden shadow-2xl border-2 border-[#C5A059] scroll-reveal transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_20px_50px_rgba(197,160,89,0.25)] flex flex-col justify-between">
+          <!-- Themed Background Image -->
+          <img src="assets/g-mehndi-bg-qHMm73q3.png" alt="Mehendi Background" class="absolute inset-0 w-full h-full object-cover object-top z-0 pointer-events-none transform group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+          
+          <!-- Inner Decorative Gold Inset Frame -->
+          <div class="absolute inset-2 sm:inset-2.5 rounded-[24px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+
+          <!-- Floating Petals Decorative Layer -->
+          <div class="absolute inset-0 pointer-events-none z-20 overflow-hidden select-none">
+            <span class="absolute top-12 left-4 text-sm opacity-80 animate-float-mid">🌿</span>
+            <span class="absolute top-24 right-5 text-base opacity-80 animate-float-slow">🌹</span>
+            <span class="absolute top-48 left-5 text-xs opacity-85 animate-float-fast">🌼</span>
+            <span class="absolute bottom-28 right-4 text-sm opacity-75 animate-float-mid">🌿</span>
+            <span class="absolute bottom-36 left-4 text-base opacity-80 animate-float-slow">🌹</span>
+          </div>
+
+          <!-- Top Frosted Glass Invitation Plaque (Matches User Mockup 1:1) -->
+          <div class="relative z-20 mx-2.5 sm:mx-4 mt-6 sm:mt-8 p-3.5 sm:p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-[#C5A059]/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)] text-center space-y-1.5">
+            <h3 class="font-cursive text-4xl sm:text-5xl text-[#8A3E4E] font-medium tracking-wide leading-tight">
+              Mehendi Rasam
+            </h3>
+            <p class="font-serif italic text-[13px] sm:text-[14.5px] text-charcoal-muted leading-snug max-w-[280px] mx-auto">
+              Vibrant afternoon celebrating henna art, folk music &amp; festive joy
+            </p>
+            
+            <!-- Floral Gold Divider -->
+            <div class="flex items-center justify-center gap-2 py-0.5">
+              <div class="w-10 sm:w-14 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60"></div>
+              <span class="text-[#C5A059] text-xs select-none">✿</span>
+              <div class="w-10 sm:w-14 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60"></div>
+            </div>
+
+            <!-- Two-Column Date, Time & Venue Block -->
+            <div class="inline-block w-full max-w-[320px] sm:max-w-[350px] px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl border border-[#C5A059]/60 bg-[#FAF6ED]/95 shadow-sm text-center">
+              <div class="grid grid-cols-2 gap-2 border-b border-[#C5A059]/30 pb-2 mb-2">
+                <div class="border-r border-[#C5A059]/30 pr-2">
+                  <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">DATE</span>
+                  <span class="font-serif text-[15px] sm:text-[16.5px] font-bold text-[#8A3E4E] block">Mon · 30 Nov. 2026</span>
+                </div>
+                <div class="pl-2">
+                  <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">TIME</span>
+                  <span class="font-serif text-[15px] sm:text-[16.5px] font-bold text-[#8A3E4E] block">01:00 PM onwards</span>
+                </div>
+              </div>
+              <div>
+                <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">VENUE</span>
+                <span class="font-serif text-[12.5px] sm:text-[14px] font-bold text-[#8A3E4E] block leading-snug">At Prasang Lawn, Kudwa, Gondia, Maharashtra 441614</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Couple Cutout Image -->
+          <img src="assets/mehandi-groom.PNG?v=2" alt="Mehendi Groom" class="absolute bottom-0 left-1/2 -translate-x-1/2 max-h-[48%] sm:max-h-[50%] w-auto object-contain pointer-events-none z-10 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]" loading="lazy" decoding="async" />
+        </div>
+
+        <!-- Event Card 3: Pre-Reception -->
+        <div class="group relative aspect-[9/15] sm:aspect-[9/14] min-h-[540px] rounded-[30px] overflow-hidden shadow-2xl border-2 border-[#C5A059] scroll-reveal transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_20px_50px_rgba(197,160,89,0.25)] flex flex-col justify-between">
+          <!-- Themed Background Image -->
+          <img src="assets/prerecption-bg.png" alt="Pre-Reception Background" class="absolute inset-0 w-full h-full object-cover object-top z-0 pointer-events-none transform group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+          
+          <!-- Inner Decorative Gold Inset Frame -->
+          <div class="absolute inset-2 sm:inset-2.5 rounded-[24px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+
+          <!-- Floating Petals Decorative Layer -->
+          <div class="absolute inset-0 pointer-events-none z-20 overflow-hidden select-none">
+            <span class="absolute top-10 left-4 text-base opacity-75 animate-float-slow">🌹</span>
+            <span class="absolute top-26 right-5 text-sm opacity-85 animate-float-mid">🌼</span>
+            <span class="absolute top-46 left-7 text-xs opacity-80 animate-float-fast">🌹</span>
+            <span class="absolute bottom-24 right-5 text-sm opacity-80 animate-float-slow">🌼</span>
+            <span class="absolute bottom-36 left-4 text-base opacity-75 animate-float-mid">🌹</span>
+          </div>
+
+          <!-- Top Frosted Glass Invitation Plaque (Matches User Mockup 1:1) -->
+          <div class="relative z-20 mx-2.5 sm:mx-4 mt-6 sm:mt-8 p-3.5 sm:p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-[#C5A059]/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)] text-center space-y-1.5">
+            <h3 class="font-cursive text-4xl sm:text-5xl text-[#8A3E4E] font-medium tracking-wide leading-tight">
+              Pre-Reception
+            </h3>
+            <p class="font-serif italic text-[13px] sm:text-[14.5px] text-charcoal-muted leading-snug max-w-[280px] mx-auto">
+              An elegant evening welcoming family, friends &amp; loved ones
+            </p>
+            
+            <!-- Floral Gold Divider -->
+            <div class="flex items-center justify-center gap-2 py-0.5">
+              <div class="w-10 sm:w-14 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60"></div>
+              <span class="text-[#C5A059] text-xs select-none">✿</span>
+              <div class="w-10 sm:w-14 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60"></div>
+            </div>
+
+            <!-- Two-Column Date, Time & Venue Block -->
+            <div class="inline-block w-full max-w-[320px] sm:max-w-[350px] px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl border border-[#C5A059]/60 bg-[#FAF6ED]/95 shadow-sm text-center">
+              <div class="grid grid-cols-2 gap-2 border-b border-[#C5A059]/30 pb-2 mb-2">
+                <div class="border-r border-[#C5A059]/30 pr-2">
+                  <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">DATE</span>
+                  <span class="font-serif text-[15px] sm:text-[16.5px] font-bold text-[#8A3E4E] block">Mon · 30 Nov. 2026</span>
+                </div>
+                <div class="pl-2">
+                  <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">TIME</span>
+                  <span class="font-serif text-[15px] sm:text-[16.5px] font-bold text-[#8A3E4E] block">07:00 PM onwards</span>
+                </div>
+              </div>
+              <div>
+                <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">VENUE</span>
+                <span class="font-serif text-[12.5px] sm:text-[14px] font-bold text-[#8A3E4E] block leading-snug">At Prasang Lawn, Kudwa, Gondia, Maharashtra 441614</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Couple Cutout Image -->
+          <img src="assets/prerecption-couple.PNG?v=3" onerror="this.onerror=null; this.src='assets/prerecption-couple.png?v=3';" alt="Pre-Reception Couple" class="absolute bottom-0 left-1/2 -translate-x-1/2 max-h-[48%] sm:max-h-[50%] w-auto object-contain pointer-events-none z-10 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]" loading="lazy" decoding="async" />
+        </div>
+
+        <!-- Event Card 4: Carnival -->
+        <div class="group relative aspect-[9/15] sm:aspect-[9/14] min-h-[540px] rounded-[30px] overflow-hidden shadow-2xl border-2 border-[#C5A059] scroll-reveal transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_20px_50px_rgba(197,160,89,0.25)] flex flex-col justify-between">
+          <!-- Themed Background Image -->
+          <img src="assets/carnival-bg.png" alt="Carnival Background" class="absolute inset-0 w-full h-full object-cover object-top z-0 pointer-events-none transform group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+          
+          <!-- Inner Decorative Gold Inset Frame -->
+          <div class="absolute inset-2 sm:inset-2.5 rounded-[24px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+
+          <!-- Floating Petals Decorative Layer -->
+          <div class="absolute inset-0 pointer-events-none z-20 overflow-hidden select-none">
+            <span class="absolute top-12 left-5 text-sm opacity-80 animate-float-mid">🎪</span>
+            <span class="absolute top-26 right-4 text-base opacity-80 animate-float-slow">🌹</span>
+            <span class="absolute top-48 left-6 text-xs opacity-85 animate-float-fast">🌼</span>
+            <span class="absolute bottom-26 right-5 text-sm opacity-75 animate-float-mid">✨</span>
+            <span class="absolute bottom-36 left-4 text-base opacity-80 animate-float-slow">🌹</span>
+          </div>
+
+          <!-- Top Frosted Glass Invitation Plaque (Matches User Mockup 1:1) -->
+          <div class="relative z-20 mx-2.5 sm:mx-4 mt-6 sm:mt-8 p-3.5 sm:p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-[#C5A059]/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)] text-center space-y-1.5">
+            <h3 class="font-cursive text-4xl sm:text-5xl text-[#8A3E4E] font-medium tracking-wide leading-tight">
+              Carnival
+            </h3>
+            <p class="font-serif italic text-[13px] sm:text-[14.5px] text-charcoal-muted leading-snug max-w-[280px] mx-auto">
+              A vibrant afternoon of tropical rhythms, fun games &amp; laughter
+            </p>
+            
+            <!-- Floral Gold Divider -->
+            <div class="flex items-center justify-center gap-2 py-0.5">
+              <div class="w-10 sm:w-14 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60"></div>
+              <span class="text-[#C5A059] text-xs select-none">✿</span>
+              <div class="w-10 sm:w-14 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60"></div>
+            </div>
+
+            <!-- Two-Column Date, Time & Venue Block -->
+            <div class="inline-block w-full max-w-[320px] sm:max-w-[350px] px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl border border-[#C5A059]/60 bg-[#FAF6ED]/95 shadow-sm text-center">
+              <div class="grid grid-cols-2 gap-2 border-b border-[#C5A059]/30 pb-2 mb-2">
+                <div class="border-r border-[#C5A059]/30 pr-2">
+                  <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">DATE</span>
+                  <span class="font-serif text-[15px] sm:text-[16.5px] font-bold text-[#8A3E4E] block">Tue · 01 Dec. 2026</span>
+                </div>
+                <div class="pl-2">
+                  <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">TIME</span>
+                  <span class="font-serif text-[15px] sm:text-[16.5px] font-bold text-[#8A3E4E] block">01:00 PM Sharp</span>
+                </div>
+              </div>
+              <div>
+                <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">VENUE</span>
+                <span class="font-serif text-[13.5px] sm:text-[15px] font-bold text-[#8A3E4E] block leading-snug">Accord Wildlife Resort, Pench</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Couple Cutout Image -->
+          <img src="assets/carnival-couple.png" alt="Carnival Couple" class="absolute bottom-0 left-1/2 -translate-x-1/2 max-h-[46%] sm:max-h-[48%] w-auto object-contain pointer-events-none z-10 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]" loading="lazy" decoding="async" />
+        </div>
+
+        <!-- Event Card 5: Sundowner Sangeet -->
+        <div class="group relative aspect-[9/15] sm:aspect-[9/14] min-h-[540px] rounded-[30px] overflow-hidden shadow-2xl border-2 border-[#C5A059] scroll-reveal transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_20px_50px_rgba(197,160,89,0.25)] flex flex-col justify-between">
+          <!-- Themed Background Image -->
+          <img src="assets/g-sangeet-bg-B0tRJ9nE.png" alt="Sangeet Background" class="absolute inset-0 w-full h-full object-cover object-top z-0 pointer-events-none transform group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+          
+          <!-- Inner Decorative Gold Inset Frame -->
+          <div class="absolute inset-2 sm:inset-2.5 rounded-[24px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+
+          <!-- Floating Petals Decorative Layer -->
+          <div class="absolute inset-0 pointer-events-none z-20 overflow-hidden select-none">
+            <span class="absolute top-10 left-4 text-base opacity-75 animate-float-slow">🌹</span>
+            <span class="absolute top-26 right-5 text-sm opacity-85 animate-float-mid">✨</span>
+            <span class="absolute top-46 left-6 text-xs opacity-80 animate-float-fast">🪩</span>
+            <span class="absolute bottom-24 right-5 text-sm opacity-80 animate-float-slow">🌼</span>
+            <span class="absolute bottom-36 left-4 text-base opacity-75 animate-float-mid">🌹</span>
+          </div>
+
+          <!-- Top Frosted Glass Invitation Plaque (Matches User Mockup 1:1) -->
+          <div class="relative z-20 mx-2.5 sm:mx-4 mt-6 sm:mt-8 p-3.5 sm:p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-[#C5A059]/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)] text-center space-y-1.5">
+            <h3 class="font-cursive text-4xl sm:text-5xl text-[#8A3E4E] font-medium tracking-wide leading-tight">
+              Sundowner Sangeet
+            </h3>
+            <p class="font-serif italic text-[13px] sm:text-[14.5px] text-charcoal-muted leading-snug max-w-[280px] mx-auto">
+              An evening of song, dance and celebration under the setting sun
+            </p>
+            
+            <!-- Floral Gold Divider -->
+            <div class="flex items-center justify-center gap-2 py-0.5">
+              <div class="w-10 sm:w-14 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60"></div>
+              <span class="text-[#C5A059] text-xs select-none">✿</span>
+              <div class="w-10 sm:w-14 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60"></div>
+            </div>
+
+            <!-- Two-Column Date, Time & Venue Block -->
+            <div class="inline-block w-full max-w-[320px] sm:max-w-[350px] px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl border border-[#C5A059]/60 bg-[#FAF6ED]/95 shadow-sm text-center">
+              <div class="grid grid-cols-2 gap-2 border-b border-[#C5A059]/30 pb-2 mb-2">
+                <div class="border-r border-[#C5A059]/30 pr-2">
+                  <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">DATE</span>
+                  <span class="font-serif text-[15px] sm:text-[16.5px] font-bold text-[#8A3E4E] block">Tue · 01 Dec. 2026</span>
+                </div>
+                <div class="pl-2">
+                  <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">TIME</span>
+                  <span class="font-serif text-[15px] sm:text-[16.5px] font-bold text-[#8A3E4E] block">07:00 PM onwards</span>
+                </div>
+              </div>
+              <div>
+                <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">VENUE</span>
+                <span class="font-serif text-[13.5px] sm:text-[15px] font-bold text-[#8A3E4E] block leading-snug">Accord Wildlife Resort, Pench</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Couple Cutout Image -->
+          <img src="assets/03-CckZCPLj-crop.png" alt="Sangeet Couple" class="absolute bottom-0 left-1/2 -translate-x-1/2 max-h-[46%] sm:max-h-[48%] w-auto object-contain pointer-events-none z-10 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]" loading="lazy" decoding="async" />
+        </div>
+
+        <!-- Event Card 6: Barat -->
+        <div class="group relative aspect-[9/15] sm:aspect-[9/14] min-h-[540px] rounded-[30px] overflow-hidden shadow-2xl border-2 border-[#C5A059] scroll-reveal transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_20px_50px_rgba(197,160,89,0.25)] flex flex-col justify-between">
+          <!-- Themed Background Image -->
+          <img src="assets/g-wedding-bg-8_wipKLl.png" alt="Barat Background" class="absolute inset-0 w-full h-full object-cover object-top z-0 pointer-events-none transform group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+          
+          <!-- Inner Decorative Gold Inset Frame -->
+          <div class="absolute inset-2 sm:inset-2.5 rounded-[24px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+
+          <!-- Floating Petals Decorative Layer -->
+          <div class="absolute inset-0 pointer-events-none z-20 overflow-hidden select-none">
+            <span class="absolute top-12 left-4 text-base opacity-75 animate-float-slow">🌹</span>
+            <span class="absolute top-26 right-5 text-sm opacity-85 animate-float-mid">🌼</span>
+            <span class="absolute top-46 left-6 text-xs opacity-80 animate-float-fast">🎺</span>
+            <span class="absolute bottom-24 right-5 text-sm opacity-80 animate-float-slow">🌹</span>
+            <span class="absolute bottom-36 left-4 text-base opacity-75 animate-float-mid">🌼</span>
+          </div>
+
+          <!-- Top Frosted Glass Invitation Plaque (Matches User Mockup 1:1) -->
+          <div class="relative z-20 mx-2.5 sm:mx-4 mt-6 sm:mt-8 p-3.5 sm:p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-[#C5A059]/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)] text-center space-y-1.5">
+            <h3 class="font-cursive text-4xl sm:text-5xl text-[#8A3E4E] font-medium tracking-wide leading-tight">
+              Barat
+            </h3>
+            <p class="font-serif italic text-[13px] sm:text-[14.5px] text-charcoal-muted leading-snug max-w-[280px] mx-auto">
+              The grand procession of the Barat followed by sacred Phere and ceremonies
+            </p>
+            
+            <!-- Floral Gold Divider -->
+            <div class="flex items-center justify-center gap-2 py-0.5">
+              <div class="w-10 sm:w-14 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60"></div>
+              <span class="text-[#C5A059] text-xs select-none">✿</span>
+              <div class="w-10 sm:w-14 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60"></div>
+            </div>
+
+            <!-- Two-Column Date, Time & Venue Block -->
+            <div class="inline-block w-full max-w-[320px] sm:max-w-[350px] px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl border border-[#C5A059]/60 bg-[#FAF6ED]/95 shadow-sm text-center">
+              <div class="grid grid-cols-2 gap-2 border-b border-[#C5A059]/30 pb-2 mb-2">
+                <div class="border-r border-[#C5A059]/30 pr-2">
+                  <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">DATE</span>
+                  <span class="font-serif text-[15px] sm:text-[16.5px] font-bold text-[#8A3E4E] block">Wed · 02 Dec. 2026</span>
+                </div>
+                <div class="pl-2">
+                  <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">TIME</span>
+                  <span class="font-serif text-[15px] sm:text-[16.5px] font-bold text-[#8A3E4E] block">12:00 PM onwards</span>
+                </div>
+              </div>
+              <div>
+                <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">VENUE</span>
+                <span class="font-serif text-[13.5px] sm:text-[15px] font-bold text-[#8A3E4E] block leading-snug">Accord Wildlife Resort, Pench</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Couple Cutout Image -->
+          <img src="assets/04-CC6lrDGi-crop.png" alt="Barat Couple" class="absolute bottom-0 left-1/2 -translate-x-1/2 max-h-[46%] sm:max-h-[48%] w-auto object-contain pointer-events-none z-10 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]" loading="lazy" decoding="async" />
+        </div>
+
+        <!-- Event Card 7: Grand Reception (Full Centered Presentation) -->
+        <div class="md:col-span-2 flex justify-center">
+          <div class="group relative aspect-[9/15] sm:aspect-[9/14] min-h-[540px] max-w-[380px] w-full rounded-[30px] overflow-hidden shadow-2xl border-2 border-[#C5A059] scroll-reveal transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_20px_50px_rgba(197,160,89,0.25)] flex flex-col justify-between">
+            <!-- Themed Background Image -->
+            <img src="assets/reception-bg.png" alt="Reception Background" class="absolute inset-0 w-full h-full object-cover object-top z-0 pointer-events-none transform group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+            
+            <!-- Inner Decorative Gold Inset Frame -->
+            <div class="absolute inset-2 sm:inset-2.5 rounded-[24px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+
+            <!-- Floating Petals Decorative Layer -->
+            <div class="absolute inset-0 pointer-events-none z-20 overflow-hidden select-none">
+              <span class="absolute top-12 left-4 text-base opacity-75 animate-float-slow">🌹</span>
+              <span class="absolute top-26 right-5 text-sm opacity-85 animate-float-mid">👑</span>
+              <span class="absolute top-46 left-6 text-xs opacity-80 animate-float-fast">🌼</span>
+              <span class="absolute bottom-24 right-5 text-sm opacity-80 animate-float-slow">🌹</span>
+              <span class="absolute bottom-36 left-4 text-base opacity-75 animate-float-mid">✨</span>
+            </div>
+
+            <!-- Top Frosted Glass Invitation Plaque (Matches User Mockup 1:1) -->
+            <div class="relative z-20 mx-2.5 sm:mx-4 mt-6 sm:mt-8 p-3.5 sm:p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-[#C5A059]/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)] text-center space-y-1.5">
+              <h3 class="font-cursive text-4xl sm:text-5xl text-[#8A3E4E] font-medium tracking-wide leading-tight">
+                Reception
+              </h3>
+              <p class="font-serif italic text-[13px] sm:text-[14.5px] text-charcoal-muted leading-snug max-w-[280px] mx-auto">
+                An elegant evening to celebrate our union with loved ones
+              </p>
+              
+              <!-- Floral Gold Divider -->
+              <div class="flex items-center justify-center gap-2 py-0.5">
+                <div class="w-10 sm:w-14 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60"></div>
+                <span class="text-[#C5A059] text-xs select-none">✿</span>
+                <div class="w-10 sm:w-14 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60"></div>
+              </div>
+
+              <!-- Two-Column Date, Time & Venue Block -->
+              <div class="inline-block w-full max-w-[320px] sm:max-w-[350px] px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl border border-[#C5A059]/60 bg-[#FAF6ED]/95 shadow-sm text-center">
+                <div class="grid grid-cols-2 gap-2 border-b border-[#C5A059]/30 pb-2 mb-2">
+                  <div class="border-r border-[#C5A059]/30 pr-2">
+                    <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">DATE</span>
+                    <span class="font-serif text-[15px] sm:text-[16.5px] font-bold text-[#8A3E4E] block">Wed · 02 Dec. 2026</span>
+                  </div>
+                  <div class="pl-2">
+                    <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">TIME</span>
+                    <span class="font-serif text-[15px] sm:text-[16.5px] font-bold text-[#8A3E4E] block">07:00 PM onwards</span>
+                  </div>
+                </div>
+                <div>
+                  <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">VENUE</span>
+                  <span class="font-serif text-[13.5px] sm:text-[15px] font-bold text-[#8A3E4E] block leading-snug">Accord Wildlife Resort, Pench</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Couple Cutout Image -->
+            <img src="assets/reception-couple.png" alt="Reception Couple" class="absolute bottom-0 left-1/2 -translate-x-1/2 max-h-[46%] sm:max-h-[48%] w-auto object-contain pointer-events-none z-10 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]" loading="lazy" decoding="async" />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Elegant Horizontal Rose Garland Section Divider (Bottom of Events) -->
+      <div class="pt-8 sm:pt-12 flex items-center justify-center gap-3 max-w-xl mx-auto scroll-reveal">
+        <div class="flex-1 h-[1px] bg-gradient-to-r from-transparent via-[#C5A059]/30 to-[#C5A059]/60"></div>
+        <img src="assets/divider-flower.png" alt="Floral Garland Divider" class="w-52 sm:w-64 h-auto object-contain select-none pointer-events-none filter drop-shadow-[0_4px_12px_rgba(197,160,89,0.18)]" loading="lazy" decoding="async" />
+        <div class="flex-1 h-[1px] bg-gradient-to-l from-transparent via-[#C5A059]/30 to-[#C5A059]/60"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEPARATE SECTION 2: MEMORIES & CELEBRATIONS GALLERY -->
+  <section id="gallery" class="py-20 px-4 sm:px-8 bg-[#FAF9F6] relative z-10 border-b border-[#E5E5EA]">
+    <div class="max-w-4xl mx-auto space-y-10 text-center">
+      
+      <div class="space-y-2 scroll-reveal">
+        <span class="font-sans text-[10px] tracking-[0.3em] text-[#C5A059] font-bold block">SWEET MEMORIES</span>
+        <h2 class="font-cursive text-5xl sm:text-6xl text-black font-medium tracking-wide">Sacred Moments</h2>
+        <div class="flex items-center justify-center gap-3 pt-1">
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/50"></div>
+          <span class="text-[#C5A059] text-xs select-none">✦</span>
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/50"></div>
+        </div>
+      </div>
+
+      <!-- Single Featured Carousel Box (Narrowed Width with Rich Invitation Border, Arrows Removed) -->
+      <div class="relative rounded-3xl p-2 sm:p-2.5 bg-gradient-to-b from-[#FFFDF9] via-white to-[#FAF6ED] border-2 border-[#C5A059] shadow-[0_12px_45px_rgba(197,160,89,0.18)] max-w-[340px] sm:max-w-[380px] mx-auto scroll-reveal">
+        
+        <!-- Inner Decorative Inset Frame -->
+        <div class="absolute inset-1.5 rounded-[20px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+
+        <!-- Featured Image Display (Aspect-[3/4] on mobile/sm, Aspect-[4/5] on larger screens) -->
+        <div onclick="openCurrentCarouselLightbox()" class="relative aspect-[3/4] md:aspect-[4/5] w-full rounded-2xl overflow-hidden cursor-pointer shadow-inner">
+          <img id="carousel-featured-img" src="assets/couple2.jpeg" alt="Wedding Memory" class="w-full h-full object-cover filter brightness-[1.03] contrast-[1.01] transition-opacity duration-500 ease-in-out" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/5 pointer-events-none"></div>
+        </div>
+
+        <!-- Slide Indicator Dots -->
+        <div id="carousel-dots-container" class="absolute bottom-5 inset-x-0 flex items-center justify-center gap-1.5 z-20">
+        </div>
+      </div>
+
+      <!-- Send Love & Blessings (Directly Below Gallery - Seamless, No Box, No Background) -->
+      <div class="pt-3 flex flex-col items-center justify-center space-y-2 text-center max-w-sm mx-auto scroll-reveal">
+        <div class="space-y-0.5">
+          <p class="font-cursive text-3xl sm:text-4xl text-black font-medium tracking-wide">
+            Send Love to Couple
+          </p>
+          <p class="font-serif italic text-xs text-charcoal-muted leading-relaxed">
+            Tap the heart below to shower Sanchita &amp; Dharmendra with your love and blessings!
+          </p>
+        </div>
+
+        <!-- Interactive Love Count Button -->
+        <button id="love-btn" onclick="sendLoveToCouple(event)" aria-label="Send Love to Sanchita and Dharmendra" class="group relative inline-flex items-center gap-3 px-8 py-3 rounded-full bg-gradient-to-r from-[#8A3E4E] to-[#A35263] text-white font-sans text-xs uppercase tracking-[0.2em] font-bold shadow-[0_6px_25px_rgba(138,62,78,0.3)] hover:shadow-[0_8px_30px_rgba(138,62,78,0.45)] hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer border border-[#C5A059]/60">
+          <span class="text-xl transform group-hover:scale-125 transition-transform duration-300 animate-pulse">❤️</span>
+          <span>Send Love</span>
+          <span id="love-counter" class="bg-white/20 backdrop-blur-sm px-2.5 py-0.5 rounded-full text-white text-xs font-serif font-bold">298</span>
+        </button>
+
+        <span id="love-feedback" class="text-[11px] font-sans tracking-wide text-[#8A3E4E] font-medium opacity-0 transition-opacity duration-300 -mt-0.5">
+          ❤️ Blessings Showered!
+        </span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SHAHI PARIVAAR / ROYAL HOSTS & FAMILY BLESSINGS SECTION (Minimalist White Theme) -->
+  <section id="hosts" class="py-20 px-4 sm:px-8 bg-white text-charcoal relative z-10 border-b border-[#E5E5EA] overflow-hidden">
+    <!-- Corner Floral Decorations -->
+    <img src="assets/flower.webp" alt="Floral Corner" class="absolute top-0 left-0 w-24 sm:w-36 md:w-44 opacity-85 pointer-events-none select-none z-0 transform scale-y-[-1]" />
+    <img src="assets/flower.webp" alt="Floral Corner" class="absolute bottom-0 right-0 w-24 sm:w-36 md:w-44 opacity-85 pointer-events-none select-none z-0 transform scale-x-[-1]" />
+
+    <div class="max-w-3xl mx-auto space-y-10 text-center relative z-10">
+      
+      <!-- Section Title Header -->
+      <div class="space-y-2 scroll-reveal">
+        <span data-trans="hostsSub" class="font-sans text-[10px] tracking-[0.3em] text-[#C5A059] font-bold block">WITH THE BLESSINGS OF OUR ELDERS</span>
+        <h2 data-trans="hostsTitle" class="font-cursive text-5xl sm:text-6xl text-black font-medium tracking-wide">With Blessings</h2>
+        <div class="flex items-center justify-center gap-3 pt-1">
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/50"></div>
+          <span class="text-[#C5A059] text-xs select-none">✦</span>
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/50"></div>
+        </div>
+      </div>
+
+      <!-- SPACIOUS & AIRY LUXURY CARD BOX (Authentic Royal Invitation Card Border) -->
+      <div class="relative rounded-3xl py-8 sm:py-10 px-6 sm:px-12 bg-gradient-to-b from-[#FFFDF9] via-white to-[#FAF6ED] border-2 border-[#C5A059] shadow-[0_14px_45px_rgba(197,160,89,0.18)] max-w-lg mx-auto space-y-6 text-center scroll-reveal">
+        
+        <!-- Inner Double Decorative Gold Frames & Corner Stars -->
+        <div class="absolute inset-2.5 sm:inset-3 rounded-[20px] border border-[#C5A059]/50 pointer-events-none"></div>
+        <div class="absolute inset-4 sm:inset-5 rounded-[16px] border border-[#C5A059]/25 pointer-events-none"></div>
+        <span class="absolute top-2.5 left-3 text-[#C5A059] text-sm pointer-events-none">✦</span>
+        <span class="absolute top-2.5 right-3 text-[#C5A059] text-sm pointer-events-none">✦</span>
+        <span class="absolute bottom-2.5 left-3 text-[#C5A059] text-sm pointer-events-none">✦</span>
+        <span class="absolute bottom-2.5 right-3 text-[#C5A059] text-sm pointer-events-none">✦</span>
+
+        <!-- Single Centered Column (Respected Family Members) -->
+        <div class="py-2 max-w-md mx-auto relative z-10">
+          <div class="space-y-4">
+            <span class="font-sans text-[8px] uppercase tracking-[0.2em] text-royal-gold font-bold block">SOLICITED BY</span>
+            <div class="space-y-2 font-serif text-base sm:text-lg text-black font-light leading-relaxed tracking-wide">
+              <div class="transition-all hover:text-royal-gold duration-300">Mrs. Pushpa &amp; Mr. Dunichand Kakwani</div>
+              <div class="transition-all hover:text-royal-gold duration-300">Mrs. Mona &amp; Mr. Bhagchand (Doni) Kakwani</div>
+              <div class="transition-all hover:text-royal-gold duration-300">Mrs. Kajal &amp; Mr. Dharmendra Kakwani</div>
+              <div class="transition-all hover:text-royal-gold duration-300">Mrs. Komal &amp; Mr. Gokuldas Kakwani</div>
+              <div class="transition-all hover:text-royal-gold duration-300">Mrs. Meeta &amp; Mr. Manoj Kakwani</div>
+              <div class="transition-all hover:text-royal-gold duration-300">Mrs. Prisha &amp; Mr. Vishal Kakwani</div>
+              <div class="transition-all hover:text-royal-gold duration-300">Mrs. Ankita &amp; Mr. Sagar Anand</div>
+              <div class="transition-all hover:text-royal-gold duration-300">Mrs. Diya &amp; Mr. Nitesh Kakwani</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Poetic Greeting Note -->
+        <div class="pt-6 border-t border-[#C5A059]/20 relative z-10">
+          <p data-trans="hostsBottomNote" class="font-serif italic text-xs sm:text-sm text-charcoal-muted leading-relaxed max-w-sm mx-auto">
+            &quot;Kindly join us to celebrate the auspicious wedding ceremonies of our beloved Sanchita.&quot;
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Elegant Horizontal Rose Garland Section Divider -->
+      <div class="pt-6 flex items-center justify-center gap-3 max-w-xl mx-auto scroll-reveal">
+        <div class="flex-1 h-[1px] bg-gradient-to-r from-transparent via-[#C5A059]/30 to-[#C5A059]/60"></div>
+        <img src="assets/divider-flower.png" alt="Floral Garland Divider" class="w-48 sm:w-60 h-auto object-contain select-none pointer-events-none filter drop-shadow-[0_4px_10px_rgba(197,160,89,0.15)]" loading="lazy" decoding="async" />
+        <div class="flex-1 h-[1px] bg-gradient-to-l from-transparent via-[#C5A059]/30 to-[#C5A059]/60"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FULLSCREEN LIGHTBOX MODAL -->
+  <div id="gallery-lightbox" onclick="closeLightbox()" class="fixed inset-0 z-[200] bg-black/95 backdrop-blur-md hidden items-center justify-center p-4 cursor-pointer transition-opacity duration-300">
+    <div class="relative max-w-2xl w-full flex flex-col items-center pointer-events-auto" onclick="event.stopPropagation()">
+      <button onclick="closeLightbox()" aria-label="Close Lightbox" class="absolute -top-12 right-0 text-white hover:text-royal-gold text-2xl font-bold p-2">✕</button>
+      <img id="lightbox-img" src="" alt="Fullscreen View" class="w-full max-h-[75vh] object-contain rounded-2xl border-2 border-royal-gold shadow-luxury" />
+      <div id="lightbox-caption" class="font-serif text-xl text-royal-gold font-bold mt-4 text-center"></div>
+    </div>
+  </div>
+
+  <!-- VENUE & MAP SECTION ("Where We Celebrate" - Minimalist White Theme) -->
+  <section id="venue" class="py-20 px-4 sm:px-8 bg-white relative z-10 border-b border-[#E5E5EA]">
+    <div class="max-w-4xl mx-auto text-center space-y-8">
+      
+      <div class="space-y-3 scroll-reveal">
+        <span class="font-sans text-[10px] uppercase tracking-[0.3em] text-[#C5A059] font-bold block">VENUE</span>
+        <h2 data-trans="venueTitle" class="font-cursive text-5xl sm:text-6xl text-black font-medium tracking-wide">Where We Celebrate</h2>
+        <div class="flex items-center justify-center gap-3 pt-1">
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/50"></div>
+          <span class="text-[#C5A059] text-xs select-none">✦</span>
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/50"></div>
+        </div>
+        <p class="font-serif italic text-base sm:text-lg text-charcoal-muted font-light pt-1">Accord Wildlife, Pench</p>
+      </div>
+
+      <!-- CLEAN GOLD EMBEDDED GOOGLE MAP CARD BOX (Rich Royal Invitation Border) -->
+      <div class="relative rounded-3xl p-2.5 sm:p-3 bg-gradient-to-b from-[#FFFDF9] via-white to-[#FAF6ED] border-2 border-[#C5A059] shadow-[0_14px_45px_rgba(197,160,89,0.18)] max-w-4xl mx-auto scroll-reveal">
+        
+        <!-- Inner Inset Frame & Corner Stars -->
+        <div class="absolute inset-1.5 rounded-[22px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+        <span class="absolute top-2 left-2.5 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
+        <span class="absolute top-2 right-2.5 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
+        <span class="absolute bottom-2 left-2.5 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
+        <span class="absolute bottom-2 right-2.5 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
+
+        <div class="relative rounded-2xl overflow-hidden h-96 sm:h-[420px] w-full shadow-inner">
+          
+          <!-- Embedded Google Maps -->
+          <iframe 
+            src="https://maps.google.com/maps?q=Accord+Wildlife+Resort+Pench&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+            class="w-full h-full border-0 filter saturate-[0.92] contrast-[1.03]" 
+            allowfullscreen="" 
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+
+        </div>
+      </div>
+
+      <!-- GET DIRECTIONS CTA BUTTON -->
+      <div class="pt-2 scroll-reveal">
+        <a 
+          href="https://maps.google.com/?q=Accord+Wildlife+Resort+Pench" 
+          target="_blank" 
+          class="inline-flex items-center gap-2 px-7 py-3.5 bg-gradient-to-r from-[#FFFDF9] to-[#FAF6ED] text-black font-sans text-[11px] uppercase tracking-[0.2em] font-bold rounded-full border-2 border-[#C5A059]/60 shadow-[0_6px_20px_rgba(197,160,89,0.15)] hover:bg-[#8A3E4E] hover:text-white hover:border-[#8A3E4E] hover:shadow-lg transition-all duration-300">
+          <i data-lucide="navigation" class="w-3.5 h-3.5"></i>
+          <span data-trans="directionsBtn">Get Directions</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LUXURY MINIMALIST FOOTER -->
+  <footer class="py-20 px-4 bg-[#111111] text-[#E5E5EA] border-t border-[#222222] text-center relative z-10 overflow-hidden">
+    <div class="max-w-2xl mx-auto space-y-6 flex flex-col items-center scroll-reveal">
+      
+      <!-- Top Label -->
+      <div data-trans="footerText" class="text-[10px] uppercase tracking-[0.35em] text-[#C5A059] font-sans font-bold">
+        WITH LOVE &amp; BLESSINGS
+      </div>
+
+      <!-- Main Cursive Couple Names -->
+      <h2 class="font-cursive text-5xl sm:text-7xl text-white font-medium tracking-wide py-2">
+        Sanchita <span class="font-cursive text-[#C5A059] text-3xl sm:text-5xl font-light">weds</span> Dharmendra
+      </h2>
+
+      <!-- Subtle Gold Star Emblem -->
+      <div class="text-[#C5A059] text-base font-serif">
+        ✦
+      </div>
+
+      <!-- Wedding Date -->
+      <div class="font-serif italic text-lg sm:text-xl text-gray-300 font-light tracking-wide">
+        1st &amp; 2nd December 2026
+      </div>
+
+      <!-- Wedding Hashtag -->
+      <div class="font-sans text-[9px] uppercase tracking-[0.3em] text-[#C5A059] font-bold pt-2">
+        #DSsealedforever
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js?v=6.4"></script>
+</body>
+</html>

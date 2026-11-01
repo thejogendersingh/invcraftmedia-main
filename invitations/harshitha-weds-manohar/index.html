@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harshitha weds Manohar — Royal Indian Wedding Celebration</title>
+
+  <!-- SEO & Favicon Links -->
+  <link rel="icon" type="image/png" href="assets/ganeshji.png" />
+  <link rel="apple-touch-icon" href="assets/ganeshji.png" />
+  <meta property="og:title" content="Harshitha weds Manohar — Royal Wedding Invitation" />
+  <meta property="og:description" content="With the blessings of our elders and the grace of the Almighty, we cordially invite you to celebrate the wedding of Harshitha & Manohar." />
+  <meta property="og:image" content="assets/HM-envolp.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="assets/HM-envolp.png" />
+
+  <!-- Preload Critical Assets -->
+  <link rel="preload" as="image" href="assets/HM-envolp.png" />
+  <link rel="preload" as="image" href="assets/ganeshji.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Great+Vibes&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Noto+Sans+Kannada:wght@300;400;500;600;700&family=Noto+Serif+Kannada:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Tailwind Custom Colors Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: { 50: '#FFFFFF', 100: '#FFFFFF', 200: '#F9F9FB' },
+            champagne: '#FDE8EB',
+            royal: { 
+              green: '#8A3E4E',
+              greenLight: '#A35263',
+              greenDark: '#5E222F',
+              gold: '#C5A059'
+            },
+            burgundy: '#8A3E4E',
+            charcoal: { DEFAULT: '#111111', muted: '#555555' }
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'serif'],
+            cursive: ['Great Vibes', 'cursive'],
+            display: ['Instrument Serif', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            kannada: ['Noto Sans Kannada', 'Noto Serif Kannada', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css?v=10.0" />
+</head>
+<body class="bg-ivory-100 text-charcoal font-sans antialiased overflow-x-hidden">
+
+  <!-- ENVELOPE ENTRANCE OVERLAY WITH HM-envolp -->
+  <div id="door-overlay" class="door-overlay flex flex-col items-center justify-center px-4">
+    <div class="absolute inset-0 z-0 pointer-events-none">
+      <picture>
+        <source srcset="assets/open2.webp" type="image/webp" />
+        <img src="assets/open2.jpg" alt="Opening Background" class="w-full h-full object-cover" />
+      </picture>
+      <div class="absolute inset-0 bg-white/10"></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col items-center justify-center gap-4 sm:gap-6 max-w-lg w-full text-center">
+      <div class="space-y-1 opacity-0 translate-y-4 transition-all duration-1000 ease-out envelope-text-top">
+        <p class="font-serif uppercase tracking-[0.3em] text-black/80 text-xs sm:text-sm font-semibold">
+          AN INVITATION AWAITS
+        </p>
+        <p class="font-kannada text-xs sm:text-sm font-semibold text-royal-green">
+          💐 ಶುಭ ವಿವಾಹ ಆಮಂತ್ರಣ ಪತ್ರಿಕೆ 💐
+        </p>
+      </div>
+
+      <!-- Centered Envelope with HM-envolp -->
+      <div id="door-seal-btn" class="relative cursor-pointer transition-all duration-500 hover:scale-105 active:scale-95 group envelope-wrapper opacity-0 scale-90 duration-1000">
+        <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-amber-200 via-yellow-100 to-amber-200 opacity-0 group-hover:opacity-30 blur-md transition duration-500"></div>
+        <img src="assets/HM-envolp.png" alt="Royal Wedding Envelope" class="relative w-[280px] sm:w-[380px] h-auto object-contain drop-shadow-3xl filter brightness-105" />
+      </div>
+
+      <div class="opacity-0 translate-y-4 transition-all duration-1000 ease-out envelope-text-bottom">
+        <p class="font-cursive text-2xl sm:text-3xl text-black font-medium tracking-wide flex items-center justify-center gap-2">
+          <span class="text-[#C5A059] text-sm">✦</span>
+          <span>Tap the seal to open</span>
+          <span class="text-[#C5A059] text-sm">✦</span>
+        </p>
+        <p class="font-kannada text-xs sm:text-sm text-black/70 font-medium mt-1">
+          ತೆರೆಯಲು ಮುದ್ರೆ ಸ್ಪರ್ಶಿಸಿ
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 60FPS PETAL SIMULATION CANVAS -->
+  <canvas id="petals-canvas" class="fixed inset-0 pointer-events-none z-[40] opacity-80"></canvas>
+
+  <!-- CUSTOM MAGNETIC CURSOR -->
+  <div id="custom-cursor-dot" class="custom-cursor-dot"></div>
+  <div id="custom-cursor-ring" class="custom-cursor-ring"><span id="cursor-text"></span></div>
+
+  <!-- FLOATING AUDIO PILL -->
+  <button id="audio-toggle-btn" aria-label="Toggle Music"
+    style="
+      position: fixed; bottom: 24px; left: 24px; z-index: 50;
+      display: flex; align-items: center; gap: 8px;
+      padding: 0 16px; height: 42px;
+      background: rgba(10,10,14,0.82);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border: 1px solid rgba(197,160,89,0.22);
+      border-radius: 999px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.45);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    "
+    onmouseover="this.style.borderColor='rgba(197,160,89,0.45)';"
+    onmouseout="this.style.borderColor='rgba(197,160,89,0.22)';"
+    onmousedown="this.style.transform='scale(0.96)';"
+    onmouseup="this.style.transform='scale(1)';">
+    <i data-lucide="volume-2" style="width:14px; height:14px; color:#C5A059; flex-shrink:0;"></i>
+    <span id="audio-label" style="font-size:9px; font-weight:700; letter-spacing:0.18em; color:#C5A059; text-transform:uppercase; white-space:nowrap;">MUSIC</span>
+  </button>
+
+  <!-- FLOATING LANGUAGE SELECTOR -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end select-none" style="font-family:'Plus Jakarta Sans',sans-serif;">
+    <div id="language-dropdown"
+         class="lang-dropdown mb-3
+                opacity-0 pointer-events-none translate-y-4 scale-95
+                transition-all duration-350 ease-out"
+         style="transform-origin: bottom right;">
+      <div style="
+        background: rgba(10, 10, 14, 0.78);
+        backdrop-filter: blur(28px) saturate(180%);
+        -webkit-backdrop-filter: blur(28px) saturate(180%);
+        border: 1px solid rgba(197,160,89,0.18);
+        border-radius: 20px;
+        padding: 14px 12px 12px;
+        width: 154px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.06) inset;
+      ">
+        <div style="text-align: center; font-size: 8px; font-weight: 700; letter-spacing: 0.22em; color: rgba(197,160,89,0.55); text-transform: uppercase; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid rgba(197,160,89,0.12);">
+          LANGUAGE / ಭಾಷೆ
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+          <button data-lang="eng" class="lang-opt" style="padding: 7px 4px; border-radius: 10px; font-size: 9px; font-weight: 700; letter-spacing: 0.12em; color: #C5A059; background: rgba(197,160,89,0.12); border: 1px solid rgba(197,160,89,0.22); cursor: pointer; transition: all 0.2s ease; text-align: center;">ENG</button>
+          <button data-lang="kan" class="lang-opt" style="padding: 7px 4px; border-radius: 10px; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); border: 1px solid rgba(197,160,89,0.3); cursor: pointer; transition: all 0.2s ease; text-align: center;">ಕನ್ನಡ</button>
+          <button data-lang="hin" class="lang-opt" style="padding: 7px 4px; border-radius: 10px; font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.65); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); cursor: pointer; transition: all 0.2s ease; text-align: center;">हिन्दी</button>
+          <button data-lang="tam" class="lang-opt" style="padding: 7px 4px; border-radius: 10px; font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.65); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); cursor: pointer; transition: all 0.2s ease; text-align: center;">தமிழ்</button>
+          <button data-lang="tel" class="lang-opt" style="grid-column: span 2; padding: 7px 4px; border-radius: 10px; font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.65); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); cursor: pointer; transition: all 0.2s ease; text-align: center;">తెలుగు</button>
+        </div>
+      </div>
+    </div>
+
+    <button id="lang-toggle-btn" aria-label="Select Language"
+            style="
+              display: flex; align-items: center; gap: 8px;
+              padding: 0 16px; height: 42px;
+              background: rgba(10,10,14,0.82);
+              backdrop-filter: blur(24px) saturate(160%);
+              -webkit-backdrop-filter: blur(24px) saturate(160%);
+              border: 1px solid rgba(197,160,89,0.22);
+              border-radius: 999px;
+              box-shadow: 0 4px 20px rgba(0,0,0,0.45);
+              font-family: 'Plus Jakarta Sans', sans-serif;
+              font-size: 9px; font-weight: 700;
+              letter-spacing: 0.18em;
+              color: #C5A059;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              white-space: nowrap;
+            ">
+      <i data-lucide="languages" style="width:14px; height:14px; color:#C5A059; flex-shrink:0;"></i>
+      <span id="lang-label">ENG</span>
+    </button>
+  </div>
+
+  <!-- HERO SECTION (CLEAN, LIFTED HIGHER IN SKY, INDIVIDUAL FULL MANTRA LINES) -->
+  <section class="hero-section relative flex flex-col items-center justify-start sm:justify-center pt-6 pb-12 sm:pt-10 sm:pb-16 px-4 sm:px-8 overflow-hidden bg-ivory-100">
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden hero-bg-anim">
+      <video id="hero-bg-video" class="hero-bg-video w-full h-full object-cover object-center" autoplay loop muted playsinline preload="auto">
+        <source src="assets/hero-bg-video.mp4" type="video/mp4" />
+        <picture>
+          <source srcset="assets/hero-bg(1).webp" type="image/webp" />
+          <img src="assets/hero-bg(1).png" alt="Royal Wedding Background" class="w-full h-full object-cover object-center" />
+        </picture>
+      </video>
+      <div class="absolute inset-0 bg-white/15"></div>
+    </div>
+
+    <div class="hero-container flex flex-col items-center justify-center max-w-2xl w-full mx-auto z-10 px-2 sm:px-4 text-center mt-0">
+      
+      <!-- Ganesh Ji (Exact Position Preserved) -->
+      <div class="relative mx-auto mb-0 hero-anim-ganesha flex items-center justify-center">
+        <img src="assets/ganeshji.png" alt="Lord Ganesha" class="w-[82px] sm:w-28 md:w-32 h-auto object-contain filter drop-shadow-md hover:scale-105 transition-transform duration-300" />
+      </div>
+
+      <!-- Deity Mantras (Shifted slightly up towards Ganesh Ji to reduce gap) -->
+      <div class="-mt-3.5 sm:-mt-5 space-y-0.5 mb-1.5 hero-anim-mantra text-center flex flex-col items-center">
+        <p class="text-[11.5px] sm:text-xs md:text-[13.5px] font-serif font-bold text-[#7A1B28] tracking-[0.12em] uppercase whitespace-nowrap drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">
+          || Shree Kalabhairaveshwara Krupe ||
+        </p>
+        <p class="text-[11.5px] sm:text-xs md:text-[13.5px] font-serif font-bold text-[#7A1B28] tracking-[0.12em] uppercase whitespace-nowrap drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">
+          🙏 Shree Honnaaruthamma Krupe 🙏
+        </p>
+        <p class="font-kannada text-[12.5px] sm:text-[14px] md:text-[15px] font-bold text-[#064e3b] tracking-wide pt-0.5 whitespace-nowrap drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">
+          🙏 ಶ್ರೀ ಕಾಲಭೈರವೇಶ್ವರಸ್ವಾಮಿ ಪ್ರಸನ್ನ
+        </p>
+        <p class="font-kannada text-[12.5px] sm:text-[14px] md:text-[15px] font-bold text-[#064e3b] tracking-wide whitespace-nowrap drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">
+          ॥ ಶ್ರೀ ಹೊನ್ನಾರುತಮ್ಮ ಕೃಪೆ ॥ 🙏
+        </p>
+      </div>
+
+      <!-- Divider flourish -->
+      <div class="w-12 sm:w-16 h-[1.5px] bg-[#B38728]/60 mb-1.5 sm:mb-2 hero-anim-sub"></div>
+
+      <!-- Editorial Subtitle (English & Kannada, High Contrast) -->
+      <div class="hero-anim-sub space-y-0.5 mb-1">
+        <p class="text-[10px] sm:text-xs uppercase tracking-[0.24em] text-[#1C1917] font-sans font-bold drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">
+          💐 WEDDING INVITATION 💐
+        </p>
+        <p class="text-[11.5px] sm:text-[13px] font-kannada font-bold text-[#7A1B28] drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">
+          💐 ಶುಭ ವಿವಾಹ ಆಮಂತ್ರಣ ಪತ್ರಿಕೆ 💐
+        </p>
+      </div>
+
+      <!-- Couple Names: Harshitha & Manohar -->
+      <h1 class="font-serif flex flex-col items-center justify-center py-0.5 sm:py-1 hero-anim-title">
+        <span class="hero-title-main font-serif text-[42px] sm:text-7xl md:text-8xl font-normal tracking-wide text-[#111827] leading-none drop-shadow-sm">Harshitha</span>
+        <span class="hero-title-weds font-cursive text-[#B38728] text-[34px] sm:text-6xl md:text-7xl font-normal my-[-5px] sm:my-[-8px] tracking-wider transform -rotate-4 z-10 drop-shadow-sm">weds</span>
+        <span class="hero-title-main font-serif text-[42px] sm:text-7xl md:text-8xl font-normal tracking-wide text-[#111827] leading-none drop-shadow-sm">Manohar</span>
+      </h1>
+
+      <!-- Kannada Couple Name Pill (Single-line, No Wrapping) -->
+      <div class="hero-anim-badges mt-1.5 sm:mt-2.5">
+        <div class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#B38728]/40 shadow-sm max-w-full">
+          <span class="text-[#B38728] text-[9px] shrink-0">✦</span>
+          <span class="font-kannada text-[11px] sm:text-[13px] text-[#7A1B28] font-bold tracking-tight sm:tracking-normal whitespace-nowrap">
+            ಚಿ. ಸೌ. ಹರ್ಷಿತಾ ಎಂ.ಕೆ. <span class="font-sans text-[#B38728] text-xs mx-0.5">&amp;</span> ಚಿ.ರಾ. ಮನೋಹರ್ ಎಂ.
+          </span>
+          <span class="text-[#B38728] text-[9px] shrink-0">✦</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COUNTDOWN SECTION -->
+  <section id="countdown-section" class="py-12 px-4 sm:px-8 max-w-3xl mx-auto relative z-10 -mt-6 flex flex-col items-center">
+    <div class="w-full max-w-xl rounded-3xl bg-white border border-[#E5E5EA] shadow-luxury p-6 sm:p-8 space-y-6 relative overflow-hidden scroll-reveal">
+      <div class="text-center space-y-1">
+        <span class="font-sans text-[9px] tracking-[0.3em] text-[#C5A059] font-bold uppercase block">
+          THE CELEBRATION BEGINS • ಶುಭಾರಂಭ
+        </span>
+        <h2 class="font-serif text-3xl font-light text-black tracking-wider leading-snug">
+          Nov 10 &bull; 11, 2026
+        </h2>
+        <p class="font-sans text-[10px] tracking-wider text-charcoal-muted uppercase">
+          Tuesday &bull; Wednesday &bull; Kengal, Channapatna
+        </p>
+      </div>
+
+      <div class="h-[1px] bg-gray-100 w-full"></div>
+
+      <div id="scratch-card-wrapper" class="relative rounded-2xl overflow-hidden bg-[#F9F9FB] p-4 sm:p-6 border border-[#E5E5EA] min-h-[140px] flex items-center justify-center">
+        <canvas id="scratch-canvas" class="absolute inset-0 w-full h-full z-20 cursor-pointer rounded-2xl touch-none transition-opacity duration-700"></canvas>
+        
+        <div class="relative z-10 grid grid-cols-4 gap-2 sm:gap-4 w-full text-center">
+          <div class="p-3 sm:p-4 rounded-2xl bg-white border border-gray-100 shadow-sm flex flex-col items-center hover:scale-105 transition-transform duration-300">
+            <span id="cnt-days" class="font-sans text-3xl sm:text-4xl font-light text-black tracking-tight">00</span>
+            <span class="font-sans text-[8px] uppercase tracking-widest text-[#C5A059] font-bold mt-1.5">DAYS</span>
+          </div>
+          <div class="p-3 sm:p-4 rounded-2xl bg-white border border-gray-100 shadow-sm flex flex-col items-center hover:scale-105 transition-transform duration-300">
+            <span id="cnt-hours" class="font-sans text-3xl sm:text-4xl font-light text-black tracking-tight">00</span>
+            <span class="font-sans text-[8px] uppercase tracking-widest text-[#C5A059] font-bold mt-1.5">HOURS</span>
+          </div>
+          <div class="p-3 sm:p-4 rounded-2xl bg-white border border-gray-100 shadow-sm flex flex-col items-center hover:scale-105 transition-transform duration-300">
+            <span id="cnt-mins" class="font-sans text-3xl sm:text-4xl font-light text-black tracking-tight">00</span>
+            <span class="font-sans text-[8px] uppercase tracking-widest text-[#C5A059] font-bold mt-1.5">MINUTES</span>
+          </div>
+          <div class="p-3 sm:p-4 rounded-2xl bg-white border border-gray-100 shadow-sm flex flex-col items-center hover:scale-105 transition-transform duration-300">
+            <span id="cnt-secs" class="font-sans text-3xl sm:text-4xl font-light text-black tracking-tight">00</span>
+            <span class="font-sans text-[8px] uppercase tracking-widest text-[#C5A059] font-bold mt-1.5">SECONDS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SACRED CEREMONIES (2 EVENTS: RECEPTION 10-NOV & WEDDING 11-NOV) -->
+  <section id="events" class="py-20 px-4 sm:px-8 bg-white relative z-10 border-t border-b border-[#E5E5EA] overflow-hidden">
+    <picture>
+      <source srcset="assets/flower.webp" type="image/webp" />
+      <img src="assets/flower.png" alt="" class="absolute top-0 left-0 w-28 sm:w-40 md:w-48 opacity-90 pointer-events-none select-none z-0 transform scale-y-[-1]" loading="lazy" />
+    </picture>
+    <picture>
+      <source srcset="assets/flower.webp" type="image/webp" />
+      <img src="assets/flower.png" alt="" class="absolute bottom-0 right-0 w-28 sm:w-40 md:w-48 opacity-90 pointer-events-none select-none z-0 transform scale-x-[-1]" loading="lazy" />
+    </picture>
+    
+    <div class="max-w-4xl mx-auto space-y-12 relative z-10">
+      
+      <div class="text-center space-y-2 scroll-reveal">
+        <span class="font-sans text-[10px] tracking-[0.3em] text-[#C5A059] font-bold uppercase block">THE ITINERARY</span>
+        <h2 class="font-cursive text-5xl sm:text-6xl text-black font-medium tracking-wide">Sacred Ceremonies</h2>
+        <p class="font-kannada text-base text-royal-green font-semibold">ಶುಭ ಸಮಾರಂಭಗಳ ವಿವರ</p>
+        <div class="w-12 h-[1px] bg-royal-gold/45 mx-auto mt-2"></div>
+      </div>
+
+      <!-- Staggered Timeline Layout of the 2 Wedding Events -->
+      <div class="relative flex flex-col gap-6 md:gap-12 py-4">
+        <div class="absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-[1px] bg-royal-gold/25 z-0"></div>
+        
+        <!-- 1. WEDDING RECEPTION (Tuesday, 10-11-2026, 7:00 PM) - Left Side -->
+        <div class="relative w-[45%] self-start rounded-2xl bg-white border border-royal-gold/25 shadow-[0_8px_30px_rgba(197,160,89,0.06)] hover:scale-[1.02] hover:border-royal-gold/45 hover:shadow-[0_12px_35px_rgba(197,160,89,0.1)] transition-all duration-300 p-3 sm:p-5 md:p-7 scroll-reveal z-10">
+          <div class="absolute top-1/2 -translate-y-1/2 right-[-18px] md:right-[-24px] w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-royal-gold border border-white z-20"></div>
+
+          <div class="space-y-1.5 md:space-y-2.5">
+            <div class="flex items-center">
+              <span class="font-sans text-[7px] sm:text-[8px] uppercase tracking-[0.12em] text-royal-gold font-bold whitespace-nowrap">✦ WEDDING RECEPTION ✦</span>
+            </div>
+            <div>
+              <h3 class="font-serif text-sm sm:text-lg md:text-2xl font-light text-black tracking-wide leading-tight">Wedding Reception</h3>
+              <span class="font-kannada text-[10px] sm:text-xs text-royal-green font-medium block pt-0.5">💐 ವಿವಾಹ ಆರತಕ್ಷತೆ 💐</span>
+            </div>
+            <p class="font-serif italic text-[9.5px] sm:text-xs text-charcoal-muted leading-relaxed">Grand celebratory feast &amp; felicitations.</p>
+            
+            <div class="h-[1px] bg-gray-100 my-1 md:my-2"></div>
+            
+            <div class="space-y-1 text-[9px] sm:text-xs text-charcoal/80 font-sans tracking-wide">
+              <div class="flex items-start justify-between gap-1">
+                <span class="text-[7px] uppercase tracking-wider text-royal-gold font-bold shrink-0 pt-0.5">WHEN</span>
+                <div class="text-right">
+                  <span class="font-medium text-black text-[9.5px] sm:text-xs block">10-11-2026, Tuesday • 7:00 PM onwards</span>
+                  <span class="font-kannada text-[9px] sm:text-[10px] text-royal-green block">ದಿನಾಂಕ: 10-11-2026, ಮಂಗಳವಾರ • ಸಂಜೆ 7:00 ಗಂಟೆಯಿಂದ</span>
+                </div>
+              </div>
+              <div class="flex items-start justify-between gap-1 pt-0.5">
+                <span class="text-[7px] uppercase tracking-wider text-royal-gold font-bold shrink-0 pt-0.5">WHERE</span>
+                <div class="text-right">
+                  <span class="font-medium text-black text-[9.5px] sm:text-xs block">Sri Thimmamma Dasegowda Mantapa</span>
+                  <span class="font-kannada text-[9px] sm:text-[10px] text-charcoal-muted block">ಶ್ರೀ ತಿಮ್ಮಮ್ಮ ದಾಸೇಗೌಡ ಕಲ್ಯಾಣ ಮಂಟಪ, ಕೆಂಗಲ್</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. WEDDING CEREMONY / MUHURTHAM (Wednesday, 11-11-2026, 9:20 AM - 10:40 AM) - Right Side -->
+        <div class="relative w-[45%] self-end rounded-2xl bg-white border border-royal-gold/25 shadow-[0_8px_30px_rgba(197,160,89,0.06)] hover:scale-[1.02] hover:border-royal-gold/45 hover:shadow-[0_12px_35px_rgba(197,160,89,0.1)] transition-all duration-300 p-3 sm:p-5 md:p-7 scroll-reveal z-10">
+          <div class="absolute top-1/2 -translate-y-1/2 left-[-18px] md:left-[-24px] w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-royal-gold border border-white z-20"></div>
+
+          <div class="space-y-1.5 md:space-y-2.5">
+            <div class="flex items-center">
+              <span class="font-sans text-[7px] sm:text-[8px] uppercase tracking-[0.12em] text-royal-gold font-bold whitespace-nowrap">✦ WEDDING CEREMONY ✦</span>
+            </div>
+            <div>
+              <h3 class="font-serif text-sm sm:text-lg md:text-2xl font-light text-black tracking-wide leading-tight">Wedding Ceremony</h3>
+              <span class="font-kannada text-[10px] sm:text-xs text-royal-green font-medium block pt-0.5">🙏 ಶುಭ ವಿವಾಹ ಮಹೋತ್ಸವ 🙏</span>
+            </div>
+            <p class="font-serif italic text-[9.5px] sm:text-xs text-charcoal-muted leading-relaxed">Dhanur Lagna, holy mantras &amp; sacred union.</p>
+            
+            <div class="h-[1px] bg-gray-100 my-1 md:my-2"></div>
+            
+            <div class="space-y-1 text-[9px] sm:text-xs text-charcoal/80 font-sans tracking-wide">
+              <div class="flex items-start justify-between gap-1">
+                <span class="text-[7px] uppercase tracking-wider text-royal-gold font-bold shrink-0 pt-0.5">WHEN</span>
+                <div class="text-right">
+                  <span class="font-medium text-black text-[9.5px] sm:text-xs block">11-11-2026, Wednesday • 9:20 AM - 10:40 AM</span>
+                  <span class="font-kannada text-[9px] sm:text-[10px] text-royal-green block">ದಿನಾಂಕ: 11-11-2026, ಬುಧವಾರ • ಧನುರ್ ಲಗ್ನ</span>
+                </div>
+              </div>
+              <div class="flex items-start justify-between gap-1 pt-0.5">
+                <span class="text-[7px] uppercase tracking-wider text-royal-gold font-bold shrink-0 pt-0.5">WHERE</span>
+                <div class="text-right">
+                  <span class="font-medium text-black text-[9.5px] sm:text-xs block">Sri Thimmamma Dasegowda Mantapa</span>
+                  <span class="font-kannada text-[9px] sm:text-[10px] text-charcoal-muted block">ಬಿ.ಎಂ. ರಸ್ತೆ, ಕೆಂಗಲ್, ಚನ್ನಪಟ್ಟಣ</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SACRED GALLERY SLIDER / CAROUSEL SECTION (SINGLE UNIFIED SLIDE SYSTEM) -->
+  <section id="gallery" class="py-16 sm:py-20 px-4 sm:px-8 bg-[#FAF9F6] relative z-10 border-b border-[#E5E5EA] overflow-hidden">
+    <div class="max-w-2xl mx-auto space-y-6 text-center">
+      
+      <div class="space-y-1.5 scroll-reveal">
+        <span class="font-sans text-[10px] tracking-[0.3em] text-[#C5A059] font-bold block uppercase">SACRED GALLERY</span>
+        <h2 class="font-cursive text-5xl sm:text-6xl text-black font-medium tracking-wide">Divine Moments</h2>
+        <p class="font-kannada text-sm sm:text-base text-royal-green font-semibold">ಪಾವನ ದೈವಿಕ ಅನುಗ್ರಹ ಹಾಗೂ ಶುಭ ಕ್ಷಣಗಳು</p>
+        <div class="w-12 h-[1px] bg-royal-gold/45 mx-auto mt-2"></div>
+      </div>
+
+      <!-- Single Carousel Slide Container -->
+      <div class="relative max-w-md mx-auto scroll-reveal">
+        
+        <!-- Main Card Frame -->
+        <div class="relative rounded-3xl overflow-hidden border-2 border-royal-gold/40 bg-white shadow-[0_16px_40px_rgba(197,160,89,0.15)] group">
+          
+          <div class="absolute inset-2 rounded-[22px] border border-royal-gold/20 pointer-events-none z-10"></div>
+
+          <!-- Slide Image Container (Click opens lightbox) -->
+          <div onclick="openCurrentSlideLightbox()" class="relative aspect-[3/4] w-full overflow-hidden cursor-pointer bg-neutral-900 flex items-center justify-center">
+            <img id="gallery-slide-img" 
+                 src="assets/photo1.jpg" 
+                 alt="Gallery Photo" 
+                 class="w-full h-full object-cover transition-all duration-700 ease-out transform group-hover:scale-105" />
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/20 pointer-events-none"></div>
+
+            <!-- Slide Tag & Caption inside image at bottom -->
+            <div class="absolute bottom-4 inset-x-4 text-center z-20 space-y-1">
+              <span id="gallery-slide-badge" class="px-3 py-1 rounded-full text-[9px] font-sans font-bold uppercase tracking-widest bg-royal-gold text-white shadow-sm inline-block">
+                DIVINE BLESSING
+              </span>
+              <h3 id="gallery-slide-title" class="font-serif text-lg sm:text-xl text-white font-medium drop-shadow">
+                Sacred Union
+              </h3>
+              <p id="gallery-slide-kannada" class="font-kannada text-xs sm:text-sm text-amber-200 drop-shadow">
+                ಪಾವನ ದೈವಿಕ ಸಾನ್ನಿಧ್ಯ
+              </p>
+            </div>
+          </div>
+
+          <!-- Left Navigation Arrow Button -->
+          <button onclick="prevGallerySlide(event)" aria-label="Previous Slide"
+                  class="absolute left-3.5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/90 hover:bg-white text-royal-gold border border-royal-gold/30 shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
+
+          <!-- Right Navigation Arrow Button -->
+          <button onclick="nextGallerySlide(event)" aria-label="Next Slide"
+                  class="absolute right-3.5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/90 hover:bg-white text-royal-gold border border-royal-gold/30 shadow-md flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+
+        </div>
+
+        <!-- Carousel Slide Dots & Counter -->
+        <div class="flex items-center justify-center gap-2 pt-4">
+          <div id="gallery-slide-dots" class="flex items-center gap-2">
+            <button onclick="goToSlide(0)" class="slide-dot w-7 h-2 rounded-full bg-royal-gold transition-all duration-300"></button>
+            <button onclick="goToSlide(1)" class="slide-dot w-2 h-2 rounded-full bg-gray-300 hover:bg-royal-gold/60 transition-all duration-300"></button>
+            <button onclick="goToSlide(2)" class="slide-dot w-2 h-2 rounded-full bg-gray-300 hover:bg-royal-gold/60 transition-all duration-300"></button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ROYAL HOSTS, FAMILY BLESSINGS & PARENTS (CENTER-ALIGNED & RED HEARTS) -->
+  <section id="hosts" class="py-20 px-4 sm:px-8 bg-white text-charcoal relative z-10 border-b border-[#E5E5EA] overflow-hidden">
+    <picture>
+      <source srcset="assets/flower.webp" type="image/webp" />
+      <img src="assets/flower.png" alt="" class="absolute top-0 left-0 w-28 sm:w-40 md:w-48 opacity-90 pointer-events-none select-none z-0 transform scale-y-[-1]" loading="lazy" />
+    </picture>
+    <picture>
+      <source srcset="assets/flower.webp" type="image/webp" />
+      <img src="assets/flower.png" alt="" class="absolute bottom-0 right-0 w-28 sm:w-40 md:w-48 opacity-90 pointer-events-none select-none z-0 transform scale-x-[-1]" loading="lazy" />
+    </picture>
+
+    <div class="max-w-4xl mx-auto space-y-10 text-center relative z-10">
+      
+      <!-- Section Title Header -->
+      <div class="space-y-2 scroll-reveal">
+        <span class="font-sans text-[10px] tracking-[0.3em] text-[#C5A059] font-bold block uppercase">
+          WITH THE BLESSINGS OF OUR ELDERS
+        </span>
+        <h2 class="font-cursive text-5xl sm:text-6xl text-black font-medium tracking-wide">
+          With Blessings
+        </h2>
+        <p class="font-kannada text-base sm:text-lg text-royal-green font-semibold">
+          ಹಿರಿಯರ ಆಶೀರ್ವಾದ ಹಾಗೂ ದೇವರ ಕೃಪೆಯೊಂದಿಗೆ
+        </p>
+        <div class="w-12 h-[1px] bg-royal-gold/45 mx-auto mt-2"></div>
+      </div>
+
+      <!-- SPACIOUS & AIRY LUXURY CARD BOX -->
+      <div class="relative rounded-3xl py-8 px-6 sm:px-10 bg-gradient-to-b from-[#FCFBF7] to-white border border-royal-gold/30 shadow-[0_12px_40px_rgba(197,160,89,0.08)] max-w-3xl mx-auto space-y-6 text-center scroll-reveal">
+        <div class="absolute inset-2 rounded-[22px] border border-royal-gold/15 pointer-events-none"></div>
+
+        <!-- Welcoming Note (English & Kannada Pair) -->
+        <div class="space-y-2 max-w-2xl mx-auto relative z-10 text-center">
+          <p class="font-serif italic text-sm sm:text-base text-black/85 leading-relaxed">
+            &ldquo;With the blessings of our elders and the grace of the Almighty, we cordially invite you to join us on this auspicious occasion and bless the couple as they begin their beautiful journey of togetherness.&rdquo;
+          </p>
+          <p class="font-kannada text-xs sm:text-sm text-royal-green font-medium leading-relaxed">
+            &ldquo;ಹಿರಿಯರ ಆಶೀರ್ವಾದ ಹಾಗೂ ದೇವರ ಕೃಪೆಯೊಂದಿಗೆ, ನಮ್ಮ ಮನೆಯ ಶುಭ ಸಮಾರಂಭಕ್ಕೆ ಆಗಮಿಸಿ, ನವಜೋಡಿಗಳು ತಮ್ಮ ಜೀವನದ ಹೊಸ ಪಯಣವನ್ನು ಆರಂಭಿಸುವ ಈ ಮಂಗಳಕರ ಸಂದರ್ಭದಲ್ಲಿ ತಮ್ಮ ಆಶೀರ್ವಾದವನ್ನು ನೀಡಿ ಹರಸಬೇಕೆಂದು ಹೃತ್ಪೂರ್ವಕವಾಗಿ ಆಹ್ವಾನಿಸುತ್ತೇವೆ.&rdquo;
+          </p>
+        </div>
+
+        <div class="w-20 h-[1px] bg-royal-gold/25 mx-auto"></div>
+
+        <!-- Two Column Grid: Family Photo + Center-Aligned Bride & Groom Parents Details -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center relative z-10">
+          
+          <!-- Family Photo Column (Left side) -->
+          <div class="md:col-span-5 flex flex-col items-center">
+            <div onclick="openLightbox('assets/family.png', 'Family Blessings • ಕುಟುಂಬದ ಆಶೀರ್ವಾದ')"
+                 class="relative rounded-2xl overflow-hidden border-2 border-royal-gold/40 shadow-lg w-full max-w-[240px] aspect-[4/5] bg-gray-50 cursor-pointer group">
+              <img src="assets/family.png" alt="Family" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 border border-white/40 pointer-events-none rounded-2xl"></div>
+            </div>
+            <span class="font-sans text-[9px] uppercase tracking-wider text-royal-gold font-bold mt-2.5">
+              ✦ FAMILY BLESSINGS ✦
+            </span>
+          </div>
+
+          <!-- Parents Details Column (Right side - Center Aligned) -->
+          <div class="md:col-span-7 space-y-4 text-center">
+            
+            <!-- Bride's Parents (Centered) -->
+            <div class="p-4 rounded-xl bg-white border border-royal-gold/20 shadow-sm space-y-1.5 text-center">
+              <span class="font-sans text-[8.5px] uppercase tracking-[0.2em] text-royal-gold font-bold block">THE BRIDE'S PARENTS • ವಧುವಿನ ಪೋಷಕರು</span>
+              <div class="font-serif text-lg text-black font-semibold">
+                Chi. Sou. Harshitha M.K.
+              </div>
+              <div class="font-sans text-xs text-charcoal-muted leading-relaxed">
+                Beloved daughter of <strong class="text-black font-medium">Smt. Manjula Murthy</strong> and <strong class="text-black font-medium">Sri M.S. Keshavamurthy</strong>
+              </div>
+              <div class="font-kannada text-xs text-royal-green pt-1 border-t border-gray-50">
+                ಚಿ. ಸೌ. ಹರ್ಷಿತಾ ಎಂ.ಕೆ. — ಶ್ರೀಮತಿ ಮಂಜುಳಾ ಮೂರ್ತಿ ಹಾಗೂ ಶ್ರೀ ಎಂ.ಎಸ್. ಕೇಶವಮೂರ್ತಿ ಅವರ ಸುಪುತ್ರಿ.
+              </div>
+            </div>
+
+            <!-- Groom's Parents (Centered) -->
+            <div class="p-4 rounded-xl bg-white border border-royal-gold/20 shadow-sm space-y-1.5 text-center">
+              <span class="font-sans text-[8.5px] uppercase tracking-[0.2em] text-royal-gold font-bold block">THE GROOM'S PARENTS • ವರನ ಪೋಷಕರು</span>
+              <div class="font-serif text-lg text-black font-semibold">
+                Chi. Rau. Manohar M.
+              </div>
+              <div class="font-sans text-xs text-charcoal-muted leading-relaxed">
+                Beloved son of <strong class="text-black font-medium">Smt. K. Sudhamani</strong> and <strong class="text-black font-medium">Late Dr. S.E. Mahadevappa</strong>
+              </div>
+              <div class="font-kannada text-xs text-royal-green pt-1 border-t border-gray-50">
+                ಚಿ.ರಾ. ಮನೋಹರ್ ಎಂ. — ಶ್ರೀಮತಿ ಕೆ. ಸುಧಾಮಣಿ ಹಾಗೂ ದಿವಂಗತ ಡಾ. ಎಸ್.ಇ. ಮಹದೇವಪ್ಪ ಅವರ ಸುಪುತ್ರ.
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Welcomed By & Family Blessing with RED HEARTS -->
+        <div class="pt-4 border-t border-gray-100 space-y-2 relative z-10 text-center">
+          <span class="font-sans text-[9px] uppercase tracking-[0.2em] text-royal-gold font-bold block">
+            INVITED &amp; WELCOMED BY
+          </span>
+          <div class="font-serif text-base sm:text-lg text-black font-light">
+            ❤️ With best wishes and blessings,
+          </div>
+          <div class="font-serif text-base sm:text-lg text-royal-green font-medium">
+            All Family Members and Relatives
+          </div>
+          <p class="font-kannada text-sm text-royal-green font-semibold">
+            ❤️ ಶುಭ ಹಾರೈಕೆಗಳು ಹಾಗೂ ಆಶೀರ್ವಾದಗಳೊಂದಿಗೆ, ಕುಟುಂಬದ ಎಲ್ಲಾ ಸದಸ್ಯರು ಹಾಗೂ ಬಂಧುಬಳಗದವರು.
+          </p>
+
+          <div class="pt-3 border-t border-gray-100">
+            <p class="font-serif italic text-xs sm:text-sm text-royal-gold font-medium max-w-md mx-auto">
+              ❤️ Two hearts, one soul, United by love and affection, Beginning a beautiful journey together, forever. ❤️
+            </p>
+            <p class="font-kannada text-xs text-charcoal-muted pt-1 max-w-md mx-auto">
+              ❤️ ಎರಡು ಹೃದಯಗಳು, ಒಂದೇ ಆತ್ಮ, ಪ್ರೀತಿ ಮತ್ತು ಅನುರಾಗದಿಂದ ಕೂಡಿದ ಎಂದೆಂದಿಗೂ ಸುಂದರವಾದ ಪಯಣ. ❤️
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FULLSCREEN LIGHTBOX MODAL FOR GALLERY -->
+  <div id="gallery-lightbox" onclick="closeLightbox()" class="fixed inset-0 z-[200] bg-black/95 backdrop-blur-md hidden items-center justify-center p-4 cursor-pointer transition-opacity duration-300">
+    <div class="relative max-w-2xl w-full flex flex-col items-center pointer-events-auto" onclick="event.stopPropagation()">
+      <button onclick="closeLightbox()" aria-label="Close Lightbox" class="absolute -top-12 right-0 text-white hover:text-royal-gold text-2xl font-bold p-2">✕</button>
+      <img id="lightbox-img" src="" alt="Fullscreen View" class="w-full max-h-[75vh] object-contain rounded-2xl border-2 border-royal-gold shadow-luxury" />
+      <div id="lightbox-caption" class="font-serif text-lg text-royal-gold font-bold mt-4 text-center"></div>
+    </div>
+  </div>
+
+  <!-- VENUE & MAP SECTION (Sri Thimmamma Dasegowda Kalyana Mantapa) -->
+  <section id="venue" class="py-20 px-4 sm:px-8 bg-white relative z-10 border-b border-[#E5E5EA]">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+      
+      <div class="space-y-2 scroll-reveal">
+        <span class="font-sans text-[10px] uppercase tracking-[0.3em] text-[#C5A059] font-bold block">VENUE</span>
+        <h2 class="font-cursive text-5xl sm:text-6xl text-black font-medium tracking-wide">Where We Celebrate</h2>
+        <div class="space-y-1">
+          <p class="font-serif text-lg sm:text-xl text-black font-medium">
+            Sri Thimmamma Dasegowda Kalyana Mantapa
+          </p>
+          <p class="font-sans text-xs sm:text-sm text-charcoal-muted">
+            B.M. Road, Kengal, Channapatna Taluk, Bengaluru Dakshina District
+          </p>
+          <p class="font-kannada text-xs sm:text-sm text-royal-green">
+            ಶ್ರೀ ತಿಮ್ಮಮ್ಮ ದಾಸೇಗೌಡ ಕಲ್ಯಾಣ ಮಂಟಪ, ಬಿ.ಎಂ. ರಸ್ತೆ, ಕೆಂಗಲ್, ಚನ್ನಪಟ್ಟಣ ತಾಲ್ಲೂಕು, ಬೆಂಗಳೂರು ದಕ್ಷಿಣ ಜಿಲ್ಲೆ
+          </p>
+        </div>
+      </div>
+
+      <!-- LUXURY GOLD EMBEDDED GOOGLE MAP CARD BOX -->
+      <div class="relative rounded-3xl p-2 sm:p-2.5 bg-gradient-to-b from-[#FFFDF9] to-white border-2 border-royal-gold/45 shadow-[0_12px_36px_rgba(197,160,89,0.15)] max-w-2xl mx-auto scroll-reveal">
+        <div class="absolute inset-1 rounded-[22px] border border-royal-gold/20 pointer-events-none"></div>
+
+        <div class="relative rounded-2xl overflow-hidden h-64 sm:h-80 w-full border border-royal-gold/30 shadow-inner">
+          <iframe 
+            src="https://maps.google.com/maps?q=Sri+Thimmamma+Dasegowda+Kalyana+Mantapa+Kengal+Channapatna&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            class="w-full h-full border-0 filter saturate-[0.95] contrast-[1.02]" 
+            allowfullscreen="" 
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- GET DIRECTIONS & NAVIGATION CTA BUTTON -->
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2 scroll-reveal">
+        <a 
+          href="https://www.google.com/maps/dir/?api=1&destination=Sri+Thimmamma+Dasegowda+Kalyana+Mantapa+Kengal+Channapatna" 
+          target="_blank" 
+          class="inline-flex items-center gap-2 px-6 py-3 bg-[#FAF9F6] text-black font-sans text-[11px] uppercase tracking-[0.2em] font-bold rounded-full border border-royal-gold/25 shadow-sm hover:bg-royal-gold hover:text-white hover:border-royal-gold hover:shadow-md transition-all duration-300">
+          <i data-lucide="navigation" class="w-3.5 h-3.5"></i>
+          <span>Get Directions to Kalyana Mantapa</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LUXURY MINIMALIST FOOTER -->
+  <footer class="py-20 px-4 bg-[#111111] text-[#E5E5EA] border-t border-[#222222] text-center relative z-10 overflow-hidden">
+    <div class="max-w-2xl mx-auto space-y-6 flex flex-col items-center scroll-reveal">
+      
+      <div class="text-[10px] uppercase tracking-[0.35em] text-[#C5A059] font-sans font-bold">
+        WITH LOVE &amp; BLESSINGS • ಪ್ರೀತಿ ಮತ್ತು ಆಶೀರ್ವಾದಗಳೊಂದಿಗೆ
+      </div>
+
+      <h2 class="font-cursive text-5xl sm:text-7xl text-white font-medium tracking-wide py-2">
+        Harshitha <span class="font-cursive text-[#C5A059] text-3xl sm:text-5xl font-light">weds</span> Manohar
+      </h2>
+
+      <div class="text-[#C5A059] text-base font-serif">
+        ✦
+      </div>
+
+      <div class="font-serif italic text-lg sm:text-xl text-gray-300 font-light tracking-wide">
+        10th &bull; 11th November 2026
+      </div>
+      <div class="font-sans text-xs text-gray-400">
+        Kengal, Channapatna &bull; Bengaluru Dakshina District
+      </div>
+
+      <div class="font-sans text-[9px] uppercase tracking-[0.3em] text-[#C5A059] font-bold pt-2">
+        #HARSHITHAWEDSMANOHAR
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js?v=10.0"></script>
+</body>
+</html>
