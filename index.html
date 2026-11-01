@@ -3,39 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>InvCraft Media | Luxury Digital Wedding Invitations</title>
+  <title>InvCraftMedia | Luxury Digital Wedding Invitations</title>
   <meta name="description" content="Beautiful, modern and fully customized wedding invitation websites for your special day. Bespoke interactive wedding portals.">
   
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://invcraftmedia.com/">
-  <meta property="og:title" content="InvCraft Media | Digital Wedding Invitations That Feel Personal">
-  <meta property="og:description" content="Beautiful, modern and fully customized wedding invitation websites. Chat on WhatsApp: 8209415303.">
+  <meta property="og:title" content="InvCraftMedia | Digital Wedding Invitations That Feel Personal">
+  <meta property="og:description" content="Beautiful, modern and fully customized wedding invitation websites. WhatsApp: 8209415303.">
   <meta property="og:image" content="https://invcraftmedia.com/invitations/krishna-weds-shreya/assets/ks-logo.webp">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23E5A93C'><path d='M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z'/></svg>">
 
-  <!-- Premium Typography -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-dark: #110d10;
-      --bg-dark-card: #181216;
-      --bg-light: #fbf8f4;
-      --gold-light: #fce5b8;
+      --gold-light: #fce7c0;
       --gold-primary: #e5a93c;
       --gold-deep: #b88219;
-      --gold-gradient: linear-gradient(135deg, #fce5b8 0%, #e5a93c 45%, #b88219 100%);
-      --gold-border: rgba(229, 169, 60, 0.3);
+      --gold-gradient: linear-gradient(180deg, #fff2db 0%, #fbd38d 35%, #e5a93c 65%, #b88219 100%);
       --whatsapp-green: #25d366;
-      --text-dark: #201a1e;
-      --text-muted: #6b6167;
+      --burgundy: #4a1220;
       --font-display: 'Playfair Display', Georgia, serif;
-      --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
     }
 
@@ -46,227 +40,258 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    body {
-      background-color: var(--bg-dark);
-      color: #ffffff;
-      font-family: var(--font-sans);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      line-height: 1.5;
-      overflow-x: hidden;
-      background-image: 
-        radial-gradient(circle at 80% 12%, rgba(229, 169, 60, 0.16) 0%, transparent 45%),
-        radial-gradient(circle at 20% 18%, rgba(255, 107, 0, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 50% 45%, rgba(184, 130, 25, 0.08) 0%, transparent 60%);
+    html, body {
+      height: 100%;
+      height: 100dvh;
+      overflow: hidden;
     }
 
-    /* Ambient Warm Glow */
-    .ambient-glow {
-      position: fixed;
+    body {
+      background-color: #0f0a0d;
+      color: #ffffff;
+      font-family: var(--font-sans);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Photographic Luxury Backdrop */
+    .hero-bg {
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 70%;
+      background-image: 
+        linear-gradient(180deg, rgba(15, 10, 13, 0.45) 0%, rgba(15, 10, 13, 0.85) 65%, #0f0a0d 100%),
+        url('./shared/shared-assets/bg-wedding-luxury.jpg');
+      background-size: cover;
+      background-position: center 20%;
+      z-index: 1;
       pointer-events: none;
-      z-index: 0;
-      background: radial-gradient(circle at 50% -20%, rgba(229, 169, 60, 0.18), transparent 70%);
     }
 
-    /* Main Container */
-    .container {
+    /* Hanging Lantern Glow Accent (Top Right) */
+    .lantern-accent {
+      position: absolute;
+      top: 15px;
+      right: 18px;
+      width: 70px;
+      height: 120px;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.9;
+      filter: drop-shadow(0 0 15px rgba(255, 180, 50, 0.6));
+    }
+
+    /* Flower Blossom Accent (Top Left) */
+    .floral-accent {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 110px;
+      height: 110px;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.85;
+      background-image: url('./shared/shared-assets/blossoms.jpg');
+      background-size: cover;
+      border-radius: 50%;
+      filter: blur(1px) drop-shadow(0 4px 15px rgba(0,0,0,0.5));
+      mask-image: radial-gradient(circle, black 40%, transparent 70%);
+      -webkit-mask-image: radial-gradient(circle, black 40%, transparent 70%);
+    }
+
+    /* App Shell Container (Fits Mobile Viewport) */
+    .app-viewport {
       position: relative;
       z-index: 10;
       width: 100%;
-      max-width: 480px;
+      max-width: 440px;
+      height: 100%;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       margin: 0 auto;
+      text-align: center;
+    }
+
+    /* Top Section */
+    .top-section {
+      padding: clamp(0.75rem, 2vh, 1.4rem) 1.25rem 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      padding: 2.2rem 1.25rem 0;
+      flex-grow: 1;
+      justify-content: center;
     }
 
-    /* Header Logo */
-    header {
-      width: 100%;
-      margin-bottom: 1.8rem;
-    }
-
-    .brand-logo {
+    /* Brand Header */
+    .brand-title {
       font-family: var(--font-display);
-      font-size: clamp(1.65rem, 5vw, 2.1rem);
+      font-size: clamp(1.6rem, 5vw, 1.95rem);
       font-weight: 700;
-      letter-spacing: -0.01em;
       color: #ffffff;
-      text-decoration: none;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
       display: inline-block;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
     }
 
     .brand-flourish {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.6rem;
-      margin-top: 0.35rem;
-      color: var(--gold-primary);
+      gap: 0.5rem;
+      margin-top: 0.25rem;
+      margin-bottom: clamp(0.6rem, 1.5vh, 1rem);
     }
 
     .brand-flourish .line {
-      width: 32px;
+      width: 28px;
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
     }
 
     .brand-flourish svg {
-      width: 14px;
-      height: 14px;
+      width: 15px;
+      height: 15px;
       fill: var(--gold-primary);
     }
 
-    /* Hero Section */
-    .hero-wrap {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 2.2rem;
-    }
-
-    /* Intertwined Wedding Rings Icon */
-    .wedding-rings-icon {
-      width: 44px;
-      height: 44px;
-      margin-bottom: 1rem;
+    /* Rings Icon */
+    .rings-svg {
+      width: clamp(34px, 5vh, 42px);
+      height: clamp(34px, 5vh, 42px);
+      margin-bottom: clamp(0.35rem, 1vh, 0.65rem);
       color: var(--gold-primary);
-      filter: drop-shadow(0 2px 8px rgba(229, 169, 60, 0.3));
+      filter: drop-shadow(0 2px 10px rgba(229, 169, 60, 0.45));
     }
 
-    .sub-title {
-      font-family: var(--font-serif);
-      font-size: clamp(1.2rem, 3.8vw, 1.45rem);
-      font-style: italic;
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.9);
-      letter-spacing: 0.04em;
-      margin-bottom: 0.2rem;
-    }
-
-    h1.hero-title {
+    .sub-head {
       font-family: var(--font-display);
-      font-size: clamp(2.6rem, 8.5vw, 3.8rem);
+      font-size: clamp(1.15rem, 3.5vw, 1.35rem);
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.95);
+      letter-spacing: 0.03em;
+      margin-bottom: 0.15rem;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+    }
+
+    h1.main-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 8vw, 3.5rem);
       font-weight: 700;
       font-style: italic;
-      line-height: 1.1;
-      letter-spacing: -0.01em;
+      line-height: 1.05;
       background: var(--gold-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 4px 20px rgba(229, 169, 60, 0.25);
+      margin-bottom: 0.35rem;
+      filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.8));
     }
 
-    .tag-line {
-      font-family: var(--font-serif);
-      font-size: clamp(1.05rem, 3.4vw, 1.25rem);
+    .feel-personal {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 3.2vw, 1.2rem);
       font-style: italic;
-      font-weight: 400;
       color: var(--gold-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.6rem;
-      margin-bottom: 1.1rem;
+      gap: 0.5rem;
+      margin-bottom: clamp(0.6rem, 1.5vh, 1rem);
     }
 
-    .tag-line .dash {
-      width: 24px;
+    .feel-personal .dash {
+      width: 22px;
       height: 1px;
       background: var(--gold-primary);
-      opacity: 0.6;
+      opacity: 0.7;
     }
 
-    p.description {
-      font-size: clamp(0.85rem, 2.7vw, 0.92rem);
-      color: rgba(255, 255, 255, 0.72);
-      font-weight: 400;
-      line-height: 1.65;
-      max-width: 380px;
-      margin: 0 auto 1.8rem;
-    }
-
-    /* Action Buttons (Exactly like the Reference Image) */
-    .button-group {
-      width: 100%;
+    p.tagline {
+      font-size: clamp(0.78rem, 2.5vw, 0.85rem);
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.55;
       max-width: 320px;
+      margin: 0 auto clamp(0.85rem, 2vh, 1.3rem);
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    }
+
+    /* Buttons Container */
+    .buttons-wrap {
+      width: 100%;
+      max-width: 290px;
       display: flex;
       flex-direction: column;
-      gap: 0.85rem;
+      gap: 0.65rem;
       align-items: center;
+      margin-bottom: clamp(0.75rem, 1.8vh, 1.2rem);
     }
 
-    /* 1. Golden Demo Pill Button */
-    .btn-gold-pill {
+    /* 1. Gold Pill Button */
+    .btn-gold {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.6rem;
-      padding: 0.88rem 1.6rem;
-      background: var(--gold-gradient);
-      color: #1a1205;
+      gap: 0.55rem;
+      padding: clamp(0.72rem, 1.6vh, 0.85rem) 1.25rem;
+      background: linear-gradient(180deg, #fce5b8 0%, #e5a93c 55%, #b88219 100%);
+      color: #1b1104;
       font-family: var(--font-sans);
-      font-size: 0.92rem;
+      font-size: clamp(0.82rem, 2.6vw, 0.9rem);
       font-weight: 700;
       text-decoration: none;
       border-radius: 40px;
-      box-shadow: 0 6px 20px rgba(229, 169, 60, 0.35);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 16px rgba(229, 169, 60, 0.4);
+      transition: transform 0.2s ease;
       cursor: pointer;
     }
 
-    .btn-gold-pill:hover {
+    .btn-gold:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 26px rgba(229, 169, 60, 0.5);
     }
 
-    .btn-gold-pill svg {
-      width: 14px;
-      height: 14px;
-      fill: currentColor;
+    .btn-gold svg {
+      width: 12px;
+      height: 12px;
+      fill: #1b1104;
     }
 
     /* 2. WhatsApp Glowing Pill Button */
-    .btn-whatsapp-pill {
+    .btn-whatsapp-glow {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.8rem;
-      padding: 0.75rem 1.5rem;
-      background: rgba(18, 13, 16, 0.9);
+      gap: 0.75rem;
+      padding: clamp(0.65rem, 1.4vh, 0.75rem) 1.25rem;
+      background: rgba(10, 8, 10, 0.92);
       color: #ffffff;
       font-family: var(--font-sans);
-      font-size: 1.12rem;
+      font-size: clamp(1rem, 3.2vw, 1.15rem);
       font-weight: 700;
-      letter-spacing: 0.02em;
       text-decoration: none;
       border-radius: 40px;
       border: 1.8px solid var(--whatsapp-green);
-      box-shadow: 0 0 16px rgba(37, 211, 102, 0.35), inset 0 0 8px rgba(37, 211, 102, 0.15);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 0 16px rgba(37, 211, 102, 0.4), inset 0 0 8px rgba(37, 211, 102, 0.2);
+      transition: transform 0.2s ease;
       cursor: pointer;
     }
 
-    .btn-whatsapp-pill:hover {
+    .btn-whatsapp-glow:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 24px rgba(37, 211, 102, 0.5), inset 0 0 12px rgba(37, 211, 102, 0.25);
+      box-shadow: 0 0 22px rgba(37, 211, 102, 0.55), inset 0 0 10px rgba(37, 211, 102, 0.3);
     }
 
-    .wa-icon-circle {
-      width: 30px;
-      height: 30px;
+    .wa-circle {
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       background: var(--whatsapp-green);
       display: flex;
@@ -275,263 +300,304 @@
       flex-shrink: 0;
     }
 
-    .wa-icon-circle svg {
-      width: 18px;
-      height: 18px;
+    .wa-circle svg {
+      width: 17px;
+      height: 17px;
       fill: #ffffff;
     }
 
-    .wa-divider {
+    .wa-sep {
       width: 1px;
-      height: 22px;
-      background: rgba(255, 255, 255, 0.2);
+      height: 20px;
+      background: rgba(255, 255, 255, 0.25);
     }
 
-    /* Lower Arch Card (Royal Cream Canopy) */
-    .why-choose-card {
+    /* Bottom Royal Canopy Arch Card */
+    .bottom-arch-card {
       width: 100%;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      border-radius: 36px 36px 0 0;
-      padding: 2.2rem 1.25rem 2rem;
-      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4);
-      border-top: 2px solid var(--gold-border);
+      background: #fbf8f4;
+      color: #201a1e;
+      border-radius: 34px 34px 0 0;
+      padding: clamp(1.1rem, 2.4vh, 1.5rem) 1.15rem clamp(0.75rem, 1.8vh, 1.1rem);
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.5);
+      border-top: 1.5px solid rgba(229, 169, 60, 0.4);
       position: relative;
-      margin-top: 2.5rem;
     }
 
-    /* Arch Notch Shape */
-    .why-choose-card::before {
+    /* Arch Silhouette Outline Notch */
+    .bottom-arch-card::before {
       content: '';
       position: absolute;
-      top: -14px;
+      top: -12px;
       left: 50%;
       transform: translateX(-50%);
-      width: 70px;
-      height: 14px;
-      background: var(--bg-light);
-      border-radius: 14px 14px 0 0;
-      border-top: 2px solid var(--gold-border);
-      border-left: 2px solid var(--gold-border);
-      border-right: 2px solid var(--gold-border);
+      width: 58px;
+      height: 12px;
+      background: #fbf8f4;
+      border-radius: 12px 12px 0 0;
+      border-top: 1.5px solid rgba(229, 169, 60, 0.4);
+      border-left: 1.5px solid rgba(229, 169, 60, 0.4);
+      border-right: 1.5px solid rgba(229, 169, 60, 0.4);
     }
 
-    .card-title-wrap {
+    .arch-title-wrap {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.75rem;
-      margin-bottom: 0.35rem;
+      gap: 0.65rem;
+      margin-bottom: 0.2rem;
     }
 
-    .card-title-wrap svg {
-      width: 22px;
-      height: 22px;
+    .arch-title-wrap svg {
+      width: 20px;
+      height: 20px;
       color: var(--gold-deep);
     }
 
-    .why-choose-card h2 {
+    .bottom-arch-card h2 {
       font-family: var(--font-display);
-      font-size: clamp(1.45rem, 4.5vw, 1.85rem);
+      font-size: clamp(1.3rem, 4.2vw, 1.6rem);
       font-weight: 700;
-      color: #38121f;
-      line-height: 1.25;
+      color: var(--burgundy);
+      line-height: 1.18;
     }
 
-    .card-heart-divider {
+    .heart-divider {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
-      margin: 0.4rem 0 1.5rem;
-      color: var(--gold-primary);
+      gap: 0.45rem;
+      margin: 0.25rem 0 clamp(0.75rem, 1.8vh, 1.1rem);
     }
 
-    .card-heart-divider .h-line {
-      width: 28px;
+    .heart-divider .hl {
+      width: 24px;
       height: 1px;
-      background: rgba(184, 130, 25, 0.3);
+      background: rgba(184, 130, 25, 0.35);
     }
 
-    .card-heart-divider svg {
-      width: 12px;
-      height: 12px;
+    .heart-divider svg {
+      width: 11px;
+      height: 11px;
       fill: none;
       stroke: var(--gold-deep);
       stroke-width: 2;
     }
 
-    /* 3 Feature Cards */
-    .features-row {
+    /* 3 Feature Boxes */
+    .features-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0.65rem;
-      margin-bottom: 1.8rem;
+      gap: 0.55rem;
+      margin-bottom: clamp(0.65rem, 1.5vh, 1rem);
     }
 
-    .feat-card {
+    .feat-box {
       background: #ffffff;
-      border: 1px solid rgba(229, 169, 60, 0.2);
-      border-radius: 16px;
-      padding: 1rem 0.45rem 0.85rem;
+      border: 1px solid rgba(229, 169, 60, 0.22);
+      border-radius: 14px;
+      padding: clamp(0.65rem, 1.4vh, 0.85rem) 0.35rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
     }
 
-    .feat-icon-wrap {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: #fdf5eb;
+    .feat-ico {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #fcf1f3;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.45rem;
     }
 
-    .feat-icon-wrap svg {
-      width: 20px;
-      height: 20px;
-      color: #611827;
+    .feat-ico svg {
+      width: 18px;
+      height: 18px;
+      color: #7b1c34;
     }
 
-    .feat-card span {
-      font-size: 0.76rem;
+    .feat-box span {
+      font-size: clamp(0.68rem, 2.2vw, 0.74rem);
       font-weight: 700;
       color: #201a1e;
-      line-height: 1.35;
+      line-height: 1.3;
     }
 
-    /* Demos Drawer Preview Links */
-    .demos-preview-box {
-      background: #fdfaf6;
-      border: 1px dashed rgba(229, 169, 60, 0.35);
-      border-radius: 16px;
-      padding: 1rem;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .demos-preview-box p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 0.65rem;
-      font-weight: 500;
-    }
-
-    .demo-chips-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      justify-content: center;
-    }
-
-    .demo-chip {
-      background: #ffffff;
-      color: #4a1525;
-      border: 1px solid rgba(229, 169, 60, 0.3);
-      padding: 0.4rem 0.85rem;
-      border-radius: 20px;
-      font-size: 0.74rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-    }
-
-    .demo-chip:hover {
-      background: var(--gold-light);
-      border-color: var(--gold-primary);
-      transform: translateY(-1px);
-    }
-
-    /* Footer */
     footer {
-      text-align: center;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      padding: 1rem 0 0.5rem;
-      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      font-size: 0.7rem;
+      color: #8c8277;
+    }
+
+    /* Demos Modal / Drawer */
+    .demos-drawer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 999;
+      align-items: flex-end;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .demos-drawer.active {
+      display: flex;
+    }
+
+    .demos-content {
+      width: 100%;
+      max-width: 440px;
+      background: #ffffff;
+      color: #201a1e;
+      border-radius: 24px 24px 0 0;
+      padding: 1.5rem 1.25rem 2rem;
+      max-height: 70vh;
+      overflow-y: auto;
+      text-align: left;
+    }
+
+    .demos-content h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--burgundy);
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demos-content .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #666;
+    }
+
+    .demos-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .demo-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: #fbf8f4;
+      border: 1px solid rgba(229, 169, 60, 0.2);
+      border-radius: 12px;
+      text-decoration: none;
+      color: #201a1e;
+      font-weight: 600;
+      font-size: 0.88rem;
+    }
+
+    .demo-item:hover {
+      background: #fcf1f3;
+      border-color: var(--gold-primary);
     }
   </style>
 </head>
 <body>
-  <div class="ambient-glow"></div>
 
-  <div class="container">
-    <!-- Header -->
-    <header>
-      <a href="/" class="brand-logo">InvCraftMedia</a>
-      <div class="brand-flourish">
-        <span class="line"></span>
-        <svg viewBox="0 0 24 24">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-        </svg>
-        <span class="line"></span>
-      </div>
-    </header>
+  <!-- Background Image with Ambient Glow -->
+  <div class="hero-bg"></div>
 
-    <!-- Hero Content -->
-    <div class="hero-wrap">
-      <!-- Intertwined Wedding Rings SVG -->
-      <svg class="wedding-rings-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <!-- Ring 1 -->
+  <!-- Top Floral Corner Accent -->
+  <div class="floral-accent"></div>
+
+  <!-- Hanging Brass Lantern Accent SVG (Top Right) -->
+  <svg class="lantern-accent" viewBox="0 0 80 140" fill="none">
+    <!-- Chain -->
+    <line x1="40" y1="0" x2="40" y2="35" stroke="#e5a93c" stroke-width="1.5" stroke-dasharray="2 2" />
+    <!-- Lantern Top Cap -->
+    <path d="M28 35 L52 35 L48 45 L32 45 Z" fill="#b88219" stroke="#e5a93c" stroke-width="1.2" />
+    <!-- Lantern Glass Body -->
+    <path d="M30 45 L50 45 L55 85 L25 85 Z" fill="rgba(255, 200, 80, 0.25)" stroke="#e5a93c" stroke-width="1.5" />
+    <!-- Inner Candle Glow -->
+    <ellipse cx="40" cy="65" rx="8" ry="12" fill="rgba(255, 220, 100, 0.85)" filter="blur(2px)" />
+    <!-- Filigree Pattern Lines -->
+    <line x1="40" y1="45" x2="40" y2="85" stroke="#b88219" stroke-width="1" />
+    <line x1="30" y1="65" x2="50" y2="65" stroke="#b88219" stroke-width="1" />
+    <!-- Bottom Finial -->
+    <path d="M33 85 L47 85 L40 100 Z" fill="#b88219" stroke="#e5a93c" stroke-width="1.2" />
+    <circle cx="40" cy="104" r="2.5" fill="#e5a93c" />
+  </svg>
+
+  <div class="app-viewport">
+    
+    <!-- Top Hero Section -->
+    <div class="top-section">
+      <!-- Header -->
+      <header>
+        <div class="brand-title">InvCraftMedia</div>
+        <div class="brand-flourish">
+          <span class="line"></span>
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+          </svg>
+          <span class="line"></span>
+        </div>
+      </header>
+
+      <!-- Intertwined Wedding Rings with Diamond SVG -->
+      <svg class="rings-svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="26" cy="38" r="16" />
-        <!-- Ring 2 -->
         <circle cx="42" cy="34" r="16" />
-        <!-- Diamond on top -->
+        <!-- Diamond on right ring -->
         <path d="M42 18 L46 14 L42 10 L38 14 Z" fill="currentColor" stroke="none" />
-        <!-- Sparkles -->
         <path d="M52 14 L55 14 M53.5 12.5 L53.5 15.5" stroke-width="2" />
         <path d="M30 18 L32 18 M31 17 L31 19" stroke-width="2" />
       </svg>
 
-      <div class="sub-title">Digital Wedding</div>
-      <h1 class="hero-title">Invitations</h1>
+      <div class="sub-head">Digital Wedding</div>
+      <h1 class="main-title">Invitations</h1>
       
-      <div class="tag-line">
+      <div class="feel-personal">
         <span class="dash"></span>
         That Feel Personal
         <span class="dash"></span>
       </div>
 
-      <p class="description">
+      <p class="tagline">
         Beautiful, modern and fully customized wedding invitation websites for your special day.
       </p>
 
       <!-- Action Buttons -->
-      <div class="button-group">
+      <div class="buttons-wrap">
         <!-- Button 1: Gold Demo Button -->
-        <a href="#demos-section" class="btn-gold-pill" id="btnViewDemos">
+        <a href="#demos" class="btn-gold" id="btnOpenDemos">
           <svg viewBox="0 0 24 24">
             <path d="M8 5v14l11-7z"/>
           </svg>
           View Invitation Demos
         </a>
 
-        <!-- Button 2: WhatsApp Number Pill -->
-        <a href="https://wa.me/918209415303?text=Namaste%20InvCraft%20Media!%20I%20am%20interested%20in%20creating%20a%20digital%20wedding%20invitation." 
-           class="btn-whatsapp-pill" 
+        <!-- Button 2: WhatsApp Glowing Pill Button -->
+        <a href="https://wa.me/918209415303?text=Namaste%20InvCraft%20Media!%20I%20want%20to%20create%20a%20digital%20wedding%20invitation." 
+           class="btn-whatsapp-glow" 
            target="_blank" 
-           rel="noopener"
-           aria-label="Contact InvCraft Media on WhatsApp at 8209415303">
-          <div class="wa-icon-circle">
+           rel="noopener">
+          <div class="wa-circle">
             <svg viewBox="0 0 24 24">
               <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.33C8.94 7.33 8.66 7.4 8.43 7.65C8.2 7.9 7.55 8.51 7.55 9.75C7.55 11 8.46 12.2 8.58 12.37C8.71 12.54 10.36 15.09 12.88 16.18C13.48 16.44 13.95 16.6 14.31 16.71C14.92 16.91 15.47 16.88 15.91 16.81C16.4 16.74 17.42 16.19 17.64 15.59C17.85 14.98 17.85 14.47 17.79 14.36C17.73 14.25 17.56 14.19 17.31 14.06C17.06 13.94 15.82 13.33 15.59 13.25C15.36 13.16 15.2 13.12 15.03 13.37C14.86 13.62 14.39 14.19 14.25 14.36C14.1 14.53 13.96 14.55 13.71 14.42C13.46 14.3 12.42 13.96 11.19 12.87C10.23 12.02 9.58 10.96 9.46 10.75C9.33 10.55 9.44 10.43 9.57 10.31C9.68 10.2 9.82 10.02 9.95 9.87C10.08 9.72 10.12 9.61 10.2 9.45C10.29 9.28 10.25 9.14 10.19 9.01C10.12 8.89 9.66 7.74 9.46 7.27C9.27 6.81 9.08 6.87 8.94 6.86C8.8 6.86 8.63 6.85 8.46 6.85"/>
             </svg>
           </div>
-          <div class="wa-divider"></div>
+          <div class="wa-sep"></div>
           <span>8209415303</span>
         </a>
       </div>
     </div>
 
-    <!-- Lower Canopy Arch Card -->
-    <div class="why-choose-card" id="demos-section">
-      <div class="card-title-wrap">
+    <!-- Bottom Royal Arch Card -->
+    <div class="bottom-arch-card">
+      <div class="arch-title-wrap">
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22L6.66 19.7C7.14 19.87 7.64 20 8 20C19 20 22 3 22 3C21 5 14 5.25 9 6.25C4 7.25 2 11.5 2 13.5C2 15.5 3.75 17.25 3.75 17.25C7 11 11.5 9 17 8Z"/>
         </svg>
@@ -541,18 +607,18 @@
         </svg>
       </div>
 
-      <div class="card-heart-divider">
-        <span class="h-line"></span>
+      <div class="heart-divider">
+        <span class="hl"></span>
         <svg viewBox="0 0 24 24">
           <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
         </svg>
-        <span class="h-line"></span>
+        <span class="hl"></span>
       </div>
 
-      <!-- 3 Minimalist Feature Cards -->
-      <div class="features-row">
-        <div class="feat-card">
-          <div class="feat-icon-wrap">
+      <!-- 3 Feature Cards (Single Viewport) -->
+      <div class="features-grid">
+        <div class="feat-box">
+          <div class="feat-ico">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
               <line x1="8" y1="21" x2="16" y2="21"></line>
@@ -562,8 +628,8 @@
           <span>Modern &amp;<br>Responsive</span>
         </div>
 
-        <div class="feat-card">
-          <div class="feat-icon-wrap">
+        <div class="feat-box">
+          <div class="feat-ico">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
               <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
@@ -572,25 +638,13 @@
           <span>Fully<br>Customized</span>
         </div>
 
-        <div class="feat-card">
-          <div class="feat-icon-wrap">
+        <div class="feat-box">
+          <div class="feat-ico">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
             </svg>
           </div>
           <span>Fast, Secure<br>&amp; Reliable</span>
-        </div>
-      </div>
-
-      <!-- Live Demos Preview Box -->
-      <div class="demos-preview-box">
-        <p>Explore Live Client Invitation Demos:</p>
-        <div class="demo-chips-wrap">
-          <a href="/krishna-weds-shreya/" class="demo-chip">Krishna &amp; Shreya</a>
-          <a href="/ankush-weds-muskan/" class="demo-chip">Ankush &amp; Muskan</a>
-          <a href="/manohar-weds-harshitha/" class="demo-chip">Manohar &amp; Harshitha</a>
-          <a href="/dharmendra-weds-sanchita/" class="demo-chip">Dharmendra &amp; Sanchita</a>
-          <a href="/apurva-weds-srishti/" class="demo-chip">Apurva &amp; Srishti</a>
         </div>
       </div>
 
@@ -600,10 +654,54 @@
     </div>
   </div>
 
+  <!-- Interactive Demos Popup Drawer -->
+  <div class="demos-drawer" id="demosDrawer">
+    <div class="demos-content">
+      <h3>
+        <span>Featured Wedding Invitations</span>
+        <button class="close-btn" id="btnCloseDemos">&times;</button>
+      </h3>
+      <div class="demos-list">
+        <a href="/krishna-weds-shreya/" class="demo-item">
+          <span>Krishna &amp; Shreya</span>
+          <span>&rarr;</span>
+        </a>
+        <a href="/ankush-weds-muskan/" class="demo-item">
+          <span>Ankush &amp; Muskan</span>
+          <span>&rarr;</span>
+        </a>
+        <a href="/manohar-weds-harshitha/" class="demo-item">
+          <span>Manohar &amp; Harshitha</span>
+          <span>&rarr;</span>
+        </a>
+        <a href="/dharmendra-weds-sanchita/" class="demo-item">
+          <span>Dharmendra &amp; Sanchita</span>
+          <span>&rarr;</span>
+        </a>
+        <a href="/apurva-weds-srishti/" class="demo-item">
+          <span>Apurva &amp; Srishti</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <script>
-    document.getElementById('btnViewDemos')?.addEventListener('click', function(e) {
+    const btnOpen = document.getElementById('btnOpenDemos');
+    const btnClose = document.getElementById('btnCloseDemos');
+    const drawer = document.getElementById('demosDrawer');
+
+    btnOpen?.addEventListener('click', (e) => {
       e.preventDefault();
-      document.getElementById('demos-section')?.scrollIntoView({ behavior: 'smooth' });
+      drawer.classList.add('active');
+    });
+
+    btnClose?.addEventListener('click', () => {
+      drawer.classList.remove('active');
+    });
+
+    drawer?.addEventListener('click', (e) => {
+      if (e.target === drawer) drawer.classList.remove('active');
     });
   </script>
 </body>
