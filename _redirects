@@ -184,9 +184,6 @@
 /manohar-weds-harshita/*         /invitations/manohar-weds-harshitha/:splat                    200
 
 # Client: aditya-weds-naina
-/invitations/aditya-weds-naina             /aditya-weds-naina/                                    301
-/invitations/aditya-weds-naina/            /aditya-weds-naina/                                    301
-/invitations/aditya-weds-naina/index.html  /aditya-weds-naina/                                    301
-/aditya-weds-naina                         /aditya-weds-naina/                                    301
-/aditya-weds-naina/                        /invitations/aditya-weds-naina/index.html              200
-/aditya-weds-naina/*                       /invitations/aditya-weds-naina/:splat                  200
+/aditya-weds-naina        /aditya-weds-naina/                                    301
+/aditya-weds-naina/       /invitations/aditya-weds-naina/index.html              200
+/aditya-weds-naina/*      /invitations/aditya-weds-naina/:splat                  200
