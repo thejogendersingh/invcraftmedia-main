@@ -66,10 +66,199 @@
         }
       }
     </style>
-    <script type="module" crossorigin src="./assets/index-BgkQTLfu.js?v=18"></script>
+    <script type="module" crossorigin src="./assets/index-BgkQTLfu.js?v=25"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-BC6_D4MB.css?v=10">
   </head>
   <body class="notranslate" translate="no">
     <div id="root" class="notranslate" translate="no"></div>
-  </body>
+      <!-- Auto-Scroll System: Starts smoothly when Hero Section opens, stops on touch/manual scroll, toggle button at bottom-right -->
+    <style>
+      #autoscroll-control-container {
+        position: fixed;
+        bottom: 22px;
+        right: 18px;
+        z-index: 999999;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(12px) scale(0.92);
+        transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      #autoscroll-control-container.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+      }
+      .autoscroll-pill-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 8px 14px;
+        background: linear-gradient(135deg, rgba(255, 248, 235, 0.96), rgba(247, 222, 169, 0.96));
+        border: 1.5px solid rgba(197, 146, 52, 0.75);
+        border-radius: 9999px;
+        color: #4a1525;
+        font-family: 'Noto Serif Devanagari', 'Martel', serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        cursor: pointer;
+        box-shadow: 0 6px 20px rgba(139, 90, 20, 0.28), 0 2px 6px rgba(0,0,0,0.12);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transition: all 0.25s ease;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .autoscroll-pill-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(139, 90, 20, 0.38);
+        background: linear-gradient(135deg, #ffffff, #f7dea9);
+      }
+      .autoscroll-pill-btn:active {
+        transform: scale(0.96);
+      }
+      .autoscroll-pulse-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #16a34a;
+        box-shadow: 0 0 8px #16a34a;
+        animation: autoscrollPulse 1.4s infinite ease-in-out;
+      }
+      .autoscroll-pill-btn.paused .autoscroll-pulse-dot {
+        background: #d97706;
+        box-shadow: none;
+        animation: none;
+      }
+      @keyframes autoscrollPulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.4); opacity: 0.5; }
+      }
+    </style>
+    <script>
+      (function() {
+        let isAutoScrolling = false;
+        let rafId = null;
+        let hasAutoStarted = false;
+        const speed = 0.55; // ultra-smooth slow reading pace
+        let scrollAccumulator = 0;
+
+        function createControlUI() {
+          if (document.getElementById('autoscroll-control-container')) return;
+          const container = document.createElement('div');
+          container.id = 'autoscroll-control-container';
+          container.innerHTML = `
+            <button class="autoscroll-pill-btn" id="autoscroll-btn" aria-label="ऑटो स्क्रॉल रोकें / चालू करें">
+              <span class="autoscroll-pulse-dot" id="autoscroll-dot"></span>
+              <span id="autoscroll-text">रोकें</span>
+            </button>
+          `;
+          document.body.appendChild(container);
+
+          const btn = document.getElementById('autoscroll-btn');
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            if (isAutoScrolling) {
+              stopAutoScroll();
+            } else {
+              startAutoScroll();
+            }
+          });
+        }
+
+        function updateUI(scrolling) {
+          const btn = document.getElementById('autoscroll-btn');
+          const text = document.getElementById('autoscroll-text');
+          if (!btn || !text) return;
+
+          if (scrolling) {
+            btn.classList.remove('paused');
+            text.textContent = 'रोकें';
+          } else {
+            btn.classList.add('paused');
+            text.textContent = 'ऑटो स्क्रॉल';
+          }
+        }
+
+        function startAutoScroll() {
+          if (isAutoScrolling) return;
+          isAutoScrolling = true;
+          updateUI(true);
+
+          function step() {
+            if (!isAutoScrolling) return;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            if (window.scrollY >= maxScroll - 4) {
+              stopAutoScroll();
+              return;
+            }
+            scrollAccumulator += speed;
+            if (scrollAccumulator >= 1) {
+              const toScroll = Math.floor(scrollAccumulator);
+              window.scrollBy(0, toScroll);
+              scrollAccumulator -= toScroll;
+            }
+            rafId = requestAnimationFrame(step);
+          }
+          rafId = requestAnimationFrame(step);
+        }
+
+        function stopAutoScroll() {
+          if (!isAutoScrolling) return;
+          isAutoScrolling = false;
+          if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+          }
+          updateUI(false);
+        }
+
+        // Cancel / pause auto-scroll immediately on any user touch/scroll/key interaction
+        const cancelEvents = ['touchstart', 'touchmove', 'wheel', 'pointerdown', 'keydown', 'mousedown'];
+        cancelEvents.forEach(evt => {
+          window.addEventListener(evt, function(e) {
+            if (e.target && (e.target.closest('#autoscroll-control-container') || e.target.id === 'autoscroll-control-container')) {
+              return;
+            }
+            if (isAutoScrolling) {
+              stopAutoScroll();
+            }
+          }, { passive: true });
+        });
+
+        // Watch for Hero Section (<main>) appearing when envelope is opened
+        function initObserver() {
+          createControlUI();
+
+          function checkMain() {
+            const mainEl = document.querySelector('main');
+            if (mainEl && !hasAutoStarted) {
+              hasAutoStarted = true;
+              const container = document.getElementById('autoscroll-control-container');
+              if (container) container.classList.add('visible');
+
+              // Wait 800ms for envelope opening fade-in to complete, then start smooth auto-scroll
+              setTimeout(() => {
+                startAutoScroll();
+              }, 800);
+            }
+          }
+
+          const observer = new MutationObserver(() => {
+            checkMain();
+          });
+
+          observer.observe(document.body, { childList: true, subtree: true });
+          checkMain();
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initObserver);
+        } else {
+          initObserver();
+        }
+      })();
+    </script>
+</body>
 </html>

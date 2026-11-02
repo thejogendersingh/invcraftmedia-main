@@ -3057,7 +3057,7 @@ const modalWaLink = document.getElementById('modal-wa-link');
 rsvpForm.addEventListener('submit', (e) => {
     e.preventDefault();
     submitBtn.disabled = true; 
-    btnText.textContent = 'Submitting...'; 
+    btnText.textContent = 'Opening WhatsApp...'; 
     btnSpinner.style.display = 'inline';
 
     const formData = new FormData(e.target);
@@ -3065,40 +3065,49 @@ rsvpForm.addEventListener('submit', (e) => {
     const mobileNumber = formData.get('mobileNumber') || '';
     const note = formData.get('message') || '';
 
-    // Prepare WhatsApp message text
+    // Prepare direct WhatsApp message text for Bride Side (+91 93995 29958)
     const waText = encodeURIComponent(
         `*Wedding RSVP for Shivani & Atishay*\n` +
-        `👤 *Name:* ${guestName}\n` +
-        `📞 *Phone:* ${mobileNumber}\n` +
-        (note ? `💌 *Blessings/Note:* ${note}\n` : '')
+        `━━━━━━━━━━━━━━━━━━━\n` +
+        `👤 *Guest Name:* ${guestName}\n` +
+        `📞 *Contact Number:* ${mobileNumber}\n` +
+        (note ? `💌 *Wishes / Blessings:* ${note}\n` : '') +
+        `━━━━━━━━━━━━━━━━━━━\n` +
+        `✨ Bride Side RSVP (+91 93995 29958)`
     );
-    const waUrl = `https://wa.me/919630732769?text=${waText}`;
+    const waUrl = `https://api.whatsapp.com/send?phone=919399529958&text=${waText}`;
     modalWaLink.href = waUrl;
+
+    // Direct WhatsApp redirect immediately
+    window.location.href = waUrl;
 
     setTimeout(() => {
         submitBtn.disabled = false;
-        btnText.textContent = 'Send Love & RSVP';
+        const activeLang = document.documentElement.getAttribute('data-active-lang') || 'en';
+        btnText.textContent = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[activeLang] && TRANSLATIONS[activeLang].submit_btn) || 'Send Love & RSVP';
         btnSpinner.style.display = 'none';
 
-        confetti({
-            particleCount: 50,
-            spread: 70,
-            origin: { y: 0.6 }
-        });
+        try {
+            confetti({
+                particleCount: 60,
+                spread: 80,
+                origin: { y: 0.6 }
+            });
+        } catch (_) {}
 
         showModal('success');
-    }, 600);
+    }, 500);
 });
 
 function showModal(type) {
     if (type === 'success') {
         modalTitle.textContent = 'Thank You!';
-        modalMsg.textContent = "We are deeply honored and can't wait to celebrate with you at Bandhavgarh Tiger Resort!";
+        modalMsg.textContent = "Your RSVP has been forwarded to WhatsApp (+91 93995 29958 - Bride Side). If WhatsApp did not open automatically, please tap the button below:";
         modalSucc.style.display = ''; modalErr.style.display = 'none'; modalIcon.style.background = 'rgba(184,89,64,0.1)';
         modalWaLink.style.display = 'inline-flex';
     } else {
         modalTitle.textContent = 'Oops!';
-        modalMsg.textContent = 'There was an error submitting your RSVP. Please try reaching out directly on 9630732769.';
+        modalMsg.textContent = 'There was an error submitting your RSVP. Please try reaching out directly on 9399529958.';
         modalSucc.style.display = 'none'; modalErr.style.display = ''; modalIcon.style.background = 'rgba(220,38,38,0.08)';
         modalWaLink.style.display = 'none';
     }

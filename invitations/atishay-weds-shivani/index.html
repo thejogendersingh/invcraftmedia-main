@@ -3565,23 +3565,16 @@ rsvpForm.addEventListener('submit', (e) => {
         `━━━━━━━━━━━━━━━━━━━\n` +
         `✨ Groom Side RSVP (+91 9630732769)`
     );
-    const waUrl = `https://wa.me/919630732769?text=${waText}`;
+    const waUrl = `https://api.whatsapp.com/send?phone=919630732769&text=${waText}`;
     modalWaLink.href = waUrl;
 
-    // Direct WhatsApp redirect / opening
-    try {
-        const opened = window.open(waUrl, '_blank');
-        if (!opened || opened.closed || typeof opened.closed === 'undefined') {
-            window.location.href = waUrl;
-        }
-    } catch (_) {
-        window.location.href = waUrl;
-    }
+    // Direct WhatsApp redirect immediately
+    window.location.href = waUrl;
 
     setTimeout(() => {
         submitBtn.disabled = false;
         const activeLang = document.documentElement.getAttribute('data-active-lang') || 'en';
-        btnText.textContent = (TRANSLATIONS[activeLang] && TRANSLATIONS[activeLang].submit_btn) || 'Send Love & RSVP';
+        btnText.textContent = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[activeLang] && TRANSLATIONS[activeLang].submit_btn) || 'Send Love & RSVP';
         btnSpinner.style.display = 'none';
 
         try {
@@ -3593,18 +3586,18 @@ rsvpForm.addEventListener('submit', (e) => {
         } catch (_) {}
 
         showModal('success');
-    }, 450);
+    }, 500);
 });
 
 function showModal(type) {
     if (type === 'success') {
         modalTitle.textContent = 'Thank You!';
-        modalMsg.textContent = "Your RSVP has been forwarded to WhatsApp (+91 9630732769 - Groom Side). If chat did not open automatically, please tap the button below:";
+        modalMsg.textContent = "Your RSVP has been forwarded to WhatsApp (+91 9630732769 - Groom Side). If WhatsApp did not open automatically, please tap the button below:";
         modalSucc.style.display = ''; modalErr.style.display = 'none'; modalIcon.style.background = 'rgba(184,89,64,0.1)';
         modalWaLink.style.display = 'inline-flex';
     } else {
         modalTitle.textContent = 'Oops!';
-        modalMsg.textContent = 'There was an issue opening WhatsApp. Please contact Groom Side directly at +91 9630732769.';
+        modalMsg.textContent = 'There was an error submitting your RSVP. Please try reaching out directly on 9630732769.';
         modalSucc.style.display = 'none'; modalErr.style.display = ''; modalIcon.style.background = 'rgba(220,38,38,0.08)';
         modalWaLink.style.display = 'none';
     }
