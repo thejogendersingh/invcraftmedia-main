@@ -15,6 +15,11 @@
 /abhijit-weds-sumona/       /invitations/abhijit-weds-sumona/index.html              200
 /abhijit-weds-sumona/*      /invitations/abhijit-weds-sumona/:splat                  200
 
+# Client: aditya-weds-naina
+/aditya-weds-naina        /aditya-weds-naina/                                    301
+/aditya-weds-naina/       /invitations/aditya-weds-naina/index.html              200
+/aditya-weds-naina/*      /invitations/aditya-weds-naina/:splat                  200
+
 # Client: amit-weds-urvashi
 /amit-weds-urvashi        /amit-weds-urvashi/                                    301
 /amit-weds-urvashi/       /invitations/amit-weds-urvashi/index.html              200
@@ -140,15 +145,6 @@
 /unnati-weds-nisarg/       /invitations/unnati-weds-nisarg/index.html              200
 /unnati-weds-nisarg/*      /invitations/unnati-weds-nisarg/:splat                  200
 
-# Aliases for Krishna Weds Shreya Invitation 2
-/krishna-weds-shreya-2               /krishna-weds-shreya-invitation/            301
-/krishna-weds-shreya-2/              /krishna-weds-shreya-invitation/            301
-/krishna-weds-shreya-2/*             /invitations/krishna-weds-shreya-invitation/:splat 200
-/krishna-weds-Shreya-Invitation      /krishna-weds-shreya-invitation/            301
-/krishna-weds-Shreya-Invitation/     /krishna-weds-shreya-invitation/            301
-/krishna-weds-Shreya-Invitation/*    /invitations/krishna-weds-shreya-invitation/:splat 200
-
-
 # ==============================================================================
 # SPELLING & SLUG ALIASES (Guarantees zero 404s for common typos & variants)
 # ==============================================================================
@@ -172,18 +168,3 @@
 /palkesh-weds-khusbhu            /palkesh-weds-khusbhu/                                        301
 /palkesh-weds-khusbhu/           /invitations/palkesh-weds-khushbu/index.html                  200
 /palkesh-weds-khusbhu/*          /invitations/palkesh-weds-khushbu/:splat                      200
-
-# Client: harshita-weds-manohar (variant spelling without 'h')
-/harshita-weds-manohar           /harshita-weds-manohar/                                       301
-/harshita-weds-manohar/          /invitations/harshitha-weds-manohar/index.html                200
-/harshita-weds-manohar/*         /invitations/harshitha-weds-manohar/:splat                    200
-
-# Client: manohar-weds-harshita (variant spelling without 'h')
-/manohar-weds-harshita           /manohar-weds-harshita/                                       301
-/manohar-weds-harshita/          /invitations/manohar-weds-harshitha/index.html                200
-/manohar-weds-harshita/*         /invitations/manohar-weds-harshitha/:splat                    200
-
-# Client: aditya-weds-naina
-/aditya-weds-naina        /aditya-weds-naina/                                    301
-/aditya-weds-naina/       /invitations/aditya-weds-naina/index.html              200
-/aditya-weds-naina/*      /invitations/aditya-weds-naina/:splat                  200
