@@ -20,6 +20,11 @@
 /aditya-weds-naina/       /invitations/aditya-weds-naina/index.html              200
 /aditya-weds-naina/*      /invitations/aditya-weds-naina/:splat                  200
 
+# Client: aniket-weds-nandini
+/aniket-weds-nandini        /aniket-weds-nandini/                                    301
+/aniket-weds-nandini/       /invitations/aniket-weds-nandini/index.html              200
+/aniket-weds-nandini/*      /invitations/aniket-weds-nandini/:splat                  200
+
 # Client: amit-weds-urvashi
 /amit-weds-urvashi        /amit-weds-urvashi/                                    301
 /amit-weds-urvashi/       /invitations/amit-weds-urvashi/index.html              200
