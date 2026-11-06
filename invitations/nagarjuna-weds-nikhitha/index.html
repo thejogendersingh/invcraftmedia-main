@@ -173,38 +173,38 @@
   </section>
 
   <!-- SCRATCH & REVEAL COUNTDOWN SECTION -->
-  <section id="countdown-section" class="py-16 px-4 sm:px-8 max-w-3xl mx-auto relative z-10 -mt-6">
-    <div id="scratch-card-wrapper" class="relative rounded-3xl overflow-hidden bg-[#FAF5E8] p-6 sm:p-10 border-2 border-[#D4AF37]/60 shadow-luxury text-center scroll-reveal">
+  <section id="countdown-section" class="py-12 px-4 sm:px-8 max-w-2xl mx-auto relative z-10 -mt-6 text-center">
+    
+    <!-- 1. DATE & MUHURTHAM HEADING (OUTSIDE SCRATCH CARD) -->
+    <div class="relative p-6 sm:p-7 rounded-3xl bg-[#FFFDF7]/95 backdrop-blur-md border border-[#D4AF37]/60 shadow-card max-w-lg mx-auto flex flex-col items-center mb-6 scroll-reveal">
+      <span class="font-sans text-xs sm:text-sm uppercase tracking-[0.28em] text-[#004E64] font-bold" data-i18n="save_the_date">శుభ ముహూర్తం</span>
+      <h2 class="font-serif text-3xl sm:text-4xl text-[#7A001E] font-bold mt-1 tracking-wide" data-i18n="hero_date">22 నవంబర్ 2026</h2>
+      <span class="font-serif italic text-xs sm:text-sm text-[#7A001E]/80 pt-1">ఉ॥గం॥ 9-49 ని॥లకు • అశ్విని నక్షత్రయుక్త ధనస్సు లగ్నం</span>
+    </div>
+
+    <!-- 2. SCRATCH CARD WRAPPER (ONLY WRAPS THE 4 TICKERS FOR COMPACT HEIGHT) -->
+    <div id="scratch-card-wrapper" class="relative rounded-3xl overflow-hidden bg-[#FAF5E8] p-4 sm:p-6 border-2 border-[#D4AF37]/70 shadow-luxury text-center max-w-lg mx-auto scroll-reveal">
       
       <!-- Scratch Overlay Canvas -->
       <canvas id="scratch-canvas" class="absolute inset-0 w-full h-full z-20 cursor-pointer rounded-3xl touch-none transition-opacity duration-700"></canvas>
       
-      <!-- Revealed Content -->
-      <div class="relative z-10 space-y-8">
-        <div class="relative p-6 sm:p-8 rounded-2xl bg-[#FFFDF7] border border-[#D4AF37]/50 shadow-sm max-w-lg mx-auto flex flex-col items-center">
-          <span class="font-sans text-xs sm:text-sm uppercase tracking-[0.28em] text-[#004E64] font-bold" data-i18n="save_the_date">శుభ ముహూర్తం</span>
-          <h2 class="font-serif text-3xl sm:text-4xl text-[#7A001E] font-bold mt-1 tracking-wide" data-i18n="hero_date">22 నవంబర్ 2026</h2>
-          <span class="font-serif italic text-xs sm:text-sm text-[#7A001E]/80 pt-1">ఉ॥గం॥ 9-49 ని॥లకు • అశ్విని నక్షత్రయుక్త ధనస్సు లగ్నం</span>
+      <!-- Revealed 4 Tickers -->
+      <div class="relative z-10 grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto">
+        <div class="p-3 sm:p-4 rounded-2xl bg-[#FFFDF7] border border-[#D4AF37]/50 shadow-sm flex flex-col items-center">
+          <span id="cnt-days" class="font-serif text-2xl sm:text-4xl font-bold text-[#7A001E]">00</span>
+          <span class="font-sans text-[10px] sm:text-[11px] uppercase tracking-wider text-[#004E64] font-bold mt-0.5" data-i18n="cnt_days">రోజులు</span>
         </div>
-
-        <!-- 4 Tickers -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-xl mx-auto">
-          <div class="p-4 sm:p-5 rounded-2xl bg-[#FFFDF7] border border-[#D4AF37]/40 shadow-sm flex flex-col items-center">
-            <span id="cnt-days" class="font-serif text-4xl sm:text-5xl font-bold text-[#7A001E]">00</span>
-            <span class="font-sans text-[11px] uppercase tracking-widest text-[#004E64] font-bold mt-1" data-i18n="cnt_days">రోజులు</span>
-          </div>
-          <div class="p-4 sm:p-5 rounded-2xl bg-[#FFFDF7] border border-[#D4AF37]/40 shadow-sm flex flex-col items-center">
-            <span id="cnt-hours" class="font-serif text-4xl sm:text-5xl font-bold text-[#7A001E]">00</span>
-            <span class="font-sans text-[11px] uppercase tracking-widest text-[#004E64] font-bold mt-1" data-i18n="cnt_hours">గంటలు</span>
-          </div>
-          <div class="p-4 sm:p-5 rounded-2xl bg-[#FFFDF7] border border-[#D4AF37]/40 shadow-sm flex flex-col items-center">
-            <span id="cnt-mins" class="font-serif text-4xl sm:text-5xl font-bold text-[#7A001E]">00</span>
-            <span class="font-sans text-[11px] uppercase tracking-widest text-[#004E64] font-bold mt-1" data-i18n="cnt_mins">నిమిషాలు</span>
-          </div>
-          <div class="p-4 sm:p-5 rounded-2xl bg-[#FFFDF7] border border-[#D4AF37]/40 shadow-sm flex flex-col items-center">
-            <span id="cnt-secs" class="font-serif text-4xl sm:text-5xl font-bold text-[#7A001E]">00</span>
-            <span class="font-sans text-[11px] uppercase tracking-widest text-[#004E64] font-bold mt-1" data-i18n="cnt_secs">సెకన్లు</span>
-          </div>
+        <div class="p-3 sm:p-4 rounded-2xl bg-[#FFFDF7] border border-[#D4AF37]/50 shadow-sm flex flex-col items-center">
+          <span id="cnt-hours" class="font-serif text-2xl sm:text-4xl font-bold text-[#7A001E]">00</span>
+          <span class="font-sans text-[10px] sm:text-[11px] uppercase tracking-wider text-[#004E64] font-bold mt-0.5" data-i18n="cnt_hours">గంటలు</span>
+        </div>
+        <div class="p-3 sm:p-4 rounded-2xl bg-[#FFFDF7] border border-[#D4AF37]/50 shadow-sm flex flex-col items-center">
+          <span id="cnt-mins" class="font-serif text-2xl sm:text-4xl font-bold text-[#7A001E]">00</span>
+          <span class="font-sans text-[10px] sm:text-[11px] uppercase tracking-wider text-[#004E64] font-bold mt-0.5" data-i18n="cnt_mins">నిమిషాలు</span>
+        </div>
+        <div class="p-3 sm:p-4 rounded-2xl bg-[#FFFDF7] border border-[#D4AF37]/50 shadow-sm flex flex-col items-center">
+          <span id="cnt-secs" class="font-serif text-2xl sm:text-4xl font-bold text-[#7A001E]">00</span>
+          <span class="font-sans text-[10px] sm:text-[11px] uppercase tracking-wider text-[#004E64] font-bold mt-0.5" data-i18n="cnt_secs">సెకన్లు</span>
         </div>
       </div>
 
@@ -229,33 +229,33 @@
         </div>
       </div>
 
-      <!-- 2 High-Quality Event Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <!-- 2 High-Quality Event Cards (Centered Content) -->
+      <div class="space-y-6 max-w-2xl mx-auto">
         
         <!-- 1. Sumuhurtham : Kalyana Mahotsavam -->
-        <div class="relative rounded-3xl overflow-hidden shadow-luxury border-2 border-[#D4AF37] transition-all hover:scale-[1.01] duration-300 min-h-[340px] flex flex-col justify-end p-6 sm:p-8 text-white scroll-reveal">
+        <div class="relative rounded-3xl overflow-hidden shadow-luxury border-2 border-[#D4AF37] transition-all hover:scale-[1.01] duration-300 min-h-[260px] sm:min-h-[290px] flex items-center justify-center p-6 sm:p-8 text-center text-white scroll-reveal">
           <img src="./assets/baarat-swagat.png" alt="Sumuhurtham" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.65] contrast-[1.05]" />
           <div class="absolute inset-0 bg-gradient-to-t from-[#5A0016]/95 via-black/50 to-black/30"></div>
 
-          <div class="relative z-10 space-y-3">
-            <span class="inline-block px-3 py-1 rounded-full bg-[#D4AF37] text-[#7A001E] text-[10px] sm:text-xs font-bold tracking-widest uppercase" data-i18n="e1_badge">
+          <div class="relative z-10 flex flex-col items-center text-center space-y-3 max-w-xl mx-auto">
+            <span class="inline-block px-3.5 py-1 rounded-full bg-[#D4AF37] text-[#7A001E] text-[10px] sm:text-xs font-bold tracking-widest uppercase shadow-sm" data-i18n="e1_badge">
               ప్రధాన వివాహ కల్యాణ మహోత్సవం
             </span>
             
             <h3 class="font-serif text-2xl sm:text-3xl font-bold text-amber-200 tracking-wide" data-i18n="e1_name">సుముహూర్తం : కల్యాణ మహోత్సవం</h3>
             <p class="font-sans text-xs sm:text-sm text-white/95 font-light" data-i18n="e1_desc">అశ్విని నక్షత్రయుక్త ధనస్సు లగ్న పుష్కరాంశ సుముహూర్తమున</p>
             
-            <div class="pt-3 border-t border-[#D4AF37]/40 space-y-2 text-xs font-sans tracking-wider text-white/95">
-              <div class="flex items-center gap-2">
-                <i data-lucide="calendar" class="w-4 h-4 text-[#D4AF37] shrink-0"></i>
+            <div class="pt-3 border-t border-[#D4AF37]/40 flex flex-col items-center gap-1.5 text-xs font-sans tracking-wider text-white/95">
+              <div class="flex items-center justify-center gap-2">
+                <i data-lucide="calendar" class="w-4 h-4 text-[#D4AF37]"></i>
                 <span class="font-semibold" data-i18n="e1_date">ఆదివారం, 22 నవంబర్ 2026</span>
               </div>
-              <div class="flex items-center gap-2">
-                <i data-lucide="clock" class="w-4 h-4 text-[#D4AF37] shrink-0"></i>
+              <div class="flex items-center justify-center gap-2">
+                <i data-lucide="clock" class="w-4 h-4 text-[#D4AF37]"></i>
                 <span class="font-semibold" data-i18n="e1_time">ఉ॥గం॥ 9-49 ని॥లకు</span>
               </div>
-              <div class="flex items-start gap-2">
-                <i data-lucide="map-pin" class="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5"></i>
+              <div class="flex items-center justify-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4 text-[#D4AF37] shrink-0"></i>
                 <span data-i18n="e1_venue">యస్.యస్.వి. ఫంక్షన్ హాల్, విజయ టాకీస్ ఎదురుగా, హనుమకొండ</span>
               </div>
             </div>
@@ -263,29 +263,29 @@
         </div>
 
         <!-- 2. Kalyana Vindu : Wedding Feast (Lunch) -->
-        <div class="relative rounded-3xl overflow-hidden shadow-luxury border-2 border-[#D4AF37]/60 transition-all hover:scale-[1.01] duration-300 min-h-[340px] flex flex-col justify-end p-6 sm:p-8 text-white scroll-reveal">
+        <div class="relative rounded-3xl overflow-hidden shadow-luxury border-2 border-[#D4AF37]/60 transition-all hover:scale-[1.01] duration-300 min-h-[260px] sm:min-h-[290px] flex items-center justify-center p-6 sm:p-8 text-center text-white scroll-reveal">
           <img src="./assets/phera.jpg" alt="Kalyana Vindu" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.65] contrast-[1.05]" />
           <div class="absolute inset-0 bg-gradient-to-t from-[#5A0016]/95 via-black/50 to-black/30"></div>
 
-          <div class="relative z-10 space-y-3">
-            <span class="inline-block px-3 py-1 rounded-full bg-[#D4AF37] text-[#7A001E] text-[10px] sm:text-xs font-bold tracking-widest uppercase" data-i18n="e2_badge">
+          <div class="relative z-10 flex flex-col items-center text-center space-y-3 max-w-xl mx-auto">
+            <span class="inline-block px-3.5 py-1 rounded-full bg-[#D4AF37] text-[#7A001E] text-[10px] sm:text-xs font-bold tracking-widest uppercase shadow-sm" data-i18n="e2_badge">
               వివాహ విందు
             </span>
             
             <h3 class="font-serif text-2xl sm:text-3xl font-bold text-amber-200 tracking-wide" data-i18n="e2_name">కళ్యాణ విందు</h3>
             <p class="font-sans text-xs sm:text-sm text-white/95 font-light" data-i18n="e2_desc">వివాహానంతరము మా ఆతిథ్యము స్వీకరించి మమ్మానందింపజేయ ప్రార్థన</p>
             
-            <div class="pt-3 border-t border-[#D4AF37]/40 space-y-2 text-xs font-sans tracking-wider text-white/95">
-              <div class="flex items-center gap-2">
-                <i data-lucide="calendar" class="w-4 h-4 text-[#D4AF37] shrink-0"></i>
+            <div class="pt-3 border-t border-[#D4AF37]/40 flex flex-col items-center gap-1.5 text-xs font-sans tracking-wider text-white/95">
+              <div class="flex items-center justify-center gap-2">
+                <i data-lucide="calendar" class="w-4 h-4 text-[#D4AF37]"></i>
                 <span class="font-semibold" data-i18n="e2_date">ఆదివారం, 22 నవంబర్ 2026</span>
               </div>
-              <div class="flex items-center gap-2">
-                <i data-lucide="clock" class="w-4 h-4 text-[#D4AF37] shrink-0"></i>
+              <div class="flex items-center justify-center gap-2">
+                <i data-lucide="clock" class="w-4 h-4 text-[#D4AF37]"></i>
                 <span class="font-semibold" data-i18n="e2_time">మధ్యాహ్నం 12:00 గంటల నుండి</span>
               </div>
-              <div class="flex items-start gap-2">
-                <i data-lucide="map-pin" class="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5"></i>
+              <div class="flex items-center justify-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4 text-[#D4AF37] shrink-0"></i>
                 <span data-i18n="e2_venue">యస్.యస్.వి. ఫంక్షన్ హాల్ డైనింగ్, హనుమకొండ</span>
               </div>
             </div>

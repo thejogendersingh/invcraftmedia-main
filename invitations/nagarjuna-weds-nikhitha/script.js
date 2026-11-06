@@ -363,14 +363,14 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.fillStyle = cardGrad;
       ctx.fillRect(0, 0, w, h);
 
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
-      ctx.lineWidth = 2;
-      ctx.strokeRect(10, 10, w - 20, h - 20);
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(6, 6, w - 12, h - 12);
 
       ctx.fillStyle = '#7A001E';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      const fontSize = Math.min(Math.max(w / 22, 16), 22);
+      const fontSize = Math.min(Math.max(w / 24, 14), 18);
       ctx.font = `bold ${fontSize}px "Cormorant Garamond", serif`;
       
       const scratchText = currentLang === 'te' ? '✦ చూడటానికి తుడవండి ✦' : 
