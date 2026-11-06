@@ -184,8 +184,8 @@
 /nagarjuna-weds-nikhitha/        /invitations/nagarjuna-weds-nikhitha/index.html               200
 /nagarjuna-weds-nikhitha/*       /invitations/nagarjuna-weds-nikhitha/:splat                   200
 
-# Client: nikhitha-weds-nagarjuna (alias)
-/nikhitha-weds-nagarjuna         /nikhitha-weds-nagarjuna/                                     301
-/nikhitha-weds-nagarjuna/        /invitations/nagarjuna-weds-nikhitha/index.html               200
-/nikhitha-weds-nagarjuna/*       /invitations/nagarjuna-weds-nikhitha/:splat                   200
+# Client: nikhitha-weds-nagarjuna (alias -> 301 redirect to canonical nagarjuna-weds-nikhitha)
+/nikhitha-weds-nagarjuna         /nagarjuna-weds-nikhitha/                                     301
+/nikhitha-weds-nagarjuna/        /nagarjuna-weds-nikhitha/                                     301
+/nikhitha-weds-nagarjuna/*       /nagarjuna-weds-nikhitha/:splat                               301
 
