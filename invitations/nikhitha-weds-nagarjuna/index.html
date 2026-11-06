@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nagarjuna weds Nikhitha — Wedding Invitation</title>
+
+  <!-- SEO & Favicon Links -->
+  <link rel="icon" type="image/png" href="./assets/logo.png" />
+  <link rel="apple-touch-icon" href="./assets/logo.png" />
+  <link rel="canonical" href="https://invcraftmedia.com/nikhitha-weds-nagarjuna/" />
+  <meta name="description" content="We cordially invite your gracious presence with family on the auspicious wedding ceremony of Chi.La.Sow. Nikhitha with Chi. Nagarjuna on 22nd November 2026 at S.S.V. Function Hall, Hanumakonda." />
+  <meta property="og:title" content="Nikhitha weds Nagarjuna — Wedding Invitation" />
+  <meta property="og:description" content="We cordially invite you to celebrate the matrimony of Chi.La.Sow. Nikhitha & Chi. Nagarjuna on 22nd November 2026 at Hanumakonda." />
+  <meta property="og:image" content="./assets/logo.png" />
+  <meta property="og:url" content="https://invcraftmedia.com/nikhitha-weds-nagarjuna/" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Tailwind Custom Colors Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            maroon: { DEFAULT: '#7A001E', dark: '#5A0016', light: '#9E0B2E' },
+            gold: { DEFAULT: '#D4AF37', light: '#F3D69A', dark: '#B58E29' },
+            peacock: { DEFAULT: '#004E64', dark: '#003443' },
+            silk: { 50: '#FFFDF7', 100: '#FAF5E8', 200: '#F5EBD6' }
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'serif'],
+            cursive: ['Great Vibes', 'cursive'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            telugu: ['Noto Sans Telugu', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="bg-[#FFFDF7] text-[#222222] font-sans antialiased overflow-x-hidden lang-te">
+
+  <!-- TOP FIXED FLOATING LANGUAGE SWITCHER BAR -->
+  <div class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 p-1.5 rounded-full bg-[#7A001E]/95 text-white backdrop-blur-md shadow-luxury border border-[#D4AF37]/60">
+    <button onclick="setLanguage('te')" id="lang-btn-te" class="lang-pill active px-4 py-1.5 rounded-full text-xs font-bold tracking-wider transition-all">తెలుగు</button>
+    <button onclick="setLanguage('en')" id="lang-btn-en" class="lang-pill px-4 py-1.5 rounded-full text-xs font-bold tracking-wider transition-all">English</button>
+  </div>
+
+  <!-- 3D PALACE DOUBLE DOOR ENTRANCE OVERLAY -->
+  <div id="door-overlay" class="door-overlay">
+    <!-- Left Door Panel -->
+    <div id="left-door" class="door-panel left-door">
+      <div class="door-img-wrapper left-img-wrapper">
+        <img src="./assets/door_bg.jpg" alt="Door Left" class="door-img" />
+      </div>
+    </div>
+
+    <!-- Right Door Panel -->
+    <div id="right-door" class="door-panel right-door">
+      <div class="door-img-wrapper right-img-wrapper">
+        <img src="./assets/door_bg.jpg" alt="Door Right" class="door-img" />
+      </div>
+    </div>
+
+    <!-- TOP HEADER Mantra -->
+    <div class="door-top-header">
+      <div class="mantra-badge">
+        <span class="text-[#D4AF37] text-[10px]">✤</span>
+        <span data-i18n="door_mantra">|| శ్రీరస్తు • శుభమస్తు • అవిఘ్నమస్తు ||</span>
+        <span class="text-[#D4AF37] text-[10px]">✤</span>
+      </div>
+    </div>
+
+    <!-- MIDDLE CENTER Seal Button -->
+    <div id="door-seal-btn" class="door-center-seal cursor-pointer text-center">
+      <img src="./assets/logo.png" alt="Nagarjuna weds Nikhitha Logo" class="w-36 sm:w-44 h-auto object-contain drop-shadow-2xl hover:scale-105 transition-all duration-300 filter brightness-105" />
+    </div>
+  </div>
+
+  <!-- FLOATING PETALS CANVAS -->
+  <canvas id="petals-canvas" class="fixed inset-0 pointer-events-none z-[40] opacity-80"></canvas>
+
+  <!-- CUSTOM CURSOR -->
+  <div id="custom-cursor-dot" class="custom-cursor-dot"></div>
+  <div id="custom-cursor-ring" class="custom-cursor-ring"><span id="cursor-text"></span></div>
+
+  <!-- FLOATING AUDIO CONTROL BUTTON -->
+  <button id="audio-toggle-btn" aria-label="Toggle Music" class="fixed bottom-6 right-6 z-50 w-12 h-12 flex items-center justify-center bg-[#7A001E] text-[#FFFDF7] backdrop-blur-md rounded-full shadow-luxury border-2 border-[#D4AF37] hover:scale-110 transition-all p-0">
+    <i data-lucide="volume-2" class="w-5 h-5 text-[#D4AF37]"></i>
+  </button>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section relative flex flex-col items-center justify-center pt-20 pb-16 px-4 sm:px-8 overflow-hidden bg-[#FFFDF7]">
+    <!-- Background Hero Video - Continuous Loop -->
+    <div class="absolute inset-0 z-0 pointer-events-none opacity-100 overflow-hidden">
+      <video id="hero-bg-video" autoplay loop muted playsinline class="w-full h-full object-cover filter brightness-105 contrast-105">
+        <source src="./assets/hero_bg.MP4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="hero-container flex flex-col items-center text-center max-w-4xl mx-auto z-10 my-auto space-y-4 sm:space-y-6">
+      
+      <!-- Top Mantra & Ganesha Medallion -->
+      <div class="flex flex-col items-center gap-3">
+        <div class="flex items-center gap-2 px-5 py-2 rounded-full bg-[#FFFDF7]/95 backdrop-blur-md border border-[#D4AF37]/60 shadow-card text-xs sm:text-sm uppercase tracking-[0.2em] text-[#7A001E] hero-anim-mantra">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#D4AF37] animate-ping"></span>
+          <span class="font-serif font-bold text-[#D4AF37] tracking-widest" data-i18n="hero_mantra">|| శ్రీరస్తు • శుభమస్తు • అవిఘ్నమస్తు ||</span>
+        </div>
+
+        <!-- Lord Ganesha Avatar -->
+        <div class="hero-ganesha-wrapper relative w-24 h-24 sm:w-36 sm:h-36 rounded-full p-1.5 bg-gradient-to-tr from-[#D4AF37] via-amber-300 to-[#D4AF37] shadow-glow hero-anim-ganesha">
+          <div class="relative w-full h-full rounded-full overflow-hidden border-2 border-white bg-[#E3E8E5] flex items-center justify-center">
+            <img src="./assets/ganesha_avatar.jpg" alt="Lord Ganesha" class="w-full h-full object-cover scale-125 filter brightness-105 contrast-105" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Couple Names & Subtitle -->
+      <div class="space-y-2 sm:space-y-3 pt-1">
+        <p class="hero-subtext font-serif italic text-lg sm:text-2xl md:text-3xl text-[#7A001E] font-semibold tracking-wide hero-anim-sub" data-i18n="hero_subtext">
+          వివాహ మహోత్సవ ఆహ్వాన శుభపత్రిక
+        </p>
+
+        <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-light text-[#7A001E] tracking-tight leading-tight drop-shadow-md hero-anim-title flex flex-col items-center justify-center">
+          <span class="hero-title-main font-bold text-[#7A001E]" data-i18n="groom_name">నాగార్జున</span>
+          <span class="hero-title-weds font-cursive text-[#D4AF37] text-3xl sm:text-5xl md:text-6xl font-normal py-0.5 my-1" data-i18n="weds_label">మరియు</span>
+          <span class="hero-title-main font-bold text-[#7A001E]" data-i18n="bride_name">నిఖిత</span>
+        </h1>
+      </div>
+
+      <!-- Sacred Vedic Sloka Banner -->
+      <div class="max-w-2xl mx-auto px-4 py-2.5 rounded-2xl bg-[#FFFDF7]/90 backdrop-blur-md border border-[#D4AF37]/50 shadow-sm text-xs sm:text-sm font-serif text-[#7A001E] leading-relaxed text-center">
+        శ్లో॥ ఆదిత్యాది గ్రహాస్సర్వే స్వనక్షత్ర స్వరాశయః | కుర్వంతు మంగళం తాభ్యాం యయోరుద్వాహ పత్రికా॥
+      </div>
+
+      <!-- Date & Venue -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 pt-1 hero-anim-badges">
+        <span class="hero-badge flex items-center gap-2 bg-[#FFFDF7]/95 backdrop-blur-md px-5 py-2.5 rounded-full border border-[#D4AF37]/50 shadow-card text-xs sm:text-base font-sans text-[#7A001E] font-semibold uppercase tracking-wider">
+          <i data-lucide="calendar" class="w-4 h-4 text-[#D4AF37]"></i>
+          <span data-i18n="hero_date">22 నవంబర్ 2026</span>
+        </span>
+        <span class="hidden sm:inline text-[#D4AF37] font-serif text-xl">•</span>
+        <span class="hero-badge flex items-center gap-2 bg-[#FFFDF7]/95 backdrop-blur-md px-5 py-2.5 rounded-full border border-[#D4AF37]/50 shadow-card text-xs sm:text-base font-sans text-[#7A001E] font-semibold uppercase tracking-wider">
+          <i data-lucide="map-pin" class="w-4 h-4 text-[#D4AF37]"></i>
+          <span data-i18n="hero_venue">యస్.యస్.వి. ఫంక్షన్ హాల్, హనుమకొండ</span>
+        </span>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="pt-2 hero-anim-btn">
+        <button onclick="scrollToId('countdown-section')" class="hero-btn px-8 py-3.5 bg-[#7A001E] text-white font-sans text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold rounded-full shadow-luxury border-2 border-[#D4AF37] hover:scale-105 transition-all inline-block" data-i18n="open_invitation">
+          ఆహ్వాన పత్రికను తెరవండి
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SCRATCH & REVEAL COUNTDOWN SECTION -->
+  <section id="countdown-section" class="py-12 px-4 sm:px-8 max-w-2xl mx-auto relative z-10 -mt-6 text-center">
+    
+    <!-- 1. DATE & MUHURTHAM HEADING (OUTSIDE SCRATCH CARD) -->
+    <div class="relative p-6 sm:p-7 rounded-3xl bg-[#FFFDF7]/95 backdrop-blur-md border border-[#D4AF37]/60 shadow-card max-w-lg mx-auto flex flex-col items-center mb-6 scroll-reveal">
+      <span class="font-sans text-xs sm:text-sm uppercase tracking-[0.28em] text-[#004E64] font-bold" data-i18n="save_the_date">శుభ ముహూర్తం</span>
+      <h2 class="font-serif text-3xl sm:text-4xl text-[#7A001E] font-bold mt-1 tracking-wide" data-i18n="hero_date">22 నవంబర్ 2026</h2>
+      <span class="font-serif italic text-xs sm:text-sm text-[#7A001E]/80 pt-1">ఉ॥గం॥ 9-49 ని॥లకు • అశ్విని నక్షత్రయుక్త ధనస్సు లగ్నం</span>
+    </div>
+
+    <!-- 2. SCRATCH CARD WRAPPER (ONLY WRAPS THE 4 TICKERS FOR COMPACT HEIGHT) -->
+    <div id="scratch-card-wrapper" class="relative rounded-3xl overflow-hidden bg-[#FAF5E8] p-4 sm:p-6 border-2 border-[#D4AF37]/70 shadow-luxury text-center max-w-lg mx-auto scroll-reveal">
+      
+      <!-- Scratch Overlay Canvas -->
+      <canvas id="scratch-canvas" class="absolute inset-0 w-full h-full z-20 cursor-pointer rounded-3xl touch-none transition-opacity duration-700"></canvas>
+      
+      <!-- Revealed 4 Tickers -->
+      <div class="relative z-10 grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto">
+        <div class="p-3 sm:p-4 rounded-2xl bg-[#FFFDF7] border border-[#D4AF37]/50 shadow-sm flex flex-col items-center">
+          <span id="cnt-days" class="font-serif text-2xl sm:text-4xl font-bold text-[#7A001E]">00</span>
+          <span class="font-sans text-[10px] sm:text-[11px] uppercase tracking-wider text-[#004E64] font-bold mt-0.5" data-i18n="cnt_days">రోజులు</span>
+        </div>
+        <div class="p-3 sm:p-4 rounded-2xl bg-[#FFFDF7] border border-[#D4AF37]/50 shadow-sm flex flex-col items-center">
+          <span id="cnt-hours" class="font-serif text-2xl sm:text-4xl font-bold text-[#7A001E]">00</span>
+          <span class="font-sans text-[10px] sm:text-[11px] uppercase tracking-wider text-[#004E64] font-bold mt-0.5" data-i18n="cnt_hours">గంటలు</span>
+        </div>
+        <div class="p-3 sm:p-4 rounded-2xl bg-[#FFFDF7] border border-[#D4AF37]/50 shadow-sm flex flex-col items-center">
+          <span id="cnt-mins" class="font-serif text-2xl sm:text-4xl font-bold text-[#7A001E]">00</span>
+          <span class="font-sans text-[10px] sm:text-[11px] uppercase tracking-wider text-[#004E64] font-bold mt-0.5" data-i18n="cnt_mins">నిమిషాలు</span>
+        </div>
+        <div class="p-3 sm:p-4 rounded-2xl bg-[#FFFDF7] border border-[#D4AF37]/50 shadow-sm flex flex-col items-center">
+          <span id="cnt-secs" class="font-serif text-2xl sm:text-4xl font-bold text-[#7A001E]">00</span>
+          <span class="font-sans text-[10px] sm:text-[11px] uppercase tracking-wider text-[#004E64] font-bold mt-0.5" data-i18n="cnt_secs">సెకన్లు</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WEDDING CEREMONIES SECTION (ONLY MUHURTHAM & FEAST AS PER CLIENT CARD) -->
+  <section id="events" class="py-20 px-4 sm:px-8 bg-[#FAF5E8]/90 relative z-10 border-t border-b border-[#D4AF37]/40">
+    <div class="max-w-4xl mx-auto space-y-10">
+      
+      <!-- Section Title -->
+      <div class="text-center space-y-2 scroll-reveal">
+        <h2 class="font-cursive text-5xl sm:text-6xl text-[#7A001E] font-medium tracking-wide" data-i18n="events_title">వివాహ శుభ కార్యక్రమాలు</h2>
+        
+        <!-- Kolam Flourish -->
+        <div class="flex items-center justify-center gap-3 pt-1 text-[#D4AF37]">
+          <span class="w-14 sm:w-24 h-[1.5px] bg-gradient-to-r from-transparent via-[#D4AF37] to-[#D4AF37]"></span>
+          <span class="font-serif text-sm text-[#7A001E]">✤</span>
+          <span class="font-serif text-lg text-[#D4AF37]">❀</span>
+          <span class="font-serif text-sm text-[#7A001E]">✤</span>
+          <span class="w-14 sm:w-24 h-[1.5px] bg-gradient-to-l from-transparent via-[#D4AF37] to-[#D4AF37]"></span>
+        </div>
+      </div>
+
+      <!-- 2 High-Quality Event Cards (Centered Content) -->
+      <div class="space-y-6 max-w-2xl mx-auto">
+        
+        <!-- 1. Sumuhurtham : Kalyana Mahotsavam -->
+        <div class="relative rounded-3xl overflow-hidden shadow-luxury border-2 border-[#D4AF37] transition-all hover:scale-[1.01] duration-300 min-h-[260px] sm:min-h-[290px] flex items-center justify-center p-6 sm:p-8 text-center text-white scroll-reveal">
+          <img src="./assets/baarat-swagat.png" alt="Sumuhurtham" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.65] contrast-[1.05]" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#5A0016]/95 via-black/50 to-black/30"></div>
+
+          <div class="relative z-10 flex flex-col items-center text-center space-y-3 max-w-xl mx-auto">
+            <span class="inline-block px-3.5 py-1 rounded-full bg-[#D4AF37] text-[#7A001E] text-[10px] sm:text-xs font-bold tracking-widest uppercase shadow-sm" data-i18n="e1_badge">
+              ప్రధాన వివాహ కల్యాణ మహోత్సవం
+            </span>
+            
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-amber-200 tracking-wide" data-i18n="e1_name">సుముహూర్తం : కల్యాణ మహోత్సవం</h3>
+            <p class="font-sans text-xs sm:text-sm text-white/95 font-light" data-i18n="e1_desc">అశ్విని నక్షత్రయుక్త ధనస్సు లగ్న పుష్కరాంశ సుముహూర్తమున</p>
+            
+            <div class="pt-3 border-t border-[#D4AF37]/40 flex flex-col items-center gap-1.5 text-xs font-sans tracking-wider text-white/95">
+              <div class="flex items-center justify-center gap-2">
+                <i data-lucide="calendar" class="w-4 h-4 text-[#D4AF37]"></i>
+                <span class="font-semibold" data-i18n="e1_date">ఆదివారం, 22 నవంబర్ 2026</span>
+              </div>
+              <div class="flex items-center justify-center gap-2">
+                <i data-lucide="clock" class="w-4 h-4 text-[#D4AF37]"></i>
+                <span class="font-semibold" data-i18n="e1_time">ఉ॥గం॥ 9-49 ని॥లకు</span>
+              </div>
+              <div class="flex items-center justify-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4 text-[#D4AF37] shrink-0"></i>
+                <span data-i18n="e1_venue">యస్.యస్.వి. ఫంక్షన్ హాల్, విజయ టాకీస్ ఎదురుగా, హనుమకొండ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Kalyana Vindu : Wedding Feast (Lunch) -->
+        <div class="relative rounded-3xl overflow-hidden shadow-luxury border-2 border-[#D4AF37]/60 transition-all hover:scale-[1.01] duration-300 min-h-[260px] sm:min-h-[290px] flex items-center justify-center p-6 sm:p-8 text-center text-white scroll-reveal">
+          <img src="./assets/phera.jpg" alt="Kalyana Vindu" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.65] contrast-[1.05]" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#5A0016]/95 via-black/50 to-black/30"></div>
+
+          <div class="relative z-10 flex flex-col items-center text-center space-y-3 max-w-xl mx-auto">
+            <span class="inline-block px-3.5 py-1 rounded-full bg-[#D4AF37] text-[#7A001E] text-[10px] sm:text-xs font-bold tracking-widest uppercase shadow-sm" data-i18n="e2_badge">
+              వివాహ విందు
+            </span>
+            
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-amber-200 tracking-wide" data-i18n="e2_name">కళ్యాణ విందు</h3>
+            <p class="font-sans text-xs sm:text-sm text-white/95 font-light" data-i18n="e2_desc">వివాహానంతరము మా ఆతిథ్యము స్వీకరించి మమ్మానందింపజేయ ప్రార్థన</p>
+            
+            <div class="pt-3 border-t border-[#D4AF37]/40 flex flex-col items-center gap-1.5 text-xs font-sans tracking-wider text-white/95">
+              <div class="flex items-center justify-center gap-2">
+                <i data-lucide="calendar" class="w-4 h-4 text-[#D4AF37]"></i>
+                <span class="font-semibold" data-i18n="e2_date">ఆదివారం, 22 నవంబర్ 2026</span>
+              </div>
+              <div class="flex items-center justify-center gap-2">
+                <i data-lucide="clock" class="w-4 h-4 text-[#D4AF37]"></i>
+                <span class="font-semibold" data-i18n="e2_time">మధ్యాహ్నం 12:00 గంటల నుండి</span>
+              </div>
+              <div class="flex items-center justify-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4 text-[#D4AF37] shrink-0"></i>
+                <span data-i18n="e2_venue">యస్.యస్.వి. ఫంక్షన్ హాల్ డైనింగ్, హనుమకొండ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAMILY BLESSINGS SECTION -->
+  <section id="hosts" class="py-20 px-4 sm:px-8 bg-[#FFFDF7] relative z-10 border-b border-[#D4AF37]/40">
+    <div class="max-w-3xl mx-auto space-y-8 text-center">
+      
+      <div class="space-y-2 scroll-reveal">
+        <span class="font-sans text-[11px] uppercase tracking-[0.3em] text-[#004E64] font-bold" data-i18n="hosts_sub">పెద్దల దివ్యాశీస్సులతో...</span>
+        <h2 class="font-cursive text-5xl sm:text-6xl text-[#7A001E] font-medium tracking-wide" data-i18n="hosts_title">ఆహ్వానించువారు &amp; పెద్దలు</h2>
+        
+        <div class="flex items-center justify-center gap-3 pt-1 text-[#D4AF37]">
+          <span class="w-14 sm:w-24 h-[1.5px] bg-gradient-to-r from-transparent via-[#D4AF37] to-[#D4AF37]"></span>
+          <span class="font-serif text-sm text-[#7A001E]">✤</span>
+          <span class="font-serif text-lg text-[#D4AF37]">❀</span>
+          <span class="font-serif text-sm text-[#7A001E]">✤</span>
+          <span class="w-14 sm:w-24 h-[1.5px] bg-gradient-to-l from-transparent via-[#D4AF37] to-[#D4AF37]"></span>
+        </div>
+      </div>
+
+      <div class="relative rounded-3xl p-8 sm:p-12 bg-[#FFFDF7] border-2 border-[#D4AF37]/50 shadow-luxury max-w-2xl mx-auto space-y-8 text-center scroll-reveal">
+        <span class="absolute top-4 left-4 text-xs text-[#D4AF37]">✤</span>
+        <span class="absolute top-4 right-4 text-xs text-[#D4AF37]">✤</span>
+        <span class="absolute bottom-4 left-4 text-xs text-[#D4AF37]">✤</span>
+        <span class="absolute bottom-4 right-4 text-xs text-[#D4AF37]">✤</span>
+
+        <!-- Invited by -->
+        <div class="space-y-1">
+          <span class="font-sans text-xs uppercase tracking-[0.25em] text-[#D4AF37] font-bold block" data-i18n="welcomed_by">
+            ఆహ్వానించువారు
+          </span>
+          <h3 class="font-serif italic text-2xl sm:text-3xl text-[#7A001E] font-bold pt-1" data-i18n="family_names">శ్రీమతి &amp; శ్రీ రవ్వా రమేష్ - వాణి</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-b border-[#D4AF37]/40 py-6 text-center items-start">
+          
+          <!-- Bride's Family -->
+          <div class="space-y-2">
+            <span class="font-sans text-[11px] uppercase tracking-widest text-[#D4AF37] font-bold block" data-i18n="bride_fam_label">పెళ్లికూతురు తరఫున</span>
+            <div class="font-serif text-lg text-[#7A001E] font-bold" data-i18n="bride_parents">చి॥ రవ్వా హరీష్ - సమత (శైలజ)</div>
+            <div class="font-serif italic text-xs text-gray-600 pt-1" data-i18n="bride_grandparents">దివ్యాశీస్సులు: శ్రీమతి రవ్వ భాగ్యమ్మ - (కీ॥శే॥ ఉపేందర్)</div>
+          </div>
+
+          <!-- Groom's Family -->
+          <div class="space-y-2 md:border-l md:border-[#D4AF37]/40 md:pl-6">
+            <span class="font-sans text-[11px] uppercase tracking-widest text-[#D4AF37] font-bold block" data-i18n="groom_fam_label">పెళ్లికొడుకు తరఫున</span>
+            <div class="font-serif text-lg text-[#7A001E] font-bold" data-i18n="groom_parents">శ్రీమతి &amp; శ్రీ గోరంటి వసుధ - విఠల్ గుప్త</div>
+            <div class="font-serif italic text-xs text-gray-600 pt-1" data-i18n="groom_grandparents">ఏకైక పుత్రుడు: చి॥ నాగార్జున</div>
+          </div>
+
+        </div>
+
+        <!-- Sacred Note from Physical Card -->
+        <div class="p-5 rounded-2xl bg-[#FAF5E8] border border-[#D4AF37]/40">
+          <p class="font-serif italic text-sm sm:text-base text-[#7A001E] leading-relaxed font-medium" data-i18n="hosts_note">
+            &quot;కావున తామెల్లరు విచ్చేసి నూతన వధూవరులను ఆశీర్వదించి మా ఆతిథ్యము స్వీకరించి మమ్మానందింపజేయ ప్రార్థన.&quot;
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VENUE & MAP SECTION -->
+  <section id="venue" class="py-20 px-4 sm:px-8 max-w-4xl mx-auto relative z-10 text-center space-y-8">
+    <div class="space-y-2 scroll-reveal">
+      <span class="font-sans text-[11px] uppercase tracking-[0.3em] text-[#004E64] font-bold" data-i18n="venue_label">కళ్యాణవేదిక</span>
+      <h2 class="font-cursive text-5xl sm:text-6xl text-[#7A001E] font-medium tracking-wide" data-i18n="where_celebrate">కళ్యాణవేదిక</h2>
+      <p class="font-serif italic text-lg sm:text-xl text-[#004E64] font-medium" data-i18n="hero_venue">యస్.యస్.వి. ఫంక్షన్ హాల్, హనుమకొండ</p>
+      <p class="font-serif text-sm text-[#7A001E]">విజయ టాకీస్ ఎదురుగా, హనుమకొండ, తెలంగాణ</p>
+    </div>
+
+    <!-- MAP CONTAINER -->
+    <div class="relative rounded-[2rem] p-1.5 bg-gradient-to-br from-[#D4AF37] via-amber-200 to-[#D4AF37] shadow-luxury max-w-4xl mx-auto scroll-reveal">
+      <div class="relative rounded-[1.75rem] overflow-hidden bg-[#FAF5E8] h-96 sm:h-[420px] w-full border-2 border-white">
+        <iframe 
+          src="https://maps.google.com/maps?q=SSV+Function+Hall+Opp+Vijaya+Talkies+Hanumakonda&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+          class="w-full h-full border-0 filter saturate-[0.92] contrast-[1.03]" 
+          allowfullscreen="" 
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#7A001E]/15 via-transparent to-transparent pointer-events-none"></div>
+      </div>
+    </div>
+
+    <div class="pt-2 scroll-reveal">
+      <a 
+        href="https://maps.google.com/?q=SSV+Function+Hall+Opp+Vijaya+Talkies+Hanumakonda" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#7A001E] text-white font-sans text-xs uppercase tracking-[0.2em] font-semibold rounded-full shadow-luxury hover:scale-105 transition-all border border-[#D4AF37]">
+        <i data-lucide="navigation" class="w-4 h-4 text-[#D4AF37]"></i>
+        <span data-i18n="get_directions">మార్గం చూడండి</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- LUXURY FOOTER -->
+  <footer class="py-16 px-4 bg-gradient-to-b from-[#5A0016] via-[#450011] to-[#30000C] text-white border-t-2 border-[#D4AF37]/60 text-center relative z-10 overflow-hidden">
+    <div class="max-w-2xl mx-auto space-y-4 flex flex-col items-center scroll-reveal">
+      <div class="text-xs uppercase tracking-[0.3em] text-[#D4AF37] font-sans font-bold" data-i18n="footer_love">
+        బంధుమిత్రుల అభినందనలతో...
+      </div>
+
+      <h2 class="font-cursive text-4xl sm:text-6xl md:text-7xl text-white font-medium tracking-wide drop-shadow-md py-1 flex flex-col items-center justify-center leading-tight">
+        <span data-i18n="groom_name">నాగార్జున</span>
+        <span class="font-cursive text-[#D4AF37] text-2xl sm:text-4xl md:text-5xl font-normal my-0.5" data-i18n="weds_label">మరియు</span>
+        <span data-i18n="bride_name">నిఖిత</span>
+      </h2>
+
+      <div class="text-[#D4AF37] text-lg font-serif">❀</div>
+
+      <div class="font-serif italic text-lg sm:text-xl text-white/90 font-light" data-i18n="hero_date">
+        22 నవంబర్ 2026
+      </div>
+
+      <div class="font-sans text-xs uppercase tracking-[0.3em] text-[#D4AF37] font-bold pt-1" data-i18n="hashtag">
+        #NAGARJUNAWEDSNIKHITHA
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
