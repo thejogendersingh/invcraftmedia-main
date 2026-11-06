@@ -36,15 +36,101 @@
     <meta name="twitter:description" content="Holy Matrimony of Balu &amp; Sankeerthana on Wednesday, 25th November 2026 at Fathima Matha Church, Merakamudidam Village." />
     <meta name="twitter:image" content="https://invcraftmedia.com/balu-weds-sankeerthana/assets/aarav-ananya-og.jpg" />
 
+    <!-- Google Fonts for Hindu Wedding Events Section -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- GSAP & ScrollTrigger Animation Engine (Same as hindu-wedding-invcraftmedia) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
     <!-- Preloads -->
     <link rel="preload" as="image" href="./assets/aarav-ananya-hero.webp" type="image/webp" fetchpriority="high" />
     <link rel="preload" as="video" href="./assets/sm.mp4" type="video/mp4" />
     
     <!-- Scripts & Stylesheets -->
-    <script type="module" crossorigin src="./assets/index-DLpsKpIv.js?v=10"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Fwiizu_u.css?v=10">
+    <script type="module" crossorigin src="./assets/index-DLpsKpIv.js?v=26"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Fwiizu_u.css?v=26">
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Hidden YouTube Audio Host (Background Instrumental Only - No Button UI) -->
+    <div id="yt-player-host" style="position:fixed; width:1px; height:1px; left:-9999px; bottom:0; opacity:0; pointer-events:none;"></div>
+
+    <!-- YouTube Audio Engine (Violin & Flute Mashup: Sruthi Balamurali - 5tFUCCfIvpg) -->
+    <script>
+      (function() {
+        var ytPlayer = null;
+        var isYtReady = false;
+        var isPlaying = false;
+        var userStarted = false;
+
+        // Load YouTube IFrame API asynchronously
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        window.onYouTubeIframeAPIReady = function() {
+          try {
+            ytPlayer = new YT.Player('yt-player-host', {
+              height: '1',
+              width: '1',
+              videoId: '5tFUCCfIvpg',
+              playerVars: {
+                autoplay: 0,
+                controls: 0,
+                disablekb: 1,
+                fs: 0,
+                loop: 1,
+                playlist: '5tFUCCfIvpg',
+                modestbranding: 1,
+                playsinline: 1,
+                rel: 0
+              },
+              events: {
+                onReady: function(e) {
+                  isYtReady = true;
+                  try { e.target.setVolume(75); } catch(err) {}
+                  if (userStarted && !isPlaying) {
+                    try { e.target.playVideo(); isPlaying = true; } catch(err) {}
+                  }
+                },
+                onStateChange: function(e) {
+                  if (e.data === YT.PlayerState.PLAYING) {
+                    isPlaying = true;
+                  } else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) {
+                    isPlaying = false;
+                  }
+                }
+              }
+            });
+          } catch(e) {
+            console.warn('YT Init error:', e);
+          }
+        };
+
+        function startMusic() {
+          userStarted = true;
+          if (isYtReady && ytPlayer && typeof ytPlayer.playVideo === 'function') {
+            try {
+              ytPlayer.playVideo();
+              isPlaying = true;
+            } catch(e) {}
+          }
+        }
+
+        // Auto-start on first user interaction anywhere (e.g. clicking wax seal or tapping screen)
+        function onFirstInteraction() {
+          if (!isPlaying) {
+            startMusic();
+          }
+        }
+        document.addEventListener('click', onFirstInteraction, { passive: true });
+        document.addEventListener('touchstart', onFirstInteraction, { passive: true });
+      })();
+    </script>
   </body>
 </html>
