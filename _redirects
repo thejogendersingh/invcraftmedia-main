@@ -178,3 +178,14 @@
 /palkesh-weds-khusbhu            /palkesh-weds-khusbhu/                                        301
 /palkesh-weds-khusbhu/           /invitations/palkesh-weds-khushbu/index.html                  200
 /palkesh-weds-khusbhu/*          /invitations/palkesh-weds-khushbu/:splat                      200
+
+# Client: nagarjuna-weds-nikhitha
+/nagarjuna-weds-nikhitha         /nagarjuna-weds-nikhitha/                                     301
+/nagarjuna-weds-nikhitha/        /invitations/nagarjuna-weds-nikhitha/index.html               200
+/nagarjuna-weds-nikhitha/*       /invitations/nagarjuna-weds-nikhitha/:splat                   200
+
+# Client: nikhitha-weds-nagarjuna (alias)
+/nikhitha-weds-nagarjuna         /nikhitha-weds-nagarjuna/                                     301
+/nikhitha-weds-nagarjuna/        /invitations/nagarjuna-weds-nikhitha/index.html               200
+/nikhitha-weds-nagarjuna/*       /invitations/nagarjuna-weds-nikhitha/:splat                   200
+

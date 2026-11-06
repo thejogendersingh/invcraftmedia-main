@@ -1,0 +1,255 @@
+/* Modern Royal South Indian Wedding Styles & Multi-Language Animations */
+
+:root {
+  --maroon-primary: #7A001E;
+  --maroon-dark: #5A0016;
+  --gold-accent: #D4AF37;
+  --peacock-blue: #004E64;
+  --silk-bg: #FFFDF7;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--silk-bg);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* LANGUAGE PILL STYLING */
+.lang-pill {
+  color: rgba(255, 255, 255, 0.85);
+  background: transparent;
+  cursor: pointer;
+}
+
+.lang-pill.active {
+  color: #7A001E;
+  background-color: #D4AF37;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.lang-pill:hover:not(.active) {
+  color: #FFFDF7;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* TAMIL & TELUGU TYPOGRAPHY OPTIMIZATIONS (COMPACT SIZE SO CARDS DON'T OVERFLOW) */
+body.lang-ta {
+  font-family: 'Noto Sans Tamil', 'Plus Jakarta Sans', sans-serif;
+}
+
+body.lang-te {
+  font-family: 'Noto Sans Telugu', 'Plus Jakarta Sans', sans-serif;
+}
+
+body.lang-ta [data-i18n],
+body.lang-te [data-i18n] {
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+body.lang-ta .hero-title-main,
+body.lang-te .hero-title-main {
+  font-size: 2.25rem !important;
+  line-height: 1.2 !important;
+}
+
+@media (min-width: 640px) {
+  body.lang-ta .hero-title-main,
+  body.lang-te .hero-title-main {
+    font-size: 3.5rem !important;
+  }
+}
+
+/* 3D DOUBLE DOOR OVERLAY */
+.door-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  perspective: 1600px;
+  background-color: transparent;
+  overflow: hidden;
+  user-select: none;
+}
+
+.door-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 20;
+  overflow: hidden;
+  transition: transform 5.5s cubic-bezier(0.2, 1, 0.3, 1), opacity 4.5s cubic-bezier(0.2, 1, 0.3, 1);
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.3);
+}
+
+.left-door {
+  left: 0;
+  transform-origin: left center;
+  border-right: 2px solid rgba(212, 175, 55, 0.8);
+}
+
+.right-door {
+  right: 0;
+  transform-origin: right center;
+  border-left: 2px solid rgba(212, 175, 55, 0.8);
+}
+
+.door-img-wrapper {
+  position: relative;
+  width: 200%;
+  height: 100%;
+}
+
+.right-img-wrapper {
+  left: -100%;
+}
+
+.door-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.96) contrast(1.04);
+}
+
+.door-overlay.is-opened .left-door {
+  transform: rotateY(-110deg) translateX(-100%);
+  opacity: 0;
+}
+
+.door-overlay.is-opened .right-door {
+  transform: rotateY(110deg) translateX(100%);
+  opacity: 0;
+}
+
+.door-overlay.is-opened .door-top-header,
+.door-overlay.is-opened .door-center-seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+  pointer-events: none;
+  transition: all 2.2s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.door-top-header {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.mantra-badge {
+  padding: 6px 18px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, rgba(122, 0, 30, 0.94) 0%, rgba(90, 0, 22, 0.96) 100%);
+  border: 1.5px solid #D4AF37;
+  color: #FFFDF7;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 12px rgba(212, 175, 55, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.door-center-seal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* HERO ANIMATIONS */
+.hero-anim-mantra,
+.hero-anim-ganesha,
+.hero-anim-sub,
+.hero-anim-title,
+.hero-anim-badges,
+.hero-anim-btn {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+body.is-revealed .hero-anim-mantra { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.3s; }
+body.is-revealed .hero-anim-ganesha { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.5s; }
+body.is-revealed .hero-anim-sub { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.7s; }
+body.is-revealed .hero-anim-title { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.9s; }
+body.is-revealed .hero-anim-badges { opacity: 1; transform: translateY(0) scale(1); transition-delay: 1.1s; }
+body.is-revealed .hero-anim-btn { opacity: 1; transform: translateY(0) scale(1); transition-delay: 1.3s; }
+
+/* CURSOR */
+.custom-cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 10px; height: 10px;
+  background-color: #D4AF37;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 36px; height: 36px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* SHADOWS */
+.shadow-luxury {
+  box-shadow: 0 20px 40px -15px rgba(122, 0, 30, 0.12), 0 0 15px 0 rgba(212, 175, 55, 0.2);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.4);
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-section {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* CONTINUOUS ANIMATED HERO BACKGROUND MOTION */
+@keyframes continuousBgMotion {
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.04) translate(-4px, -3px); }
+  100% { transform: scale(1) translate(0, 0); }
+}
+
+.hero-bg-animated {
+  animation: continuousBgMotion 22s ease-in-out infinite alternate;
+  will-change: transform;
+}
