@@ -18,7 +18,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+Telugu:wght@400;600;700&family=Noto+Serif+Telugu:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -41,17 +41,17 @@
             silk: { 50: '#FFFDF7', 100: '#FAF5E8', 200: '#F5EBD6' }
           },
           fontFamily: {
-            serif: ['Cormorant Garamond', 'serif'],
+            serif: ['Cormorant Garamond', 'Noto Serif Telugu', 'serif'],
             cursive: ['Great Vibes', 'cursive'],
             sans: ['Plus Jakarta Sans', 'sans-serif'],
-            telugu: ['Noto Sans Telugu', 'sans-serif']
+            telugu: ['Noto Serif Telugu', 'Noto Sans Telugu', 'sans-serif']
           }
         }
       }
     }
   </script>
 
-  <link rel="stylesheet" href="./style.css?v=12" />
+  <link rel="stylesheet" href="./style.css?v=15" />
 </head>
 <body class="bg-[#FFFDF7] text-[#222222] font-sans antialiased overflow-x-hidden lang-te">
 
@@ -418,9 +418,9 @@
       </div>
 
       <h2 class="font-serif text-3xl sm:text-5xl md:text-6xl text-white font-medium tracking-wide drop-shadow-md py-1 flex flex-col items-center justify-center leading-tight">
-        <span data-i18n="footer_bride">చి॥ల॥సౌ॥ నిఖిత</span>
+        <span data-i18n="footer_bride">నిఖిత</span>
         <span class="font-serif italic text-[#D4AF37] text-xl sm:text-3xl md:text-4xl font-normal my-0.5" data-i18n="footer_weds">వివాహము</span>
-        <span data-i18n="footer_groom">చి॥ నాగార్జున తో</span>
+        <span data-i18n="footer_groom">నాగార్జున</span>
       </h2>
 
       <div class="text-[#D4AF37] text-lg font-serif">✿</div>
@@ -435,6 +435,6 @@
     </div>
   </footer>
 
-  <script src="./script.js?v=12"></script>
+  <script src="./script.js?v=15"></script>
 </body>
 </html>
