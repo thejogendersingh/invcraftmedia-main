@@ -50,86 +50,41 @@
     <link rel="preload" as="video" href="./assets/sm.mp4" type="video/mp4" />
     
     <!-- Scripts & Stylesheets -->
-    <script type="module" crossorigin src="./assets/index-DLpsKpIv.js?v=103"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Fwiizu_u.css?v=103">
+    <script type="module" crossorigin src="./assets/index-DLpsKpIv.js?v=105"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Fwiizu_u.css?v=105">
   </head>
   <body>
     <div id="root"></div>
 
-    <!-- Hidden YouTube Audio Host (Background Instrumental Only - No Button UI) -->
-    <div id="yt-player-host" style="position:fixed; width:1px; height:1px; left:-9999px; bottom:0; opacity:0; pointer-events:none;"></div>
+    <!-- Hidden Background Music Player (No floating UI button) -->
+    <audio id="wedding-audio" src="./assets/audio.mp3" loop preload="auto"></audio>
 
-    <!-- YouTube Audio Engine (Violin & Flute Mashup: Sruthi Balamurali - 5tFUCCfIvpg) -->
+    <!-- Background Music Controller: Starts strictly when intro is touched -->
     <script>
       (function() {
-        var ytPlayer = null;
-        var isYtReady = false;
-        var isPlaying = false;
-        var userStarted = false;
+        const audio = document.getElementById('wedding-audio');
+        let isStarted = false;
 
-        // Load YouTube IFrame API asynchronously
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        window.onYouTubeIframeAPIReady = function() {
-          try {
-            ytPlayer = new YT.Player('yt-player-host', {
-              height: '1',
-              width: '1',
-              videoId: '5tFUCCfIvpg',
-              playerVars: {
-                autoplay: 0,
-                controls: 0,
-                disablekb: 1,
-                fs: 0,
-                loop: 1,
-                playlist: '5tFUCCfIvpg',
-                modestbranding: 1,
-                playsinline: 1,
-                rel: 0
-              },
-              events: {
-                onReady: function(e) {
-                  isYtReady = true;
-                  try { e.target.setVolume(75); } catch(err) {}
-                  if (userStarted && !isPlaying) {
-                    try { e.target.playVideo(); isPlaying = true; } catch(err) {}
-                  }
-                },
-                onStateChange: function(e) {
-                  if (e.data === YT.PlayerState.PLAYING) {
-                    isPlaying = true;
-                  } else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) {
-                    isPlaying = false;
-                  }
-                }
-              }
+        function playMusic() {
+          if (!isStarted && audio) {
+            isStarted = true;
+            audio.play().catch(function(e) {
+              console.warn('Audio play error:', e);
             });
-          } catch(e) {
-            console.warn('YT Init error:', e);
-          }
-        };
-
-        function startMusic() {
-          userStarted = true;
-          if (isYtReady && ytPlayer && typeof ytPlayer.playVideo === 'function') {
-            try {
-              ytPlayer.playVideo();
-              isPlaying = true;
-            } catch(e) {}
           }
         }
 
-        // Auto-start on first user interaction anywhere (e.g. clicking wax seal or tapping screen)
-        function onFirstInteraction() {
-          if (!isPlaying) {
-            startMusic();
+        // Global function called when intro is touched / clicked
+        window.__startWeddingMusic = playMusic;
+
+        // Fail-safe delegation for intro click
+        document.addEventListener('pointerdown', function(e) {
+          if (isStarted) return;
+          const introEl = e.target && e.target.closest && (e.target.closest('.opening') || e.target.closest('[data-intro]') || e.target.closest('.opening__center-action'));
+          if (introEl) {
+            playMusic();
           }
-        }
-        document.addEventListener('click', onFirstInteraction, { passive: true });
-        document.addEventListener('touchstart', onFirstInteraction, { passive: true });
+        }, { passive: true });
       })();
     </script>
   </body>
