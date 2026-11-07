@@ -10,6 +10,16 @@
 # 3. 200 Rewrite: Proxies all internal assets, scripts, media and stylesheets directly
 # ==============================================================================
 
+# Client: madhu-weds-madhav (Active new client - Rajmahal Palace Theme)
+/madhu-weds-madhav         /madhu-weds-madhav/                                     301
+/madhu-weds-madhav/        /invitations/madhu-weds-madhav/index.html               200
+/madhu-weds-madhav/*       /invitations/madhu-weds-madhav/:splat                   200
+
+# Client: madhav-weds-madhu (alias -> 301 redirect)
+/madhav-weds-madhu         /madhu-weds-madhav/                                     301
+/madhav-weds-madhu/        /madhu-weds-madhav/                                     301
+/madhav-weds-madhu/*       /madhu-weds-madhav/:splat                               301
+
 # Client: aniket-weds-priyanka (Active new client - Hindu Wedding)
 /aniket-weds-priyanka         /aniket-weds-priyanka/                                     301
 /aniket-weds-priyanka/        /invitations/aniket-weds-priyanka/index.html               200
