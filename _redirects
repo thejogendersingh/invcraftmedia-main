@@ -10,6 +10,16 @@
 # 3. 200 Rewrite: Proxies all internal assets, scripts, media and stylesheets directly
 # ==============================================================================
 
+# Client: nikhitha-weds-nagarjuna (Primary active client)
+/nikhitha-weds-nagarjuna         /nikhitha-weds-nagarjuna/                                     301
+/nikhitha-weds-nagarjuna/        /invitations/nikhitha-weds-nagarjuna/index.html               200
+/nikhitha-weds-nagarjuna/*       /invitations/nikhitha-weds-nagarjuna/:splat                   200
+
+# Client: nagarjuna-weds-nikhitha
+/nagarjuna-weds-nikhitha         /nagarjuna-weds-nikhitha/                                     301
+/nagarjuna-weds-nikhitha/        /invitations/nagarjuna-weds-nikhitha/index.html               200
+/nagarjuna-weds-nikhitha/*       /invitations/nagarjuna-weds-nikhitha/:splat                   200
+
 # Client: abhijit-weds-sumona
 /abhijit-weds-sumona        /abhijit-weds-sumona/                                    301
 /abhijit-weds-sumona/       /invitations/abhijit-weds-sumona/index.html              200
@@ -178,14 +188,4 @@
 /palkesh-weds-khusbhu            /palkesh-weds-khusbhu/                                        301
 /palkesh-weds-khusbhu/           /invitations/palkesh-weds-khushbu/index.html                  200
 /palkesh-weds-khusbhu/*          /invitations/palkesh-weds-khushbu/:splat                      200
-
-# Client: nagarjuna-weds-nikhitha
-/nagarjuna-weds-nikhitha         /nagarjuna-weds-nikhitha/                                     301
-/nagarjuna-weds-nikhitha/        /invitations/nagarjuna-weds-nikhitha/index.html               200
-/nagarjuna-weds-nikhitha/*       /invitations/nagarjuna-weds-nikhitha/:splat                   200
-
-# Client: nikhitha-weds-nagarjuna
-/nikhitha-weds-nagarjuna         /nikhitha-weds-nagarjuna/                                     301
-/nikhitha-weds-nagarjuna/        /invitations/nikhitha-weds-nagarjuna/index.html               200
-/nikhitha-weds-nagarjuna/*       /invitations/nikhitha-weds-nagarjuna/:splat                   200
 
