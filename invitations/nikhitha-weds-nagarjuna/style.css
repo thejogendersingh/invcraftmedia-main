@@ -79,6 +79,10 @@ body.lang-te footer [data-i18n="footer_weds"] {
   line-height: 1.4 !important;
 }
 
+[data-i18n="family_names"] {
+  white-space: nowrap !important;
+}
+
 body.lang-te footer [data-i18n="hero_date"] {
   letter-spacing: 0.12em !important;
 }
