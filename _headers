@@ -8,6 +8,13 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
 
+# Scripts & Stylesheets: Revalidate immediately so code updates reflect instantly without caching
+/invitations/*/*.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/invitations/*/*.css
+  Cache-Control: public, max-age=0, must-revalidate
+
 # Static media & assets: Aggressively cache for 1 year
 /invitations/*/assets/*
   Cache-Control: public, max-age=31536000, immutable
