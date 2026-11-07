@@ -56,15 +56,101 @@
       display: block !important;
       letter-spacing: 0.02em !important;
     }
+    @keyframes music-disc-rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .music-disc-spin {
+      animation: music-disc-rotate 4s linear infinite;
+    }
   </style>
 
   <!-- Assets -->
-  <script type="module" crossorigin src="/madhu-weds-madhav/assets/index-OIk1B1Dk.js?v=25"></script>
-  <link rel="stylesheet" crossorigin href="/madhu-weds-madhav/assets/index-DnBXbGkD.css?v=25">
+  <script type="module" crossorigin src="/madhu-weds-madhav/assets/index-OIk1B1Dk.js?v=26"></script>
+  <link rel="stylesheet" crossorigin href="/madhu-weds-madhav/assets/index-DnBXbGkD.css?v=26">
 </head>
 
 <body>
   <div id="root"></div>
+
+  <!-- Background Music Player -->
+  <audio id="wedding-audio" src="/madhu-weds-madhav/assets/audio.mp3" loop preload="auto"></audio>
+
+  <!-- Floating Music Toggle Button -->
+  <div id="music-control" style="position:fixed;bottom:22px;right:20px;z-index:9999;">
+    <button id="music-toggle-btn" aria-label="Toggle Background Music" style="width:46px;height:46px;border-radius:50%;background:rgba(22,4,8,0.88);border:1.5px solid #d9b36a;color:#d9b36a;box-shadow:0 4px 18px rgba(0,0,0,0.6),0 0 12px rgba(217,179,106,0.25);display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(8px);outline:none;-webkit-tap-highlight-color:transparent;transition:transform 0.2s ease,box-shadow 0.2s ease;">
+      <svg id="music-icon-playing" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d9b36a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+        <path d="M9 18V5l12-2v13"></path>
+        <circle cx="6" cy="18" r="3" fill="#d9b36a"></circle>
+        <circle cx="18" cy="16" r="3" fill="#d9b36a"></circle>
+      </svg>
+      <svg id="music-icon-paused" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d9b36a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18V5l12-2v13"></path>
+        <circle cx="6" cy="18" r="3"></circle>
+        <circle cx="18" cy="16" r="3"></circle>
+        <line x1="2" y1="2" x2="22" y2="22" stroke="#d9b36a" stroke-width="2.5"></line>
+      </svg>
+    </button>
+  </div>
+
+  <script>
+    (function() {
+      const audio = document.getElementById('wedding-audio');
+      const btn = document.getElementById('music-toggle-btn');
+      const iconPlaying = document.getElementById('music-icon-playing');
+      const iconPaused = document.getElementById('music-icon-paused');
+      let isPlaying = false;
+
+      function updateUI(playing) {
+        isPlaying = playing;
+        if (playing) {
+          iconPlaying.style.display = 'block';
+          iconPaused.style.display = 'none';
+          btn.classList.add('music-disc-spin');
+        } else {
+          iconPlaying.style.display = 'none';
+          iconPaused.style.display = 'block';
+          btn.classList.remove('music-disc-spin');
+        }
+      }
+
+      function startAudio() {
+        if (!isPlaying && audio) {
+          audio.play().then(() => {
+            updateUI(true);
+          }).catch(() => {});
+        }
+      }
+
+      if (btn) {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (isPlaying) {
+            audio.pause();
+            updateUI(false);
+          } else {
+            audio.play().then(() => {
+              updateUI(true);
+            }).catch(() => {});
+          }
+        });
+      }
+
+      // Start on first user interaction anywhere
+      const unlockAudio = function() {
+        startAudio();
+        document.removeEventListener('pointerdown', unlockAudio);
+        document.removeEventListener('touchstart', unlockAudio);
+        document.removeEventListener('click', unlockAudio);
+      };
+      document.addEventListener('pointerdown', unlockAudio, { once: true });
+      document.addEventListener('touchstart', unlockAudio, { once: true });
+      document.addEventListener('click', unlockAudio, { once: true });
+
+      // Expose globally so envelope open button can also trigger
+      window.__playWeddingMusic = startAudio;
+    })();
+  </script>
 </body>
 
 </html>
