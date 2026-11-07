@@ -10,6 +10,16 @@
 # 3. 200 Rewrite: Proxies all internal assets, scripts, media and stylesheets directly
 # ==============================================================================
 
+# Client: shouvik-weds-sneha (Active new client - Gilded Hall Reception)
+/shouvik-weds-sneha         /shouvik-weds-sneha/                                     301
+/shouvik-weds-sneha/        /invitations/shouvik-weds-sneha/index.html               200
+/shouvik-weds-sneha/*       /invitations/shouvik-weds-sneha/:splat                   200
+
+# Client: sneha-weds-shouvik (alias -> 301 redirect)
+/sneha-weds-shouvik         /shouvik-weds-sneha/                                     301
+/sneha-weds-shouvik/        /shouvik-weds-sneha/                                     301
+/sneha-weds-shouvik/*       /shouvik-weds-sneha/:splat                               301
+
 # Client: nikhitha-weds-nagarjuna (Primary active client)
 /nikhitha-weds-nagarjuna         /nikhitha-weds-nagarjuna/                                     301
 /nikhitha-weds-nagarjuna/        /invitations/nikhitha-weds-nagarjuna/index.html               200

@@ -1,0 +1,434 @@
+/* ==============================================================================
+   GILDED HALL – LUXURY ROYAL WEDDING RECEPTION THEME
+   Client: Shouvik weds Sneha
+   InvCraft Media Production System
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Marcellus&family=Jost:wght@300;400;500;600&family=Noto+Serif+Bengali:wght@300;400;600;700&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --hall-deep: #4a3312;
+  --hall-amber: #8f6720;
+  --hall-mid: #a97c2a;
+  --hall-warm: #c9973e;
+  --hall-glow: #e9c879;
+  --hall-light: #f7e9c6;
+  --ivory: #fffdf7;
+  --ease-silk: cubic-bezier(0.25, 1, 0.5, 1);
+  --grad-hall: linear-gradient(180deg, #6b4a17 0%, #8f6720 42%, #b78d3c 78%, #e3c489 100%);
+  --grad-gold: linear-gradient(100deg, #a97c2a 0%, #e9c879 45%, #f7e9c6 60%, #c9973e 100%);
+  --shadow-warm: 0 16px 48px rgba(23, 19, 12, 0.45), 0 0 40px rgba(233, 200, 121, 0.15);
+
+  --font-display: 'Cormorant Garamond', 'Noto Serif Bengali', Georgia, serif;
+  --font-title: 'Marcellus', 'Noto Serif Bengali', serif;
+  --font-body: 'Jost', 'Hind Siliguri', system-ui, sans-serif;
+  --font-bengali: 'Noto Serif Bengali', 'Cormorant Garamond', serif;
+}
+
+/* Base Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--grad-hall);
+  color: var(--ivory);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Language font handling */
+body.lang-bn {
+  font-family: 'Hind Siliguri', 'Jost', sans-serif;
+}
+body.lang-bn .font-display,
+body.lang-bn .gold-text,
+body.lang-bn h1,
+body.lang-bn h2,
+body.lang-bn h3 {
+  font-family: var(--font-bengali);
+}
+
+/* Gilded Gold Text Clip */
+.gold-text {
+  background: var(--grad-gold);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* Rain Light Beam Effect */
+@keyframes rain-light {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  15% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(240%);
+  }
+}
+
+@keyframes shimmer-slow {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.85; }
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes petal-drift {
+  0% { transform: scale(1.05) translate(-1%, -2%); }
+  100% { transform: scale(1.14) translate(2%, 2%) rotate(1deg); }
+}
+
+@keyframes chapter-in {
+  0% {
+    opacity: 0;
+    transform: translate(24px, -50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(233, 200, 121, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 0 35px rgba(233, 200, 121, 0.8); }
+}
+
+/* Reveal Transitions */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.9s var(--ease-silk), transform 0.9s var(--ease-silk);
+  will-change: opacity, transform;
+}
+
+.reveal-on {
+  opacity: 1;
+  transform: none;
+}
+
+/* Rule Gold */
+.rule-gold {
+  background: linear-gradient(90deg, transparent, var(--hall-glow), transparent);
+  height: 1px;
+}
+
+/* Interactive Press State */
+.press {
+  transition: transform 0.14s var(--ease-silk);
+}
+.press:active {
+  transform: scale(0.965);
+}
+
+/* Cover Overlay */
+.cover-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #000;
+  user-select: none;
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.cover-overlay.fade-out {
+  opacity: 0;
+  transform: scale(1.04);
+  pointer-events: none;
+}
+
+/* Section Kicker */
+.section-kicker {
+  color: var(--hall-glow);
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+/* Celebrations Editorial Section */
+.celebrations-editorial {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(4rem, 8vw, 8rem) clamp(1.25rem, 4vw, 3rem);
+}
+
+.celebration-stage {
+  background: radial-gradient(circle at 16% 35%, rgba(233, 200, 121, 0.18), transparent 26%),
+              repeating-linear-gradient(120deg, transparent 0 42px, rgba(233, 200, 121, 0.04) 43px 44px),
+              #17130c;
+  min-height: 520px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid rgba(233, 200, 121, 0.35);
+  box-shadow: var(--shadow-warm);
+}
+
+.celebration-stage__wash {
+  background: linear-gradient(90deg, rgba(143, 103, 32, 0.22), rgba(10, 8, 5, 0.4) 42%, rgba(10, 8, 5, 0.85) 77%);
+  position: absolute;
+  inset: 0;
+}
+
+@media (max-width: 768px) {
+  .celebration-stage__wash {
+    background: linear-gradient(to bottom, rgba(10, 8, 5, 0.2), rgba(10, 8, 5, 0.7) 40%, rgba(10, 8, 5, 0.95) 75%);
+  }
+}
+
+.celebration-stage__content {
+  z-index: 2;
+  width: min(48%, 480px);
+  color: var(--ivory);
+  animation: chapter-in 0.6s var(--ease-silk) both;
+  position: absolute;
+  top: 50%;
+  right: clamp(1.5rem, 5vw, 5rem);
+  transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+  .celebration-stage {
+    min-height: 480px;
+  }
+  .celebration-stage__content {
+    width: auto;
+    inset: auto 1.25rem 2rem;
+    transform: none;
+    animation: none;
+  }
+}
+
+.event-number {
+  color: rgba(233, 200, 121, 0.5);
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  line-height: 0.8;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.event-note {
+  font-family: var(--font-display);
+  color: var(--hall-light);
+  margin-top: 1.2rem;
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.event-venue {
+  color: rgba(243, 235, 220, 0.85);
+  border-top: 1px solid rgba(233, 200, 121, 0.3);
+  margin-top: 1.8rem;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* Celebration Selector Tabs */
+.celebration-selector {
+  border-bottom: 1px solid rgba(233, 200, 121, 0.3);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 1.5rem;
+}
+
+.celebration-selector button {
+  color: rgba(243, 235, 220, 0.6);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 1.25rem 1rem;
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  transition: color 0.25s, background 0.25s;
+  position: relative;
+  background: transparent;
+  border: none;
+  text-align: center;
+}
+
+.celebration-selector button::before {
+  content: "";
+  background: var(--hall-glow);
+  height: 2px;
+  transition: right 0.35s var(--ease-silk);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 100%;
+}
+
+.celebration-selector button:hover {
+  color: var(--hall-light);
+  background: rgba(233, 200, 121, 0.05);
+}
+
+.celebration-selector button.is-active {
+  color: var(--hall-light);
+}
+
+.celebration-selector button.is-active::before {
+  right: 0;
+}
+
+.celebration-selector button span.tab-num {
+  color: rgba(233, 200, 121, 0.6);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+/* Floating Navigation Bar */
+.floating-nav {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 45;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 9999px;
+  background: rgba(23, 19, 12, 0.88);
+  border: 1px solid rgba(233, 200, 121, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(233, 200, 121, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.nav-pill {
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(247, 233, 198, 0.75);
+  transition: all 0.25s ease;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.nav-pill:hover,
+.nav-pill.active {
+  background: rgba(233, 200, 121, 0.2);
+  color: var(--hall-light);
+  border: 1px solid rgba(233, 200, 121, 0.4);
+}
+
+/* Top Action Header */
+.top-action-bar {
+  position: fixed;
+  top: 1.25rem;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  pointer-events: none;
+}
+
+.top-action-bar > * {
+  pointer-events: auto;
+}
+
+/* Language Switcher */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(23, 19, 12, 0.85);
+  border: 1px solid rgba(233, 200, 121, 0.5);
+  border-radius: 9999px;
+  padding: 3px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.lang-btn {
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(247, 233, 198, 0.7);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-btn.active {
+  background: var(--grad-gold);
+  color: var(--hall-deep);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Music & Control Buttons */
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(23, 19, 12, 0.85);
+  border: 1px solid rgba(233, 200, 121, 0.5);
+  color: var(--hall-light);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+.icon-btn:hover {
+  border-color: var(--hall-glow);
+  transform: scale(1.08);
+}
+
+/* Parichiti (Family Cards) */
+.lineage-card {
+  background: rgba(23, 19, 12, 0.65);
+  border: 1px solid rgba(233, 200, 121, 0.35);
+  border-radius: 6px;
+  padding: 2rem 1.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-warm);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.lineage-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--hall-glow);
+}
+

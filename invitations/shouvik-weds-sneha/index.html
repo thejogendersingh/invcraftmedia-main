@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>সৌভিক ও স্নেহা — শুভ বিবাহোত্তর প্রীতিভোজ | InvCraft Media</title>
+
+  <!-- Canonical & Meta -->
+  <link rel="canonical" href="https://invcraftmedia.com/shouvik-weds-sneha/" />
+  <meta name="description" content="শ্রীমতী টুম্পা ঘোষ সবিনয় তাঁর একমাত্র পুত্র সৌভিক ও স্নেহার শুভ বিবাহোত্তর প্রীতিভোজ অনুষ্ঠানে আপনাদের সাদর আমন্ত্রণ জানাচ্ছেন। ১লা ফেব্রুয়ারী ২০২৭, গরীব খানা বিবাহ অনুষ্ঠান ভবন, মানকুন্ডু।" />
+  
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://invcraftmedia.com/shouvik-weds-sneha/" />
+  <meta property="og:title" content="সৌভিক ও স্নেহা — শুভ বিবাহোত্তর প্রীতিভোজ" />
+  <meta property="og:description" content="শ্রীমতী টুম্পা ঘোষ সবিনয় তাঁর একমাত্র পুত্র সৌভিক ও স্নেহার শুভ বিবাহোত্তর প্রীতিভোজ অনুষ্ঠানে আপনাদের সাদর আমন্ত্রণ জানাচ্ছেন।" />
+  <meta property="og:image" content="./assets/cover.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Preload Critical Images -->
+  <link rel="preload" as="image" href="./assets/cover.png" />
+  <link rel="preload" as="image" href="./assets/hall.png" />
+  <link rel="preload" as="image" href="./assets/divider.png" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="lang-bn select-none">
+
+  <!-- BACKGROUND AUDIO -->
+  <audio id="bg-music" src="./assets/music.mp3" preload="auto" loop></audio>
+
+  <!-- COVER SCREEN OVERLAY (GILDED ENTRANCE) -->
+  <div id="cover-overlay" class="cover-overlay" onclick="openCover()" role="button" aria-label="Open Invitation">
+    <img src="./assets/cover.png" alt="Royal Gilded Invitation Cover" class="absolute inset-0 h-full w-full object-cover object-center scale-100 hover:scale-[1.02] transition-transform duration-1000" />
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/80"></div>
+
+    <!-- Rain Light Beams -->
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+      <span class="absolute top-0 w-px bg-gradient-to-b from-transparent via-[var(--hall-glow)] to-transparent" style="left:8%; height:35%; animation: rain-light 7s linear 0s infinite;"></span>
+      <span class="absolute top-0 w-px bg-gradient-to-b from-transparent via-[var(--hall-glow)] to-transparent" style="left:24%; height:48%; animation: rain-light 9s linear 1.5s infinite;"></span>
+      <span class="absolute top-0 w-px bg-gradient-to-b from-transparent via-[var(--hall-glow)] to-transparent" style="left:42%; height:40%; animation: rain-light 8s linear 3s infinite;"></span>
+      <span class="absolute top-0 w-px bg-gradient-to-b from-transparent via-[var(--hall-glow)] to-transparent" style="left:65%; height:55%; animation: rain-light 10s linear 2s infinite;"></span>
+      <span class="absolute top-0 w-px bg-gradient-to-b from-transparent via-[var(--hall-glow)] to-transparent" style="left:82%; height:32%; animation: rain-light 7.5s linear 4s infinite;"></span>
+      <span class="absolute top-0 w-px bg-gradient-to-b from-transparent via-[var(--hall-glow)] to-transparent" style="left:92%; height:44%; animation: rain-light 8.5s linear 0.5s infinite;"></span>
+    </div>
+
+    <!-- Center Floating Action Badge -->
+    <div class="relative z-10 flex flex-col items-center text-center px-4 space-y-4">
+      <div class="w-16 h-16 rounded-full border border-[var(--hall-glow)]/80 flex items-center justify-center p-1 bg-black/60 shadow-[0_0_25px_rgba(233,200,121,0.5)] animate-pulse">
+        <i data-lucide="mail-open" class="w-7 h-7 text-[var(--hall-glow)]"></i>
+      </div>
+      <p class="font-body text-xs sm:text-sm tracking-[0.3em] uppercase text-[var(--hall-light)] bg-black/70 px-6 py-2.5 rounded-full border border-[var(--hall-glow)]/50 backdrop-blur-md shadow-2xl" data-i18n="tap_to_open">
+        আমন্ত্রণ পত্রটি খুলতে স্পর্শ করুন
+      </p>
+    </div>
+  </div>
+
+  <!-- TOP ACTION BAR -->
+  <header class="top-action-bar">
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+      <button onclick="setLanguage('bn')" id="lang-btn-bn" class="lang-btn active">বাংলা</button>
+      <button onclick="setLanguage('en')" id="lang-btn-en" class="lang-btn">English</button>
+    </div>
+
+    <!-- Audio & Skip Buttons -->
+    <div class="flex items-center gap-2">
+      <button id="skip-intro-btn" onclick="skipIntro()" class="press hidden sm:flex items-center gap-1.5 rounded-full border border-[var(--hall-glow)]/60 bg-[var(--hall-deep)]/90 px-3.5 py-1.5 text-[0.68rem] uppercase tracking-[0.2em] text-[var(--hall-light)] shadow-lg backdrop-blur-md cursor-pointer hover:border-[var(--hall-glow)]">
+        <span>Skip</span>
+        <span class="text-[0.7rem]">▶▶</span>
+      </button>
+
+      <button id="audio-toggle-btn" onclick="toggleAudio()" class="icon-btn" aria-label="Toggle Sound" title="Toggle Sound">
+        <svg id="audio-icon" viewBox="0 0 24 24" class="h-4 w-4 fill-current">
+          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN SCROLL CONTAINER -->
+  <main class="relative min-h-screen overflow-x-hidden">
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-24 pb-16 text-center overflow-hidden">
+      
+      <!-- Video / Hall Background Backdrop -->
+      <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img src="./assets/hall.png" alt="Royal Palace Hall" class="w-full h-full object-cover filter brightness-[0.75] contrast-[1.08] scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[var(--hall-deep)]/95"></div>
+      </div>
+
+      <!-- Hero Video Player (Intro Video) -->
+      <div id="intro-video-container" class="relative z-10 w-full max-w-lg mx-auto mb-8 rounded-2xl overflow-hidden shadow-[var(--shadow-warm)] border border-[var(--hall-glow)]/40">
+        <video id="intro-video" autoplay loop muted playsinline class="w-full h-auto max-h-[380px] object-cover filter contrast-[1.05]">
+          <source src="./assets/intro.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <!-- Couple Names & Sacred Invitation Details -->
+      <div id="hero-main-content" class="relative z-20 max-w-3xl mx-auto space-y-4">
+        
+        <!-- Sacred Vedic Sloka / Kicker -->
+        <p class="section-kicker font-body text-xs sm:text-sm tracking-[0.3em] uppercase text-[var(--hall-glow)]" data-i18n="kicker">
+          || ওঁ শ্রী শ্রী প্রজাপতয়ে নমঃ || • শুভ প্রীতিভোজ ও বধূবরণ
+        </p>
+
+        <!-- Couple Names -->
+        <h1 class="font-display text-5xl sm:text-7xl md:text-8xl font-light leading-tight tracking-tight drop-shadow-2xl">
+          <span class="gold-text" data-i18n="groom_name">সৌভিক</span>
+          <span class="block font-title text-2xl sm:text-4xl text-[var(--hall-light)]/85 my-1" data-i18n="and_label">ও</span>
+          <span class="gold-text" data-i18n="bride_name">স্নেহা</span>
+        </h1>
+
+        <!-- Ornate Divider -->
+        <div class="py-2">
+          <img src="./assets/divider.png" alt="Decorative Divider" class="mx-auto h-auto opacity-85" style="width: 220px;" />
+        </div>
+
+        <!-- Highlighted Reception Date -->
+        <div class="inline-block px-6 py-2 rounded-full bg-black/60 border border-[var(--hall-glow)]/70 backdrop-blur-md shadow-lg">
+          <p class="font-title text-sm sm:text-base tracking-[0.25em] text-[var(--hall-light)] uppercase font-semibold" data-i18n="reception_date">
+            ১৭ই মাঘ ১৪৩৩ • ইং ১লা ফেব্রুয়ারী ২০২৭
+          </p>
+        </div>
+
+        <!-- Solemn Mother's Invitation Line -->
+        <p class="max-w-xl mx-auto font-display text-base sm:text-lg italic text-[var(--ivory)]/90 leading-relaxed pt-2" data-i18n="invitation_line">
+          শ্রীমতী টুম্পা ঘোষ সবিনয় তাঁর একমাত্র পুত্র সৌভিক ও স্নেহার শুভ বিবাহোত্তর প্রীতিভোজ অনুষ্ঠানে আপনাদের সাদর আমন্ত্রণ জানাচ্ছেন
+        </p>
+
+      </div>
+    </section>
+
+    <!-- STORY & LIVE COUNTDOWN SECTION -->
+    <section id="story" class="relative py-20 px-4 sm:px-6 overflow-hidden">
+      
+      <!-- Background Petals -->
+      <div class="absolute inset-0 pointer-events-none opacity-20">
+        <img src="./assets/petals.png" alt="Petals" class="w-full h-full object-cover" />
+      </div>
+
+      <div class="max-w-4xl mx-auto relative z-10 space-y-12">
+        
+        <!-- Live Countdown Timer -->
+        <div class="text-center space-y-4 reveal">
+          <h2 class="font-title text-xs sm:text-sm uppercase tracking-[0.35em] text-[var(--hall-glow)] font-semibold" data-i18n="countdown_title">
+            প্রীতিভোজের আর মাত্র বাকি
+          </h2>
+
+          <div class="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto">
+            <div class="p-3.5 sm:p-5 rounded-xl bg-black/60 border border-[var(--hall-glow)]/40 shadow-xl text-center backdrop-blur-md">
+              <span id="cnt-days" class="font-display text-3xl sm:text-5xl font-light text-[var(--hall-glow)]">00</span>
+              <span class="block font-body text-[10px] sm:text-xs uppercase tracking-wider text-[var(--hall-light)]/80 mt-1" data-i18n="cnt_days">দিন</span>
+            </div>
+            <div class="p-3.5 sm:p-5 rounded-xl bg-black/60 border border-[var(--hall-glow)]/40 shadow-xl text-center backdrop-blur-md">
+              <span id="cnt-hours" class="font-display text-3xl sm:text-5xl font-light text-[var(--hall-glow)]">00</span>
+              <span class="block font-body text-[10px] sm:text-xs uppercase tracking-wider text-[var(--hall-light)]/80 mt-1" data-i18n="cnt_hours">ঘণ্টা</span>
+            </div>
+            <div class="p-3.5 sm:p-5 rounded-xl bg-black/60 border border-[var(--hall-glow)]/40 shadow-xl text-center backdrop-blur-md">
+              <span id="cnt-mins" class="font-display text-3xl sm:text-5xl font-light text-[var(--hall-glow)]">00</span>
+              <span class="block font-body text-[10px] sm:text-xs uppercase tracking-wider text-[var(--hall-light)]/80 mt-1" data-i18n="cnt_mins">মিনিট</span>
+            </div>
+            <div class="p-3.5 sm:p-5 rounded-xl bg-black/60 border border-[var(--hall-glow)]/40 shadow-xl text-center backdrop-blur-md">
+              <span id="cnt-secs" class="font-display text-3xl sm:text-5xl font-light text-[var(--hall-glow)]">00</span>
+              <span class="block font-body text-[10px] sm:text-xs uppercase tracking-wider text-[var(--hall-light)]/80 mt-1" data-i18n="cnt_secs">সেকেন্ড</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solemn Letter from Physical Card (আশীর্বাদের সবিনয় নিবেদন) -->
+        <div class="relative max-w-2xl mx-auto p-6 sm:p-10 rounded-2xl bg-black/55 border border-[var(--hall-glow)]/45 shadow-[var(--shadow-warm)] backdrop-blur-md space-y-6 text-center reveal">
+          <span class="text-[var(--hall-glow)] text-sm">✤ • ❀ • ✤</span>
+
+          <h3 class="font-display text-2xl sm:text-3xl text-[var(--hall-light)] font-medium" data-i18n="letter_title">
+            সবিনয় নিবেদন
+          </h3>
+
+          <p class="font-body text-xs sm:text-sm uppercase tracking-widest text-[var(--hall-glow)]/90 font-semibold" data-i18n="letter_salutation">
+            মহাশয় / মহাশয়া,
+          </p>
+
+          <p class="font-display text-base sm:text-lg text-[var(--ivory)]/95 leading-relaxed italic" data-i18n="letter_body">
+            ঈশ্বরের আশীর্বাদ মাথায় নিয়ে আগামী ১৪ই মাঘ, ১৪৩৩ (ইং ২৯ শে জানুয়ারী ২০২৭, শুক্রবার) সৌভিক ও স্নেহা কে বিবাহ বন্ধনে আবদ্ধ করতে চলেছি। এতদুপলক্ষে আগামী ১৭ই মাঘ ১৪৩৩ (ইং ১লা ফেব্রুয়ারী ২০২৭, সোমবার) সন্ধ্যায় আয়োজিত প্রীতিভোজ ও বধূবরণ অনুষ্ঠানে আপনারা উপস্থিত থাকিয়া নবদম্পতিদের আশীর্বাদ প্রদান ও প্রীতিভোজ অনুষ্ঠানে যোগদান করিয়া বাধিত করিবেন এই কামনা রহিল।
+          </p>
+
+          <p class="font-body text-xs text-[var(--hall-light)]/75 italic" data-i18n="letter_apology">
+            পত্রদ্বারা নিমন্ত্রণের ত্রুটি মার্জ্জনীয়।
+          </p>
+
+          <div class="pt-4 border-t border-[var(--hall-glow)]/30 space-y-1">
+            <p class="font-body text-xs uppercase tracking-widest text-[var(--hall-glow)]" data-i18n="letter_closing">নমস্কারান্তে:</p>
+            <p class="font-display text-xl text-[var(--hall-light)] font-bold" data-i18n="letter_host">শ্রীমতী টুম্পা ঘোষ ও ঘোষ পরিবার</p>
+            <p class="font-body text-xs tracking-wider text-[var(--hall-glow)] pt-1" data-i18n="contact_label">দূরভাষ: ৯৮৩১৭১৬৯৫৩</p>
+          </div>
+        </div>
+
+        <!-- Couple Video Showcase -->
+        <div class="max-w-2xl mx-auto rounded-2xl overflow-hidden border border-[var(--hall-glow)]/40 shadow-2xl reveal">
+          <video autoplay loop muted playsinline class="w-full h-auto object-cover">
+            <source src="./assets/couple.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PARICHITI (FAMILY LINEAGE) SECTION -->
+    <section id="family" class="py-20 px-4 sm:px-6 relative z-10 border-t border-b border-[var(--hall-glow)]/30 bg-black/40">
+      <div class="max-w-4xl mx-auto space-y-10 text-center">
+        
+        <div class="space-y-2 reveal">
+          <p class="section-kicker" data-i18n="family_heading_kicker">বংশ পরিচয়</p>
+          <h2 class="font-display text-4xl sm:text-5xl text-[var(--hall-light)]" data-i18n="family_heading_title">শুভ পরিচিতি</h2>
+          <div class="rule-gold mx-auto w-28 my-3"></div>
+        </div>
+
+        <!-- 2 Side-by-Side Lineage Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          
+          <!-- Groom Side Card -->
+          <div class="lineage-card space-y-4 text-center reveal">
+            <div class="inline-block px-4 py-1 rounded-full bg-[var(--hall-deep)] border border-[var(--hall-glow)]/60 text-[var(--hall-glow)] text-xs uppercase tracking-widest font-bold" data-i18n="groom_side_title">
+              পাত্র পক্ষ
+            </div>
+
+            <h3 class="font-display text-2xl sm:text-3xl text-[var(--hall-light)] font-bold" data-i18n="groom_fullName">
+              কল্যাণীয় সৌভিক
+            </h3>
+
+            <div class="space-y-2 text-xs sm:text-sm font-body text-[var(--ivory)]/90 pt-2 border-t border-[var(--hall-glow)]/30">
+              <p class="font-semibold" data-i18n="groom_father">পিতা: স্বর্গীয় আশীষ ঘোষ</p>
+              <p class="font-semibold" data-i18n="groom_mother">মাতা: শ্রীমতী টুম্পা ঘোষ</p>
+              <p class="italic text-[var(--hall-light)]/80 text-xs pt-1" data-i18n="groom_grandparents">
+                পিতামহ-পিতামহী: স্বর্গীয় মনমোহন ঘোষ ও স্বর্গীয়া শীলা ঘোষ
+              </p>
+            </div>
+          </div>
+
+          <!-- Bride Side Card -->
+          <div class="lineage-card space-y-4 text-center reveal">
+            <div class="inline-block px-4 py-1 rounded-full bg-[var(--hall-deep)] border border-[var(--hall-glow)]/60 text-[var(--hall-glow)] text-xs uppercase tracking-widest font-bold" data-i18n="bride_side_title">
+              পাত্রী পক্ষ
+            </div>
+
+            <h3 class="font-display text-2xl sm:text-3xl text-[var(--hall-light)] font-bold" data-i18n="bride_fullName">
+              কল্যাণীয়া স্নেহা
+            </h3>
+
+            <div class="space-y-2 text-xs sm:text-sm font-body text-[var(--ivory)]/90 pt-2 border-t border-[var(--hall-glow)]/30">
+              <p class="font-semibold" data-i18n="bride_father">পিতা: শ্রীযুক্ত শেখর মান্না</p>
+              <p class="font-semibold" data-i18n="bride_mother">মাতা: শ্রীমতী রত্না মান্না</p>
+              <p class="italic text-[var(--hall-light)]/80 text-xs pt-1" data-i18n="bride_desc">
+                কনিষ্ঠা কন্যা
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FESTIVITIES EDITORIAL (CHOOSE A CHAPTER) SECTION -->
+    <section id="celebrations" class="celebrations-editorial relative z-10">
+      
+      <!-- Section Heading -->
+      <div class="celebrations-editorial__heading reveal">
+        <p class="section-kicker" data-i18n="chapters_kicker">মাঙ্গলিক মুহূর্তমালা</p>
+        <h2 id="celebrations-title" data-i18n="chapters_title">স্মারকলিপি</h2>
+        <p class="text-xs sm:text-sm text-[var(--ivory)]/80 font-light">
+          বিবাহ ও বিবাহোত্তর প্রীতিভোজের পবিত্র মুহূর্তসমূহে আপনাদের সাদর আমন্ত্রণ।
+        </p>
+      </div>
+
+      <!-- Interactive Stage Box -->
+      <div class="celebration-stage reveal">
+        <div class="celebration-stage__wash" aria-hidden="true"></div>
+
+        <div id="stage-content" class="celebration-stage__content">
+          <span id="stage-num" class="event-number">02</span>
+          <p id="stage-badge" class="font-body text-[0.62rem] uppercase tracking-[0.24em] text-[var(--hall-glow)] font-bold">
+            প্রধান বিবাহোত্তর উৎসব
+          </p>
+          <h3 id="stage-title" class="font-display text-3xl sm:text-5xl font-light text-[var(--hall-light)] mt-2">
+            প্রীতিভোজ ও বধূবরণ
+          </h3>
+          <p id="stage-daytime" class="font-body text-xs sm:text-sm text-[var(--hall-glow)] font-semibold mt-2">
+            সোমবার, ১৭ই মাঘ ১৪৩৩ (১লা ফেব্রুয়ারী ২০২৭) • সন্ধ্যা ৬:৩০ ঘটিকা হইতে
+          </p>
+          <p id="stage-note" class="event-note">
+            নবদম্পতিদের আশীর্বাদ প্রদান ও সান্ধ্যকালীন প্রীতিভোজ
+          </p>
+          <p id="stage-venue" class="event-venue">
+            "গরীব খানা" বিবাহ অনুষ্ঠান ভবন, মানকুন্ডু, হুগলী
+          </p>
+        </div>
+      </div>
+
+      <!-- Selector Tabs -->
+      <div class="celebration-selector" role="tablist" aria-label="Wedding Events">
+        <button type="button" class="tab-btn" onclick="selectChapter(0)">
+          <span class="tab-num">01</span>
+          <span data-i18n="tab_1_title">শুভ বিবাহ</span>
+        </button>
+        <button type="button" class="tab-btn is-active" onclick="selectChapter(1)">
+          <span class="tab-num">02</span>
+          <span data-i18n="tab_2_title">প্রীতিভোজ ও বধূবরণ</span>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- VENUE & DIRECTIONS SECTION -->
+    <section id="venue" class="relative px-6 py-20 z-10 border-t border-[var(--hall-glow)]/30">
+      
+      <div class="mx-auto max-w-[34rem] text-center space-y-4 reveal">
+        <p class="section-kicker" data-i18n="venue_kicker">অনুষ্ঠান ভবন</p>
+        <h3 class="font-display text-3xl sm:text-4xl font-light text-[var(--hall-light)]" data-i18n="venue_title">
+          "গরীব খানা" বিবাহ অনুষ্ঠান ভবন
+        </h3>
+        
+        <p class="mx-auto text-sm sm:text-base font-light text-[var(--ivory)]/85" data-i18n="venue_address">
+          জে. সি. খান রোড, মানকুন্ডু, চন্দননগর, হুগলী - ৭১২১৩৯
+        </p>
+
+        <!-- Walking Directions Highlight -->
+        <div class="p-3.5 rounded-xl bg-black/60 border border-[var(--hall-glow)]/50 backdrop-blur-md">
+          <span class="block text-[0.72rem] uppercase tracking-[0.24em] text-[var(--hall-glow)] font-bold" data-i18n="venue_directions_label">পথনির্দেশ:</span>
+          <p class="text-xs sm:text-sm text-[var(--hall-light)] font-medium mt-1" data-i18n="venue_directions">
+            মানকুন্ডু স্টেশন হইতে "STATE BANK OF INDIA" দিকে ৫ মিনিটের হাঁটা পথ
+          </p>
+        </div>
+      </div>
+
+      <!-- Embedded Google Map -->
+      <div class="mt-8 max-w-[34rem] mx-auto overflow-hidden rounded-xl border border-[var(--hall-glow)]/40 shadow-[var(--shadow-warm)] reveal">
+        <iframe 
+          title="Map of Garib Khana Marriage Ceremony Hall"
+          src="https://maps.google.com/maps?q=Garib+Khana+Mankundu+JC+Khan+Road+Chandannagar&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade" 
+          class="h-64 sm:h-72 w-full filter contrast-[1.05] brightness-[0.9]">
+        </iframe>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="mt-7 max-w-[34rem] mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 reveal">
+        <a 
+          href="https://maps.google.com/?q=Garib+Khana+Mankundu+JC+Khan+Road+Chandannagar" 
+          target="_blank" 
+          rel="noreferrer" 
+          class="press w-full sm:w-auto inline-flex min-h-[48px] items-center justify-center rounded-full border border-[var(--hall-glow)]/70 bg-[var(--hall-deep)]/80 px-6 font-body text-xs uppercase tracking-[0.22em] text-[var(--hall-light)] shadow-lg hover:border-[var(--hall-glow)] transition-all">
+          <i data-lucide="navigation" class="w-4 h-4 mr-2 text-[var(--hall-glow)]"></i>
+          <span data-i18n="btn_directions">গুগল ম্যাপে পথ দেখুন</span>
+        </a>
+
+        <button 
+          onclick="downloadCalendar()" 
+          class="press w-full sm:w-auto inline-flex min-h-[48px] items-center justify-center rounded-full border border-[var(--hall-glow)]/70 bg-black/60 px-6 font-body text-xs uppercase tracking-[0.22em] text-[var(--hall-light)] shadow-lg hover:border-[var(--hall-glow)] transition-all">
+          <i data-lucide="calendar-plus" class="w-4 h-4 mr-2 text-[var(--hall-glow)]"></i>
+          <span data-i18n="btn_calendar">ক্যালেন্ডারে যুক্ত করুন</span>
+        </button>
+
+        <a 
+          href="tel:9831716953" 
+          class="press w-full sm:w-auto inline-flex min-h-[48px] items-center justify-center rounded-full border border-[var(--hall-glow)] bg-[var(--grad-gold)] px-6 font-body text-xs uppercase tracking-[0.22em] text-[var(--hall-deep)] font-bold shadow-lg hover:brightness-110 transition-all">
+          <i data-lucide="phone-call" class="w-4 h-4 mr-2 text-[var(--hall-deep)]"></i>
+          <span data-i18n="btn_call">ফোন করুন: ৯৮৩১৭১৬৯৫৩</span>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- LUXURY FOOTER -->
+    <footer class="relative py-20 px-6 text-center z-10 overflow-hidden bg-black/60 border-t border-[var(--hall-glow)]/30">
+      
+      <!-- Floral Corner Asset -->
+      <img src="./assets/floral.png" alt="" aria-hidden="true" loading="lazy" class="pointer-events-none absolute -right-12 bottom-0 w-32 sm:w-48 opacity-30 mix-blend-screen" />
+
+      <div class="relative max-w-md mx-auto space-y-6 reveal">
+        <img src="./assets/divider.png" alt="" aria-hidden="true" loading="lazy" class="mx-auto h-auto opacity-80" style="width: 190px;" />
+
+        <p class="font-display text-4xl sm:text-5xl font-light leading-tight gold-text">
+          <span data-i18n="groom_name">সৌভিক</span> &amp; <span data-i18n="bride_name">স্নেহা</span>
+        </p>
+
+        <p class="font-title text-xs tracking-[0.34em] text-[var(--hall-light)]" data-i18n="footer_date">
+          ০১ . ০২ . ২০২৭
+        </p>
+
+        <p class="font-display text-base italic text-[var(--ivory)]/80" data-i18n="footer_closing">
+          আপনাদের সস্নেহ উপস্থিতির প্রতীক্ষায়...
+        </p>
+
+        <div class="rule-gold mx-auto w-32 my-6"></div>
+
+        <p class="font-body text-[0.62rem] uppercase tracking-[0.3em] text-[var(--hall-light)]/45">
+          <span data-i18n="footer_family">ঘোষ পরিবার</span> • INVCRAFT MEDIA
+        </p>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- STICKY FLOATING BOTTOM NAV BAR -->
+  <nav class="floating-nav" aria-label="Quick Navigation">
+    <a href="#family" class="nav-pill" data-i18n="nav_family">পরিচিতি</a>
+    <a href="#celebrations" class="nav-pill" data-i18n="nav_events">স্মারকলিপি</a>
+    <a href="#venue" class="nav-pill" data-i18n="nav_venue">স্থান ও পথনির্দেশ</a>
+    <button onclick="downloadCalendar()" class="nav-pill" data-i18n="nav_calendar">ক্যালেন্ডার</button>
+  </nav>
+
+  <!-- Scripts -->
+  <script src="./script.js"></script>
+  <script>
+    // Initialize Lucide icons
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
