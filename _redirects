@@ -15,10 +15,10 @@
 /madhu-weds-madhav/        /invitations/madhu-weds-madhav/index.html               200
 /madhu-weds-madhav/*       /invitations/madhu-weds-madhav/:splat                   200
 
-# Client: madhav-weds-madhu (alias -> 301 redirect)
-/madhav-weds-madhu         /madhu-weds-madhav/                                     301
-/madhav-weds-madhu/        /madhu-weds-madhav/                                     301
-/madhav-weds-madhu/*       /madhu-weds-madhav/:splat                               301
+# Client: madhav-weds-madhu (Active client - Groom side - Dr. Madhav & Dr. Madhu)
+/madhav-weds-madhu         /madhav-weds-madhu/                                     301
+/madhav-weds-madhu/        /invitations/madhav-weds-madhu/index.html               200
+/madhav-weds-madhu/*       /invitations/madhav-weds-madhu/:splat                   200
 
 # Client: aniket-weds-priyanka (Active new client - Hindu Wedding)
 /aniket-weds-priyanka         /aniket-weds-priyanka/                                     301
