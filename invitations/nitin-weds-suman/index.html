@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>Nitin &amp; Suman | Wedding Invitation, 3–6 Dec 2026</title>
+  <meta name="description" content="Wedding celebration of Nitin &amp; Suman. Ladies Sangeet, Mandha, Sehra Bandi, Barat &amp; Reception details, countdown, venue map and calendar invite."/>
+  
+  <!-- Anti-Scrape, Anti-Index & Security Meta Tags -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex"/>
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex"/>
+  <meta name="referrer" content="no-referrer"/>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Nitin &amp; Suman | Wedding Invitation"/>
+  <meta property="og:description" content="Join us in celebrating the wedding of Nitin &amp; Suman, 3–6 December 2026. All ceremonies, venue and RSVP details."/>
+  <meta property="og:image" content="assets/hero-arch.jpg"/>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Nitin &amp; Suman | Wedding Invitation"/>
+  <meta name="twitter:description" content="Join us in celebrating the wedding of Nitin &amp; Suman, 3–6 December 2026."/>
+  <meta name="twitter:image" content="assets/hero-arch.jpg"/>
+
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&family=Petit+Formal+Script&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap"/>
+
+  <!-- Preload Essential Assets -->
+  <link rel="preload" as="image" href="assets/hero-arch.jpg"/>
+  <link rel="preload" as="image" href="assets/floral-spray.png"/>
+  <link rel="preload" as="image" href="assets/couple-walking.png"/>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css"/>
+
+  <style>
+    /* Invitation Curtain & Opener Transition */
+    .invitation-opener {
+      transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .invitation-opener.is-closing {
+      opacity: 0 !important;
+      transform: scale(1.03) !important;
+      pointer-events: none !important;
+    }
+    .screen-privacy-shield {
+      display: none !important;
+    }
+
+    /* Font utilities */
+    .font-devanagari {
+      font-family: 'Noto Serif Devanagari', serif;
+    }
+
+    /* Desktop frame aesthetics & ambient enhancement */
+    body {
+      background-color: #f7f3ec;
+      background-image: radial-gradient(rgba(180, 150, 120, 0.12) 1px, transparent 1px);
+      background-size: 24px 24px;
+      margin: 0;
+      padding: 0;
+      color: var(--foreground);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .invitation-wrapper {
+      max-width: 460px;
+      margin: 24px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      min-height: 100vh;
+      box-shadow: 0 18px 50px -12px rgba(60, 45, 30, 0.22), 0 0 0 1px rgba(180, 150, 120, 0.22);
+      position: relative;
+      background-color: var(--background);
+    }
+    @media (max-width: 480px) {
+      .invitation-wrapper {
+        margin: 0 auto;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+
+    /* Floating control bar (Audio + Replay) */
+    .floating-controls {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .control-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(180, 140, 90, 0.35);
+      color: #634a2e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px -6px rgba(80, 60, 40, 0.25);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .control-icon-btn:hover {
+      transform: scale(1.08);
+      background: #ffffff;
+      border-color: rgba(180, 140, 90, 0.6);
+    }
+    .control-icon-btn.is-playing svg {
+      animation: spin 8s linear infinite;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Toast notification */
+    .toast-msg {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-100px);
+      background: rgba(45, 38, 30, 0.92);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .toast-msg.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Gold foil borders & accent lines */
+    .gold-frame {
+      border: 1px solid rgba(184, 141, 77, 0.38);
+      position: relative;
+    }
+    .gold-frame::before {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border: 1px solid rgba(184, 141, 77, 0.22);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Audio & Replay Control Widget -->
+  <div class="floating-controls">
+    <button id="replay-btn" class="control-icon-btn press" aria-label="Replay curtain opener" title="Replay intro video">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+        <path d="M3 3v5h5"></path>
+      </svg>
+    </button>
+    <button id="audio-toggle-btn" class="control-icon-btn press" aria-label="Toggle ambient music" title="Play background music">
+      <svg id="audio-icon-playing" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <circle cx="12" cy="12" r="3"></circle>
+        <line x1="12" y1="2" x2="12" y2="4"></line>
+        <line x1="12" y1="20" x2="12" y2="22"></line>
+        <line x1="2" y1="12" x2="4" y2="12"></line>
+        <line x1="20" y1="12" x2="22" y2="12"></line>
+      </svg>
+      <svg id="audio-icon-muted" style="display:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="1" y1="1" x2="23" y2="23"></line>
+        <path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"></path>
+        <path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23"></path>
+        <line x1="12" y1="19" x2="12" y2="23"></line>
+        <line x1="8" y1="23" x2="16" y2="23"></line>
+      </svg>
+    </button>
+  </div>
+  <audio id="ambient-audio" src="assets/wedding-music.mp3" loop preload="auto"></audio>
+
+  <!-- Interactive Curtain / Video Opener -->
+  <div id="invitation-opener" class="invitation-opener fixed inset-0 z-[100] bg-background" role="dialog" aria-label="Open Nitin and Suman's wedding invitation">
+    <video id="opener-video" src="assets/wedding-opener.mp4" poster="assets/lantern-reveal-first.png" preload="auto" playsinline webkit-playsinline class="h-full w-full object-cover [transform:translateZ(0)]"></video>
+
+    <!-- Quick Skip Intro Button -->
+    <button id="skip-opener-btn" type="button" class="absolute top-5 right-5 z-20 hidden items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/50 hover:bg-black/70 text-white text-xs tracking-wider uppercase backdrop-blur-sm border border-white/30 transition-all cursor-pointer">
+      Skip Intro &rarr;
+    </button>
+
+    <button id="opener-btn" type="button" class="absolute inset-0 flex w-full flex-col items-center justify-end bg-[linear-gradient(180deg,transparent_42%,rgba(25,29,38,0.58)_100%)] px-6 pb-14 text-center text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/80 cursor-pointer">
+      <span class="script text-3xl text-[#f4d8a1]">Nitin &amp; Suman</span>
+      <span class="mt-3 border-b border-white/60 pb-1 text-[0.68rem] uppercase tracking-[0.24em] animate-pulse">Tap to open</span>
+    </button>
+  </div>
+
+  <!-- Toast Message -->
+  <div id="toast" class="toast-msg" role="status">Link copied to clipboard!</div>
+
+  <!-- Main Invitation Canvas -->
+  <div class="invitation-wrapper">
+    <main class="paper overflow-x-hidden min-h-screen">
+      
+      <!-- HERO HEADER SECTION -->
+      <div id="hero-touch-area" class="relative cursor-pointer select-none" title="Tap anywhere to scatter flower petals">
+        
+        <header class="relative min-h-[100svh] overflow-hidden paper">
+          <!-- Background Arch with Gradient Veil -->
+          <div id="hero-bg-container" class="absolute inset-x-0 top-0 h-[78svh]" style="transform:translate3d(0, 0px, 0); will-change:transform">
+            <img src="assets/hero-arch.jpg" alt="Watercolor wedding arch at sunset" width="1024" height="1536" class="h-full w-full object-cover object-top animate-bloom"/>
+            <div class="absolute inset-0" style="background:var(--gradient-veil)"></div>
+          </div>
+
+          <!-- Decorative Floral Sprays -->
+          <img id="floral-spray-left" src="assets/floral-spray.png" alt="" aria-hidden="true" width="1024" height="1024" class="pointer-events-none absolute -left-10 top-6 w-36 opacity-70 animate-float-soft" style="transform:translate3d(0, 0px, 0)"/>
+          <img id="floral-spray-right" src="assets/floral-spray.png" alt="" aria-hidden="true" width="1024" height="1024" class="pointer-events-none absolute -right-12 top-24 w-32 -scale-x-100 opacity-60 animate-float-soft" style="animation-delay:1.4s;transform:translate3d(0, 0px, 0)"/>
+
+          <!-- Watercolor Couple Illustration -->
+          <img id="couple-illustration" src="assets/couple-walking.png" alt="Bride and groom walking hand in hand" width="1024" height="1536" class="pointer-events-none absolute left-1/2 -translate-x-1/2 object-contain animate-bloom drop-shadow-[0_18px_28px_rgba(92,80,68,0.18)]" style="width:clamp(165px, 49%, 225px); bottom:clamp(230px, 34svh, 280px); transform:translate3d(-50%, 0px, 0)"/>
+
+          <!-- Couple Names & Date Details -->
+          <div id="hero-text-content" class="relative flex min-h-[100svh] flex-col items-center justify-end px-6 pb-12 text-center pointer-events-none" style="transform:translate3d(0, 0px, 0)">
+            <p class="script text-lg text-primary animate-ink" style="animation-delay:0.4s">Together with our families</p>
+            <h1 class="mt-2.5 font-display text-[3.15rem] leading-[1.02] text-foreground animate-ink" style="animation-delay:0.7s">
+              Nitin<span class="script mx-2 block text-2xl text-primary">&amp;</span>Suman
+            </h1>
+            <p class="mt-4 text-[0.66rem] uppercase tracking-airy text-muted-foreground animate-ink" style="animation-delay:1s">Saturday, 5 December 2026</p>
+            <p class="mt-2 text-[0.66rem] uppercase tracking-airy text-muted-foreground animate-ink" style="animation-delay:1.15s">Rangia Mandi · Ambala Cantt</p>
+          </div>
+        </header>
+
+        <!-- Tap-Spawned Falling Petals Container -->
+        <div id="petals-container" class="pointer-events-none absolute inset-0 overflow-hidden"></div>
+      </div>
+
+      <!-- COUNTDOWN TIMER SECTION -->
+      <section class="px-6 py-14">
+        <div class="reveal" data-visible="false">
+          <p class="text-center text-[0.62rem] uppercase tracking-airy text-muted-foreground">Counting down to the wedding</p>
+          <div class="mt-6">
+            <div class="flex items-start gap-2">
+              
+              <!-- Days -->
+              <div class="flex flex-1 flex-col items-center gap-2">
+                <div class="relative w-full overflow-hidden card-soft px-1 py-3" style="perspective:320px">
+                  <span id="countdown-days" class="block origin-top text-center font-display text-[1.9rem] leading-none text-foreground">00</span>
+                  <span class="pointer-events-none absolute inset-x-0 top-1/2 h-px bg-primary/25"></span>
+                </div>
+                <span class="text-[0.55rem] uppercase tracking-airy text-muted-foreground">Days</span>
+              </div>
+
+              <!-- Hours -->
+              <div class="flex flex-1 flex-col items-center gap-2">
+                <div class="relative w-full overflow-hidden card-soft px-1 py-3" style="perspective:320px">
+                  <span id="countdown-hours" class="block origin-top text-center font-display text-[1.9rem] leading-none text-foreground">00</span>
+                  <span class="pointer-events-none absolute inset-x-0 top-1/2 h-px bg-primary/25"></span>
+                </div>
+                <span class="text-[0.55rem] uppercase tracking-airy text-muted-foreground">Hrs</span>
+              </div>
+
+              <!-- Minutes -->
+              <div class="flex flex-1 flex-col items-center gap-2">
+                <div class="relative w-full overflow-hidden card-soft px-1 py-3" style="perspective:320px">
+                  <span id="countdown-minutes" class="block origin-top text-center font-display text-[1.9rem] leading-none text-foreground">00</span>
+                  <span class="pointer-events-none absolute inset-x-0 top-1/2 h-px bg-primary/25"></span>
+                </div>
+                <span class="text-[0.55rem] uppercase tracking-airy text-muted-foreground">Min</span>
+              </div>
+
+              <!-- Seconds -->
+              <div class="flex flex-1 flex-col items-center gap-2">
+                <div class="relative w-full overflow-hidden card-soft px-1 py-3" style="perspective:320px">
+                  <span id="countdown-seconds" class="block origin-top text-center font-display text-[1.9rem] leading-none text-foreground">00</span>
+                  <span class="pointer-events-none absolute inset-x-0 top-1/2 h-px bg-primary/25"></span>
+                </div>
+                <span class="text-[0.55rem] uppercase tracking-airy text-muted-foreground">Sec</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GANESHA & ROYAL INVITATION CARD SECTION (PAGE 2) -->
+      <section class="relative px-6 pb-16">
+        <img src="assets/floral-spray.png" alt="" aria-hidden="true" loading="lazy" width="1024" height="1024" class="pointer-events-none absolute -right-16 -top-6 w-40 opacity-40"/>
+        
+        <div class="reveal" data-visible="false">
+          <div class="card-soft gold-frame p-7 text-center relative overflow-hidden">
+            
+            <!-- Lord Ganesha Artwork -->
+            <div class="flex justify-center mb-3">
+              <img src="assets/ganesha.png" alt="Shree Ganesh" class="w-20 h-20 object-contain drop-shadow-[0_4px_10px_rgba(180,140,80,0.3)]"/>
+            </div>
+
+            <!-- Ganesha Shloka -->
+            <p class="font-devanagari text-sm font-semibold text-primary tracking-wide">
+              ॥ श्री गणेशाय नमः ॥
+            </p>
+            <p class="font-devanagari text-xs text-foreground/80 mt-1.5 leading-relaxed italic">
+              विघ्न हरन मंगल करण, श्री गणपति जी महाराज<br/>
+              प्रथम निमंत्रण आपको, पूरण करियो काज॥
+            </p>
+
+            <div class="flex items-center justify-center gap-3 py-5 text-primary/70">
+              <span class="h-px w-12 bg-gradient-to-r from-transparent to-primary/50"></span>
+              <span class="text-[0.65rem] tracking-airy">❖</span>
+              <span class="h-px w-12 bg-gradient-to-l from-transparent to-primary/50"></span>
+            </div>
+
+            <!-- Grandfather's Invitation Invocation -->
+            <h2 class="font-display text-2xl sm:text-3xl font-medium text-foreground">
+              Sh. Tika Ram
+            </h2>
+            <p class="mt-2 text-xs leading-relaxed text-muted-foreground px-2">
+              have great pleasure in inviting you to grace the auspicious occasion of the wedding ceremony of his beloved grandson
+            </p>
+
+            <!-- Groom & Bride Names and Parentage -->
+            <div class="my-6 py-4 border-y border-primary/25 bg-primary/[0.03] rounded-sm">
+              <h3 class="font-display text-3xl sm:text-4xl text-primary font-medium tracking-wide">
+                Nitin
+              </h3>
+              <p class="mt-1 text-xs text-foreground/80 font-medium">
+                (S/o Smt. Sunita Devi &amp; Sh. Rakesh Kumar)
+              </p>
+
+              <div class="my-2.5 script text-xl text-primary">with</div>
+
+              <h3 class="font-display text-3xl sm:text-4xl text-primary font-medium tracking-wide">
+                Suman
+              </h3>
+              <p class="mt-1 text-xs text-foreground/80 font-medium">
+                (D/o Smt. Raj Beti &amp; Late Sh. Mahavir Ji of Delhi)
+              </p>
+            </div>
+
+            <p class="script text-base text-primary/90">as per programme</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- GOLDEN MOMENTS / CELEBRATIONS TIMELINE (PAGE 3) -->
+      <section class="relative px-6 pb-16">
+        <img src="assets/bougainvillea-divider.png" alt="" aria-hidden="true" loading="lazy" width="2172" height="724" class="pointer-events-none mx-auto mb-8 w-full max-w-md opacity-80"/>
+        
+        <div class="reveal" data-visible="false">
+          <div class="text-center">
+            <p class="text-[0.62rem] uppercase tracking-airy text-muted-foreground">Ceremony Programme</p>
+            <h2 class="mt-2 font-display text-[2.2rem] leading-tight text-foreground">Golden Moments</h2>
+            <div class="flex items-center justify-center gap-3 py-5 text-primary/70">
+              <span class="h-px w-14 bg-gradient-to-r from-transparent to-primary/50"></span>
+              <span class="text-[0.7rem] tracking-airy">❖</span>
+              <span class="h-px w-14 bg-gradient-to-l from-transparent to-primary/50"></span>
+            </div>
+          </div>
+        </div>
+
+        <ul class="space-y-4">
+          
+          <!-- Ladies Sangeet -->
+          <li>
+            <div class="reveal" data-visible="false">
+              <article class="card-soft press p-5">
+                <div class="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-3.5">
+                  <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-primary/30 text-primary text-xl">✧</span>
+                  <div class="min-w-0">
+                    <h3 class="truncate font-display text-2xl font-medium text-foreground">Ladies Sangeet</h3>
+                    <p class="text-[0.62rem] uppercase tracking-airy text-primary font-medium">Thursday, 3rd December, 2026</p>
+                  </div>
+                </div>
+                <div class="mt-4 flex items-center justify-between border-t border-primary/15 pt-3">
+                  <span class="text-xs text-foreground/80">#436/7, Nai Abadi, Rangia Mandi</span>
+                  <span class="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">7:00 PM</span>
+                </div>
+                <p class="mt-2 text-xs italic text-muted-foreground">An enchanting evening of dholak, folk songs and joyous dances.</p>
+              </article>
+            </div>
+          </li>
+
+          <!-- Mandha -->
+          <li>
+            <div class="reveal" data-visible="false" style="transition-delay:60ms">
+              <article class="card-soft press p-5">
+                <div class="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-3.5">
+                  <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-primary/30 text-primary text-xl">❋</span>
+                  <div class="min-w-0">
+                    <h3 class="truncate font-display text-2xl font-medium text-foreground">Mandha</h3>
+                    <p class="text-[0.62rem] uppercase tracking-airy text-primary font-medium">Friday, 4th December, 2026</p>
+                  </div>
+                </div>
+                <div class="mt-4 flex items-center justify-between border-t border-primary/15 pt-3">
+                  <span class="text-xs text-foreground/80">#436/7, Nai Abadi, Rangia Mandi</span>
+                  <span class="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">10:00 AM</span>
+                </div>
+                <p class="mt-2 text-xs italic text-muted-foreground">Sacred morning Vedic rituals and traditional blessings.</p>
+              </article>
+            </div>
+          </li>
+
+          <!-- Sehra Bandi -->
+          <li>
+            <div class="reveal" data-visible="false" style="transition-delay:120ms">
+              <article class="card-soft press p-5">
+                <div class="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-3.5">
+                  <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-primary/30 text-primary text-xl">👑</span>
+                  <div class="min-w-0">
+                    <h3 class="truncate font-display text-2xl font-medium text-foreground">Sehra Bandi</h3>
+                    <p class="text-[0.62rem] uppercase tracking-airy text-primary font-medium">Friday, 4th December, 2026</p>
+                  </div>
+                </div>
+                <div class="mt-4 flex items-center justify-between border-t border-primary/15 pt-3">
+                  <span class="text-xs text-foreground/80">#436/7, Nai Abadi, Rangia Mandi</span>
+                  <span class="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">7:00 PM</span>
+                </div>
+                <p class="mt-2 text-xs italic text-muted-foreground">Ceremonial tying of the groom's sehra with family pride and love.</p>
+              </article>
+            </div>
+          </li>
+
+          <!-- Departure of Barat -->
+          <li>
+            <div class="reveal" data-visible="false" style="transition-delay:180ms">
+              <article class="card-soft press p-5 border-primary/50 shadow-md">
+                <div class="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-3.5">
+                  <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-primary/40 bg-primary/10 text-primary text-xl">☀</span>
+                  <div class="min-w-0">
+                    <h3 class="truncate font-display text-2xl font-semibold text-foreground">Departure of Barat</h3>
+                    <p class="text-[0.62rem] uppercase tracking-airy text-primary font-medium">Saturday, 5th December, 2026</p>
+                  </div>
+                </div>
+                <div class="mt-4 flex items-center justify-between border-t border-primary/20 pt-3">
+                  <span class="text-xs font-medium text-foreground/90">Ambala Cantt &rarr; Delhi</span>
+                  <span class="text-xs font-bold text-primary bg-primary/15 px-3 py-1 rounded-full">1:00 PM</span>
+                </div>
+                <p class="mt-2 text-xs italic text-muted-foreground">Grand wedding procession departing to receive the beautiful bride.</p>
+              </article>
+            </div>
+          </li>
+
+          <!-- Reception (Dinner) -->
+          <li>
+            <div class="reveal" data-visible="false" style="transition-delay:240ms">
+              <article class="card-soft press p-5 border-primary/45 shadow-sm">
+                <div class="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-3.5">
+                  <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-primary/30 text-primary text-xl">❖</span>
+                  <div class="min-w-0">
+                    <h3 class="truncate font-display text-2xl font-semibold text-foreground">Reception (Dinner)</h3>
+                    <p class="text-[0.62rem] uppercase tracking-airy text-primary font-medium">Sunday, 6th December, 2026</p>
+                  </div>
+                </div>
+                <div class="mt-4 flex items-center justify-between border-t border-primary/15 pt-3">
+                  <span class="text-xs text-foreground/80">#436/7, Nai Abadi, Rangia Mandi</span>
+                  <span class="text-xs font-bold text-primary bg-primary/15 px-3 py-1 rounded-full">8:00 PM</span>
+                </div>
+                <p class="mt-2 text-xs italic text-muted-foreground">A lavish dinner feast welcoming the newlywed couple.</p>
+              </article>
+            </div>
+          </li>
+
+        </ul>
+
+        <!-- OUR FAMILY FLOWERS (PAGE 3) -->
+        <div class="reveal mt-8" data-visible="false">
+          <div class="card-soft p-5 text-center border-dashed border-primary/40 bg-primary/[0.04]">
+            <p class="script text-base text-primary">With special affection</p>
+            <h3 class="mt-1 font-display text-xl text-foreground font-medium">Our Family Flowers</h3>
+            <p class="mt-2 text-base font-display font-semibold text-primary tracking-wide">
+              🌸 Yashvi &amp; Mankirat 🌸
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- INTERACTIVE SKY LANTERNS ("SEND THEM A WISH") -->
+      <div class="reveal" data-visible="false">
+        <section id="wish-sky-section" class="wish-sky relative isolate overflow-hidden px-6 py-20 text-center">
+          <!-- Background Constellation Art -->
+          <img src="assets/lantern-constellation.png" alt="" aria-hidden="true" loading="lazy" width="1024" height="1536" class="pointer-events-none absolute -right-28 -top-24 -z-10 h-[115%] w-auto opacity-45"/>
+          
+          <!-- Dynamic Floating Lanterns Container -->
+          <div id="flying-lanterns-layer" class="pointer-events-none absolute inset-0 overflow-hidden"></div>
+
+          <div class="mx-auto max-w-sm relative z-30">
+            <img src="assets/watercolor-lantern.png" alt="Watercolor paper lantern glowing warmly" loading="lazy" width="1024" height="1536" class="lantern-breathe mx-auto w-28 object-contain"/>
+            <h2 class="mt-2 font-display text-[2.35rem] leading-tight">Send them a wish</h2>
+            <p class="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">Release a sky full of light for Nitin &amp; Suman's new beginning.</p>
+            
+            <button id="release-lanterns-btn" type="button" class="press mt-7 flex min-h-[50px] w-full items-center justify-center rounded-sm bg-primary px-5 text-[0.68rem] uppercase tracking-[0.22em] text-primary-foreground shadow-[0_14px_30px_-18px_rgba(112,82,42,0.75)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 cursor-pointer font-medium">
+              Release lanterns
+            </button>
+            <p id="lantern-status-text" aria-live="polite" class="mt-3 min-h-5 text-xs text-muted-foreground">Tap to fill the sky with lanterns.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- VENUE & MAP SECTION -->
+      <section class="px-6 pb-16">
+        <div class="reveal" data-visible="false">
+          <div class="text-center">
+            <p class="text-[0.62rem] uppercase tracking-airy text-muted-foreground">Celebration Venue</p>
+            <h2 class="mt-2 font-display text-[2rem] leading-tight text-foreground">Find Your Way</h2>
+            <div class="flex items-center justify-center gap-3 py-5 text-primary/70">
+              <span class="h-px w-14 bg-gradient-to-r from-transparent to-primary/50"></span>
+              <span class="text-[0.7rem] tracking-airy">❖</span>
+              <span class="h-px w-14 bg-gradient-to-l from-transparent to-primary/50"></span>
+            </div>
+          </div>
+          
+          <div class="card-soft overflow-hidden">
+            <img src="assets/venue-map-final.png" alt="Venue Map" loading="lazy" width="1448" height="1086" class="w-full h-auto object-cover"/>
+            <div class="p-5 text-center">
+              <h3 class="font-display text-2xl font-medium">#436/7, Nai Abadi</h3>
+              <p class="mt-1 text-sm text-foreground/85 font-medium">Rangia Mandi, Ambala Cantt, Haryana</p>
+              <p class="mt-2 text-xs text-muted-foreground">Residence of Smt. Sunita Devi &amp; Sh. Rakesh Kumar</p>
+              
+              <div class="mt-4 flex flex-col sm:flex-row gap-2 justify-center">
+                <a href="https://www.google.com/maps/search/?api=1&amp;query=Nai+Abadi+Rangia+Mandi+Ambala+Cantt" target="_blank" rel="noreferrer" class="press flex min-h-[46px] items-center justify-center rounded-sm bg-primary px-5 text-[0.68rem] uppercase tracking-airy text-primary-foreground font-medium">
+                  Open in Google Maps
+                </a>
+                <a href="tel:9996172626" class="press flex min-h-[46px] items-center justify-center rounded-sm border border-primary/40 bg-secondary px-4 text-[0.68rem] uppercase tracking-airy text-foreground font-medium">
+                  📞 Call: 9996172626
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RSVP & CORDIAL INVITATION SECTION (PAGE 1 & 2) -->
+      <section class="px-6 pb-16">
+        <div class="reveal" data-visible="false">
+          <div class="text-center">
+            <p class="text-[0.62rem] uppercase tracking-airy text-muted-foreground">With Heartfelt Respects</p>
+            <h2 class="mt-2 font-display text-[2rem] leading-tight text-foreground">Family &amp; RSVP</h2>
+            <div class="flex items-center justify-center gap-3 py-5 text-primary/70">
+              <span class="h-px w-14 bg-gradient-to-r from-transparent to-primary/50"></span>
+              <span class="text-[0.7rem] tracking-airy">❖</span>
+              <span class="h-px w-14 bg-gradient-to-l from-transparent to-primary/50"></span>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            
+            <!-- A Cordial Invitation From -->
+            <div class="card-soft p-5 text-center">
+              <p class="text-[0.6rem] uppercase tracking-airy text-primary font-semibold">A Cordial Invitation From :</p>
+              <h3 class="mt-2 font-display text-2xl font-medium text-foreground">
+                Smt. Sunita Devi &amp; Sh. Rakesh Kumar
+              </h3>
+              <p class="mt-1 text-xs text-muted-foreground">
+                #436/7, Nai Abadi, Rangia Mandi, Ambala Cantt.
+              </p>
+              <div class="mt-3 flex flex-wrap justify-center gap-2 text-xs">
+                <a href="tel:9996172626" class="text-primary hover:underline font-medium">M: 9996172626</a>
+                <span class="text-muted-foreground">·</span>
+                <a href="tel:9992888373" class="text-primary hover:underline font-medium">9992888373</a>
+              </div>
+            </div>
+
+            <!-- R.S.V.P. & Compliments Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              
+              <!-- RSVP Card -->
+              <div class="card-soft p-5 text-center">
+                <p class="text-[0.6rem] uppercase tracking-airy text-primary font-semibold">R.S.V.P.</p>
+                <div class="mt-2 space-y-1 text-xs text-foreground/85 leading-relaxed">
+                  <p class="font-medium text-sm text-foreground">Jagdish Lal Shakya, Data Ram</p>
+                  <p>Rajesh Kumar, Jatinder Kumar</p>
+                  <p>Vicky, Manpreet, Vishal, Harsh</p>
+                  <p class="text-muted-foreground">Piyush, Golu, Duggu</p>
+                </div>
+              </div>
+
+              <!-- Compliments From Card -->
+              <div class="card-soft p-5 text-center flex flex-col justify-center">
+                <p class="text-[0.6rem] uppercase tracking-airy text-primary font-semibold">Compliments From :</p>
+                <h4 class="mt-2 font-display text-xl font-medium text-foreground">
+                  All Relatives &amp; Friends
+                </h4>
+                <div class="mt-3 flex justify-center">
+                  <span class="text-primary/70 text-sm">❀ ❀ ❀</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SAVE OUR DATE / ADD TO CALENDAR SECTION -->
+      <section class="px-6 pb-20">
+        <div class="reveal" data-visible="false">
+          <div class="card-soft p-6 text-center">
+            <p class="script text-lg text-primary">Save our dates</p>
+            <p class="mt-2 text-sm text-muted-foreground">Add every ceremony to your calendar in one tap.</p>
+            <button id="add-to-calendar-btn" type="button" class="press mt-5 flex min-h-[52px] w-full items-center justify-center rounded-sm border border-primary/45 bg-secondary text-[0.68rem] uppercase tracking-airy text-foreground cursor-pointer font-medium">
+              Add to Calendar
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER SCENE -->
+      <footer class="footer-scene relative isolate min-h-[38rem] overflow-hidden">
+        <!-- Background Wash & Gradient Layers -->
+        <img src="assets/footer-wash.jpg" alt="" aria-hidden="true" loading="lazy" width="1024" height="1280" class="absolute inset-0 -z-30 h-full w-full object-cover" style="transform:translate3d(0, 0px, 0) scale(1.12)"/>
+        <div class="absolute inset-0 -z-20 bg-[linear-gradient(180deg,var(--color-background)_0%,transparent_24%,color-mix(in_oklab,var(--color-background)_38%,transparent)_100%)]"></div>
+        <img src="assets/lantern-constellation.png" alt="" aria-hidden="true" loading="lazy" width="1024" height="1536" class="pointer-events-none absolute -right-24 -top-32 -z-10 h-[110%] w-auto opacity-40"/>
+        <img src="assets/watercolor-lantern.png" alt="" aria-hidden="true" loading="lazy" width="1024" height="1536" class="lantern-breathe pointer-events-none absolute -left-10 top-24 -z-10 w-28 opacity-70"/>
+
+        <div class="mx-auto flex min-h-[38rem] max-w-lg flex-col items-center justify-end px-7 pb-10 pt-32 text-center">
+          <img src="assets/floral-spray.png" alt="" aria-hidden="true" loading="lazy" width="1024" height="1024" class="w-24 opacity-75"/>
+          <p class="mt-4 script text-lg text-primary">We cannot wait to celebrate with you</p>
+          <h2 class="mt-4 font-display text-[2.65rem] leading-[1.05]">
+            Nitin <span class="script text-2xl text-primary">&amp;</span> Suman
+          </h2>
+          
+          <div class="mt-7 grid w-full max-w-sm grid-cols-2 border-y border-primary/25 py-4 text-left">
+            <div class="border-r border-primary/25 pr-5">
+              <p class="text-xs text-muted-foreground">The wedding</p>
+              <p class="mt-1 font-display text-lg">5 December 2026</p>
+            </div>
+            <div class="pl-5">
+              <p class="text-xs text-muted-foreground">The place</p>
+              <p class="mt-1 font-display text-lg">Ambala Cantt</p>
+            </div>
+          </div>
+
+          <button id="copy-link-btn" type="button" class="press mt-7 min-h-[48px] rounded-sm border border-primary/45 bg-background/70 px-6 text-[0.66rem] uppercase tracking-[0.2em] text-foreground backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 cursor-pointer font-medium">
+            Copy invitation link
+          </button>
+          <p id="copy-status-text" aria-live="polite" class="mt-3 min-h-5 text-xs text-muted-foreground">Share this invitation</p>
+
+          <p class="mt-8 text-xs leading-relaxed text-foreground/70">With love, from our families to yours</p>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- JAVASCRIPT INTERACTIONS & ANIMATION ENGINE -->
+  <script>
+    (function () {
+      "use strict";
+
+      const WEDDING_DATA = {
+        bride: "Suman",
+        groom: "Nitin",
+        tagline: "Two families, one celebration of love",
+        dateLabel: "Saturday, 5 December 2026",
+        weddingISO: "2026-12-05T13:00:00+05:30",
+        events: [
+          { name: "Ladies Sangeet", glyph: "✧", date: "3 Dec 2026", time: "7:00 PM", iso: "2026-12-03T19:00:00+05:30", venue: "#436/7, Nai Abadi, Rangia Mandi, Ambala Cantt", note: "An evening filled with music, rhythm, and joyous celebration." },
+          { name: "Mandha", glyph: "❋", date: "4 Dec 2026", time: "10:00 AM", iso: "2026-12-04T10:00:00+05:30", venue: "#436/7, Nai Abadi, Rangia Mandi, Ambala Cantt", note: "Traditional auspicious morning rituals and blessings." },
+          { name: "Sehra Bandi", glyph: "👑", date: "4 Dec 2026", time: "7:00 PM", iso: "2026-12-04T19:00:00+05:30", venue: "#436/7, Nai Abadi, Rangia Mandi, Ambala Cantt", note: "Ceremonial tying of the groom's sehra with family pride." },
+          { name: "Departure of Barat", glyph: "☀", date: "5 Dec 2026", time: "1:00 PM", iso: "2026-12-05T13:00:00+05:30", venue: "Rangia Mandi, Ambala Cantt to Delhi", note: "Grand wedding procession departing to receive the bride." },
+          { name: "Reception (Dinner)", glyph: "❖", date: "6 Dec 2026", time: "8:00 PM", iso: "2026-12-06T20:00:00+05:30", venue: "#436/7, Nai Abadi, Rangia Mandi, Ambala Cantt", note: "Grand wedding reception dinner celebrating the newlyweds." }
+        ]
+      };
+
+      // Toast notification helper
+      function showToast(message) {
+        const toast = document.getElementById("toast");
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add("show");
+        clearTimeout(toast._timeout);
+        toast._timeout = setTimeout(() => {
+          toast.classList.remove("show");
+        }, 2800);
+      }
+
+      /* ----------------------------------------------------
+       * 1. INVITATION CURTAIN / OPENER MODAL
+       * ---------------------------------------------------- */
+      const openerModal = document.getElementById("invitation-opener");
+      const openerVideo = document.getElementById("opener-video");
+      const openerBtn = document.getElementById("opener-btn");
+      const skipOpenerBtn = document.getElementById("skip-opener-btn");
+      const replayBtn = document.getElementById("replay-btn");
+      const ambientAudio = document.getElementById("ambient-audio");
+      const audioToggleBtn = document.getElementById("audio-toggle-btn");
+      const audioIconPlaying = document.getElementById("audio-icon-playing");
+      const audioIconMuted = document.getElementById("audio-icon-muted");
+
+      let isOpenerClosing = false;
+
+      function closeOpener() {
+        if (!openerModal || isOpenerClosing) return;
+        isOpenerClosing = true;
+        openerModal.classList.add("is-closing");
+        document.body.style.overflow = "";
+
+        setTimeout(() => {
+          openerModal.style.display = "none";
+          openerModal.classList.remove("is-closing");
+          isOpenerClosing = false;
+          // Start ambient audio smoothly after intro
+          if (ambientAudio && ambientAudio.paused) {
+            ambientAudio.play().then(() => {
+              updateAudioUI(true);
+            }).catch(() => {
+              updateAudioUI(false);
+            });
+          }
+        }, 400);
+      }
+
+      function openOpener() {
+        if (!openerModal) return;
+        isOpenerClosing = false;
+        openerModal.style.display = "block";
+        openerModal.classList.remove("is-closing");
+        if (openerBtn) openerBtn.style.display = "flex";
+        if (skipOpenerBtn) skipOpenerBtn.style.display = "none";
+        document.body.style.overflow = "hidden";
+        if (openerVideo) {
+          openerVideo.currentTime = 0;
+          openerVideo.pause();
+        }
+      }
+
+      // Always show intro at the start on page load
+      openOpener();
+
+      if (openerBtn && openerVideo) {
+        openerBtn.addEventListener("click", function () {
+          openerBtn.style.display = "none";
+          if (skipOpenerBtn) skipOpenerBtn.style.display = "inline-flex";
+          openerVideo.muted = false; // direct user click enables sound
+          openerVideo.play().catch(() => {
+            // If browser audio autoplay policy blocks sound, play muted
+            openerVideo.muted = true;
+            openerVideo.play().catch(closeOpener);
+          });
+        });
+
+        openerVideo.addEventListener("ended", closeOpener);
+        openerVideo.addEventListener("click", function () {
+          // If video is clicked while playing, close immediately
+          closeOpener();
+        });
+      }
+
+      if (skipOpenerBtn) {
+        skipOpenerBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          closeOpener();
+        });
+      }
+
+      if (replayBtn) {
+        replayBtn.addEventListener("click", () => {
+          openOpener();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+
+      /* ----------------------------------------------------
+       * 2. AMBIENT MUSIC CONTROLLER
+       * ---------------------------------------------------- */
+      function updateAudioUI(isPlaying) {
+        if (!audioToggleBtn) return;
+        if (isPlaying) {
+          audioToggleBtn.classList.add("is-playing");
+          if (audioIconPlaying) audioIconPlaying.style.display = "block";
+          if (audioIconMuted) audioIconMuted.style.display = "none";
+        } else {
+          audioToggleBtn.classList.remove("is-playing");
+          if (audioIconPlaying) audioIconPlaying.style.display = "none";
+          if (audioIconMuted) audioIconMuted.style.display = "block";
+        }
+      }
+
+      if (audioToggleBtn && ambientAudio) {
+        audioToggleBtn.addEventListener("click", function () {
+          if (ambientAudio.paused) {
+            ambientAudio.play().then(() => {
+              updateAudioUI(true);
+              showToast("Music Playing ♫");
+            }).catch(() => {
+              showToast("Playback restricted by browser");
+            });
+          } else {
+            ambientAudio.pause();
+            updateAudioUI(false);
+            showToast("Music Paused");
+          }
+        });
+      }
+
+      /* ----------------------------------------------------
+       * 3. PARALLAX SCROLL EFFECT
+       * ---------------------------------------------------- */
+      const heroBg = document.getElementById("hero-bg-container");
+      const coupleIll = document.getElementById("couple-illustration");
+      const sprayLeft = document.getElementById("floral-spray-left");
+      const sprayRight = document.getElementById("floral-spray-right");
+      const heroText = document.getElementById("hero-text-content");
+
+      let ticking = false;
+      window.addEventListener("scroll", function () {
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollY < window.innerHeight * 1.5) {
+              if (heroBg) heroBg.style.transform = `translate3d(0, ${scrollY * 0.35}px, 0)`;
+              if (sprayLeft) sprayLeft.style.transform = `translate3d(0, ${scrollY * 0.18}px, 0)`;
+              if (sprayRight) sprayRight.style.transform = `translate3d(0, ${scrollY * 0.12}px, 0)`;
+              if (coupleIll) coupleIll.style.transform = `translate3d(-50%, ${-scrollY * 0.08}px, 0)`;
+              if (heroText) heroText.style.transform = `translate3d(0, ${-scrollY * 0.12}px, 0)`;
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      /* ----------------------------------------------------
+       * 4. INTERACTIVE FLOWER PETAL SPAWNER ON TAP
+       * ---------------------------------------------------- */
+      const heroArea = document.getElementById("hero-touch-area");
+      const petalsContainer = document.getElementById("petals-container");
+
+      if (heroArea && petalsContainer) {
+        heroArea.addEventListener("pointerdown", function (e) {
+          // Do not trigger on button click
+          if (e.target.closest("button")) return;
+
+          const rect = heroArea.getBoundingClientRect();
+          const originX = e.clientX - rect.left;
+          const originY = e.clientY - rect.top;
+
+          for (let i = 0; i < 7; i++) {
+            const span = document.createElement("span");
+            const drift = (Math.random() - 0.5) * 130;
+            const hue = Math.random();
+            const posX = originX + (Math.random() - 0.5) * 45;
+            const posY = originY + (Math.random() - 0.5) * 30;
+            const duration = 1.9 + hue;
+
+            span.className = "absolute block h-2.5 w-3.5 pointer-events-none";
+            span.style.left = posX + "px";
+            span.style.top = posY + "px";
+            span.style.setProperty("--drift", drift + "px");
+            span.style.background = hue > 0.5
+              ? "color-mix(in oklab, var(--color-primary) 45%, white)"
+              : "color-mix(in oklab, var(--color-sage) 55%, white)";
+            span.style.borderRadius = "70% 30% 65% 35% / 60% 60% 40% 40%";
+            span.style.animation = `petal-fall ${duration}s cubic-bezier(.3,.6,.4,1) forwards`;
+            span.style.willChange = "transform, opacity";
+
+            petalsContainer.appendChild(span);
+            setTimeout(() => span.remove(), duration * 1000 + 200);
+          }
+        });
+      }
+
+      /* ----------------------------------------------------
+       * 5. LIVE FLIP COUNTDOWN TIMER
+       * ---------------------------------------------------- */
+      let targetTime = new Date(WEDDING_DATA.weddingISO).getTime();
+      // If the configured date has already passed, set active upcoming target so the 3D flip cards live-animate every second
+      if (targetTime <= Date.now()) {
+        const upcoming = new Date();
+        upcoming.setDate(upcoming.getDate() + 28);
+        upcoming.setHours(13, 0, 0, 0);
+        targetTime = upcoming.getTime();
+      }
+
+      const daysEl = document.getElementById("countdown-days");
+      const hoursEl = document.getElementById("countdown-hours");
+      const minutesEl = document.getElementById("countdown-minutes");
+      const secondsEl = document.getElementById("countdown-seconds");
+
+      let prevDigits = { days: "", hours: "", minutes: "", seconds: "" };
+
+      function triggerFlip(element, newText) {
+        if (!element) return;
+        element.textContent = newText;
+        element.style.animation = "none";
+        // Force reflow
+        void element.offsetWidth;
+        element.style.animation = "flip-in 520ms cubic-bezier(.22,1,.36,1)";
+      }
+
+      function updateCountdown() {
+        const now = Date.now();
+        const diff = Math.max(0, targetTime - now);
+
+        const d = String(Math.floor(diff / 864e5)).padStart(2, "0");
+        const h = String(Math.floor((diff / 36e5) % 24)).padStart(2, "0");
+        const m = String(Math.floor((diff / 6e4) % 60)).padStart(2, "0");
+        const s = String(Math.floor((diff / 1e3) % 60)).padStart(2, "0");
+
+        if (d !== prevDigits.days) { triggerFlip(daysEl, d); prevDigits.days = d; }
+        if (h !== prevDigits.hours) { triggerFlip(hoursEl, h); prevDigits.hours = h; }
+        if (m !== prevDigits.minutes) { triggerFlip(minutesEl, m); prevDigits.minutes = m; }
+        if (s !== prevDigits.seconds) { triggerFlip(secondsEl, s); prevDigits.seconds = s; }
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      /* ----------------------------------------------------
+       * 6. SCROLL REVEAL OBSERVER
+       * ---------------------------------------------------- */
+      const reveals = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.setAttribute("data-visible", "true");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: "0px 0px -6% 0px"
+        });
+
+        reveals.forEach(el => observer.observe(el));
+      } else {
+        reveals.forEach(el => el.setAttribute("data-visible", "true"));
+      }
+
+      /* ----------------------------------------------------
+       * 7. INTERACTIVE WISH LANTERNS RELEASE
+       * ---------------------------------------------------- */
+      const releaseBtn = document.getElementById("release-lanterns-btn");
+      const lanternsLayer = document.getElementById("flying-lanterns-layer");
+      const lanternStatus = document.getElementById("lantern-status-text");
+
+      if (releaseBtn && lanternsLayer) {
+        releaseBtn.addEventListener("click", function () {
+          if (lanternStatus) {
+            lanternStatus.textContent = "The sky is glowing for Nitin and Suman.";
+            lanternStatus.style.color = "var(--primary)";
+          }
+
+          showToast("Lanterns Released ✨");
+
+          // Spawn 22 lanterns across layers
+          for (let i = 0; i < 22; i++) {
+            const depth = i < 8 ? "far" : (i < 17 ? "middle" : "near");
+            const baseScale = depth === "far" ? 0.3 : (depth === "middle" ? 0.58 : 0.92);
+            const scale = baseScale * (0.78 + Math.random() * 0.42);
+            const duration = depth === "far" ? 7.4 : (depth === "middle" ? 6.3 : 5.3);
+            const delay = Math.random() * 1.4;
+            const blur = depth === "far" ? 1.4 : (depth === "middle" ? 0.45 : 0);
+            const opacity = depth === "far" ? 0.54 : (depth === "middle" ? 0.78 : 1);
+            const x = 5 + Math.random() * 90;
+            const drift = -90 + Math.random() * 180;
+            const tilt = -8 + Math.random() * 16;
+            const zIndex = depth === "near" ? 20 : (depth === "middle" ? 10 : 0);
+
+            const img = document.createElement("img");
+            img.src = "assets/watercolor-lantern.png";
+            img.alt = "";
+            img.setAttribute("aria-hidden", "true");
+            img.className = `wish-lantern-flight pointer-events-none absolute bottom-[-13rem] w-24`;
+            img.style.zIndex = zIndex;
+            img.style.left = `${x}%`;
+            img.style.opacity = opacity;
+            img.style.filter = `blur(${blur}px) drop-shadow(0 12px 18px oklch(0.62 0.09 72 / 0.22))`;
+            img.style.setProperty("--wish-tilt", `${tilt}deg`);
+            img.style.setProperty("--wish-drift", `${drift}px`);
+            img.style.setProperty("--wish-scale", scale);
+            img.style.setProperty("--wish-duration", `${duration}s`);
+            img.style.setProperty("--wish-delay", `${delay}s`);
+
+            lanternsLayer.appendChild(img);
+
+            setTimeout(() => img.remove(), (duration + delay) * 1000 + 400);
+          }
+        });
+      }
+
+      /* ----------------------------------------------------
+       * 8. CALENDAR ICS GENERATION & DOWNLOAD
+       * ---------------------------------------------------- */
+      function formatICSDate(date) {
+        return date.toISOString().replace(/[-:]/g, "").slice(0, 15) + "Z";
+      }
+
+      function generateICS() {
+        const lines = [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Nitin & Suman//Wedding//EN",
+          "CALSCALE:GREGORIAN",
+          "METHOD:PUBLISH"
+        ];
+
+        WEDDING_DATA.events.forEach(ev => {
+          const startDate = new Date(ev.iso);
+          const endDate = new Date(startDate.getTime() + (3 * 3600 * 1000)); // 3 hours duration
+          const now = new Date();
+
+          lines.push(
+            "BEGIN:VEVENT",
+            `UID:${ev.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}-nitin-suman-${startDate.getTime()}@invcraftmedia.com`,
+            `DTSTAMP:${formatICSDate(now)}`,
+            `DTSTART:${formatICSDate(startDate)}`,
+            `DTEND:${formatICSDate(endDate)}`,
+            `SUMMARY:${ev.name} | Nitin & Suman Wedding`,
+            `LOCATION:${ev.venue}`,
+            `DESCRIPTION:${ev.note}`,
+            "STATUS:CONFIRMED",
+            "END:VEVENT"
+          );
+        });
+
+        lines.push("END:VCALENDAR");
+        return lines.join("\r\n");
+      }
+
+      const addToCalendarBtn = document.getElementById("add-to-calendar-btn");
+      if (addToCalendarBtn) {
+        addToCalendarBtn.addEventListener("click", function () {
+          try {
+            const icsData = generateICS();
+            const blob = new Blob([icsData], { type: "text/calendar;charset=utf-8" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "nitin-suman-wedding.ics";
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 1500);
+            showToast("Calendar saved!");
+          } catch (err) {
+            console.error("Calendar export error:", err);
+            showToast("Could not download calendar");
+          }
+        });
+      }
+
+      /* ----------------------------------------------------
+       * 9. COPY INVITATION LINK
+       * ---------------------------------------------------- */
+      const copyBtn = document.getElementById("copy-link-btn");
+      const copyStatus = document.getElementById("copy-status-text");
+
+      if (copyBtn) {
+        copyBtn.addEventListener("click", function () {
+          const url = window.location.href;
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(onCopied).catch(fallbackCopy);
+          } else {
+            fallbackCopy();
+          }
+
+          function fallbackCopy() {
+            const input = document.createElement("input");
+            input.value = url;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand("copy");
+            input.remove();
+            onCopied();
+          }
+
+          function onCopied() {
+            showToast("Link copied to clipboard!");
+            if (copyStatus) copyStatus.textContent = "Link copied! Share with family & friends";
+            copyBtn.textContent = "Copied ✓";
+            setTimeout(() => {
+              copyBtn.textContent = "Copy invitation link";
+              if (copyStatus) copyStatus.textContent = "Share this invitation";
+            }, 3000);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
