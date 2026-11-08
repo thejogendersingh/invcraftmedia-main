@@ -2,26 +2,49 @@
 # INVCRAFT MEDIA – HTTP CACHING & SECURITY HEADERS (Cloudflare Pages)
 # ==============================================================================
 
-# HTML pages: Always revalidate so couples see live updates instantly
-/*.html
+# 1. All HTML pages & routes: Never cache stale version, always revalidate immediately
+/*
   Cache-Control: public, max-age=0, must-revalidate
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
 
-# Scripts & Stylesheets: Revalidate immediately so code updates reflect instantly without caching
+# 2. JavaScript & CSS Bundles: Always revalidate so code edits reflect instantly!
+/invitations/*/assets/*.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/invitations/*/assets/*.css
+  Cache-Control: public, max-age=0, must-revalidate
+
 /invitations/*/*.js
   Cache-Control: public, max-age=0, must-revalidate
 
 /invitations/*/*.css
   Cache-Control: public, max-age=0, must-revalidate
 
-# Static media & assets: Aggressively cache for 1 year
-/invitations/*/assets/*
-  Cache-Control: public, max-age=31536000, immutable
+# 3. Static Media (Images, Videos, Audio): Cached safely without blocking code updates
+/invitations/*/assets/*.png
+  Cache-Control: public, max-age=2592000
+
+/invitations/*/assets/*.jpg
+  Cache-Control: public, max-age=2592000
+
+/invitations/*/assets/*.jpeg
+  Cache-Control: public, max-age=2592000
+
+/invitations/*/assets/*.webp
+  Cache-Control: public, max-age=2592000
+
+/invitations/*/assets/*.svg
+  Cache-Control: public, max-age=2592000
+
+/invitations/*/assets/*.mp4
+  Cache-Control: public, max-age=2592000
+
+/invitations/*/assets/*.mp3
+  Cache-Control: public, max-age=2592000
 
 /invitations/*/audio/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=2592000
 
-# Shared assets
 /shared/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=2592000
