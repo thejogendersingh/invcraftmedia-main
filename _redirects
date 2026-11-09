@@ -10,6 +10,16 @@
 # 3. 200 Rewrite: Proxies all internal assets, scripts, media and stylesheets directly
 # ==============================================================================
 
+# Client: amrita-abhishek-wedding (Active new client - Double Wedding Amrita & Saurabh / Abhishek & Shubha)
+/amrita-abhishek-wedding         /amrita-abhishek-wedding/                                     301
+/amrita-abhishek-wedding/        /invitations/amrita-abhishek-wedding/index.html               200
+/amrita-abhishek-wedding/*       /invitations/amrita-abhishek-wedding/:splat                   200
+
+# Client: amrita-saurabh-abhishek-shubha (alias -> 301 redirect)
+/amrita-saurabh-abhishek-shubha         /amrita-abhishek-wedding/                                     301
+/amrita-saurabh-abhishek-shubha/        /amrita-abhishek-wedding/                                     301
+/amrita-saurabh-abhishek-shubha/*       /amrita-abhishek-wedding/:splat                               301
+
 # Client: nitin-weds-suman (Active new client - Nitin & Suman)
 /nitin-weds-suman         /nitin-weds-suman/                                     301
 /nitin-weds-suman/        /invitations/nitin-weds-suman/index.html               200

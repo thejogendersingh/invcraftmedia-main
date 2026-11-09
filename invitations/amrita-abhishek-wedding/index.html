@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>अमृता संग सौरभ ✦ अभिषेक संग शुभा — संयुक्त विवाह उत्सव</title>
+
+  <!-- SEO & Favicon Links -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+  <meta property="og:title" content="अमृता संग सौरभ ✦ अभिषेक संग शुभा — संयुक्त विवाह उत्सव" />
+  <meta property="og:description" content="श्री शिवशंकर सिंह एवं श्रीमती सुजाता सिंह के सुपुत्री व सुपुत्र के मांगलिक संयुक्त विवाह उत्सव में आप सादर आमंत्रित हैं।" />
+  <meta property="og:image" content="assets/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="assets/logo.png" />
+
+  <!-- Google Fonts: Noto Serif Devanagari (Clean, Highly Legible & Premium) + Cinzel & Great Vibes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Great+Vibes&family=Noto+Serif+Devanagari:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Tailwind Custom Colors Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: { 50: '#FFFFFF', 100: '#FFFFFF', 200: '#F9F9FB' },
+            champagne: '#FDE8EB',
+            royal: { 
+              green: '#8A3E4E',
+              greenLight: '#A35263',
+              greenDark: '#5E222F',
+              gold: '#C5A059'
+            },
+            burgundy: '#8A3E4E',
+            charcoal: { DEFAULT: '#111111', muted: '#555555' }
+          },
+          fontFamily: {
+            devanagari: ['Noto Serif Devanagari', 'serif'],
+            serif: ['Cormorant Garamond', 'Noto Serif Devanagari', 'serif'],
+            cinzel: ['Cinzel Decorative', 'serif'],
+            cursive: ['Great Vibes', 'cursive'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Preload Critical Above-The-Fold Assets & Poster -->
+  <link rel="preload" as="image" href="assets/envelope-poster.jpg" />
+  <link rel="preload" as="video" href="assets/hero-bg.mp4" type="video/mp4" />
+  <link rel="preload" as="image" href="assets/hero-bg(1).webp" type="image/webp" />
+  <link rel="stylesheet" href="style.css?v=5.1" />
+
+  <style>
+    .font-devanagari {
+      font-family: 'Noto Serif Devanagari', serif;
+    }
+    .couple-title {
+      font-family: 'Noto Serif Devanagari', serif;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  </style>
+</head>
+<body class="bg-ivory-100 text-charcoal font-sans antialiased overflow-x-hidden font-devanagari">
+
+  <!-- BACKGROUND WEDDING AUDIO ELEMENT -->
+  <audio id="wedding-audio" loop preload="auto">
+    <source src="assets/wedding_tune.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- FLOATING LUXURY MUSIC TOGGLE BUTTON -->
+  <button id="audio-toggle-btn" class="fixed top-4 right-4 z-[50] flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-[#C5A059]/60 shadow-[0_4px_16px_rgba(0,0,0,0.3)] text-white transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" title="Toggle Music" aria-label="Toggle Wedding Music">
+    <i data-lucide="volume-2" class="w-3.5 h-3.5 text-[#C5A059]"></i>
+    <span id="audio-label" class="text-[9px] font-bold tracking-[0.18em] text-[#C5A059] uppercase">MUSIC</span>
+  </button>
+
+  <!-- ENVELOPE ENTRANCE OVERLAY -->
+  <div id="door-overlay" class="door-overlay flex flex-col items-center justify-center cursor-pointer overflow-hidden" onclick="openRoyalDoor()">
+    <div class="absolute inset-0 z-0 pointer-events-none w-full h-full overflow-hidden flex items-center justify-center">
+      <video id="envelope-video" muted playsinline preload="auto" poster="assets/envelope-poster.jpg" class="w-full h-full object-cover object-center min-w-full min-h-full">
+        <source src="assets/envolp-open.mp4?v=3" type="video/mp4" />
+      </video>
+    </div>
+    <div id="overlay-cta" class="absolute bottom-[14%] left-0 right-0 w-full text-center z-10 opacity-0 envelope-text-bottom">
+      <p class="font-cursive text-4xl sm:text-5xl text-white font-medium tracking-wide drop-shadow-md">
+        Tap to open
+      </p>
+    </div>
+  </div>
+
+  <!-- 60FPS PETAL SIMULATION CANVAS -->
+  <canvas id="petals-canvas" class="fixed inset-0 pointer-events-none z-[40] opacity-80"></canvas>
+
+  <!-- CUSTOM MAGNETIC CURSOR -->
+  <div id="custom-cursor-dot" class="custom-cursor-dot"></div>
+  <div id="custom-cursor-ring" class="custom-cursor-ring"><span id="cursor-text"></span></div>
+
+  <!-- HERO SECTION: SINGLE LINE COUPLE NAMES, READABLE NOTO SERIF DEVANAGARI FONT, NO BOXES, NO EMOJIS -->
+  <section class="hero-section relative w-full h-[100dvh] min-h-[740px] max-h-[980px] flex items-center justify-center bg-[#0A1118] overflow-hidden">
+    
+    <!-- Full-Bleed Edge-to-Edge Video Background -->
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden hero-bg-anim">
+      <video id="hero-bg-video" autoplay loop muted playsinline poster="assets/hero-bg(1).webp" class="w-full h-full object-cover object-center">
+        <source src="assets/hero-bg.mp4" type="video/mp4" />
+        <img src="assets/hero-bg(1).webp" alt="Royal Palace Background" class="w-full h-full object-cover object-center" />
+      </video>
+    </div>
+
+    <!-- SEAMLESS OVERLAY (Directly in Palace Arch, No Background Cards) -->
+    <div class="absolute inset-0 z-10 flex flex-col items-center justify-center max-w-[340px] sm:max-w-[440px] md:max-w-[500px] w-full mx-auto px-2 sm:px-4 text-center pointer-events-auto my-auto -mt-8 sm:-mt-12 py-2 space-y-2.5 sm:space-y-3.5">
+      
+      <!-- 1. Ganesha Avatar Medal & Traditional Shloka -->
+      <div class="flex flex-col items-center">
+        <div class="relative w-[58px] h-[58px] sm:w-[72px] sm:h-[72px] rounded-full p-[2px] bg-gradient-to-tr from-[#B38728] via-[#FBF5B7] to-[#AA771C] shadow-[0_6px_22px_rgba(0,0,0,0.3)] transition-transform duration-500 hover:scale-105">
+          <div class="w-full h-full rounded-full p-[1.5px] bg-[#0C3839]">
+            <div class="w-full h-full rounded-full overflow-hidden border border-[#C5A059]/60 bg-white flex items-center justify-center shadow-inner">
+              <img src="assets/ganesh-ji.jpg" alt="Lord Ganesha" class="w-full h-full object-cover object-center" style="transform: scale(1.58);" decoding="async" />
+            </div>
+          </div>
+        </div>
+
+        <div class="text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-[#C5A059] font-devanagari font-bold mt-1.5 drop-shadow">
+          ॥ श्री गणेशाय नमः ॥
+        </div>
+        <p class="font-sans text-[8px] sm:text-[9.5px] uppercase tracking-[0.28em] text-[#0D3B3E] font-bold mt-0.5">
+          ॥ मांगलिक संयुक्त विवाह उत्सव ॥
+        </p>
+      </div>
+
+      <!-- 2. COUPLES DIRECTLY ON HERO IN A SINGLE LINE (NO BOXES, NO LINE-BREAKS) -->
+      <div class="flex flex-col items-center justify-center w-full space-y-2.5 sm:space-y-3">
+        
+        <!-- COUPLE 1: Amrita संग Saurabh (GUARANTEED SINGLE LINE) -->
+        <div class="flex flex-col items-center text-center w-full">
+          <span class="text-[9px] sm:text-[10.5px] font-sans font-bold text-[#8A3E4E] tracking-[0.2em] uppercase">
+            ✦ सुपुत्री परिणय ✦
+          </span>
+          <h1 class="couple-title text-[15px] xs:text-[17px] sm:text-xl md:text-2xl text-[#0D3B3E] font-bold tracking-tight leading-tight drop-shadow-sm mt-0.5">
+            <span class="text-[#8A3E4E] text-[11px] sm:text-xs font-semibold mr-0.5">आयु०कु०</span>अमृता सिंह <span class="font-cursive text-[#C5A059] text-lg sm:text-2xl px-1 font-normal align-middle">संग</span> <span class="text-[#8A3E4E] text-[11px] sm:text-xs font-semibold mr-0.5">चि०</span>सौरभ सिंह
+          </h1>
+          <p class="font-devanagari text-[10.5px] sm:text-xs text-[#222222]/90 font-medium leading-tight pt-1 max-w-sm">
+            सुपुत्री: श्रीमती सुजाता सिंह एवं श्री शिवशंकर सिंह<br/>
+            सुपुत्र: श्रीमती सविता सिंह एवं स्व० चन्द्रशेखर सिंह
+          </p>
+        </div>
+
+        <!-- Royal Divider -->
+        <div class="flex items-center justify-center gap-2.5 w-full max-w-[220px]">
+          <div class="flex-1 h-[1px] bg-gradient-to-r from-transparent via-[#C5A059] to-[#C5A059]"></div>
+          <span class="font-devanagari text-[#C5A059] text-xs sm:text-sm font-semibold drop-shadow-sm">एवं</span>
+          <div class="flex-1 h-[1px] bg-gradient-to-l from-transparent via-[#C5A059] to-[#C5A059]"></div>
+        </div>
+
+        <!-- COUPLE 2: Abhishek संग Shubha (GUARANTEED SINGLE LINE) -->
+        <div class="flex flex-col items-center text-center w-full">
+          <span class="text-[9px] sm:text-[10.5px] font-sans font-bold text-[#8A3E4E] tracking-[0.2em] uppercase">
+            ✦ सुपुत्र परिणय ✦
+          </span>
+          <h2 class="couple-title text-[15px] xs:text-[17px] sm:text-xl md:text-2xl text-[#0D3B3E] font-bold tracking-tight leading-tight drop-shadow-sm mt-0.5">
+            <span class="text-[#8A3E4E] text-[11px] sm:text-xs font-semibold mr-0.5">चि०</span>अभिषेक सिंह <span class="font-cursive text-[#C5A059] text-lg sm:text-2xl px-1 font-normal align-middle">संग</span> <span class="text-[#8A3E4E] text-[11px] sm:text-xs font-semibold mr-0.5">आयु०कु०</span>शुभा कटियार
+          </h2>
+          <p class="font-devanagari text-[10.5px] sm:text-xs text-[#222222]/90 font-medium leading-tight pt-1 max-w-sm">
+            सुपुत्र: श्रीमती सुजाता सिंह एवं श्री शिवशंकर सिंह<br/>
+            सुपुत्री: श्रीमती कुसुमलता एवं श्री अनिल कटियार (सिकन्दरा)
+          </p>
+        </div>
+
+      </div>
+
+      <!-- 3. Date & Venue Details (Icons instead of emojis) -->
+      <div class="pt-1 flex flex-col items-center gap-0.5 text-center">
+        <div class="font-devanagari text-xs sm:text-[13px] text-[#8A3E4E] font-bold tracking-wider inline-flex items-center gap-1.5">
+          <i data-lucide="calendar" class="w-3.5 h-3.5 text-[#C5A059]"></i>
+          <span>06 से 10 दिसम्बर 2026</span>
+        </div>
+        <div class="font-devanagari text-[10.5px] sm:text-xs text-[#0D3B3E] font-semibold inline-flex items-center gap-1.5">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#C5A059]"></i>
+          <span>"होटल जनक गार्डेन", परसोधा, चुनार, मीरजापुर</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scroll Down Indicator -->
+    <a href="#countdown-section" aria-label="Scroll to countdown" class="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity duration-300">
+      <span class="text-[8px] font-sans font-bold tracking-[0.25em] text-[#C5A059] uppercase">SCROLL</span>
+      <div class="w-5 h-8 rounded-full border border-[#C5A059]/60 flex items-start justify-center p-1">
+        <div class="w-1 h-2 bg-[#C5A059] rounded-full animate-bounce"></div>
+      </div>
+    </a>
+  </section>
+
+  <!-- COUNTDOWN SECTION: EXACT SANCHITA GOLDEN SCRATCH CARD -->
+  <section id="countdown-section" class="py-10 sm:py-16 px-4 sm:px-8 bg-[#FAF9F6] relative z-10 border-t border-[#E5E5EA]">
+    <div class="max-w-3xl mx-auto space-y-6 text-center">
+      
+      <!-- Section Header -->
+      <div class="space-y-1.5 scroll-reveal">
+        <span class="font-sans text-[9px] sm:text-[10px] tracking-[0.25em] text-[#C5A059] font-bold uppercase block">॥ शुभ विवाह मांगलिक बेला ॥</span>
+        <h2 class="font-cursive text-3xl sm:text-4xl md:text-5xl text-black font-medium tracking-wide leading-tight py-0.5">Counting Down to Forever</h2>
+        <div class="flex items-center justify-center gap-3 pt-0.5">
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/50"></div>
+          <span class="text-[#C5A059] text-xs select-none">✦</span>
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/50"></div>
+        </div>
+        <p class="font-devanagari italic text-xs sm:text-[13.5px] text-charcoal-muted max-w-md mx-auto pt-0.5">
+          &quot;हर बीतता पल हमें प्रेम, आशीर्वाद और पावन सात फेरों के पवित्र बंधन के करीब ला रहा है।&quot;
+        </p>
+      </div>
+
+      <!-- ROYAL LUXURY SCRATCH CARD BOX -->
+      <div class="relative rounded-3xl p-4 sm:p-7 bg-gradient-to-b from-[#FFFDF9] via-white to-[#FAF6ED] border-2 border-[#C5A059] shadow-[0_14px_45px_rgba(197,160,89,0.18)] max-w-lg mx-auto scroll-reveal">
+        
+        <div class="absolute inset-2 sm:inset-2.5 rounded-[22px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+        <span class="absolute top-2 left-3 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
+        <span class="absolute top-2 right-3 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
+        <span class="absolute bottom-2 left-3 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
+        <span class="absolute bottom-2 right-3 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
+
+        <!-- Scratch Canvas Container Wrapper -->
+        <div id="scratch-card-wrapper" class="relative w-full rounded-2xl overflow-hidden min-h-[110px] sm:min-h-[130px] flex items-center justify-center border border-[#C5A059]/50 bg-white/95 shadow-inner">
+          <canvas id="scratch-canvas" class="absolute inset-0 w-full h-full z-20 cursor-pointer rounded-2xl touch-none transition-opacity duration-700"></canvas>
+          
+          <div class="relative z-10 grid grid-cols-4 gap-2 sm:gap-3 w-full text-center p-2 sm:p-3">
+            <div class="py-2.5 sm:py-3.5 px-1 rounded-xl bg-gradient-to-b from-[#FFFDF9] to-[#FAF6ED] border border-[#C5A059]/40 flex flex-col items-center shadow-sm">
+              <span id="cnt-days" class="font-serif text-2xl sm:text-4xl font-bold text-[#0D3B3E] tracking-tight leading-none">00</span>
+              <span class="font-sans text-[7.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#C5A059] font-bold mt-1">DAYS</span>
+            </div>
+            <div class="py-2.5 sm:py-3.5 px-1 rounded-xl bg-gradient-to-b from-[#FFFDF9] to-[#FAF6ED] border border-[#C5A059]/40 flex flex-col items-center shadow-sm">
+              <span id="cnt-hours" class="font-serif text-2xl sm:text-4xl font-bold text-[#0D3B3E] tracking-tight leading-none">00</span>
+              <span class="font-sans text-[7.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#C5A059] font-bold mt-1">HOURS</span>
+            </div>
+            <div class="py-2.5 sm:py-3.5 px-1 rounded-xl bg-gradient-to-b from-[#FFFDF9] to-[#FAF6ED] border border-[#C5A059]/40 flex flex-col items-center shadow-sm">
+              <span id="cnt-mins" class="font-serif text-2xl sm:text-4xl font-bold text-[#0D3B3E] tracking-tight leading-none">00</span>
+              <span class="font-sans text-[7.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#C5A059] font-bold mt-1">MINUTES</span>
+            </div>
+            <div class="py-2.5 sm:py-3.5 px-1 rounded-xl bg-gradient-to-b from-[#FFFDF9] to-[#FAF6ED] border border-[#C5A059]/40 flex flex-col items-center shadow-sm">
+              <span id="cnt-secs" class="font-serif text-2xl sm:text-4xl font-bold text-[#8A2E40] tracking-tight leading-none">00</span>
+              <span class="font-sans text-[7.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#C5A059] font-bold mt-1">SECONDS</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="font-sans text-[9px] sm:text-[10px] text-[#C5A059] font-semibold tracking-[0.25em] uppercase pt-3 select-none flex items-center justify-center gap-1.5">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#C5A059]"></i>
+          <span>Scratch the golden card to reveal the timer</span>
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#C5A059]"></i>
+        </p>
+      </div>
+
+      <div class="pt-6 sm:pt-8 flex items-center justify-center gap-3 max-w-xl mx-auto scroll-reveal">
+        <div class="flex-1 h-[1px] bg-gradient-to-r from-transparent via-[#C5A059]/30 to-[#C5A059]/60"></div>
+        <img src="assets/divider-flower.png" alt="Floral Garland Divider" class="w-48 sm:w-60 h-auto object-contain select-none pointer-events-none filter drop-shadow-[0_4px_10px_rgba(197,160,89,0.15)]" loading="lazy" decoding="async" />
+        <div class="flex-1 h-[1px] bg-gradient-to-l from-transparent via-[#C5A059]/30 to-[#C5A059]/60"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EVENTS ITINERARY SECTION: SEAMLESS PLAQUES, CORRECT SINGLE CHARACTER IMAGES & NO EMOJIS -->
+  <section id="events" class="py-16 px-4 sm:px-8 bg-white relative z-10 border-t border-[#E5E5EA]">
+    <div class="max-w-4xl mx-auto space-y-12 text-center">
+      
+      <!-- Section Header -->
+      <div class="space-y-2 scroll-reveal">
+        <span class="font-sans text-[10px] tracking-[0.3em] text-[#C5A059] font-bold uppercase block">॥ मांगलिक कार्यक्रम ॥</span>
+        <h2 class="font-cursive text-5xl sm:text-6xl text-black font-medium tracking-wide">Sacred Ceremonies</h2>
+        <div class="flex items-center justify-center gap-3 pt-1">
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/50"></div>
+          <span class="text-[#C5A059] text-xs select-none">✦</span>
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/50"></div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- SECTION A: AMRITA SANG SAURABH (DAUGHTER) -->
+      <!-- ============================================== -->
+      <div class="space-y-6">
+        <div class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-gradient-to-r from-[#FAF6ED] via-[#FFFDF9] to-[#FAF6ED] border border-[#C5A059] text-[#8A3E4E] font-devanagari font-bold text-sm sm:text-base shadow-sm">
+          <i data-lucide="sparkles" class="w-4 h-4 text-[#C5A059]"></i>
+          <span>सुपुत्री परिणय: अमृता संग सौरभ</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-4xl mx-auto">
+          
+          <!-- Event 1: Haldi & Mehndi (Amrita) - SINGLE GIRL IMAGE (mehandi-groom.PNG) -->
+          <div class="group relative aspect-[9/15] sm:aspect-[9/14] min-h-[540px] rounded-[30px] overflow-hidden shadow-2xl border-2 border-[#C5A059] scroll-reveal transition-all duration-500 hover:scale-[1.01] flex flex-col justify-between">
+            <img src="assets/g-haldi-bg-CB-4YaJG.png" alt="Haldi Background" class="absolute inset-0 w-full h-full object-cover object-top z-0 pointer-events-none transform group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+            <div class="absolute inset-2 sm:inset-2.5 rounded-[24px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+            
+            <!-- Open, Seamless Plaque (No Double Box) -->
+            <div class="relative z-20 mx-3 sm:mx-5 mt-6 sm:mt-8 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-[#C5A059]/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)] text-center space-y-2">
+              <h3 class="font-devanagari text-2xl sm:text-3xl text-[#8A3E4E] font-bold tracking-wide">
+                हल्दी एवं मेहंदी
+              </h3>
+              <p class="font-devanagari italic text-xs sm:text-[13px] text-charcoal-muted leading-tight">
+                सौभाग्य, स्नेह व सतरंगी मेहंदी के पावन शगुन
+              </p>
+              
+              <div class="flex items-center justify-center gap-2 py-0.5">
+                <div class="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60"></div>
+                <span class="text-[#C5A059] text-xs select-none">✦</span>
+                <div class="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60"></div>
+              </div>
+
+              <!-- Clean Open Schedule with Lucide Icons -->
+              <div class="grid grid-cols-2 gap-2 border-b border-[#C5A059]/30 pb-2 text-center">
+                <div class="border-r border-[#C5A059]/30 pr-2">
+                  <span class="font-sans text-[10px] uppercase tracking-wider text-[#C5A059] font-bold inline-flex items-center gap-1 justify-center">
+                    <i data-lucide="calendar" class="w-3 h-3 text-[#C5A059]"></i> दिनांक
+                  </span>
+                  <span class="font-devanagari font-bold text-xs sm:text-[14px] text-[#8A3E4E] block mt-0.5">रविवार, 6 Dec 2026</span>
+                </div>
+                <div class="pl-2">
+                  <span class="font-sans text-[10px] uppercase tracking-wider text-[#C5A059] font-bold inline-flex items-center gap-1 justify-center">
+                    <i data-lucide="clock" class="w-3 h-3 text-[#C5A059]"></i> समय
+                  </span>
+                  <span class="font-devanagari font-bold text-xs sm:text-[14px] text-[#8A3E4E] block mt-0.5">प्रातः 10:00 बजे</span>
+                </div>
+              </div>
+              <div class="pt-0.5 text-center">
+                <span class="font-sans text-[10px] uppercase tracking-wider text-[#C5A059] font-bold inline-flex items-center gap-1 justify-center">
+                  <i data-lucide="map-pin" class="w-3 h-3 text-[#C5A059]"></i> स्थान
+                </span>
+                <span class="font-devanagari text-xs sm:text-[13px] font-bold text-[#8A3E4E] block leading-snug mt-0.5">हमारे निज निवास ग्राम: सोनपुर, चुनार, मीरजापुर</span>
+              </div>
+            </div>
+
+            <!-- Single Girl/Bride Cutout Image for Girl's Haldi -->
+            <img src="assets/mehandi-groom.PNG" alt="Amrita Haldi Bride" class="absolute bottom-0 left-1/2 -translate-x-1/2 max-h-[48%] sm:max-h-[50%] w-auto object-contain pointer-events-none z-10 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]" loading="lazy" decoding="async" />
+          </div>
+
+          <!-- Event 2: Dwarpuja & Shubh Vivah (Amrita) - WEDDING THEME (04-CC6lrDGi-crop.png) -->
+          <div class="group relative aspect-[9/15] sm:aspect-[9/14] min-h-[540px] rounded-[30px] overflow-hidden shadow-2xl border-2 border-[#C5A059] scroll-reveal transition-all duration-500 hover:scale-[1.01] flex flex-col justify-between">
+            <img src="assets/g-wedding-bg-8_wipKLl.png" alt="Wedding Background" class="absolute inset-0 w-full h-full object-cover object-top z-0 pointer-events-none transform group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+            <div class="absolute inset-2 sm:inset-2.5 rounded-[24px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+
+            <div class="relative z-20 mx-3 sm:mx-5 mt-6 sm:mt-8 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-[#C5A059]/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)] text-center space-y-2">
+              <h3 class="font-devanagari text-2xl sm:text-3xl text-[#8A3E4E] font-bold tracking-wide">
+                द्वारपूजा एवं शुभ विवाह
+              </h3>
+              <p class="font-devanagari italic text-xs sm:text-[13px] text-charcoal-muted leading-tight">
+                सात फेरे, पाणिग्रहण संस्कार (विदाई: 8 Dec, प्रातः)
+              </p>
+              
+              <div class="flex items-center justify-center gap-2 py-0.5">
+                <div class="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60"></div>
+                <span class="text-[#C5A059] text-xs select-none">✦</span>
+                <div class="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60"></div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2 border-b border-[#C5A059]/30 pb-2 text-center">
+                <div class="border-r border-[#C5A059]/30 pr-2">
+                  <span class="font-sans text-[10px] uppercase tracking-wider text-[#C5A059] font-bold inline-flex items-center gap-1 justify-center">
+                    <i data-lucide="calendar" class="w-3 h-3 text-[#C5A059]"></i> दिनांक
+                  </span>
+                  <span class="font-devanagari font-bold text-xs sm:text-[14px] text-[#8A3E4E] block mt-0.5">सोमवार, 7 Dec 2026</span>
+                </div>
+                <div class="pl-2">
+                  <span class="font-sans text-[10px] uppercase tracking-wider text-[#C5A059] font-bold inline-flex items-center gap-1 justify-center">
+                    <i data-lucide="clock" class="w-3 h-3 text-[#C5A059]"></i> समय
+                  </span>
+                  <span class="font-devanagari font-bold text-[11px] sm:text-xs text-[#8A3E4E] block mt-0.5 leading-snug">द्वारपूजा: सायंकाल<br/>विवाह: रात्रि में</span>
+                </div>
+              </div>
+              <div class="pt-0.5 text-center">
+                <span class="font-sans text-[10px] uppercase tracking-wider text-[#C5A059] font-bold inline-flex items-center gap-1 justify-center">
+                  <i data-lucide="map-pin" class="w-3 h-3 text-[#C5A059]"></i> स्थान
+                </span>
+                <span class="font-devanagari text-xs sm:text-[13px] font-bold text-[#8A3E4E] block leading-snug mt-0.5">"होटल जनक गार्डेन", परसोधा, चुनार, मीरजापुर</span>
+              </div>
+            </div>
+
+            <!-- Traditional Indian Wedding Couple Cutout -->
+            <img src="assets/04-CC6lrDGi-crop.png" alt="Amrita Vivah Couple" class="absolute bottom-0 left-1/2 -translate-x-1/2 max-h-[48%] sm:max-h-[50%] w-auto object-contain pointer-events-none z-10 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]" loading="lazy" decoding="async" />
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- SECTION B: ABHISHEK SANG SHUBHA (SON) -->
+      <!-- ============================================== -->
+      <div class="space-y-6 pt-6">
+        <div class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-gradient-to-r from-[#FAF6ED] via-[#FFFDF9] to-[#FAF6ED] border border-[#C5A059] text-[#8A3E4E] font-devanagari font-bold text-sm sm:text-base shadow-sm">
+          <i data-lucide="sparkles" class="w-4 h-4 text-[#C5A059]"></i>
+          <span>सुपुत्र परिणय: अभिषेक संग शुभा</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-4xl mx-auto">
+          
+          <!-- Event 3: Haldi & Mehndi (Abhishek) - SINGLE GROOM/BOY IMAGE (haldi-groom.png) -->
+          <div class="group relative aspect-[9/15] sm:aspect-[9/14] min-h-[540px] rounded-[30px] overflow-hidden shadow-2xl border-2 border-[#C5A059] scroll-reveal transition-all duration-500 hover:scale-[1.01] flex flex-col justify-between">
+            <img src="assets/g-haldi-bg-CB-4YaJG.png" alt="Haldi Background" class="absolute inset-0 w-full h-full object-cover object-top z-0 pointer-events-none transform group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+            <div class="absolute inset-2 sm:inset-2.5 rounded-[24px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+
+            <div class="relative z-20 mx-3 sm:mx-5 mt-6 sm:mt-8 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-[#C5A059]/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)] text-center space-y-2">
+              <h3 class="font-devanagari text-2xl sm:text-3xl text-[#8A3E4E] font-bold tracking-wide">
+                हल्दी एवं मेहंदी
+              </h3>
+              <p class="font-devanagari italic text-xs sm:text-[13px] text-charcoal-muted leading-tight">
+                शुभ पीली हल्दी और उबटन का मंगलमय उल्लास
+              </p>
+              
+              <div class="flex items-center justify-center gap-2 py-0.5">
+                <div class="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60"></div>
+                <span class="text-[#C5A059] text-xs select-none">✦</span>
+                <div class="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60"></div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2 border-b border-[#C5A059]/30 pb-2 text-center">
+                <div class="border-r border-[#C5A059]/30 pr-2">
+                  <span class="font-sans text-[10px] uppercase tracking-wider text-[#C5A059] font-bold inline-flex items-center gap-1 justify-center">
+                    <i data-lucide="calendar" class="w-3 h-3 text-[#C5A059]"></i> दिनांक
+                  </span>
+                  <span class="font-devanagari font-bold text-xs sm:text-[14px] text-[#8A3E4E] block mt-0.5">रविवार, 6 Dec 2026</span>
+                </div>
+                <div class="pl-2">
+                  <span class="font-sans text-[10px] uppercase tracking-wider text-[#C5A059] font-bold inline-flex items-center gap-1 justify-center">
+                    <i data-lucide="clock" class="w-3 h-3 text-[#C5A059]"></i> समय
+                  </span>
+                  <span class="font-devanagari font-bold text-xs sm:text-[14px] text-[#8A3E4E] block mt-0.5">दोपहर 12:00 बजे</span>
+                </div>
+              </div>
+              <div class="pt-0.5 text-center">
+                <span class="font-sans text-[10px] uppercase tracking-wider text-[#C5A059] font-bold inline-flex items-center gap-1 justify-center">
+                  <i data-lucide="map-pin" class="w-3 h-3 text-[#C5A059]"></i> स्थान
+                </span>
+                <span class="font-devanagari text-xs sm:text-[13px] font-bold text-[#8A3E4E] block leading-snug mt-0.5">हमारे निज निवास ग्राम: सोनपुर, चुनार, मीरजापुर</span>
+              </div>
+            </div>
+
+            <!-- Single Groom Character Cutout for Boy's Haldi -->
+            <img src="assets/haldi-groom.png" alt="Abhishek Haldi Groom" class="absolute bottom-0 left-1/2 -translate-x-1/2 max-h-[48%] sm:max-h-[50%] w-auto object-contain pointer-events-none z-10 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]" loading="lazy" decoding="async" />
+          </div>
+
+          <!-- Event 4: Shubh Tilak (Abhishek) - TILAK GROOM (tilak.png) -->
+          <div class="group relative aspect-[9/15] sm:aspect-[9/14] min-h-[540px] rounded-[30px] overflow-hidden shadow-2xl border-2 border-[#C5A059] scroll-reveal transition-all duration-500 hover:scale-[1.01] flex flex-col justify-between">
+            <img src="assets/prerecption-bg.png" alt="Tilak Background" class="absolute inset-0 w-full h-full object-cover object-top z-0 pointer-events-none transform group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+            <div class="absolute inset-2 sm:inset-2.5 rounded-[24px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+
+            <div class="relative z-20 mx-3 sm:mx-5 mt-6 sm:mt-8 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-[#C5A059]/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)] text-center space-y-2">
+              <h3 class="font-devanagari text-2xl sm:text-3xl text-[#8A3E4E] font-bold tracking-wide">
+                शुभ तिलक समारोह
+              </h3>
+              <p class="font-devanagari italic text-xs sm:text-[13px] text-charcoal-muted leading-tight">
+                मांगलिक तिलक उत्सव एवं प्रीतिभोज
+              </p>
+              
+              <div class="flex items-center justify-center gap-2 py-0.5">
+                <div class="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60"></div>
+                <span class="text-[#C5A059] text-xs select-none">✦</span>
+                <div class="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60"></div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2 border-b border-[#C5A059]/30 pb-2 text-center">
+                <div class="border-r border-[#C5A059]/30 pr-2">
+                  <span class="font-sans text-[10px] uppercase tracking-wider text-[#C5A059] font-bold inline-flex items-center gap-1 justify-center">
+                    <i data-lucide="calendar" class="w-3 h-3 text-[#C5A059]"></i> दिनांक
+                  </span>
+                  <span class="font-devanagari font-bold text-xs sm:text-[14px] text-[#8A3E4E] block mt-0.5">सोमवार, 7 Dec 2026</span>
+                </div>
+                <div class="pl-2">
+                  <span class="font-sans text-[10px] uppercase tracking-wider text-[#C5A059] font-bold inline-flex items-center gap-1 justify-center">
+                    <i data-lucide="clock" class="w-3 h-3 text-[#C5A059]"></i> समय
+                  </span>
+                  <span class="font-devanagari font-bold text-xs sm:text-[14px] text-[#8A3E4E] block mt-0.5">सायंकाल</span>
+                </div>
+              </div>
+              <div class="pt-0.5 text-center">
+                <span class="font-sans text-[10px] uppercase tracking-wider text-[#C5A059] font-bold inline-flex items-center gap-1 justify-center">
+                  <i data-lucide="map-pin" class="w-3 h-3 text-[#C5A059]"></i> स्थान
+                </span>
+                <span class="font-devanagari text-xs sm:text-[13px] font-bold text-[#8A3E4E] block leading-snug mt-0.5">"होटल जनक गार्डेन", परसोधा, चुनार, मीरजापुर</span>
+              </div>
+            </div>
+
+            <!-- Festive Couple Cutout for Tilak -->
+            <img src="assets/tilak.png" alt="Abhishek Tilak Couple" class="absolute bottom-0 left-1/2 -translate-x-1/2 max-h-[48%] sm:max-h-[50%] w-auto object-contain pointer-events-none z-10 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]" loading="lazy" decoding="async" />
+          </div>
+
+          <!-- Event 5: Shubh Vivah (Abhishek weds Shubha) - TRADITIONAL WEDDING THEME (01-ojlgGeHc-crop.png + g-wedding-bg) -->
+          <div class="group relative aspect-[9/15] sm:aspect-[9/14] min-h-[540px] rounded-[30px] overflow-hidden shadow-2xl border-2 border-[#C5A059] scroll-reveal transition-all duration-500 hover:scale-[1.01] flex flex-col justify-between md:col-span-2 md:max-w-md md:mx-auto w-full">
+            <img src="assets/g-wedding-bg-8_wipKLl.png" alt="Wedding Background" class="absolute inset-0 w-full h-full object-cover object-top z-0 pointer-events-none transform group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+            <div class="absolute inset-2 sm:inset-2.5 rounded-[24px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+
+            <div class="relative z-20 mx-3 sm:mx-5 mt-6 sm:mt-8 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-[#C5A059]/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)] text-center space-y-2">
+              <h3 class="font-devanagari text-2xl sm:text-3xl text-[#8A3E4E] font-bold tracking-wide">
+                शुभ विवाह (अभिषेक संग शुभा)
+              </h3>
+              <p class="font-devanagari italic text-xs sm:text-[13px] text-charcoal-muted leading-tight">
+                शुभ लग्न, पाणिग्रहण संस्कार (विदाई: 10 Dec, प्रातः)
+              </p>
+              
+              <div class="flex items-center justify-center gap-2 py-0.5">
+                <div class="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60"></div>
+                <span class="text-[#C5A059] text-xs select-none">✦</span>
+                <div class="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60"></div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2 border-b border-[#C5A059]/30 pb-2 text-center">
+                <div class="border-r border-[#C5A059]/30 pr-2">
+                  <span class="font-sans text-[10px] uppercase tracking-wider text-[#C5A059] font-bold inline-flex items-center gap-1 justify-center">
+                    <i data-lucide="calendar" class="w-3 h-3 text-[#C5A059]"></i> दिनांक
+                  </span>
+                  <span class="font-devanagari font-bold text-xs sm:text-[14px] text-[#8A3E4E] block mt-0.5">बुधवार, 9 Dec 2026</span>
+                </div>
+                <div class="pl-2">
+                  <span class="font-sans text-[10px] uppercase tracking-wider text-[#C5A059] font-bold inline-flex items-center gap-1 justify-center">
+                    <i data-lucide="clock" class="w-3 h-3 text-[#C5A059]"></i> समय
+                  </span>
+                  <span class="font-devanagari font-bold text-xs sm:text-[14px] text-[#8A3E4E] block mt-0.5">रात्रि लग्नानुसार</span>
+                </div>
+              </div>
+              <div class="pt-0.5 text-center">
+                <span class="font-sans text-[10px] uppercase tracking-wider text-[#C5A059] font-bold inline-flex items-center gap-1 justify-center">
+                  <i data-lucide="map-pin" class="w-3 h-3 text-[#C5A059]"></i> स्थान
+                </span>
+                <span class="font-devanagari text-xs sm:text-[13px] font-bold text-[#8A3E4E] block leading-snug mt-0.5">विकास नगर, सिकन्दरा, कानपुर देहात - 209125</span>
+              </div>
+            </div>
+
+            <!-- Traditional Indian Wedding Couple Cutout -->
+            <img src="assets/01-ojlgGeHc-crop.png" alt="Abhishek Shubh Vivah Couple" class="absolute bottom-0 left-1/2 -translate-x-1/2 max-h-[48%] sm:max-h-[50%] w-auto object-contain pointer-events-none z-10 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]" loading="lazy" decoding="async" />
+          </div>
+
+        </div>
+      </div>
+
+      <div class="pt-8 sm:pt-12 flex items-center justify-center gap-3 max-w-xl mx-auto scroll-reveal">
+        <div class="flex-1 h-[1px] bg-gradient-to-r from-transparent via-[#C5A059]/30 to-[#C5A059]/60"></div>
+        <img src="assets/divider-flower.png" alt="Floral Garland Divider" class="w-52 sm:w-64 h-auto object-contain select-none pointer-events-none filter drop-shadow-[0_4px_12px_rgba(197,160,89,0.18)]" loading="lazy" decoding="async" />
+        <div class="flex-1 h-[1px] bg-gradient-to-l from-transparent via-[#C5A059]/30 to-[#C5A059]/60"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SHAHI PARIVAAR / ROYAL HOSTS & FAMILY BLESSINGS SECTION (ENLARGED, PREMIUM & BOLD TEXT, NO EMOJIS) -->
+  <section id="hosts" class="py-20 px-4 sm:px-8 text-charcoal relative z-10 border-b border-[#E5E5EA] overflow-hidden">
+    <!-- Authentic Parchment Texture SABSE PEECHE (z-0) -->
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      <img src="assets/background.png" alt="" class="w-full h-full object-cover object-center" />
+      <div class="absolute inset-0 bg-[#FFFDF9]/40 pointer-events-none"></div>
+    </div>
+
+    <!-- Corner Floral Decorations -->
+    <img src="assets/flower.webp" alt="Floral Corner" class="absolute top-0 left-0 w-24 sm:w-36 md:w-44 opacity-85 pointer-events-none select-none z-10 transform scale-y-[-1]" />
+    <img src="assets/flower.webp" alt="Floral Corner" class="absolute bottom-0 right-0 w-24 sm:w-36 md:w-44 opacity-85 pointer-events-none select-none z-10 transform scale-x-[-1]" />
+
+    <div class="max-w-4xl mx-auto space-y-10 text-center relative z-10">
+      
+      <!-- Section Title Header -->
+      <div class="space-y-2 scroll-reveal">
+        <span class="font-sans text-[11px] sm:text-xs tracking-[0.3em] text-[#C5A059] font-bold block">॥ अग्रजों का आशीर्वाद ॥</span>
+        <h2 class="font-cursive text-5xl sm:text-6xl text-black font-medium tracking-wide">With Blessings</h2>
+        <div class="flex items-center justify-center gap-3 pt-1">
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/50"></div>
+          <span class="text-[#C5A059] text-xs select-none">✦</span>
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/50"></div>
+        </div>
+      </div>
+
+      <!-- SPACIOUS, AIRY & PREMIUM CARD BOX -->
+      <div class="relative rounded-3xl py-10 sm:py-12 px-6 sm:px-12 bg-gradient-to-b from-[#FFFDF9] via-white to-[#FAF6ED] border-2 border-[#C5A059] shadow-[0_16px_50px_rgba(197,160,89,0.2)] max-w-3xl mx-auto space-y-8 text-center scroll-reveal">
+        
+        <!-- Double Decorative Gold Frames & Corner Stars -->
+        <div class="absolute inset-2.5 sm:inset-3 rounded-[20px] border border-[#C5A059]/50 pointer-events-none"></div>
+        <div class="absolute inset-4 sm:inset-5 rounded-[16px] border border-[#C5A059]/25 pointer-events-none"></div>
+        <span class="absolute top-2.5 left-3 text-[#C5A059] text-base pointer-events-none">✦</span>
+        <span class="absolute top-2.5 right-3 text-[#C5A059] text-base pointer-events-none">✦</span>
+        <span class="absolute bottom-2.5 left-3 text-[#C5A059] text-base pointer-events-none">✦</span>
+        <span class="absolute bottom-2.5 right-3 text-[#C5A059] text-base pointer-events-none">✦</span>
+
+        <!-- Grand Mantra & Blessing Quote -->
+        <div class="relative z-10 space-y-2.5">
+          <div class="text-[#8A3E4E] font-devanagari text-2xl sm:text-3xl font-bold tracking-wide">
+            ॥ दाम्पत्य-सूत्र-बंधन ॥
+          </div>
+          <p class="font-devanagari italic text-sm sm:text-base text-charcoal/90 leading-relaxed max-w-xl mx-auto font-medium">
+            &quot;की मांगलिक बेला पर पधारकर अपनी स्नेहमयी उपस्थिति से वर-वधू को अपने मृदुल ज्योत्सना से अभिसिंचित कर हमें अनुगृहीत करें।&quot;
+          </p>
+        </div>
+
+        <!-- 3 Prominent Family Columns with Enlarged Bold Text -->
+        <div class="relative z-10 pt-6 border-t border-[#C5A059]/30 grid grid-cols-1 md:grid-cols-3 gap-8 text-center items-start">
+          
+          <!-- Column 1: Vinit -->
+          <div class="space-y-2">
+            <span class="font-sans text-[11px] sm:text-xs uppercase tracking-[0.25em] text-[#C5A059] font-bold block">विनीत</span>
+            <div class="font-devanagari text-lg sm:text-xl text-[#8A3E4E] font-bold">
+              शिवशंकर सिंह <br/><span class="text-sm text-charcoal/85 font-medium">(एडवोकेट)</span>
+            </div>
+            <div class="text-xs sm:text-sm text-charcoal-muted leading-snug font-devanagari font-medium">
+              अध्यक्ष — यंग बार एसोसिएशन<br/>चुनार, मीरजापुर
+            </div>
+            <div class="pt-2 text-sm sm:text-base font-sans font-bold text-[#8A3E4E] space-y-1">
+              <div>
+                <a href="tel:9450163023" class="inline-flex items-center gap-1.5 hover:underline">
+                  <i data-lucide="phone" class="w-3.5 h-3.5 text-[#C5A059]"></i>
+                  <span>9450163023</span>
+                </a>
+              </div>
+              <div>
+                <a href="tel:7905401554" class="inline-flex items-center gap-1.5 hover:underline">
+                  <i data-lucide="phone" class="w-3.5 h-3.5 text-[#C5A059]"></i>
+                  <span>7905401554</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Swagatakankshi -->
+          <div class="space-y-2 md:border-x md:border-[#C5A059]/30 md:px-3">
+            <span class="font-sans text-[11px] sm:text-xs uppercase tracking-[0.25em] text-[#C5A059] font-bold block">स्वागताकांक्षी</span>
+            <div class="font-devanagari text-sm sm:text-[15px] text-charcoal font-semibold leading-relaxed space-y-1.5 text-center">
+              <div>डॉ. ओम प्रकाश सिंह <span class="text-xs text-charcoal-muted font-normal">(प्रदेश प्रवक्ता नीमा)</span></div>
+              <div>पंचम सिंह <span class="text-xs text-charcoal-muted font-normal">(से.नि. प्रधानाध्यापक)</span></div>
+              <div>भवन सिंह <span class="text-xs text-charcoal-muted font-normal">(समाजसेवी)</span></div>
+              <div>अरुण कुमार सिंह <span class="text-xs text-charcoal-muted font-normal">(Ex Army)</span></div>
+              <div>हरिश्चन्द सिंह <span class="text-xs text-charcoal-muted font-normal">(प्रधानाध्यापक)</span></div>
+              <div>शिव प्रसाद सिंह <span class="text-xs text-charcoal-muted font-normal">(शासकीय अधिवक्ता)</span></div>
+              <div>आदेश सिंह <span class="text-xs text-charcoal-muted font-normal">(प्रगतिशील कृषक)</span></div>
+            </div>
+          </div>
+
+          <!-- Column 3: Darshanabhilashi -->
+          <div class="space-y-2">
+            <span class="font-sans text-[11px] sm:text-xs uppercase tracking-[0.25em] text-[#C5A059] font-bold block">दर्शनाभिलाषी</span>
+            <div class="font-devanagari text-lg sm:text-xl text-[#8A3E4E] font-bold">
+              डॉ. अमितेश सिंह <br/><span class="text-sm text-charcoal/85 font-medium">(MBBS)</span>
+            </div>
+            <div class="text-sm sm:text-[15px] text-charcoal font-devanagari font-medium pt-2 leading-relaxed">
+              एवं समस्त सिंह परिवार<br/>व मित्रगण
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex items-center justify-center gap-3 max-w-xl mx-auto scroll-reveal">
+        <div class="flex-1 h-[1px] bg-gradient-to-r from-transparent via-[#C5A059]/30 to-[#C5A059]/60"></div>
+        <img src="assets/divider-flower.png" alt="Floral Garland Divider" class="w-48 sm:w-60 h-auto object-contain select-none pointer-events-none filter drop-shadow-[0_4px_10px_rgba(197,160,89,0.15)]" loading="lazy" decoding="async" />
+        <div class="flex-1 h-[1px] bg-gradient-to-l from-transparent via-[#C5A059]/30 to-[#C5A059]/60"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VENUE & MAP SECTION (NO EMOJIS, ICONS INSTEAD) -->
+  <section id="venue" class="py-20 px-4 sm:px-8 relative z-10 border-b border-[#E5E5EA] overflow-hidden">
+    <!-- Authentic Parchment Texture SABSE PEECHE (z-0) -->
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      <img src="assets/background.png" alt="" class="w-full h-full object-cover object-center" />
+      <div class="absolute inset-0 bg-[#FFFDF9]/40 pointer-events-none"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto text-center space-y-8 relative z-10">
+      
+      <div class="space-y-3 scroll-reveal">
+        <span class="font-sans text-[10px] uppercase tracking-[0.3em] text-[#C5A059] font-bold block">॥ विवाह एवं तिलक स्थल ॥</span>
+        <h2 class="font-cursive text-5xl sm:text-6xl text-black font-medium tracking-wide">Where We Celebrate</h2>
+        <div class="flex items-center justify-center gap-3 pt-1">
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/50"></div>
+          <span class="text-[#C5A059] text-xs select-none">✦</span>
+          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/50"></div>
+        </div>
+        <p class="font-devanagari text-xl sm:text-2xl text-[#8A3E4E] font-bold pt-1">
+          "होटल जनक गार्डेन" (नियर टोल प्लाजा)
+        </p>
+        <p class="font-devanagari text-sm sm:text-base text-charcoal/80 font-medium -mt-1">
+          परसोधा, चुनार, मीरजापुर (उत्तर प्रदेश)
+        </p>
+      </div>
+
+      <!-- Embedded Google Map -->
+      <div class="relative rounded-3xl p-2.5 sm:p-3 bg-gradient-to-b from-[#FFFDF9] via-white to-[#FAF6ED] border-2 border-[#C5A059] shadow-[0_14px_45px_rgba(197,160,89,0.18)] max-w-4xl mx-auto scroll-reveal">
+        <div class="absolute inset-1.5 rounded-[22px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+        <span class="absolute top-2 left-2.5 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
+        <span class="absolute top-2 right-2.5 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
+        <span class="absolute bottom-2 left-2.5 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
+        <span class="absolute bottom-2 right-2.5 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
+
+        <div class="relative rounded-2xl overflow-hidden h-96 sm:h-[420px] w-full shadow-inner">
+          <iframe 
+            src="https://maps.google.com/maps?q=Hotel+Janak+Garden+Parsodha+Chunar+Mirzapur&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+            class="w-full h-full border-0 filter saturate-[0.95] contrast-[1.02]" 
+            allowfullscreen="" 
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Get Directions CTA Buttons -->
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-4 scroll-reveal">
+        <a 
+          href="https://maps.google.com/?q=Hotel+Janak+Garden+Parsodha+Chunar+Mirzapur" 
+          target="_blank" 
+          class="inline-flex items-center gap-2 px-7 py-3.5 bg-gradient-to-r from-[#FFFDF9] to-[#FAF6ED] text-black font-sans text-[11px] uppercase tracking-[0.2em] font-bold rounded-full border-2 border-[#C5A059]/60 shadow-[0_6px_20px_rgba(197,160,89,0.15)] hover:bg-[#8A3E4E] hover:text-white hover:border-[#8A3E4E] hover:shadow-lg transition-all duration-300">
+          <i data-lucide="navigation" class="w-3.5 h-3.5 text-[#C5A059]"></i>
+          <span>Get Directions</span>
+        </a>
+        <a 
+          href="tel:+919450163023" 
+          class="inline-flex items-center gap-2 px-7 py-3.5 bg-[#8A3E4E] text-white font-sans text-[11px] uppercase tracking-[0.2em] font-bold rounded-full border-2 border-[#8A3E4E] shadow-[0_6px_20px_rgba(138,62,78,0.3)] hover:bg-black hover:border-black transition-all duration-300">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-white"></i>
+          <span>संपर्क: 9450163023</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LUXURY MINIMALIST FOOTER: SEPARATELY MENTIONS SUPUTRI & SUPUTRA WITH CLEAN DEVANGARI -->
+  <footer class="py-20 px-4 bg-[#111111] text-[#E5E5EA] border-t border-[#222222] text-center relative z-10 overflow-hidden">
+    <div class="max-w-2xl mx-auto space-y-6 flex flex-col items-center scroll-reveal">
+      
+      <div class="text-[10px] sm:text-[11px] uppercase tracking-[0.35em] text-[#C5A059] font-sans font-bold">
+        ॥ WITH LOVE &amp; BLESSINGS ॥
+      </div>
+
+      <!-- Separate mentions of Suputri & Suputra -->
+      <div class="space-y-3 py-2 w-full text-center">
+        <div>
+          <span class="text-[#C5A059] text-xs sm:text-sm font-devanagari uppercase tracking-wider block mb-0.5">सुपुत्री परिणय</span>
+          <h2 class="font-devanagari text-xl sm:text-2xl text-white font-bold tracking-wide">
+            अमृता सिंह <span class="font-cursive text-[#C5A059] text-2xl sm:text-3xl px-2">संग</span> सौरभ सिंह
+          </h2>
+        </div>
+
+        <div class="text-[#C5A059] text-base font-serif">
+          ✦ ✦ ✦
+        </div>
+
+        <div>
+          <span class="text-[#C5A059] text-xs sm:text-sm font-devanagari uppercase tracking-wider block mb-0.5">सुपुत्र परिणय</span>
+          <h2 class="font-devanagari text-xl sm:text-2xl text-white font-bold tracking-wide">
+            अभिषेक सिंह <span class="font-cursive text-[#C5A059] text-2xl sm:text-3xl px-2">संग</span> शुभा कटियार
+          </h2>
+        </div>
+      </div>
+
+      <div class="font-devanagari text-sm sm:text-base text-gray-300 font-light tracking-wide pt-1">
+        06 - 10 दिसम्बर 2026 · सोनपुर, चुनार, मीरजापुर
+      </div>
+
+      <div class="font-sans text-[10px] uppercase tracking-[0.3em] text-[#C5A059] font-bold pt-2">
+        #SinghParivaarMahotsav
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js?v=7.1"></script>
+</body>
+</html>
