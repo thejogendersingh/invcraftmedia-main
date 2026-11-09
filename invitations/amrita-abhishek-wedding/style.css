@@ -70,6 +70,10 @@ html {
   animation: fadeTextOutBottom 0.8s cubic-bezier(0.25, 1, 0.3, 1) forwards !important;
 }
 
+.door-overlay.is-opened #envelope-seal-badge {
+  animation: fadeOverlayOut 1.8s cubic-bezier(0.25, 1, 0.3, 1) forwards !important;
+}
+
 @keyframes fadeOverlayOut {
   0% {
     opacity: 1;

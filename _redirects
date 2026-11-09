@@ -10,15 +10,37 @@
 # 3. 200 Rewrite: Proxies all internal assets, scripts, media and stylesheets directly
 # ==============================================================================
 
-# Client: amrita-abhishek-wedding (Active new client - Double Wedding Amrita & Saurabh / Abhishek & Shubha)
-/amrita-abhishek-wedding         /amrita-abhishek-wedding/                                     301
-/amrita-abhishek-wedding/        /invitations/amrita-abhishek-wedding/index.html               200
-/amrita-abhishek-wedding/*       /invitations/amrita-abhishek-wedding/:splat                   200
+# Client: amrita-abhishek-wedding (Double Wedding - Brother & Sister: Amrita & Abhishek)
+# 1. Clear All-4-Names URL: /amrita-saurabh-abhishek-shubha/
+/amrita-saurabh-abhishek-shubha         /amrita-saurabh-abhishek-shubha/              301
+/amrita-saurabh-abhishek-shubha/        /invitations/amrita-abhishek-wedding/index.html 200
+/amrita-saurabh-abhishek-shubha/*       /invitations/amrita-abhishek-wedding/:splat   200
 
-# Client: amrita-saurabh-abhishek-shubha (alias -> 301 redirect)
-/amrita-saurabh-abhishek-shubha         /amrita-abhishek-wedding/                                     301
-/amrita-saurabh-abhishek-shubha/        /amrita-abhishek-wedding/                                     301
-/amrita-saurabh-abhishek-shubha/*       /amrita-abhishek-wedding/:splat                               301
+# 2. Clear Hindi Brother-Sister URL: /amrita-aur-abhishek-ki-shadi/
+/amrita-aur-abhishek-ki-shadi           /amrita-aur-abhishek-ki-shadi/                301
+/amrita-aur-abhishek-ki-shadi/          /invitations/amrita-abhishek-wedding/index.html 200
+/amrita-aur-abhishek-ki-shadi/*         /invitations/amrita-abhishek-wedding/:splat   200
+
+# 3. Clear English Joint Wedding URL: /amrita-abhishek-joint-wedding/
+/amrita-abhishek-joint-wedding          /amrita-abhishek-joint-wedding/               301
+/amrita-abhishek-joint-wedding/         /invitations/amrita-abhishek-wedding/index.html 200
+/amrita-abhishek-joint-wedding/*        /invitations/amrita-abhishek-wedding/:splat   200
+
+# 4. Short Brother-Sister URL: /amrita-aur-abhishek/
+/amrita-aur-abhishek                    /amrita-aur-abhishek/                         301
+/amrita-aur-abhishek/                   /invitations/amrita-abhishek-wedding/index.html 200
+/amrita-aur-abhishek/*                  /invitations/amrita-abhishek-wedding/:splat   200
+
+# 5. Family & Backward Compatibility URLs:
+/singh-parivaar-vivah                   /singh-parivaar-vivah/                        301
+/singh-parivaar-vivah/                  /invitations/amrita-abhishek-wedding/index.html 200
+/singh-parivaar-vivah/*                 /invitations/amrita-abhishek-wedding/:splat   200
+/amrita-abhishek-wedding                /amrita-abhishek-wedding/                     301
+/amrita-abhishek-wedding/               /invitations/amrita-abhishek-wedding/index.html 200
+/amrita-abhishek-wedding/*              /invitations/amrita-abhishek-wedding/:splat   200
+/singh-parivaar-mahotsav                /amrita-saurabh-abhishek-shubha/              301
+/singh-parivaar-mahotsav/               /amrita-saurabh-abhishek-shubha/              301
+/singh-parivaar-mahotsav/*              /amrita-saurabh-abhishek-shubha/:splat        301
 
 # Client: nitin-weds-suman (Active new client - Nitin & Suman)
 /nitin-weds-suman         /nitin-weds-suman/                                     301

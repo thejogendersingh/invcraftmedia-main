@@ -21,11 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Immediately start the wedding audio inside user touch/click gesture
     startIndianRagaMusic();
 
-    // Fade out the CTA text immediately
+    // Fade out the CTA text only
     if (overlayCta) {
       overlayCta.style.opacity = '0';
       overlayCta.style.transition = 'opacity 0.4s ease';
     }
+    // IMPORTANT: Keep seal badge completely visible during envelope video playback so DS logo is never exposed
+    // The seal badge will only fade out when opening finishes and hero is revealed (in finishOpening)
 
     // Play the envelope opening video
     if (envelopeVideo) {
@@ -68,6 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Trigger opening transition
     doorOverlay.classList.add('is-opened');
+
+    // Fade out seal badge now that the envelope is open and hero is being revealed
+    const sealBadge = document.getElementById('envelope-seal-badge');
+    if (sealBadge) {
+      sealBadge.style.transition = 'opacity 1.8s ease, transform 1.8s ease';
+      sealBadge.style.opacity = '0';
+      sealBadge.style.transform = 'translate(-50%, -50%) scale(1.08)';
+    }
 
     // Trigger hero content micro-motion reveal
     document.body.classList.add('is-revealed');
