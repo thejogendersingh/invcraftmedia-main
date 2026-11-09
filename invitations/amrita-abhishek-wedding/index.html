@@ -60,7 +60,7 @@
   <!-- Preload Critical Above-The-Fold Assets & Poster -->
   <link rel="preload" as="image" href="assets/envelope-poster.jpg" />
   <link rel="preload" as="video" href="assets/hero-bg.mp4" type="video/mp4" />
-  <link rel="preload" as="image" href="assets/hero-bg(1).webp" type="image/webp" />
+  <link rel="preload" as="image" href="assets/hero-bg(1).webp?v=2" type="image/webp" />
   <link rel="stylesheet" href="style.css?v=5.1" />
 
   <style>
@@ -125,14 +125,14 @@
     
     <!-- Full-Bleed Edge-to-Edge Video Background -->
     <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden hero-bg-anim">
-      <video id="hero-bg-video" autoplay loop muted playsinline poster="assets/hero-bg(1).webp" class="w-full h-full object-cover object-center">
+      <video id="hero-bg-video" autoplay loop muted playsinline poster="assets/hero-bg(1).webp?v=2" class="w-full h-full object-cover object-center">
         <source src="assets/hero-bg.mp4" type="video/mp4" />
-        <img src="assets/hero-bg(1).webp" alt="Royal Palace Background" class="w-full h-full object-cover object-center" />
+        <img src="assets/hero-bg(1).webp?v=2" alt="Royal Palace Background" class="w-full h-full object-cover object-center" />
       </video>
     </div>
 
     <!-- SEAMLESS OVERLAY (Directly in Palace Arch, No Background Cards) -->
-    <div class="absolute inset-0 z-10 flex flex-col items-center justify-center max-w-[360px] sm:max-w-[480px] md:max-w-[540px] w-full mx-auto px-2 sm:px-4 text-center pointer-events-auto my-auto -mt-8 sm:-mt-12 py-2 space-y-2.5 sm:space-y-3.5">
+    <div class="absolute inset-0 z-10 flex flex-col items-center justify-center max-w-[360px] sm:max-w-[480px] md:max-w-[540px] w-full mx-auto px-2 sm:px-4 text-center pointer-events-auto my-auto -mt-6 sm:-mt-10 py-2 space-y-3 sm:space-y-4">
       
       <!-- 1. Ganesha Avatar Medal & Traditional Shloka -->
       <div class="flex flex-col items-center">
@@ -144,33 +144,33 @@
           </div>
         </div>
 
-        <div class="text-[11.5px] sm:text-[13px] uppercase tracking-[0.25em] text-[#C5A059] font-devanagari font-bold mt-2 drop-shadow-sm">
+        <div class="text-[12px] sm:text-[13.5px] uppercase tracking-[0.25em] text-[#C5A059] font-devanagari font-bold mt-2.5 drop-shadow-sm">
           ॥ श्री गणेशाय नमः ॥
         </div>
-        <p class="font-sans text-[9px] sm:text-[11px] uppercase tracking-[0.3em] text-[#0D3B3E] font-bold mt-0.5">
+        <p class="font-sans text-[9.5px] sm:text-[11.5px] uppercase tracking-[0.3em] text-[#0D3B3E] font-bold mt-1">
           ॥ मांगलिक संयुक्त विवाह उत्सव ॥
         </p>
       </div>
 
       <!-- 2. COUPLES DIRECTLY ON HERO IN A SINGLE LINE (NO BOXES, NO LINE-BREAKS) -->
-      <div class="flex flex-col items-center justify-center w-full space-y-2.5 sm:space-y-3">
+      <div class="flex flex-col items-center justify-center w-full space-y-3 sm:space-y-4">
         
         <!-- COUPLE 1: Amrita संग Saurabh (GUARANTEED SINGLE LINE) -->
         <div class="flex flex-col items-center text-center w-full">
-          <span class="text-[9px] sm:text-[10.5px] font-sans font-bold text-[#8A3E4E] tracking-[0.2em] uppercase">
+          <span class="text-[9.5px] sm:text-[11px] font-sans font-bold text-[#8A3E4E] tracking-[0.22em] uppercase mb-1">
             ✦ सुपुत्री परिणय ✦
           </span>
-          <h1 class="couple-title text-[17px] xs:text-[19px] sm:text-[22px] md:text-[26px] text-[#0D3B3E] font-bold tracking-tight leading-tight drop-shadow-sm mt-0.5">
+          <h1 class="couple-title text-[17px] xs:text-[19px] sm:text-[22px] md:text-[26px] text-[#0D3B3E] font-bold tracking-tight leading-tight drop-shadow-sm">
             <span class="text-[#8A3E4E] text-[11px] sm:text-xs font-semibold mr-0.5">आयु०कु०</span>अमृता सिंह <span class="font-cursive text-[#C5A059] text-lg sm:text-2xl px-1 font-normal align-middle">संग</span> <span class="text-[#8A3E4E] text-[11px] sm:text-xs font-semibold mr-0.5">चि०</span>सौरभ सिंह
           </h1>
-          <p class="font-devanagari text-[11.5px] sm:text-[13px] text-[#222222]/95 font-medium leading-normal pt-1 max-w-md">
+          <p class="font-devanagari text-[11.5px] sm:text-[13px] text-[#222222]/95 font-medium leading-[1.45] pt-1.5 max-w-md">
             सुपुत्री: श्रीमती सुजाता सिंह एवं श्री शिवशंकर सिंह<br/>
             सुपुत्र: श्रीमती सविता सिंह एवं स्व० चन्द्रशेखर सिंह
           </p>
         </div>
 
         <!-- Royal Divider -->
-        <div class="flex items-center justify-center gap-2.5 w-full max-w-[220px]">
+        <div class="flex items-center justify-center gap-2.5 w-full max-w-[220px] my-0.5">
           <div class="flex-1 h-[1px] bg-gradient-to-r from-transparent via-[#C5A059] to-[#C5A059]"></div>
           <span class="font-devanagari text-[#C5A059] text-xs sm:text-sm font-semibold drop-shadow-sm">एवं</span>
           <div class="flex-1 h-[1px] bg-gradient-to-l from-transparent via-[#C5A059] to-[#C5A059]"></div>
@@ -178,13 +178,13 @@
 
         <!-- COUPLE 2: Abhishek संग Shubha (GUARANTEED SINGLE LINE) -->
         <div class="flex flex-col items-center text-center w-full">
-          <span class="text-[9px] sm:text-[10.5px] font-sans font-bold text-[#8A3E4E] tracking-[0.2em] uppercase">
+          <span class="text-[9.5px] sm:text-[11px] font-sans font-bold text-[#8A3E4E] tracking-[0.22em] uppercase mb-1">
             ✦ सुपुत्र परिणय ✦
           </span>
-          <h2 class="couple-title text-[17px] xs:text-[19px] sm:text-[22px] md:text-[26px] text-[#0D3B3E] font-bold tracking-tight leading-tight drop-shadow-sm mt-0.5">
+          <h2 class="couple-title text-[17px] xs:text-[19px] sm:text-[22px] md:text-[26px] text-[#0D3B3E] font-bold tracking-tight leading-tight drop-shadow-sm">
             <span class="text-[#8A3E4E] text-[11px] sm:text-xs font-semibold mr-0.5">चि०</span>अभिषेक सिंह <span class="font-cursive text-[#C5A059] text-lg sm:text-2xl px-1 font-normal align-middle">संग</span> <span class="text-[#8A3E4E] text-[11px] sm:text-xs font-semibold mr-0.5">आयु०कु०</span>शुभा कटियार
           </h2>
-          <p class="font-devanagari text-[11.5px] sm:text-[13px] text-[#222222]/95 font-medium leading-normal pt-1 max-w-md">
+          <p class="font-devanagari text-[11.5px] sm:text-[13px] text-[#222222]/95 font-medium leading-[1.45] pt-1.5 max-w-md">
             सुपुत्र: श्रीमती सुजाता सिंह एवं श्री शिवशंकर सिंह<br/>
             सुपुत्री: श्रीमती कुसुमलता एवं श्री अनिल कटियार (सिकन्दरा)
           </p>
@@ -193,7 +193,7 @@
       </div>
 
       <!-- 3. Date & Venue Details (Icons instead of emojis) -->
-      <div class="pt-1 flex flex-col items-center gap-0.5 text-center">
+      <div class="pt-2 sm:pt-2.5 flex flex-col items-center gap-1 sm:gap-1.5 text-center">
         <div class="font-devanagari text-[13px] sm:text-[15px] text-[#8A3E4E] font-bold tracking-wider inline-flex items-center gap-1.5">
           <i data-lucide="calendar" class="w-3.5 h-3.5 text-[#C5A059]"></i>
           <span>06 से 10 दिसम्बर 2026</span>
