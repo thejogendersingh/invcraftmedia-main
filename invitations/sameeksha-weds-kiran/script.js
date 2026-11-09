@@ -7,8 +7,8 @@
       functionsEyebrow: "Four auspicious days of love & blessings",
 
       /* ---- ENTRY GATE (screen 1) ---- */
-      gateLine1: "॥ श्री गणेशाय नमः ॥",
-      gateLine2: "With the divine blessings of Almighty & Family",
+      gateLine1: "With the divine blessings of Almighty & Family",
+      gateLine2: "",
       gateForever: "Invite you to witness the beginning of their forever.",
 
       /* ---- WELCOME + PARENTS (screen 2) ---- */
@@ -40,7 +40,7 @@
       functions: [
         {
           enabled: true,
-          name: "Haldi & SAMAVARTHANE",
+          name: "Haldi & Samavarthane",
           tagline: "sacred rituals & holy turmeric",
           details: "Beginning the auspicious celebrations with holy turmeric blessings and traditional Samavarthane rituals.",
           day: "Friday",
@@ -53,7 +53,7 @@
         },
         {
           enabled: true,
-          name: "PHOOLMUDDI",
+          name: "Phoolmuddi Ceremony",
           tagline: "fragrant blossoms & blessings",
           details: "An auspicious pre-wedding ceremony filled with fragrant blossoms, melody and timeless family blessings.",
           day: "Saturday",
@@ -66,7 +66,7 @@
         },
         {
           enabled: true,
-          name: "Muhurtham (Wedding)",
+          name: "Wedding Muhurtham",
           tagline: "the sacred union & vows",
           details: "Two souls unite in sacred vows and eternal love to begin a lifetime of togetherness.",
           day: "Sunday",
@@ -79,7 +79,7 @@
         },
         {
           enabled: true,
-          name: "Reception",
+          name: "Wedding Reception",
           tagline: "an afternoon of feast & joy",
           details: "Join us in joyous celebration to bless the newlyweds followed by lunch.",
           day: "Sunday",
@@ -155,7 +155,7 @@
       if (gateTitle) gateTitle.innerHTML = "<span>" + inviteEscape(bride) + "</span><em>weds</em><span>" + inviteEscape(groom) + "</span>";
       setText("gateHashtag", CONFIG.hashtag);
       const gateKicker = document.getElementById("gateKicker");
-      if (gateKicker) gateKicker.innerHTML = inviteEscape(CONFIG.gateLine1) + "<br>" + inviteEscape(CONFIG.gateLine2);
+      if (gateKicker) gateKicker.innerHTML = CONFIG.gateLine2 ? (inviteEscape(CONFIG.gateLine1) + "<br>" + inviteEscape(CONFIG.gateLine2)) : inviteEscape(CONFIG.gateLine1);
       setText("gateForever", CONFIG.gateForever);
       setText("welcomeBrideName", bride);
       setText("welcomeBrideRelation", CONFIG.brideRelation);
@@ -186,7 +186,7 @@
       setText("heroIntro", CONFIG.heroMessage);
       setText("heroHashtag", CONFIG.hashtag);
       const filmLines = document.getElementById("filmLines");
-      if (filmLines) filmLines.innerHTML = inviteEscape(CONFIG.gateLine1) + "<br>" + inviteEscape(CONFIG.gateLine2);
+      if (filmLines) filmLines.innerHTML = CONFIG.gateLine2 ? (inviteEscape(CONFIG.gateLine1) + "<br>" + inviteEscape(CONFIG.gateLine2)) : inviteEscape(CONFIG.gateLine1);
       setText("filmForever", CONFIG.gateForever);
       const filmNames = document.getElementById("filmNames");
       if (filmNames) filmNames.innerHTML = "<span>" + inviteEscape(bride) + "</span><em>weds</em><span>" + inviteEscape(groom) + "</span>";
