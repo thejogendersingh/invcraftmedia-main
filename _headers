@@ -9,6 +9,12 @@
   Referrer-Policy: strict-origin-when-cross-origin
 
 # 2. JavaScript & CSS Bundles: Always revalidate so code edits reflect instantly!
+/*/*.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*/*.css
+  Cache-Control: public, max-age=0, must-revalidate
+
 /invitations/*/assets/*.js
   Cache-Control: public, max-age=0, must-revalidate
 
