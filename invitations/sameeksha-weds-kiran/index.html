@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow">
+  <!--
+    Nikhil & Sanya wedding invitation
+    (c) 2026 JoyInvite. All rights reserved.
+    Build 20260926-77c55b002a9c
+    This layout, its animation code and its assets are not licensed for reuse.
+  -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#fffaf6">
+  <meta name="description" content="The wedding celebration of Sameeksha and Kiran — 29 November 2026.">
+  <title>Sameeksha weds Kiran — Wedding Invitation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-locked" data-build="20260926-77c55b002a9c">
+  <div class="enter-gate" id="enterGate" aria-label="Open wedding invitation">
+    <div class="gate-content">
+      <p class="gate-kicker" id="gateKicker">॥ श्री गणेशाय नमः ॥<br>With the divine blessings of Almighty &amp; Family</p>
+      <div class="gate-seal" aria-hidden="true"><span id="gateInitials">S · K</span></div>
+      <h1 class="gate-title" id="gateTitle">Sameeksha <em>weds</em> Kiran</h1>
+      <p class="gate-forever" id="gateForever">Invite you to witness the beginning of their forever.</p>
+      <button class="hashtag-enter" id="enterButton" type="button">
+        <strong id="gateHashtag">#SamKiran</strong>
+        <span>Click the hashtag to enter</span>
+      </button>
+      <p class="film-status" id="filmStatus" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div class="petals" id="petals" aria-hidden="true"></div>
+  <canvas class="fireworks-canvas" id="fireworksCanvas" aria-hidden="true"></canvas>
+  <button class="firework-button" id="fireworkButton" type="button" aria-label="Launch celebration fireworks">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg>
+    <span>Fireworks</span>
+  </button>
+  <span class="sr-only" id="fireworkStatus" aria-live="polite"></span>
+
+  <audio id="bgMusic" src="assets/bg-music.mp3" loop preload="auto"></audio>
+  <button class="music-button" id="musicButton" type="button" aria-pressed="false" aria-label="Turn wedding music on or off">
+    <svg class="music-on" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18V6l10-2v12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.7"/><circle cx="16.5" cy="16" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg>
+    <svg class="music-off" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18V6l10-2v12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.7"/><circle cx="16.5" cy="16" r="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M3 3l18 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+    <span id="musicLabel">Music</span>
+  </button>
+
+  <nav class="site-nav" aria-label="Wedding navigation">
+    <a class="nav-mark" href="#home">
+      <span class="nav-monogram" id="navInitials">SK</span>
+      <b id="navNames">Sameeksha weds Kiran</b>
+    </a>
+    <div class="nav-links">
+      <a href="#film">Our Story</a>
+      <a href="#events">Functions</a>
+      <a href="#venue">Venue</a>
+      <a class="nav-rsvp" href="#venue">Blessings</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="film-scroll" id="film" aria-label="Scroll-controlled wedding film">
+      <div class="film-sticky">
+        <video id="scrollVideo" poster="assets/hero-poster.jpg" preload="auto" muted playsinline webkit-playsinline disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1"></video>
+        <canvas id="filmCanvas" aria-label="Wedding film"></canvas>
+        <div class="film-label">Scroll-controlled wedding film</div>
+        <div class="film-copy">
+          <div class="film-caption" data-start="0.52" data-end="0.76">
+            <p class="film-lines" id="filmLines">॥ श्री गणेशाय नमः ॥<br>With the divine blessings of Almighty &amp; Family</p>
+            <h2 class="film-names" id="filmNames"><span>Sameeksha</span><em>weds</em><span>Kiran</span></h2>
+            <p class="film-forever" id="filmForever">Request the pleasure of your gracious presence on our wedding celebration</p>
+          </div>
+          <div class="film-caption film-welcome" data-start="0.77" data-end="1.00">
+            <p class="fw-lead" id="filmWelcomeLead">Request the pleasure of your gracious presence on the wedding celebration of</p>
+            <h2 class="fw-name" id="filmBrideName">Sameeksha</h2>
+            <p class="fw-with" style="margin: 0.4rem 0;">with</p>
+            <h2 class="fw-name" id="filmGroomName">Kiran</h2>
+          </div>
+        </div>
+        <div class="film-progress"><span id="filmProgress"></span></div>
+        <div class="film-percent" id="filmPercent">00</div>
+      </div>
+    </section>
+
+    <div class="ribbon" aria-hidden="true">
+      <div class="ribbon-track">
+        <span>Mangalore · 29 November 2026</span><span>Two hearts, one celebration</span><span>#SamKiran</span><span>Mangalore · 29 November 2026</span><span>Two hearts, one celebration</span><span>#SamKiran</span>
+        <span>Mangalore · 29 November 2026</span><span>Two hearts, one celebration</span><span>#SamKiran</span><span>Mangalore · 29 November 2026</span><span>Two hearts, one celebration</span><span>#SamKiran</span>
+      </div>
+    </div>
+
+
+    <section class="hero" id="home">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <h2 class="display hero-scratch-title">Scratch to <em>Reveal</em></h2>
+          <div class="scratch-wrap reveal">
+            <svg class="shape-defs" width="0" height="0" aria-hidden="true" focusable="false">
+              <defs>
+                <clipPath id="heartClip" clipPathUnits="objectBoundingBox">
+                  <path d="M0.5,0.95 C0.5,0.95 0.03,0.62 0.03,0.31 C0.03,0.13 0.16,0.03 0.31,0.03 C0.41,0.03 0.47,0.09 0.5,0.16 C0.53,0.09 0.59,0.03 0.69,0.03 C0.84,0.03 0.97,0.13 0.97,0.31 C0.97,0.62 0.5,0.95 0.5,0.95 Z"/>
+              </defs>
+            </svg>
+            <div class="scratch-stage is-heart" id="scratchStage">
+              <div class="scratch-reveal">
+                <div>
+                  <small>Save the Date</small>
+                  <div class="date-badge">
+                    <span class="db-side" id="scratchYear">2026</span>
+                    <span class="db-main"><b id="scratchMonth">Nov</b><i id="scratchDay">13</i></span>
+                    <span class="db-side" id="scratchDow">Fri</span>
+                  </div>
+                </div>
+              </div>
+              <canvas id="scratchCanvas" aria-label="Scratch to reveal the date"></canvas>
+            </div>
+            <button class="scratch-reset" id="scratchReset" type="button">Scratch again</button>
+          </div>
+          <p class="countdown-label">Count Down Board</p>
+          <div class="countdown" id="countdown" aria-label="Wedding countdown">
+            <div class="count-unit"><b id="days">00</b><span>Days</span></div>
+            <div class="count-unit"><b id="hours">00</b><span>Hours</span></div>
+            <div class="count-unit"><b id="minutes">00</b><span>Mins</span></div>
+            <div class="count-unit"><b id="seconds">00</b><span>Secs</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-cue"><i aria-hidden="true"></i><span>Scroll into our story</span></div>
+    </section>
+
+    <section class="events" id="events">
+      <div class="events-heading reveal">
+        <div>
+            <h2 class="display">The wedding <em>celebrations</em></h2>
+        </div>
+        <div class="slide-hint">Scroll to stack the next function <span></span></div>
+      </div>
+
+      <div class="event-stack" id="eventStack"></div>
+    </section>
+
+
+    <section class="venue" id="venue">
+      <div class="venue-inner">
+        <div class="venue-card reveal">
+          <p class="closing-message" id="closingMessage">The best moments in life are meant to be shared. Thank you for being a part of our story. We can't wait to celebrate this beautiful beginning with you!</p>
+          <p class="closing-signoff" id="closingSignOff">With Best Compliments From:</p>
+          <p class="closing-names" id="closingNames">All Relatives &amp; Friends</p>
+          
+          <div style="margin-top: 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.8rem;">
+            <a href="https://www.google.com/maps/search/?api=1&query=Sri+Gokarnanaatha+Kalyana+Mantapa+Kudroli+Mangalore+575003" target="_blank" rel="noopener" class="hashtag-enter" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; padding: 0.85rem 1.75rem; border-radius: 999px;">
+              <svg viewBox="0 0 24 24" fill="none" style="width: 18px; height: 18px;" stroke="currentColor" stroke-width="2"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <strong>Directions to Wedding Venue &rarr;</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-line"><span id="footerNamesDate">Sameeksha weds Kiran · 29 November 2026</span><span>Made with love for one beautiful beginning</span></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
