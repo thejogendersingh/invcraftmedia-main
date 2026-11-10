@@ -20,6 +20,26 @@
 /krishna-weds-shreya-invitation/        /invitations/krishna-weds-shreya-invitation/index.html         200
 /krishna-weds-shreya-invitation/*       /invitations/krishna-weds-shreya-invitation/:splat             200
 
+# Client: arpan-weds-kirti (Dr. Arpan & Prof. Kirti)
+/arpan-weds-kirti         /arpan-weds-kirti/                               301
+/arpan-weds-kirti/        /invitations/arpan-weds-kirti/index.html         200
+/arpan-weds-kirti/*       /invitations/arpan-weds-kirti/:splat             200
+
+# Client alias: kirti-weds-arpan
+/kirti-weds-arpan         /kirti-weds-arpan/                               301
+/kirti-weds-arpan/        /invitations/arpan-weds-kirti/index.html         200
+/kirti-weds-arpan/*       /invitations/arpan-weds-kirti/:splat             200
+
+# Client: shouvik-weds-sneha (Shouvik & Sneha)
+/shouvik-weds-sneha         /shouvik-weds-sneha/                               301
+/shouvik-weds-sneha/        /invitations/shouvik-weds-sneha/index.html         200
+/shouvik-weds-sneha/*       /invitations/shouvik-weds-sneha/:splat             200
+
+# Client alias: sneha-weds-shouvik
+/sneha-weds-shouvik         /sneha-weds-shouvik/                               301
+/sneha-weds-shouvik/        /invitations/shouvik-weds-sneha/index.html         200
+/sneha-weds-shouvik/*       /invitations/shouvik-weds-sneha/:splat             200
+
 # Client: bhavanishree-weds-ashish (Dr. Bhavanishree & Ashish)
 /bhavanishree-weds-ashish         /bhavanishree-weds-ashish/                               301
 /bhavanishree-weds-ashish/        /invitations/bhavanishree-weds-ashish/index.html         200
@@ -105,15 +125,7 @@
 /priyanka-weds-aniket/        /invitations/aniket-weds-priyanka/index.html         200
 /priyanka-weds-aniket/*       /invitations/aniket-weds-priyanka/:splat             200
 
-# Client: shouvik-weds-sneha
-/shouvik-weds-sneha         /shouvik-weds-sneha/                               301
-/shouvik-weds-sneha/        /invitations/shouvik-weds-sneha/index.html         200
-/shouvik-weds-sneha/*       /invitations/shouvik-weds-sneha/:splat             200
 
-# Client alias: sneha-weds-shouvik
-/sneha-weds-shouvik         /sneha-weds-shouvik/                               301
-/sneha-weds-shouvik/        /invitations/shouvik-weds-sneha/index.html         200
-/sneha-weds-shouvik/*       /invitations/shouvik-weds-sneha/:splat             200
 
 # Client: nikhitha-weds-nagarjuna
 /nikhitha-weds-nagarjuna         /nikhitha-weds-nagarjuna/                               301
@@ -149,9 +161,6 @@
 /apurva-weds-srishti/        /invitations/apurva-weds-srishti/index.html         200
 /apurva-weds-srishti/*       /invitations/apurva-weds-srishti/:splat             200
 
-# Client: arpan-weds-kirti
-/arpan-weds-kirti/        /invitations/arpan-weds-kirti/index.html         200
-/arpan-weds-kirti/*       /invitations/arpan-weds-kirti/:splat             200
 
 # Client: atishay-weds-shivani
 /atishay-weds-shivani/        /invitations/atishay-weds-shivani/index.html         200

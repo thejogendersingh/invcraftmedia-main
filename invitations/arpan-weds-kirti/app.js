@@ -6,12 +6,12 @@
 // ============================================================================
 // 1. DATA DEFINITIONS
 // ============================================================================
-const weddingDateTarget = new Date('2027-01-20T13:12:00+05:30');
+const weddingDateTarget = new Date('2027-01-20T12:20:00+05:30');
 
 const eventsData = [
   {
     name: "MEHANDI CEREMONY",
-    date: "18 JAN 2027",
+    date: "19 JAN 2027",
     time: "Evening",
     venueName: "GROOM'S HOUSE",
     venueAddress: "Near Tahsil Office, Tukdoji Nagar No. 13, Gondpipari, Dist. Chandrapur (442702)",
@@ -32,7 +32,7 @@ const eventsData = [
   {
     name: "MARRIAGE CEREMONY",
     date: "20 JAN 2027",
-    time: "01:12 PM",
+    time: "12:20 PM",
     venueName: "LAXMI RAMAA SANSKRUTIK SABHAGRUHA",
     venueAddress: "Bazar Chowk, Pauni, Dist. Bhandara, Maharashtra (441910)",
     image: "./templates/frosty-blue/events/frosty_event_wedding_1788964447182.webp",
@@ -464,7 +464,7 @@ function addToCalendar() {
   const title = encodeURIComponent("Dr. Arpan Zure & Prof. Kirti Pagote Wedding");
   const details = encodeURIComponent("Join us in celebrating the wedding ceremony of Dr. Arpan Someshwar Zure and Prof. Kirti Namdeo Pagote at Laxmi Ramaa Sanskrutik Sabhagruha, Pauni.");
   const location = encodeURIComponent("Laxmi Ramaa Sanskrutik Sabhagruha, Bazar Chowk, Pauni, Bhandara, Maharashtra – 441910");
-  const dates = "20270120T074200Z/20270120T120000Z"; // 01:12 PM IST is 07:42 AM UTC
+  const dates = "20270120T065000Z/20270120T120000Z"; // 12:20 PM IST is 06:50 AM UTC
 
   const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${dates}`;
   window.open(googleUrl, '_blank');
