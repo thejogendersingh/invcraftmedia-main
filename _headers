@@ -11,7 +11,22 @@
 /arpan-weds-kirti
   Cache-Control: no-cache, no-store, must-revalidate
 
+/arpan-weds-kirti/
+  Cache-Control: no-cache, no-store, must-revalidate
+
 /arpan-weds-kirti/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/kirti-weds-arpan
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/kirti-weds-arpan/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/kirti-weds-arpan/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/invitations/arpan-weds-kirti/*
   Cache-Control: no-cache, no-store, must-revalidate
 
 # 2. JavaScript & CSS Bundles: Always revalidate so code edits reflect instantly!
