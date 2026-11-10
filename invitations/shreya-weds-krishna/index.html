@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Shreya Parmar weds Krishna Agrawal — Royal Wedding Invitation #Krisha</title>
+  <meta name="description" content="Two hearts one journey a lifetime together. Join us in celebrating the wedding of Shreya Parmar and Krishna Agrawal at Swayamvar Lawn, Mughalsarai #Krisha." />
+  <meta name="theme-color" content="#f7e6ea" />
+
+  <!-- Open Graph / WhatsApp Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://invcraftmedia.com/shreya-weds-krishna/" />
+  <meta property="og:title" content="Shreya Parmar weds Krishna Agrawal — Royal Wedding Invitation #Krisha" />
+  <meta property="og:description" content="Two hearts one journey a lifetime together. Join us in celebrating our wedding on 3rd December 2026." />
+  <meta property="og:image" content="https://invcraftmedia.com/shreya-weds-krishna/assets/mahal_backdrop.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="style.css?v=35" />
+</head>
+<body>
+
+  <!-- Background Music Audio -->
+  <audio id="bg-audio" loop preload="auto">
+    <source src="assets/soothing_bless.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- =========================================================
+       PEACOCK FEATHER INTRO ANIMATION OVERLAY (SHAADIKACARD)
+       ========================================================= -->
+  <div id="peacock-intro-overlay" style="position: fixed; inset: 0; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; background: #000000; overflow: hidden; user-select: none; -webkit-tap-highlight-color: transparent;">
+    <!-- Full Screen Intro Video (Initially Paused, plays on Tap) -->
+    <video id="intro-video" src="assets/intro-done.mp4" preload="auto" playsinline webkit-playsinline disablePictureInPicture style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 1; pointer-events: none;"></video>
+    
+    <!-- Subtle Bottom Vignette for readable text -->
+    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, transparent 55%, rgba(0,0,0,0.65) 100%); z-index: 2; pointer-events: none;"></div>
+
+    <!-- White Glassmorphic Tap to Open Button -->
+    <div id="intro-tap-btn-container" style="position: relative; z-index: 10; margin-bottom: clamp(80px, 19vh, 130px); transition: opacity 0.4s ease, transform 0.4s ease;">
+      <button id="intro-tap-btn" type="button" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 28px; background: rgba(255, 255, 255, 0.22); border: 1.5px solid rgba(255, 255, 255, 0.55); border-radius: 9999px; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.6); color: #ffffff; font-family: var(--font-cinzel, 'Cinzel', serif); font-size: 13.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; cursor: pointer; transition: all 0.25s ease; outline: none; animation: glassPulse 2s infinite ease-in-out;">
+        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #ffffff; box-shadow: 0 0 10px #ffffff;"></span>
+        <span>Tap to open</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================
+       MAIN APPLICATION / PALACE EXPERIENCE
+       ========================================= -->
+  <div class="app-container">
+
+    <!-- Fixed Palace Background Layer (Swipable Haveli/Palace Bases) -->
+    <div class="static-background-layer" id="static-bg-layer">
+      <div class="bg-slide current-bg">
+        <img src="assets/base-3-mobile.webp" class="bg-image-full" id="palace-bg-img" alt="Royal Palace Backdrop" />
+        <div class="bg-gradient-overlay" id="palace-bg-gradient" style="background: linear-gradient(135deg, rgba(253, 238, 244, 0.35) 0%, rgba(245, 203, 221, 0.35) 100%);"></div>
+      </div>
+    </div>
+
+    <!-- Rose Petals & Golden Sparkles Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Floating Top Bar Controls -->
+    <div class="top-controls">
+      <!-- Music Player Button -->
+      <button class="audio-btn" id="audio-btn" aria-label="Play music">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <line x1="23" y1="9" x2="17" y2="15"></line>
+          <line x1="17" y1="9" x2="23" y2="15"></line>
+        </svg>
+      </button>
+
+      <!-- Language Selector Dropdown -->
+      <div class="lang-dropdown" id="lang-dropdown">
+        <button class="lang-trigger" id="lang-trigger" aria-haspopup="listbox" aria-expanded="false">
+          <span id="lang-current">English</span>
+          <svg class="lang-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <div class="lang-menu" id="lang-menu">
+          <div class="lang-option active" data-lang="en" data-name="English">
+            <span>English</span>
+          </div>
+          <div class="lang-option" data-lang="hi" data-name="हिन्दी">
+            <span>हिन्दी (Hindi)</span>
+          </div>
+          <div class="lang-option" data-lang="gu" data-name="ગુજરાતી">
+            <span>ગુજરાતી (Gujarati)</span>
+          </div>
+          <div class="lang-option" data-lang="pa" data-name="ਪੰਜਾਬੀ">
+            <span>ਪੰਜਾਬੀ (Punjabi)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Central Mahal Viewport -->
+    <div class="card-viewport" id="card-viewport">
+
+      <!-- Palace Navigation Indicators (Left/Right) -->
+      <div class="nav-indicator nav-left" id="nav-left" title="Previous Palace">⟨</div>
+      <div class="nav-indicator nav-right" id="nav-right" title="Next Palace">⟩</div>
+
+      <!-- Text Content Layer with Glass Plaque & Cards (BEHIND HAVELI GATE) -->
+      <div class="text-content-layer">
+        <div class="arch-glass-plaque">
+          <div class="arch-glass-plaque-inner"></div>
+        </div>
+
+        <!-- Swipable Cards Container -->
+        <div class="cards-slider">
+          <div class="cards-track" id="cards-track">
+
+          <!-- ================= CARD 1: COVER (HERO) ================= -->
+          <section class="invitation-card active" data-card="0">
+            <p class="hero-tagline" data-i18n="tagline">Two hearts one journey a lifetime together</p>
+            
+            <div class="gold-divider">
+              <span class="divider-line"></span>
+              <span class="divider-heart">♥</span>
+              <span class="divider-line"></span>
+            </div>
+
+            <div class="names-block">
+              <h2 class="bride-name" style="color: var(--crimson-accent); font-size: clamp(26px, 7cqw, 34px);">Shreya Parmar</h2>
+              <div class="weds-connector" data-i18n="weds">weds</div>
+              <h2 class="groom-name" style="color: var(--crimson-accent); font-size: clamp(26px, 7cqw, 34px);">Krishna Agrawal</h2>
+            </div>
+
+            <div style="font-family: var(--font-cinzel); font-size: 14px; font-weight: 700; color: #a27237; letter-spacing: 0.25em; margin: 6px 0;">
+              #Krisha
+            </div>
+
+            <div class="gold-divider">
+              <span class="divider-line"></span>
+              <span class="divider-heart">♥</span>
+              <span class="divider-line"></span>
+            </div>
+
+            <div class="date-text" style="font-size: clamp(16px, 4.8cqw, 20px); font-weight: 700;">3rd December 2026</div>
+            <div class="time-text" style="font-size: clamp(13px, 3.8cqw, 15px); font-weight: 600; color: #7b2d3e; margin-top: 2px;">• Hastmelap (Shubh Vivaah): 6:30 PM •</div>
+
+            <div class="gold-divider">
+              <span class="divider-line"></span>
+              <span class="divider-heart">♥</span>
+              <span class="divider-line"></span>
+            </div>
+
+            <div class="venue-block">
+              <div class="venue-name">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7b2d3e" stroke-width="2">
+                  <path d="M3 21h18"></path>
+                  <path d="M9 8h1"></path>
+                  <path d="M9 12h1"></path>
+                  <path d="M9 16h1"></path>
+                  <path d="M14 8h1"></path>
+                  <path d="M14 12h1"></path>
+                  <path d="M14 16h1"></path>
+                  <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path>
+                </svg>
+                <span>Swayamvar Lawn</span>
+              </div>
+              <div class="venue-city">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#7b2d3e" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai</span>
+              </div>
+            </div>
+
+            <div class="scroll-prompt-btn">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M1 1L6 6L11 1" stroke="#4a352c" stroke-width="1.5"></path>
+              </svg>
+              <span data-i18n="scrollToBegin">Scroll to begin</span>
+            </div>
+          </section>
+
+          <!-- ================= CARD 2: DATE & TIME (CALENDAR) ================= -->
+          <section class="invitation-card next" data-card="1">
+            <h3 class="card-script-title" data-i18n="dateTitle">Save The Date</h3>
+            <p class="card-subtitle" data-i18n="dateSubtitle">When we will tie the knot</p>
+
+            <div class="gold-divider">
+              <span class="divider-line"></span>
+              <span class="divider-heart">♥</span>
+              <span class="divider-line"></span>
+            </div>
+
+            <div class="calendar-container">
+              <div class="calendar-month">December 2026</div>
+              <div class="calendar-header">
+                <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+              </div>
+              <div class="calendar-grid">
+                <!-- Dec 2026 starts on Tuesday (2 empty slots for Sun, Mon) -->
+                <div class="cal-day empty"></div>
+                <div class="cal-day empty"></div>
+                <div class="cal-day special" title="Mehendi Ceremony">1</div>
+                <div class="cal-day special" title="Engagement Ceremony">2</div>
+                <div class="cal-day wedding-day" title="The Wedding Day!">3</div>
+                <div class="cal-day">4</div>
+                <div class="cal-day">5</div>
+                <div class="cal-day">6</div>
+                <div class="cal-day">7</div>
+                <div class="cal-day">8</div>
+                <div class="cal-day">9</div>
+                <div class="cal-day">10</div>
+                <div class="cal-day">11</div>
+                <div class="cal-day">12</div>
+                <div class="cal-day">13</div>
+                <div class="cal-day">14</div>
+                <div class="cal-day">15</div>
+                <div class="cal-day">16</div>
+                <div class="cal-day">17</div>
+                <div class="cal-day">18</div>
+                <div class="cal-day">19</div>
+                <div class="cal-day">20</div>
+                <div class="cal-day">21</div>
+                <div class="cal-day">22</div>
+                <div class="cal-day">23</div>
+                <div class="cal-day">24</div>
+                <div class="cal-day">25</div>
+                <div class="cal-day">26</div>
+                <div class="cal-day">27</div>
+                <div class="cal-day">28</div>
+                <div class="cal-day">29</div>
+                <div class="cal-day">30</div>
+                <div class="cal-day">31</div>
+              </div>
+            </div>
+
+            <div class="gold-divider">
+              <span class="divider-line"></span>
+              <span class="divider-heart">♥</span>
+              <span class="divider-line"></span>
+            </div>
+
+            <div class="calendar-footer-date" style="font-size: 13.5px; font-weight: 700; color: #7b2d3e;">3rd December 2026 • Mughalsarai</div>
+
+            <div class="scroll-prompt-btn scroll-next-btn">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M1 1L6 6L11 1" stroke="#4a352c" stroke-width="1.5"></path>
+              </svg>
+            </div>
+          </section>
+
+          <!-- ================= CARD 3: THE COUNTDOWN ================= -->
+          <section class="invitation-card next" data-card="2" style="padding-top: clamp(16px, 4.5vh, 28px); justify-content: flex-start;">
+            <!-- Top Artwork Image (Shifted slightly higher into Haveli Arch, Natural / No Borders) -->
+            <div style="position: relative; width: 100%; max-width: 275px; margin: -26px auto 0; display: flex; justify-content: center; z-index: 2;">
+              <img src="assets/timer-uper.png" alt="A Special Invitation from Tiger" style="width: 100%; max-width: 275px; height: auto; max-height: 38vh; object-fit: contain; display: block;" />
+            </div>
+
+            <!-- Countdown Container (Shifted Upwards, Visible Header & Footer, Scratch over Boxes Only) -->
+            <div class="scratch-timer-wrapper" style="position: relative; width: 100%; max-width: 295px; margin: -6px auto 0; text-align: center; z-index: 5;">
+              
+              <!-- Visible Header Text -->
+              <div style="font-family: var(--font-cinzel); font-size: 11px; font-weight: 700; letter-spacing: 0.22em; color: #7b2d3e; text-transform: uppercase; margin-bottom: 5px;">
+                ⏳ The Royal Countdown ⏳
+              </div>
+
+              <!-- Only the 4 timer boxes are wrapped with the scratch canvas -->
+              <div id="scratch-boxes-wrapper" style="position: relative; width: 100%; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 14px rgba(123, 45, 62, 0.12);">
+                
+                <!-- Underneath: The 4 Live Countdown Boxes -->
+                <div class="countdown-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 6px; background: rgba(255, 245, 243, 0.92); border: 1.2px solid rgba(220, 160, 150, 0.45); border-radius: 14px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+                  <div class="countdown-box" style="background: rgba(255, 255, 255, 0.98); border-radius: 8px; padding: 5px 2px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
+                    <span class="countdown-num" id="days-count" style="font-family: var(--font-cinzel); font-size: 18px; font-weight: 700; color: #7b2d3e; display: block; line-height: 1.1;">00</span>
+                    <span class="countdown-lbl" style="font-size: 9px; color: #5a202d; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Days</span>
+                  </div>
+                  <div class="countdown-box" style="background: rgba(255, 255, 255, 0.98); border-radius: 8px; padding: 5px 2px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
+                    <span class="countdown-num" id="hours-count" style="font-family: var(--font-cinzel); font-size: 18px; font-weight: 700; color: #7b2d3e; display: block; line-height: 1.1;">00</span>
+                    <span class="countdown-lbl" style="font-size: 9px; color: #5a202d; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Hours</span>
+                  </div>
+                  <div class="countdown-box" style="background: rgba(255, 255, 255, 0.98); border-radius: 8px; padding: 5px 2px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
+                    <span class="countdown-num" id="minutes-count" style="font-family: var(--font-cinzel); font-size: 18px; font-weight: 700; color: #7b2d3e; display: block; line-height: 1.1;">00</span>
+                    <span class="countdown-lbl" style="font-size: 9px; color: #5a202d; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Mins</span>
+                  </div>
+                  <div class="countdown-box" style="background: rgba(255, 255, 255, 0.98); border-radius: 8px; padding: 5px 2px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
+                    <span class="countdown-num" id="seconds-count" style="font-family: var(--font-cinzel); font-size: 18px; font-weight: 700; color: #7b2d3e; display: block; line-height: 1.1;">00</span>
+                    <span class="countdown-lbl" style="font-size: 9px; color: #5a202d; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Secs</span>
+                  </div>
+                </div>
+
+                <!-- Scratch Canvas Overlay (Covers ONLY the 4 countdown boxes) -->
+                <canvas id="timer-scratch-canvas" style="position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 14px; cursor: pointer; touch-action: none; z-index: 5; transition: opacity 0.5s ease;"></canvas>
+              </div>
+
+              <!-- Visible Footer Text -->
+              <p style="font-family: var(--font-serif); font-size: 11.5px; font-style: italic; color: #7b2d3e; margin-top: 5px; margin-bottom: 0;">
+                Counting down to our big day #Krisha
+              </p>
+            </div>
+
+            <div class="scroll-prompt-btn scroll-next-btn" style="margin-top: 10px;">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M1 1L6 6L11 1" stroke="#4a352c" stroke-width="1.5"></path>
+              </svg>
+            </div>
+          </section>
+
+          <!-- Gallery Section with Divine Blessing Artwork -->
+          <section class="invitation-card next" data-card="5">
+            <h3 class="card-script-title">Divine Blessings</h3>
+            <p class="card-subtitle">With eternal love &amp; auspicious blessings</p>
+
+            <div class="gold-divider">
+              <span class="divider-line"></span>
+              <span class="divider-heart">♥</span>
+              <span class="divider-line"></span>
+            </div>
+
+            <div style="position: relative; width: 100%; max-width: 310px; margin: 4px auto 8px; padding: 6px; border-radius: 20px; background: linear-gradient(135deg, #dfba73, #9e6d32, #dfba73); box-shadow: 0 10px 30px rgba(123, 45, 62, 0.28);">
+              <div style="width: 100%; border-radius: 16px; overflow: hidden; background: #ffffff; border: 2px solid #ffffff; box-shadow: inset 0 0 10px rgba(0,0,0,0.1);">
+                <img src="assets/gallery-with-shivji-parvatiji-bless-msg-heading.jpeg" alt="Divine Blessings" style="width: 100%; height: auto; max-height: 52vh; object-fit: contain; display: block;" />
+              </div>
+            </div>
+
+            <div style="font-family: var(--font-cinzel); font-size: 13.5px; font-weight: 700; color: #a27237; letter-spacing: 0.25em; margin-top: 4px;">
+              #Krisha
+            </div>
+
+            <div class="scroll-prompt-btn scroll-next-btn" style="margin-top: 14px;">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M1 1L6 6L11 1" stroke="#4a352c" stroke-width="1.5"></path>
+              </svg>
+            </div>
+          </section>
+
+          <!-- ================= CARD 4: WEDDING EVENTS ================= -->
+          <section class="invitation-card next" data-card="3">
+            <h3 class="card-script-title" data-i18n="eventsTitle">Wedding Events</h3>
+            <p class="card-subtitle" data-i18n="eventsSubtitle">Join us for the celebrations</p>
+
+            <div class="events-list-scroll">
+              <!-- Event 1: Mehendi -->
+              <div class="event-item-card">
+                <div class="single-event-icon-jharokha">
+                  <img src="assets/events/mehendi.webp" alt="Mehendi" class="event-icon-img" />
+                </div>
+                <div class="event-card-body">
+                  <div class="event-card-header">
+                    <span class="event-name">Mehendi Ceremony</span>
+                    <span class="event-date-badge">1 Dec • 11:00 AM</span>
+                  </div>
+                  <div class="event-time-venue">Tuesday, 1st December 2026 • Morning from 11:00 AM</div>
+                  <p class="event-notes">Swayamvar Lawn behind Agrawal Petrol Pump, G.T. Road, Mughalsarai</p>
+                  <a href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" class="event-map-link">📍 View on Map</a>
+                </div>
+              </div>
+
+              <!-- Event 2: Engagement -->
+              <div class="event-item-card">
+                <div class="single-event-icon-jharokha">
+                  <img src="assets/events/ring-ceremony.webp" alt="Engagement Ceremony" class="event-icon-img" />
+                </div>
+                <div class="event-card-body">
+                  <div class="event-card-header">
+                    <span class="event-name">Engagement Ceremony</span>
+                    <span class="event-date-badge">2 Dec • 7:00 PM</span>
+                  </div>
+                  <div class="event-time-venue">Wednesday, 2nd December 2026 • Evening 7:00 PM</div>
+                  <p class="event-notes">Swayamvar Lawn behind Agrawal Petrol Pump, G.T. Road, Mughalsarai</p>
+                  <a href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" class="event-map-link">📍 View on Map</a>
+                </div>
+              </div>
+
+              <!-- Event 3: Ganesh Sthapna -->
+              <div class="event-item-card">
+                <div class="single-event-icon-jharokha">
+                  <img src="assets/events/haldi.webp" alt="Ganesh Sthapna" class="event-icon-img" />
+                </div>
+                <div class="event-card-body">
+                  <div class="event-card-header">
+                    <span class="event-name">Ganesh Sthapna</span>
+                    <span class="event-date-badge">3 Dec • 8:00 AM</span>
+                  </div>
+                  <div class="event-time-venue">Thursday, 3rd December 2026 • Morning 8:00 AM</div>
+                  <p class="event-notes">॥ श्री गणेशाय नमः ॥ Auspicious beginning with divine blessings.</p>
+                  <a href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" class="event-map-link">📍 View on Map</a>
+                </div>
+              </div>
+
+              <!-- Event 4: Samorta -->
+              <div class="event-item-card">
+                <div class="single-event-icon-jharokha">
+                  <img src="assets/events/sangeet.webp" alt="Samorta" class="event-icon-img" />
+                </div>
+                <div class="event-card-body">
+                  <div class="event-card-header">
+                    <span class="event-name">Samorta</span>
+                    <span class="event-date-badge">3 Dec • 9:00 AM</span>
+                  </div>
+                  <div class="event-time-venue">Thursday, 3rd December 2026 • Morning 9:00 AM</div>
+                  <p class="event-notes">Traditional rituals and family festivities.</p>
+                  <a href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" class="event-map-link">📍 View on Map</a>
+                </div>
+              </div>
+
+              <!-- Event 5: Haldi Ceremony -->
+              <div class="event-item-card">
+                <div class="single-event-icon-jharokha">
+                  <img src="assets/events/haldi.webp" alt="Haldi Ceremony" class="event-icon-img" />
+                </div>
+                <div class="event-card-body">
+                  <div class="event-card-header">
+                    <span class="event-name">Haldi Ceremony</span>
+                    <span class="event-date-badge">3 Dec • 11:00 AM</span>
+                  </div>
+                  <div class="event-time-venue">Thursday, 3rd December 2026 • Morning 11:00 AM</div>
+                  <p class="event-notes">A vibrant splash of turmeric, laughter & blessings.</p>
+                  <a href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" class="event-map-link">📍 View on Map</a>
+                </div>
+              </div>
+
+              <!-- Event 6: Hastmelap (Shubh Vivaah) - Main Event -->
+              <div class="event-item-card main-event">
+                <div class="single-event-icon-jharokha">
+                  <img src="assets/events/wedding-ceremony.webp" alt="Hastmelap (Shubh Vivaah)" class="event-icon-img" />
+                </div>
+                <div class="event-card-body">
+                  <div class="event-card-header">
+                    <span class="event-name">Hastmelap (Shubh Vivaah)</span>
+                    <span class="event-date-badge">3 Dec • 6:30 PM</span>
+                  </div>
+                  <div class="event-time-venue">Thursday, 3rd December 2026 • Evening 6:30 PM</div>
+                  <p class="event-notes">Swayamvar Lawn behind Agrawal Petrol Pump, G.T. Road, Mughalsarai</p>
+                  <a href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" class="event-map-link">📍 View on Map</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="scroll-prompt-btn scroll-next-btn">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M1 1L6 6L11 1" stroke="#4a352c" stroke-width="1.5"></path>
+              </svg>
+            </div>
+          </section>
+
+          <!-- ================= CARD 5: OUR STORY ================= -->
+          <!-- ================= CARD 6: PHOTO GALLERY ================= -->
+          <!-- ================= CARD 7: OUR FAMILIES ================= -->
+          <section class="invitation-card next" data-card="6">
+            <h3 class="card-script-title" data-i18n="familiesTitle">Our Families</h3>
+            <p class="card-subtitle" data-i18n="familiesSubtitle">With the divine blessings of our ancestors & parents</p>
+
+            <div class="families-block" style="max-height: 60vh; overflow-y: auto; padding: 4px 6px;">
+              <!-- Bride's Family -->
+              <div class="family-section">
+                <span class="family-label" style="font-weight: 700; color: #a27237; letter-spacing: 0.15em;">Bride's Family (Parmar Family)</span>
+                <div style="margin: 4px 0 2px; font-size: 12px; color: #7b2d3e; font-weight: 600;">With Blessings of Grandparents:</div>
+                <div class="family-parent-names" style="font-size: 14px;">Lt. Mohan Lal ji Parmar &amp; Lt. Usha Parmar</div>
+                <div style="margin: 6px 0 2px; font-size: 12px; color: #7b2d3e; font-weight: 600;">Loving Parents:</div>
+                <div class="family-parent-names" style="font-size: 15px; font-weight: 700;">Shri Krishn Kumar Parmar</div>
+                <div class="family-ampersand" style="margin: 2px 0;">&amp;</div>
+                <div class="family-parent-names" style="font-size: 15px; font-weight: 700;">Smt. Raksha Krishn Parmar</div>
+              </div>
+
+              <div class="gold-divider">
+                <span class="divider-line"></span>
+                <span class="divider-heart">♥</span>
+                <span class="divider-line"></span>
+              </div>
+
+              <!-- Groom's Family -->
+              <div class="family-section">
+                <span class="family-label" style="font-weight: 700; color: #a27237; letter-spacing: 0.15em;">Groom's Family (Agrawal Family)</span>
+                <div style="margin: 4px 0 2px; font-size: 12px; color: #7b2d3e; font-weight: 600;">With Blessings of Grandparents:</div>
+                <div class="family-parent-names" style="font-size: 14px;">Lt. Girdhari Lal Agrawal &amp; Lt. Vimla Devi</div>
+                <div style="margin: 6px 0 2px; font-size: 12px; color: #7b2d3e; font-weight: 600;">Loving Parents:</div>
+                <div class="family-parent-names" style="font-size: 15px; font-weight: 700;">Shri Anil Agrawal</div>
+                <div class="family-ampersand" style="margin: 2px 0;">&amp;</div>
+                <div class="family-parent-names" style="font-size: 15px; font-weight: 700;">Smt. Madhu Anil Agrawal</div>
+              </div>
+            </div>
+
+            <div class="scroll-prompt-btn scroll-next-btn" style="margin-top: 14px;">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M1 1L6 6L11 1" stroke="#4a352c" stroke-width="1.5"></path>
+              </svg>
+            </div>
+          </section>
+          <!-- ================= CARD 8: RSVP ================= -->
+          <!-- ================= CARD 9: THANK YOU ================= -->
+          <section class="invitation-card next" data-card="8">
+            <h3 class="card-script-title" data-i18n="thankYouTitle">Thank You</h3>
+            <p class="card-subtitle" data-i18n="thankYouSubtitle">For your love, blessings and presence</p>
+
+            <div class="gold-divider">
+              <span class="divider-line"></span>
+              <span class="divider-heart">♥</span>
+              <span class="divider-line"></span>
+            </div>
+
+            <div class="thankyou-couple-names" style="color: var(--crimson-accent); font-size: clamp(24px, 6.5cqw, 30px);">Shreya &amp; Krishna</div>
+            <div style="font-family: var(--font-cinzel); font-size: 14px; font-weight: 700; color: #a27237; letter-spacing: 0.25em; margin: 4px 0 8px;">
+              #Krisha
+            </div>
+            <p class="thankyou-note" style="font-size: 13.5px; max-width: 320px; margin: 0 auto 12px; line-height: 1.5;">
+              Your presence and blessings mean the world to us as we begin this new chapter together!
+            </p>
+
+            <div class="gold-divider">
+              <span class="divider-line"></span>
+              <span class="divider-heart">♥</span>
+              <span class="divider-line"></span>
+            </div>
+
+            <!-- RSVP Contacts Block -->
+            <div style="margin: 10px auto; max-width: 300px; width: 100%;">
+              <div style="font-family: var(--font-cinzel); font-size: 12px; font-weight: 700; color: #7b2d3e; letter-spacing: 0.2em; margin-bottom: 8px;">
+                FOR RSVP &amp; WISHES
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 7px; align-items: center;">
+                <a href="tel:9450613006" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 230px; padding: 8px 14px; border-radius: 999px; background: linear-gradient(135deg, #7b2d3e, #4a1525); color: #ffffff; text-decoration: none; font-family: var(--font-cinzel); font-size: 12.5px; font-weight: 600; box-shadow: 0 4px 10px rgba(123, 45, 62, 0.25);">
+                  <span>📞</span> +91 94506 13006
+                </a>
+                <a href="tel:9721446357" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 230px; padding: 8px 14px; border-radius: 999px; background: linear-gradient(135deg, #7b2d3e, #4a1525); color: #ffffff; text-decoration: none; font-family: var(--font-cinzel); font-size: 12.5px; font-weight: 600; box-shadow: 0 4px 10px rgba(123, 45, 62, 0.25);">
+                  <span>📞</span> +91 97214 46357
+                </a>
+                <a href="tel:9807711904" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 230px; padding: 8px 14px; border-radius: 999px; background: linear-gradient(135deg, #7b2d3e, #4a1525); color: #ffffff; text-decoration: none; font-family: var(--font-cinzel); font-size: 12.5px; font-weight: 600; box-shadow: 0 4px 10px rgba(123, 45, 62, 0.25);">
+                  <span>📞</span> +91 98077 11904
+                </a>
+              </div>
+            </div>
+
+            <div style="font-family: var(--font-cinzel); font-size: 11.5px; letter-spacing: 0.15em; color: #7b2d3e; font-weight: 600; margin-top: 10px;">
+              Swayamvar Lawn • Mughalsarai
+            </div>
+
+            <div class="scroll-prompt-btn scroll-top-btn" style="margin-top: 14px; cursor: pointer;">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none" style="transform: rotate(180deg);">
+                <path d="M1 1L6 6L11 1" stroke="#4a352c" stroke-width="1.5"></path>
+              </svg>
+              <span style="font-family: var(--font-cinzel); font-size: 11px; letter-spacing: 0.15em; color: #4a352c; text-transform: uppercase;">Back to top</span>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Swipable Haveli/Mahal Arch Frame (IN FRONT OF PLAQUE) -->
+    <div class="mahal-swipe-layer" id="mahal-swipe-layer">
+      <div class="arch-slide current-arch">
+        <img src="assets/mahal.webp" class="mahal-image-lower" id="mahal-arch-img" alt="Royal Haveli Arch" />
+      </div>
+    </div>
+
+    <!-- Foreground Floral Bouquets (Gently swaying) -->
+    <div class="static-foreground-layer">
+      <img src="assets/right-side-flowers.webp" class="flower-bottom-left" alt="Flower Left Decoration" />
+      <img src="assets/right-side-flowers.webp" class="flower-bottom-right" alt="Flower Right Decoration" />
+    </div>
+
+    <!-- Bottom Hints Bar (Centered Swipe / Click to Switch Palaces) -->
+    <div class="swipe-hint-bar" id="swipe-hint-bar" role="button" aria-label="Swipe or click to switch palaces" tabindex="0">
+      <svg width="8" height="12" viewBox="0 0 8 12" fill="none">
+        <path d="M7 1L2 6L7 11" stroke="#FBEFE2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <span data-i18n="switchPalaces">Swipe to Switch Palaces</span>
+      <svg width="8" height="12" viewBox="0 0 8 12" fill="none">
+        <path d="M1 1L6 6L1 11" stroke="#FBEFE2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </div>
+
+  </div><!-- End of #card-viewport -->
+
+  <!-- Right Side Pagination Dots Indicator -->
+  <div class="side-pagination" id="side-pagination"></div>
+
+</div><!-- End of .app-container -->
+
+  <script src="script.js?v=35"></script>
+</body>
+</html>
