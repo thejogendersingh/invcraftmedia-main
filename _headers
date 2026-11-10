@@ -15,6 +15,12 @@
 /*/*.css
   Cache-Control: public, max-age=0, must-revalidate
 
+/*/*/*.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*/*/*.css
+  Cache-Control: public, max-age=0, must-revalidate
+
 /invitations/*/assets/*.js
   Cache-Control: public, max-age=0, must-revalidate
 
