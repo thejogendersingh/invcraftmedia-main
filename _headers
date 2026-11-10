@@ -65,6 +65,42 @@
 /invitations/shreya-weds-krishna/*
   Cache-Control: no-cache, no-store, must-revalidate
 
+/bhavanishree-weds-ashish
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/bhavanishree-weds-ashish/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/bhavanishree-weds-ashish/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/invitations/bhavanishree-weds-ashish/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/shouvik-weds-sneha
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/shouvik-weds-sneha/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/shouvik-weds-sneha/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/invitations/shouvik-weds-sneha/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/shreya-weds-krishna
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/shreya-weds-krishna/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/shreya-weds-krishna/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/invitations/shreya-weds-krishna/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
 # 2. JavaScript & CSS Bundles: Always revalidate so code edits reflect instantly!
 /*/*.js
   Cache-Control: public, max-age=0, must-revalidate

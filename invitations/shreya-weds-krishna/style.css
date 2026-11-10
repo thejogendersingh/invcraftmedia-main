@@ -40,32 +40,94 @@ html, body {
 }
 
 /* =========================================================
-   PEACOCK FEATHER INTRO ANIMATION OVERLAY (SHAADIKACARD)
+   ROYAL PALACE INTRO VIDEO OVERLAY
    ========================================================= */
 #peacock-intro-overlay {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  min-height: -webkit-fill-available;
   z-index: 99999;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: #0d2b24;
-  background-image: radial-gradient(circle at 50% 38%, rgba(0, 168, 140, 0.18) 0%, transparent 65%),
-                    radial-gradient(circle at 20% 80%, rgba(15, 76, 129, 0.25) 0%, transparent 50%),
-                    radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
-                    url('assets/bg-feather-texture.webp');
-  background-size: cover;
-  background-position: center;
-  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 24px;
+  justify-content: flex-end;
+  background-color: #f7e6ea;
+  padding: 0 !important;
+  margin: 0 !important;
   overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 1.1s cubic-bezier(0.4, 0, 0.2, 1), transform 1.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #peacock-intro-overlay.fade-out {
   opacity: 0;
-  transform: scale(1.12);
+  transform: scale(1.06);
   pointer-events: none;
+}
+
+#intro-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  pointer-events: none;
+  display: block;
+}
+
+#intro-tap-btn-container {
+  position: absolute;
+  bottom: clamp(35px, 8.5vh, 65px);
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+#intro-tap-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 34px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid #dfba73;
+  border-radius: 9999px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25), 0 0 20px rgba(223, 186, 115, 0.65);
+  color: #6b1d2e;
+  font-family: var(--font-cinzel, 'Cinzel', serif);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+  animation: glassPulse 2s infinite ease-in-out;
+}
+
+#intro-tap-btn:active {
+  transform: scale(0.96);
 }
 
 /* Ambient Floating Lights Canvas */

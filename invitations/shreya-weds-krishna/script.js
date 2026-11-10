@@ -104,20 +104,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const introVideo = document.getElementById('intro-video');
   const introTapBtnContainer = document.getElementById('intro-tap-btn-container');
   const introTapBtn = document.getElementById('intro-tap-btn');
-  let hasVideoStarted = false;
+  // Auto-play intro video gracefully (muted loop by default so mobile allows it instantly)
+  if (introVideo) {
+    introVideo.play().catch(() => {});
+  }
 
   function revealHeroSection() {
     if (isIntroOpened) return;
     isIntroOpened = true;
 
     // Start background wedding music
-    bgAudio.play().then(() => {
-      isAudioPlaying = true;
-      audioBtn.classList.add('playing');
-      updateAudioIcon(true);
-    }).catch(err => {
-      console.log('Audio autoplay prevented or interaction needed', err);
-    });
+    if (bgAudio) {
+      bgAudio.currentTime = 0;
+      bgAudio.play().then(() => {
+        isAudioPlaying = true;
+        audioBtn.classList.add('playing');
+        updateAudioIcon(true);
+      }).catch(err => {
+        console.log('Audio autoplay prevented or interaction needed', err);
+      });
+    }
 
     // Celebratory dual confetti bursts
     createConfettiBurst(window.innerWidth / 2, window.innerHeight * 0.42);
@@ -132,40 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         peacockOverlay.style.display = 'none';
         if (introVideo) introVideo.pause();
         if (peacockAnimFrameId) cancelAnimationFrame(peacockAnimFrameId);
-      }, 1100);
-    }
-  }
-
-  function handleIntroTap() {
-    if (isIntroOpened) return;
-
-    if (!hasVideoStarted) {
-      hasVideoStarted = true;
-      // Hide "Tap to open" button
-      if (introTapBtnContainer) {
-        introTapBtnContainer.style.opacity = '0';
-        introTapBtnContainer.style.transform = 'translateY(15px) scale(0.92)';
-        introTapBtnContainer.style.pointerEvents = 'none';
-      }
-
-      // Play intro video with audio
-      if (introVideo) {
-        introVideo.currentTime = 0;
-        introVideo.muted = false;
-        const playPromise = introVideo.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(() => {
-            // If browser blocks unmuted playback, play muted
-            introVideo.muted = true;
-            introVideo.play().catch(() => revealHeroSection());
-          });
-        }
-      } else {
-        revealHeroSection();
-      }
-    } else {
-      // If tapped while video is playing, user wants to skip straight to Hero!
-      revealHeroSection();
+      }, 1000);
     }
   }
 
@@ -174,15 +147,15 @@ document.addEventListener('DOMContentLoaded', () => {
     introVideo.addEventListener('ended', revealHeroSection);
   }
 
-  // Tap button & overlay listeners
+  // Tap button & overlay listeners: Immediately opens the card!
   if (introTapBtn) {
     introTapBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      handleIntroTap();
+      revealHeroSection();
     });
   }
   if (peacockOverlay) {
-    peacockOverlay.addEventListener('click', handleIntroTap);
+    peacockOverlay.addEventListener('click', revealHeroSection);
   }
 
   // 2. AUDIO PLAY / MUTE TOGGLE
