@@ -17,13 +17,13 @@
   <meta property="og:description" content="Two hearts one journey a lifetime together. Join us in celebrating our wedding on 3rd December 2026." />
   <meta property="og:image" content="https://invcraftmedia.com/shreya-weds-krishna/assets/mahal_backdrop.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="stylesheet" href="style.css?v=60" />
+  <link rel="stylesheet" href="style.css?v=66" />
 </head>
 <body>
 
   <!-- Background Music Audio -->
   <audio id="bg-audio" loop preload="auto">
-    <source src="assets/soothing_bless.mp3" type="audio/mpeg" />
+    <source src="assets/main-bgm.mp3" type="audio/mpeg" />
   </audio>
 
   <!-- =========================================================
@@ -31,12 +31,16 @@
        ========================================================= -->
   <div id="peacock-intro-overlay">
     <!-- Full Screen Intro Video (Full Bleed, No Black Borders, Instant Poster) -->
-    <video id="intro-video" src="assets/intro-done.mp4" poster="assets/intro-poster.jpg" playsinline webkit-playsinline disablePictureInPicture preload="auto"></video>
+    <video id="intro-video" src="assets/intro-final.mp4" poster="assets/intro-poster.jpg" playsinline webkit-playsinline disablePictureInPicture preload="auto" muted></video>
 
-    <!-- Tap to Open Pill Button (Always visible on video until tapped) -->
+    <!-- Background Intro Audio extracted from YouTube -->
+    <audio id="intro-bg-audio" preload="auto">
+      <source src="assets/intro-bgm.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Tap to Open Cursive Prompt (Floating gracefully without background box or dot) -->
     <div id="intro-tap-btn-container">
-      <button id="intro-tap-btn" type="button">
-        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #c59b27; box-shadow: 0 0 8px #c59b27;"></span>
+      <button id="intro-tap-btn" type="button" aria-label="Tap to open invitation">
         <span>Tap to open</span>
       </button>
     </div>
@@ -482,6 +486,93 @@
               </svg>
             </div>
           </section>
+
+          <!-- ================= CARD 7: EXTENDED FAMILY & RELATIVES ================= -->
+          <section class="invitation-card next" data-card="7">
+            <h3 class="card-script-title" data-i18n="extendedFamilyTitle">Family &amp; Relatives</h3>
+            <p class="card-subtitle" data-i18n="extendedFamilySubtitle">स्नेहीजन एवं परिजन • With heartfelt blessings</p>
+
+            <div class="gold-divider">
+              <span class="divider-line"></span>
+              <span class="divider-heart">♥</span>
+              <span class="divider-line"></span>
+            </div>
+
+            <div class="families-block" style="max-height: 60vh; overflow-y: auto; padding: 4px 6px;">
+              
+              <!-- विनीत (Vineet / Cordially Inviting) -->
+              <div class="family-section" style="margin-bottom: 12px; background: rgba(255, 255, 255, 0.72); padding: 12px 14px; border-radius: 14px; border: 1px solid rgba(223, 186, 115, 0.5); box-shadow: 0 4px 12px rgba(123, 45, 62, 0.08);">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
+                  <span style="height: 1px; width: 22px; background: #dfba73;"></span>
+                  <span class="family-label" style="font-weight: 700; color: #a27237; letter-spacing: 0.15em; font-size: 13.5px;">
+                    विनीत (Vineet)
+                  </span>
+                  <span style="height: 1px; width: 22px; background: #dfba73;"></span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 5px; font-size: 13.5px; color: #4a1525; font-weight: 600; line-height: 1.45; text-align: center;">
+                  <div>अ०सौ० रक्षा बेन - कृष्ण कुमार परमार</div>
+                  <div>अ०सौ० रश्मि बेन - संजीव कुमार परमार</div>
+                  <div>अ०सौ० नेहा बेन - लोमेश कुमार परमार</div>
+                  <div>चि० गितेश कुमार परमार</div>
+                </div>
+              </div>
+
+              <!-- मौसाल पक्ष (Mausaar Paksh) -->
+              <div class="family-section" style="margin-bottom: 12px; background: rgba(255, 255, 255, 0.72); padding: 12px 14px; border-radius: 14px; border: 1px solid rgba(223, 186, 115, 0.5); box-shadow: 0 4px 12px rgba(123, 45, 62, 0.08);">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
+                  <span style="height: 1px; width: 22px; background: #dfba73;"></span>
+                  <span class="family-label" style="font-weight: 700; color: #a27237; letter-spacing: 0.15em; font-size: 13.5px;">
+                    मौसाल पक्ष (Mausaar Paksh)
+                  </span>
+                  <span style="height: 1px; width: 22px; background: #dfba73;"></span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 5px; font-size: 13.5px; color: #4a1525; font-weight: 600; line-height: 1.45; text-align: center;">
+                  <div>गं०स्व० नर्मदा दयाराम परमार</div>
+                  <div>गं०स्व० पारुल प्रीतेश परमार</div>
+                  <div>कल्पेश परमार • कविता परमार</div>
+                  <div>हीत परमार</div>
+                </div>
+              </div>
+
+              <!-- आशीर्वाचक (Aashirvachak) -->
+              <div class="family-section" style="margin-bottom: 12px; background: rgba(255, 255, 255, 0.72); padding: 12px 14px; border-radius: 14px; border: 1px solid rgba(223, 186, 115, 0.5); box-shadow: 0 4px 12px rgba(123, 45, 62, 0.08);">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
+                  <span style="height: 1px; width: 22px; background: #dfba73;"></span>
+                  <span class="family-label" style="font-weight: 700; color: #a27237; letter-spacing: 0.15em; font-size: 13.5px;">
+                    आशीर्वाचक (Aashirvachak)
+                  </span>
+                  <span style="height: 1px; width: 22px; background: #dfba73;"></span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; color: #4a1525; font-weight: 600; line-height: 1.45; text-align: center;">
+                  <div>स्व० प्रेमकुंवर बेन परमार एवं स्व० लालजी कुंवरजी भाई परमार</div>
+                  <div>स्व० उषा बेन परमार एवं स्व० मोहनलाल जी भाई परमार</div>
+                </div>
+              </div>
+
+              <!-- दर्शनाभिलाषी (Darshanabhilashi) -->
+              <div class="family-section" style="background: rgba(255, 255, 255, 0.72); padding: 12px 14px; border-radius: 14px; border: 1px solid rgba(223, 186, 115, 0.5); box-shadow: 0 4px 12px rgba(123, 45, 62, 0.08);">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
+                  <span style="height: 1px; width: 22px; background: #dfba73;"></span>
+                  <span class="family-label" style="font-weight: 700; color: #a27237; letter-spacing: 0.15em; font-size: 13.5px;">
+                    दर्शनाभिलाषी (Darshanabhilashi)
+                  </span>
+                  <span style="height: 1px; width: 22px; background: #dfba73;"></span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 5px; font-size: 13.5px; color: #4a1525; font-weight: 600; line-height: 1.45; text-align: center;">
+                  <div>चाहत परमार • कुश परमार • भव्य परमार • टाइगर</div>
+                  <div style="color: #7b2d3e; font-weight: 700; margin-top: 3px; font-size: 14px;">एवं समस्त परमार परिवार</div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="scroll-prompt-btn scroll-next-btn" style="margin-top: 14px;">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M1 1L6 6L11 1" stroke="#4a352c" stroke-width="1.5"></path>
+              </svg>
+            </div>
+          </section>
+
           <!-- ================= CARD 8: RSVP ================= -->
           <!-- ================= CARD 9: THANK YOU ================= -->
           <section class="invitation-card next" data-card="8">
@@ -573,6 +664,6 @@
 
 </div><!-- End of .app-container -->
 
-  <script src="script.js?v=60"></script>
+  <script src="script.js?v=66"></script>
 </body>
 </html>

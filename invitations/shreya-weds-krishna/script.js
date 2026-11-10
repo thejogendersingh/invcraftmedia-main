@@ -102,14 +102,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. INTRO VIDEO & HERO REVEAL EXPERIENCE
   // =========================================================
   const introVideo = document.getElementById('intro-video');
+  const introBgAudio = document.getElementById('intro-bg-audio');
   const introTapBtnContainer = document.getElementById('intro-tap-btn-container');
   const introTapBtn = document.getElementById('intro-tap-btn');
   let isVideoPlaying = false;
+  let lastIntroInteractionTime = 0;
 
   // Function to reveal hero section and start wedding music
   function revealHeroSection() {
     if (isIntroOpened) return;
     isIntroOpened = true;
+
+    // Stop intro video and intro audio
+    if (introBgAudio) {
+      try {
+        introBgAudio.pause();
+        introBgAudio.currentTime = 0;
+      } catch (err) {}
+    }
+    if (introVideo) {
+      try {
+        introVideo.pause();
+      } catch (err) {}
+    }
 
     // Start background wedding music
     if (bgAudio) {
@@ -134,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
       peacockOverlay.classList.add('fade-out');
       setTimeout(() => {
         peacockOverlay.style.display = 'none';
-        if (introVideo) introVideo.pause();
         if (peacockAnimFrameId) cancelAnimationFrame(peacockAnimFrameId);
       }, 1000);
     }
@@ -142,7 +156,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Handle touch/click on the intro overlay or button
   function handleIntroInteraction(e) {
-    if (e) e.stopPropagation();
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    const now = Date.now();
+    if (now - lastIntroInteractionTime < 400) return;
+    lastIntroInteractionTime = now;
+
     if (isIntroOpened) return;
 
     if (!isVideoPlaying) {
@@ -152,22 +173,30 @@ document.addEventListener('DOMContentLoaded', () => {
         introTapBtnContainer.style.opacity = '0';
         introTapBtnContainer.style.transform = 'translateY(15px) scale(0.92)';
         introTapBtnContainer.style.pointerEvents = 'none';
+        setTimeout(() => {
+          introTapBtnContainer.style.display = 'none';
+        }, 350);
       }
 
-      // Play the intro video with audio
+      // Play background intro audio (extracted YouTube track)
+      if (introBgAudio) {
+        introBgAudio.currentTime = 0;
+        introBgAudio.volume = 0.9;
+        introBgAudio.play().catch(err => {
+          console.log('Intro audio play note:', err);
+        });
+      }
+
+      // Play intro video (muted, full-bleed, no black borders)
       if (introVideo) {
         introVideo.currentTime = 0;
-        introVideo.muted = false;
+        introVideo.muted = true;
         const playPromise = introVideo.play();
         if (playPromise !== undefined) {
-          playPromise.catch(() => {
-            // Fallback to muted if browser blocks unmuted audio on gesture
-            introVideo.muted = true;
-            introVideo.play().catch(() => revealHeroSection());
+          playPromise.catch(err => {
+            console.log('Intro video play error:', err);
           });
         }
-      } else {
-        revealHeroSection();
       }
     } else {
       // Second touch while video is playing: Skip directly to invitation card!
@@ -175,17 +204,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // When intro video ends naturally, open the hero section automatically
+  // When intro video or intro audio ends naturally, open the hero section automatically
   if (introVideo) {
     introVideo.addEventListener('ended', revealHeroSection);
+  }
+  if (introBgAudio) {
+    introBgAudio.addEventListener('ended', revealHeroSection);
   }
 
   // Tap button & overlay listeners
   if (introTapBtn) {
     introTapBtn.addEventListener('click', handleIntroInteraction);
+    introTapBtn.addEventListener('touchend', handleIntroInteraction);
   }
   if (peacockOverlay) {
     peacockOverlay.addEventListener('click', handleIntroInteraction);
+    peacockOverlay.addEventListener('touchend', handleIntroInteraction);
   }
 
   // 2. AUDIO PLAY / MUTE TOGGLE
@@ -252,6 +286,8 @@ document.addEventListener('DOMContentLoaded', () => {
       gallerySubtitle: "Capturing our best moments",
       familiesTitle: "Our Families",
       familiesSubtitle: "With the blessings of our parents",
+      extendedFamilyTitle: "Family & Relatives",
+      extendedFamilySubtitle: "With heartfelt love & blessings of all family members",
       groomFamily: "GROOM'S FAMILY",
       brideFamily: "BRIDE'S FAMILY",
       rsvpTitle: "RSVP",
@@ -276,6 +312,8 @@ document.addEventListener('DOMContentLoaded', () => {
       gallerySubtitle: "हमारी प्यारी यादें",
       familiesTitle: "हमारे परिवार",
       familiesSubtitle: "माता-पिता एवं बड़ों के आशीर्वाद से",
+      extendedFamilyTitle: "स्नेहीजन एवं परिजन",
+      extendedFamilySubtitle: "समस्त परिवारजनों के शुभाशीष एवं मंगलकामनाएं",
       groomFamily: "वर पक्ष",
       brideFamily: "वधू पक्ष",
       rsvpTitle: "निमंत्रण स्वीकार करें",
@@ -300,6 +338,8 @@ document.addEventListener('DOMContentLoaded', () => {
       gallerySubtitle: "શ્રેષ્ઠ પળો",
       familiesTitle: "અમારા પરિવારો",
       familiesSubtitle: "વડીલોના આશીર્વાદ સાથે",
+      extendedFamilyTitle: "સ્નેહીજનો અને પરિવાર",
+      extendedFamilySubtitle: "સમસ્ત પરિવારજનોના આશીર્વાદ અને સ્નેહ સાથે",
       groomFamily: "વર પક્ષ",
       brideFamily: "કન્યા પક્ષ",
       rsvpTitle: "આરએસવીપી",
@@ -324,6 +364,8 @@ document.addEventListener('DOMContentLoaded', () => {
       gallerySubtitle: "ਸਾਡੇ ਖ਼ਾਸ ਪਲ",
       familiesTitle: "ਸਾਡੇ ਪਰਿਵਾਰ",
       familiesSubtitle: "ਵੱਡਿਆਂ ਦੇ ਆਸ਼ੀਰਵਾਦ ਨਾਲ",
+      extendedFamilyTitle: "ਪਰਿਵਾਰ ਅਤੇ ਰਿਸ਼ਤੇਦਾਰ",
+      extendedFamilySubtitle: "ਸਾਰੇ ਪਰਿਵਾਰਕ ਮੈਂਬਰਾਂ ਦੇ ਪਿਆਰ ਅਤੇ ਅਸੀਸਾਂ ਨਾਲ",
       groomFamily: "ਲਾੜੇ ਦਾ ਪਰਿਵਾਰ",
       brideFamily: "ਲਾੜੀ ਦਾ ਪਰਿਵਾਰ",
       rsvpTitle: "ਆਰ.ਐੱਸ.ਵੀ.ਪੀ.",
