@@ -4,7 +4,7 @@
 
 # 1. All HTML pages & routes: Never cache stale version, always revalidate immediately
 /*
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: no-cache, no-store, must-revalidate
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
 
