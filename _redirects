@@ -10,6 +10,16 @@
 # 3. 200 Rewrite: Proxies all internal assets, scripts, media and stylesheets directly
 # ==============================================================================
 
+# Client: bhavanishree-weds-ashish (Dr. Bhavanishree & Ashish)
+/bhavanishree-weds-ashish         /bhavanishree-weds-ashish/                               301
+/bhavanishree-weds-ashish/        /invitations/bhavanishree-weds-ashish/index.html         200
+/bhavanishree-weds-ashish/*       /invitations/bhavanishree-weds-ashish/:splat             200
+
+# Client alias: ashish-weds-bhavanishree
+/ashish-weds-bhavanishree         /bhavanishree-weds-ashish/                               301
+/ashish-weds-bhavanishree/        /bhavanishree-weds-ashish/                               301
+/ashish-weds-bhavanishree/*       /bhavanishree-weds-ashish/:splat                         301
+
 # Client: sameeksha-weds-kiran (Sameeksha & Kiran)
 /sameeksha-weds-kiran         /sameeksha-weds-kiran/                               301
 /sameeksha-weds-kiran/        /invitations/sameeksha-weds-kiran/index.html         200

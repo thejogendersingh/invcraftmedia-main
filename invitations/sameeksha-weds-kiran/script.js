@@ -47,8 +47,8 @@
           date: "27th November, 2026",
           time: "8:00 AM onwards",
           venueArea: "GSB SABHABHAVAN",
-          venueName: "Sibrakatte, Yedthady, Karnataka 576210",
-          mapUrl: "https://www.google.com/maps/search/?api=1&query=GSB+SABHABHAVAN+Sibrakatte+Yedthady+Karnataka+576210",
+          venueName: "Saibrakatte, Yedthady, Karnataka 576210",
+          mapUrl: "https://www.google.com/maps/search/?api=1&query=GSB+SABHABHAVAN+Saibrakatte+Yedthady+Karnataka+576210",
           image: "assets/box1.webp"
         },
         {
