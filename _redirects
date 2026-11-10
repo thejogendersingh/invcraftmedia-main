@@ -10,15 +10,25 @@
 # 3. 200 Rewrite: Proxies all internal assets, scripts, media and stylesheets directly
 # ==============================================================================
 
+# Client: krishna-weds-shreya (Active Live Client)
+/krishna-weds-shreya         /krishna-weds-shreya/                               301
+/krishna-weds-shreya/        /invitations/krishna-weds-shreya/index.html         200
+/krishna-weds-shreya/*       /invitations/krishna-weds-shreya/:splat             200
+
+# Client: krishna-weds-shreya-invitation (Active Live Client)
+/krishna-weds-shreya-invitation         /krishna-weds-shreya-invitation/                               301
+/krishna-weds-shreya-invitation/        /invitations/krishna-weds-shreya-invitation/index.html         200
+/krishna-weds-shreya-invitation/*       /invitations/krishna-weds-shreya-invitation/:splat             200
+
 # Client: bhavanishree-weds-ashish (Dr. Bhavanishree & Ashish)
 /bhavanishree-weds-ashish         /bhavanishree-weds-ashish/                               301
 /bhavanishree-weds-ashish/        /invitations/bhavanishree-weds-ashish/index.html         200
 /bhavanishree-weds-ashish/*       /invitations/bhavanishree-weds-ashish/:splat             200
 
 # Client alias: ashish-weds-bhavanishree
-/ashish-weds-bhavanishree         /bhavanishree-weds-ashish/                               301
-/ashish-weds-bhavanishree/        /bhavanishree-weds-ashish/                               301
-/ashish-weds-bhavanishree/*       /bhavanishree-weds-ashish/:splat                         301
+/ashish-weds-bhavanishree         /ashish-weds-bhavanishree/                               301
+/ashish-weds-bhavanishree/        /invitations/bhavanishree-weds-ashish/index.html         200
+/ashish-weds-bhavanishree/*       /invitations/bhavanishree-weds-ashish/:splat             200
 
 # Client: sameeksha-weds-kiran (Sameeksha & Kiran)
 /sameeksha-weds-kiran         /sameeksha-weds-kiran/                               301
@@ -26,258 +36,215 @@
 /sameeksha-weds-kiran/*       /invitations/sameeksha-weds-kiran/:splat             200
 
 # Client alias: kiran-weds-sameeksha
-/kiran-weds-sameeksha         /sameeksha-weds-kiran/                               301
-/kiran-weds-sameeksha/        /sameeksha-weds-kiran/                               301
-/kiran-weds-sameeksha/*       /sameeksha-weds-kiran/:splat                         301
+/kiran-weds-sameeksha         /kiran-weds-sameeksha/                               301
+/kiran-weds-sameeksha/        /invitations/sameeksha-weds-kiran/index.html         200
+/kiran-weds-sameeksha/*       /invitations/sameeksha-weds-kiran/:splat             200
 
-# Client: amrita-abhishek-wedding (Double Wedding - Brother & Sister: Amrita & Abhishek)
-# 1. Clear All-4-Names URL: /amrita-saurabh-abhishek-shubha/
-/amrita-saurabh-abhishek-shubha         /amrita-saurabh-abhishek-shubha/              301
-/amrita-saurabh-abhishek-shubha/        /invitations/amrita-abhishek-wedding/index.html 200
-/amrita-saurabh-abhishek-shubha/*       /invitations/amrita-abhishek-wedding/:splat   200
+# Client: amrita-abhishek-wedding
+/amrita-abhishek-wedding         /amrita-abhishek-wedding/                               301
+/amrita-abhishek-wedding/        /invitations/amrita-abhishek-wedding/index.html         200
+/amrita-abhishek-wedding/*       /invitations/amrita-abhishek-wedding/:splat             200
 
-# 2. Clear Hindi Brother-Sister URL: /amrita-aur-abhishek-ki-shadi/
-/amrita-aur-abhishek-ki-shadi           /amrita-aur-abhishek-ki-shadi/                301
-/amrita-aur-abhishek-ki-shadi/          /invitations/amrita-abhishek-wedding/index.html 200
-/amrita-aur-abhishek-ki-shadi/*         /invitations/amrita-abhishek-wedding/:splat   200
+# Client alias: amrita-saurabh-abhishek-shubha
+/amrita-saurabh-abhishek-shubha         /amrita-saurabh-abhishek-shubha/                               301
+/amrita-saurabh-abhishek-shubha/        /invitations/amrita-abhishek-wedding/index.html         200
+/amrita-saurabh-abhishek-shubha/*       /invitations/amrita-abhishek-wedding/:splat             200
 
-# 3. Clear English Joint Wedding URL: /amrita-abhishek-joint-wedding/
-/amrita-abhishek-joint-wedding          /amrita-abhishek-joint-wedding/               301
-/amrita-abhishek-joint-wedding/         /invitations/amrita-abhishek-wedding/index.html 200
-/amrita-abhishek-joint-wedding/*        /invitations/amrita-abhishek-wedding/:splat   200
+# Client alias: amrita-aur-abhishek-ki-shadi
+/amrita-aur-abhishek-ki-shadi         /amrita-aur-abhishek-ki-shadi/                               301
+/amrita-aur-abhishek-ki-shadi/        /invitations/amrita-abhishek-wedding/index.html         200
+/amrita-aur-abhishek-ki-shadi/*       /invitations/amrita-abhishek-wedding/:splat             200
 
-# 4. Short Brother-Sister URL: /amrita-aur-abhishek/
-/amrita-aur-abhishek                    /amrita-aur-abhishek/                         301
-/amrita-aur-abhishek/                   /invitations/amrita-abhishek-wedding/index.html 200
-/amrita-aur-abhishek/*                  /invitations/amrita-abhishek-wedding/:splat   200
+# Client alias: amrita-abhishek-joint-wedding
+/amrita-abhishek-joint-wedding         /amrita-abhishek-joint-wedding/                               301
+/amrita-abhishek-joint-wedding/        /invitations/amrita-abhishek-wedding/index.html         200
+/amrita-abhishek-joint-wedding/*       /invitations/amrita-abhishek-wedding/:splat             200
 
-# 5. Family & Backward Compatibility URLs:
-/singh-parivaar-vivah                   /singh-parivaar-vivah/                        301
-/singh-parivaar-vivah/                  /invitations/amrita-abhishek-wedding/index.html 200
-/singh-parivaar-vivah/*                 /invitations/amrita-abhishek-wedding/:splat   200
-/amrita-abhishek-wedding                /amrita-abhishek-wedding/                     301
-/amrita-abhishek-wedding/               /invitations/amrita-abhishek-wedding/index.html 200
-/amrita-abhishek-wedding/*              /invitations/amrita-abhishek-wedding/:splat   200
-/singh-parivaar-mahotsav                /amrita-saurabh-abhishek-shubha/              301
-/singh-parivaar-mahotsav/               /amrita-saurabh-abhishek-shubha/              301
-/singh-parivaar-mahotsav/*              /amrita-saurabh-abhishek-shubha/:splat        301
+# Client alias: amrita-aur-abhishek
+/amrita-aur-abhishek         /amrita-aur-abhishek/                               301
+/amrita-aur-abhishek/        /invitations/amrita-abhishek-wedding/index.html         200
+/amrita-aur-abhishek/*       /invitations/amrita-abhishek-wedding/:splat             200
 
-# Client: nitin-weds-suman (Active new client - Nitin & Suman)
-/nitin-weds-suman         /nitin-weds-suman/                                     301
-/nitin-weds-suman/        /invitations/nitin-weds-suman/index.html               200
-/nitin-weds-suman/*       /invitations/nitin-weds-suman/:splat                   200
+# Client alias: singh-parivaar-vivah
+/singh-parivaar-vivah         /singh-parivaar-vivah/                               301
+/singh-parivaar-vivah/        /invitations/amrita-abhishek-wedding/index.html         200
+/singh-parivaar-vivah/*       /invitations/amrita-abhishek-wedding/:splat             200
 
-# Client: suman-weds-nitin (alias -> 301 redirect)
-/suman-weds-nitin         /nitin-weds-suman/                                     301
-/suman-weds-nitin/        /nitin-weds-suman/                                     301
-/suman-weds-nitin/*       /nitin-weds-suman/:splat                               301
+# Client alias: singh-parivaar-mahotsav
+/singh-parivaar-mahotsav         /singh-parivaar-mahotsav/                               301
+/singh-parivaar-mahotsav/        /invitations/amrita-abhishek-wedding/index.html         200
+/singh-parivaar-mahotsav/*       /invitations/amrita-abhishek-wedding/:splat             200
 
-# Client: madhu-weds-madhav (Active new client - Rajmahal Palace Theme)
-/madhu-weds-madhav         /madhu-weds-madhav/                                     301
-/madhu-weds-madhav/        /invitations/madhu-weds-madhav/index.html               200
-/madhu-weds-madhav/*       /invitations/madhu-weds-madhav/:splat                   200
+# Client: nitin-weds-suman (Nitin & Suman)
+/nitin-weds-suman         /nitin-weds-suman/                               301
+/nitin-weds-suman/        /invitations/nitin-weds-suman/index.html         200
+/nitin-weds-suman/*       /invitations/nitin-weds-suman/:splat             200
 
-# Client: madhav-weds-madhu (Active client - Groom side - Dr. Madhav & Dr. Madhu)
-/madhav-weds-madhu         /madhav-weds-madhu/                                     301
-/madhav-weds-madhu/        /invitations/madhav-weds-madhu/index.html               200
-/madhav-weds-madhu/*       /invitations/madhav-weds-madhu/:splat                   200
+# Client alias: suman-weds-nitin
+/suman-weds-nitin         /suman-weds-nitin/                               301
+/suman-weds-nitin/        /invitations/nitin-weds-suman/index.html         200
+/suman-weds-nitin/*       /invitations/nitin-weds-suman/:splat             200
 
-# Client: aniket-weds-priyanka (Active new client - Hindu Wedding)
-/aniket-weds-priyanka         /aniket-weds-priyanka/                                     301
-/aniket-weds-priyanka/        /invitations/aniket-weds-priyanka/index.html               200
-/aniket-weds-priyanka/*       /invitations/aniket-weds-priyanka/:splat                   200
+# Client: madhu-weds-madhav (Dr. Madhav & Dr. Madhu)
+/madhu-weds-madhav         /madhu-weds-madhav/                               301
+/madhu-weds-madhav/        /invitations/madhu-weds-madhav/index.html         200
+/madhu-weds-madhav/*       /invitations/madhu-weds-madhav/:splat             200
 
-# Client: priyanka-weds-aniket (alias -> 301 redirect)
-/priyanka-weds-aniket         /aniket-weds-priyanka/                                     301
-/priyanka-weds-aniket/        /aniket-weds-priyanka/                                     301
-/priyanka-weds-aniket/*       /aniket-weds-priyanka/:splat                               301
+# Client: madhav-weds-madhu (Dr. Madhav & Dr. Madhu Groom Side)
+/madhav-weds-madhu         /madhav-weds-madhu/                               301
+/madhav-weds-madhu/        /invitations/madhav-weds-madhu/index.html         200
+/madhav-weds-madhu/*       /invitations/madhav-weds-madhu/:splat             200
 
-# Client: shouvik-weds-sneha (Active new client - Gilded Hall Reception)
-/shouvik-weds-sneha         /shouvik-weds-sneha/                                     301
-/shouvik-weds-sneha/        /invitations/shouvik-weds-sneha/index.html               200
-/shouvik-weds-sneha/*       /invitations/shouvik-weds-sneha/:splat                   200
+# Client: aniket-weds-priyanka
+/aniket-weds-priyanka         /aniket-weds-priyanka/                               301
+/aniket-weds-priyanka/        /invitations/aniket-weds-priyanka/index.html         200
+/aniket-weds-priyanka/*       /invitations/aniket-weds-priyanka/:splat             200
 
-# Client: sneha-weds-shouvik (alias -> 301 redirect)
-/sneha-weds-shouvik         /shouvik-weds-sneha/                                     301
-/sneha-weds-shouvik/        /shouvik-weds-sneha/                                     301
-/sneha-weds-shouvik/*       /shouvik-weds-sneha/:splat                               301
+# Client alias: priyanka-weds-aniket
+/priyanka-weds-aniket         /priyanka-weds-aniket/                               301
+/priyanka-weds-aniket/        /invitations/aniket-weds-priyanka/index.html         200
+/priyanka-weds-aniket/*       /invitations/aniket-weds-priyanka/:splat             200
 
-# Client: nikhitha-weds-nagarjuna (Primary active client)
-/nikhitha-weds-nagarjuna         /nikhitha-weds-nagarjuna/                                     301
-/nikhitha-weds-nagarjuna/        /invitations/nikhitha-weds-nagarjuna/index.html               200
-/nikhitha-weds-nagarjuna/*       /invitations/nikhitha-weds-nagarjuna/:splat                   200
+# Client: shouvik-weds-sneha
+/shouvik-weds-sneha         /shouvik-weds-sneha/                               301
+/shouvik-weds-sneha/        /invitations/shouvik-weds-sneha/index.html         200
+/shouvik-weds-sneha/*       /invitations/shouvik-weds-sneha/:splat             200
+
+# Client alias: sneha-weds-shouvik
+/sneha-weds-shouvik         /sneha-weds-shouvik/                               301
+/sneha-weds-shouvik/        /invitations/shouvik-weds-sneha/index.html         200
+/sneha-weds-shouvik/*       /invitations/shouvik-weds-sneha/:splat             200
+
+# Client: nikhitha-weds-nagarjuna
+/nikhitha-weds-nagarjuna         /nikhitha-weds-nagarjuna/                               301
+/nikhitha-weds-nagarjuna/        /invitations/nikhitha-weds-nagarjuna/index.html         200
+/nikhitha-weds-nagarjuna/*       /invitations/nikhitha-weds-nagarjuna/:splat             200
 
 # Client: nagarjuna-weds-nikhitha
-/nagarjuna-weds-nikhitha         /nagarjuna-weds-nikhitha/                                     301
-/nagarjuna-weds-nikhitha/        /invitations/nagarjuna-weds-nikhitha/index.html               200
-/nagarjuna-weds-nikhitha/*       /invitations/nagarjuna-weds-nikhitha/:splat                   200
+/nagarjuna-weds-nikhitha         /nagarjuna-weds-nikhitha/                               301
+/nagarjuna-weds-nikhitha/        /invitations/nagarjuna-weds-nikhitha/index.html         200
+/nagarjuna-weds-nikhitha/*       /invitations/nagarjuna-weds-nikhitha/:splat             200
 
 # Client: abhijit-weds-sumona
-/abhijit-weds-sumona        /abhijit-weds-sumona/                                    301
-/abhijit-weds-sumona/       /invitations/abhijit-weds-sumona/index.html              200
-/abhijit-weds-sumona/*      /invitations/abhijit-weds-sumona/:splat                  200
+/abhijit-weds-sumona/        /invitations/abhijit-weds-sumona/index.html         200
+/abhijit-weds-sumona/*       /invitations/abhijit-weds-sumona/:splat             200
 
 # Client: aditya-weds-naina
-/aditya-weds-naina        /aditya-weds-naina/                                    301
-/aditya-weds-naina/       /invitations/aditya-weds-naina/index.html              200
-/aditya-weds-naina/*      /invitations/aditya-weds-naina/:splat                  200
+/aditya-weds-naina/        /invitations/aditya-weds-naina/index.html         200
+/aditya-weds-naina/*       /invitations/aditya-weds-naina/:splat             200
+
+# Client: amit-weds-urvashi
+/amit-weds-urvashi/        /invitations/amit-weds-urvashi/index.html         200
+/amit-weds-urvashi/*       /invitations/amit-weds-urvashi/:splat             200
 
 # Client: aniket-weds-nandini
-/aniket-weds-nandini        /aniket-weds-nandini/                                    301
-/aniket-weds-nandini/       /invitations/aniket-weds-nandini/index.html              200
-/aniket-weds-nandini/*      /invitations/aniket-weds-nandini/:splat                  200
-
-
-# Client: balu-weds-sankeerthana
-/balu-weds-sankeerthana        /balu-weds-sankeerthana/                                    301
-/balu-weds-sankeerthana/       /invitations/balu-weds-sankeerthana/index.html              200
-/balu-weds-sankeerthana/*      /invitations/balu-weds-sankeerthana/:splat                  200
-# Client: amit-weds-urvashi
-/amit-weds-urvashi        /amit-weds-urvashi/                                    301
-/amit-weds-urvashi/       /invitations/amit-weds-urvashi/index.html              200
-/amit-weds-urvashi/*      /invitations/amit-weds-urvashi/:splat                  200
+/aniket-weds-nandini/        /invitations/aniket-weds-nandini/index.html         200
+/aniket-weds-nandini/*       /invitations/aniket-weds-nandini/:splat             200
 
 # Client: ankush-weds-muskan
-/ankush-weds-muskan        /ankush-weds-muskan/                                    301
-/ankush-weds-muskan/       /invitations/ankush-weds-muskan/index.html              200
-/ankush-weds-muskan/*      /invitations/ankush-weds-muskan/:splat                  200
+/ankush-weds-muskan/        /invitations/ankush-weds-muskan/index.html         200
+/ankush-weds-muskan/*       /invitations/ankush-weds-muskan/:splat             200
 
 # Client: apurva-weds-srishti
-/apurva-weds-srishti        /apurva-weds-srishti/                                    301
-/apurva-weds-srishti/       /invitations/apurva-weds-srishti/index.html              200
-/apurva-weds-srishti/*      /invitations/apurva-weds-srishti/:splat                  200
+/apurva-weds-srishti/        /invitations/apurva-weds-srishti/index.html         200
+/apurva-weds-srishti/*       /invitations/apurva-weds-srishti/:splat             200
 
 # Client: arpan-weds-kirti
-/arpan-weds-kirti        /arpan-weds-kirti/                                    301
-/arpan-weds-kirti/       /invitations/arpan-weds-kirti/index.html              200
-/arpan-weds-kirti/*      /invitations/arpan-weds-kirti/:splat                  200
+/arpan-weds-kirti/        /invitations/arpan-weds-kirti/index.html         200
+/arpan-weds-kirti/*       /invitations/arpan-weds-kirti/:splat             200
 
 # Client: atishay-weds-shivani
-/atishay-weds-shivani        /atishay-weds-shivani/                                    301
-/atishay-weds-shivani/       /invitations/atishay-weds-shivani/index.html              200
-/atishay-weds-shivani/*      /invitations/atishay-weds-shivani/:splat                  200
+/atishay-weds-shivani/        /invitations/atishay-weds-shivani/index.html         200
+/atishay-weds-shivani/*       /invitations/atishay-weds-shivani/:splat             200
+
+# Client: balu-weds-sankeerthana
+/balu-weds-sankeerthana/        /invitations/balu-weds-sankeerthana/index.html         200
+/balu-weds-sankeerthana/*       /invitations/balu-weds-sankeerthana/:splat             200
 
 # Client: dharmendra-weds-sanchita
-/dharmendra-weds-sanchita        /dharmendra-weds-sanchita/                                    301
-/dharmendra-weds-sanchita/       /invitations/dharmendra-weds-sanchita/index.html              200
-/dharmendra-weds-sanchita/*      /invitations/dharmendra-weds-sanchita/:splat                  200
+/dharmendra-weds-sanchita/        /invitations/dharmendra-weds-sanchita/index.html         200
+/dharmendra-weds-sanchita/*       /invitations/dharmendra-weds-sanchita/:splat             200
 
 # Client: fresin-weds-leema
-/fresin-weds-leema        /fresin-weds-leema/                                    301
-/fresin-weds-leema/       /invitations/fresin-weds-leema/index.html              200
-/fresin-weds-leema/*      /invitations/fresin-weds-leema/:splat                  200
+/fresin-weds-leema/        /invitations/fresin-weds-leema/index.html         200
+/fresin-weds-leema/*       /invitations/fresin-weds-leema/:splat             200
 
 # Client: gaurav-weds-shilpi
-/gaurav-weds-shilpi        /gaurav-weds-shilpi/                                    301
-/gaurav-weds-shilpi/       /invitations/gaurav-weds-shilpi/index.html              200
-/gaurav-weds-shilpi/*      /invitations/gaurav-weds-shilpi/:splat                  200
+/gaurav-weds-shilpi/        /invitations/gaurav-weds-shilpi/index.html         200
+/gaurav-weds-shilpi/*       /invitations/gaurav-weds-shilpi/:splat             200
 
 # Client: harsh-weds-bhavana
-/harsh-weds-bhavana        /harsh-weds-bhavana/                                    301
-/harsh-weds-bhavana/       /invitations/harsh-weds-bhavana/index.html              200
-/harsh-weds-bhavana/*      /invitations/harsh-weds-bhavana/:splat                  200
+/harsh-weds-bhavana/        /invitations/harsh-weds-bhavana/index.html         200
+/harsh-weds-bhavana/*       /invitations/harsh-weds-bhavana/:splat             200
 
 # Client: harshitha-weds-manohar
-/harshitha-weds-manohar        /harshitha-weds-manohar/                                    301
-/harshitha-weds-manohar/       /invitations/harshitha-weds-manohar/index.html              200
-/harshitha-weds-manohar/*      /invitations/harshitha-weds-manohar/:splat                  200
+/harshitha-weds-manohar/        /invitations/harshitha-weds-manohar/index.html         200
+/harshitha-weds-manohar/*       /invitations/harshitha-weds-manohar/:splat             200
 
 # Client: kaushal-weds-priya
-/kaushal-weds-priya        /kaushal-weds-priya/                                    301
-/kaushal-weds-priya/       /invitations/kaushal-weds-priya/index.html              200
-/kaushal-weds-priya/*      /invitations/kaushal-weds-priya/:splat                  200
+/kaushal-weds-priya/        /invitations/kaushal-weds-priya/index.html         200
+/kaushal-weds-priya/*       /invitations/kaushal-weds-priya/:splat             200
 
 # Client: khusbhu-weds-palkesh
-/khusbhu-weds-palkesh        /khusbhu-weds-palkesh/                                    301
-/khusbhu-weds-palkesh/       /invitations/khusbhu-weds-palkesh/index.html              200
-/khusbhu-weds-palkesh/*      /invitations/khusbhu-weds-palkesh/:splat                  200
-
-# Client: krishna-weds-shreya
-/krishna-weds-shreya        /krishna-weds-shreya/                                    301
-/krishna-weds-shreya/       /invitations/krishna-weds-shreya/index.html              200
-/krishna-weds-shreya/*      /invitations/krishna-weds-shreya/:splat                  200
-
-# Client: krishna-weds-shreya-invitation
-/krishna-weds-shreya-invitation        /krishna-weds-shreya-invitation/                                    301
-/krishna-weds-shreya-invitation/       /invitations/krishna-weds-shreya-invitation/index.html              200
-/krishna-weds-shreya-invitation/*      /invitations/krishna-weds-shreya-invitation/:splat                  200
+/khusbhu-weds-palkesh/        /invitations/khusbhu-weds-palkesh/index.html         200
+/khusbhu-weds-palkesh/*       /invitations/khusbhu-weds-palkesh/:splat             200
 
 # Client: manohar-weds-harshitha
-/manohar-weds-harshitha        /manohar-weds-harshitha/                                    301
-/manohar-weds-harshitha/       /invitations/manohar-weds-harshitha/index.html              200
-/manohar-weds-harshitha/*      /invitations/manohar-weds-harshitha/:splat                  200
+/manohar-weds-harshitha/        /invitations/manohar-weds-harshitha/index.html         200
+/manohar-weds-harshitha/*       /invitations/manohar-weds-harshitha/:splat             200
 
 # Client: navtinder-weds-shubham
-/navtinder-weds-shubham        /navtinder-weds-shubham/                                    301
-/navtinder-weds-shubham/       /invitations/navtinder-weds-shubham/index.html              200
-/navtinder-weds-shubham/*      /invitations/navtinder-weds-shubham/:splat                  200
+/navtinder-weds-shubham/        /invitations/navtinder-weds-shubham/index.html         200
+/navtinder-weds-shubham/*       /invitations/navtinder-weds-shubham/:splat             200
 
 # Client: palkesh-weds-khushbu
-/palkesh-weds-khushbu        /palkesh-weds-khushbu/                                    301
-/palkesh-weds-khushbu/       /invitations/palkesh-weds-khushbu/index.html              200
-/palkesh-weds-khushbu/*      /invitations/palkesh-weds-khushbu/:splat                  200
+/palkesh-weds-khushbu/        /invitations/palkesh-weds-khushbu/index.html         200
+/palkesh-weds-khushbu/*       /invitations/palkesh-weds-khushbu/:splat             200
 
 # Client: rsvp-unnati-weds-nisarg
-/rsvp-unnati-weds-nisarg        /rsvp-unnati-weds-nisarg/                                    301
-/rsvp-unnati-weds-nisarg/       /invitations/rsvp-unnati-weds-nisarg/index.html              200
-/rsvp-unnati-weds-nisarg/*      /invitations/rsvp-unnati-weds-nisarg/:splat                  200
+/rsvp-unnati-weds-nisarg/        /invitations/rsvp-unnati-weds-nisarg/index.html         200
+/rsvp-unnati-weds-nisarg/*       /invitations/rsvp-unnati-weds-nisarg/:splat             200
 
 # Client: sanchita-weds-dharmendhra
-/sanchita-weds-dharmendhra        /sanchita-weds-dharmendhra/                                    301
-/sanchita-weds-dharmendhra/       /invitations/sanchita-weds-dharmendhra/index.html              200
-/sanchita-weds-dharmendhra/*      /invitations/sanchita-weds-dharmendhra/:splat                  200
+/sanchita-weds-dharmendhra/        /invitations/sanchita-weds-dharmendhra/index.html         200
+/sanchita-weds-dharmendhra/*       /invitations/sanchita-weds-dharmendhra/:splat             200
 
 # Client: shagun-weds-chakshu
-/shagun-weds-chakshu        /shagun-weds-chakshu/                                    301
-/shagun-weds-chakshu/       /invitations/shagun-weds-chakshu/index.html              200
-/shagun-weds-chakshu/*      /invitations/shagun-weds-chakshu/:splat                  200
+/shagun-weds-chakshu/        /invitations/shagun-weds-chakshu/index.html         200
+/shagun-weds-chakshu/*       /invitations/shagun-weds-chakshu/:splat             200
 
 # Client: shivani-weds-atishay
-/shivani-weds-atishay        /shivani-weds-atishay/                                    301
-/shivani-weds-atishay/       /invitations/shivani-weds-atishay/index.html              200
-/shivani-weds-atishay/*      /invitations/shivani-weds-atishay/:splat                  200
+/shivani-weds-atishay/        /invitations/shivani-weds-atishay/index.html         200
+/shivani-weds-atishay/*       /invitations/shivani-weds-atishay/:splat             200
 
 # Client: shubham-weds-anjali
-/shubham-weds-anjali        /shubham-weds-anjali/                                    301
-/shubham-weds-anjali/       /invitations/shubham-weds-anjali/index.html              200
-/shubham-weds-anjali/*      /invitations/shubham-weds-anjali/:splat                  200
+/shubham-weds-anjali/        /invitations/shubham-weds-anjali/index.html         200
+/shubham-weds-anjali/*       /invitations/shubham-weds-anjali/:splat             200
 
 # Client: shubham-weds-navtinder
-/shubham-weds-navtinder        /shubham-weds-navtinder/                                    301
-/shubham-weds-navtinder/       /invitations/shubham-weds-navtinder/index.html              200
-/shubham-weds-navtinder/*      /invitations/shubham-weds-navtinder/:splat                  200
+/shubham-weds-navtinder/        /invitations/shubham-weds-navtinder/index.html         200
+/shubham-weds-navtinder/*       /invitations/shubham-weds-navtinder/:splat             200
 
 # Client: suvarna-weds-suraj
-/suvarna-weds-suraj        /suvarna-weds-suraj/                                    301
-/suvarna-weds-suraj/       /invitations/suvarna-weds-suraj/index.html              200
-/suvarna-weds-suraj/*      /invitations/suvarna-weds-suraj/:splat                  200
+/suvarna-weds-suraj/        /invitations/suvarna-weds-suraj/index.html         200
+/suvarna-weds-suraj/*       /invitations/suvarna-weds-suraj/:splat             200
 
 # Client: unnati-weds-nisarg
-/unnati-weds-nisarg        /unnati-weds-nisarg/                                    301
-/unnati-weds-nisarg/       /invitations/unnati-weds-nisarg/index.html              200
-/unnati-weds-nisarg/*      /invitations/unnati-weds-nisarg/:splat                  200
+/unnati-weds-nisarg/        /invitations/unnati-weds-nisarg/index.html         200
+/unnati-weds-nisarg/*       /invitations/unnati-weds-nisarg/:splat             200
 
-# ==============================================================================
-# SPELLING & SLUG ALIASES (Guarantees zero 404s for common typos & variants)
-# ==============================================================================
+# Client alias: khushbu-weds-palkesh
+/khushbu-weds-palkesh/        /invitations/khusbhu-weds-palkesh/index.html         200
+/khushbu-weds-palkesh/*       /invitations/khusbhu-weds-palkesh/:splat             200
 
-# Client: khushbu-weds-palkesh (standard spelling for khusbhu-weds-palkesh)
-/khushbu-weds-palkesh        /khushbu-weds-palkesh/                                    301
-/khushbu-weds-palkesh/       /invitations/khusbhu-weds-palkesh/index.html              200
-/khushbu-weds-palkesh/*      /invitations/khusbhu-weds-palkesh/:splat                  200
+# Client alias: sanchita-weds-dharmendra
+/sanchita-weds-dharmendra/        /invitations/sanchita-weds-dharmendhra/index.html         200
+/sanchita-weds-dharmendra/*       /invitations/sanchita-weds-dharmendhra/:splat             200
 
-# Client: sanchita-weds-dharmendra (standard spelling for sanchita-weds-dharmendhra)
-/sanchita-weds-dharmendra        /sanchita-weds-dharmendra/                                    301
-/sanchita-weds-dharmendra/       /invitations/sanchita-weds-dharmendhra/index.html              200
-/sanchita-weds-dharmendra/*      /invitations/sanchita-weds-dharmendhra/:splat                  200
+# Client alias: dharmendhra-weds-sanchita
+/dharmendhra-weds-sanchita/        /invitations/dharmendra-weds-sanchita/index.html         200
+/dharmendhra-weds-sanchita/*       /invitations/dharmendra-weds-sanchita/:splat             200
 
-# Client: dharmendhra-weds-sanchita (variant spelling for dharmendra-weds-sanchita)
-/dharmendhra-weds-sanchita       /dharmendhra-weds-sanchita/                                   301
-/dharmendhra-weds-sanchita/      /invitations/dharmendra-weds-sanchita/index.html              200
-/dharmendhra-weds-sanchita/*     /invitations/dharmendra-weds-sanchita/:splat                  200
-
-# Client: palkesh-weds-khusbhu (variant spelling for palkesh-weds-khushbu)
-/palkesh-weds-khusbhu            /palkesh-weds-khusbhu/                                        301
-/palkesh-weds-khusbhu/           /invitations/palkesh-weds-khushbu/index.html                  200
-/palkesh-weds-khusbhu/*          /invitations/palkesh-weds-khushbu/:splat                      200
-
+# Client alias: palkesh-weds-khusbhu
+/palkesh-weds-khusbhu/        /invitations/palkesh-weds-khushbu/index.html         200
+/palkesh-weds-khusbhu/*       /invitations/palkesh-weds-khushbu/:splat             200
