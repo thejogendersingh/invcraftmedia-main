@@ -104,11 +104,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const introVideo = document.getElementById('intro-video');
   const introTapBtnContainer = document.getElementById('intro-tap-btn-container');
   const introTapBtn = document.getElementById('intro-tap-btn');
-  // Auto-play intro video gracefully (muted loop by default so mobile allows it instantly)
-  if (introVideo) {
-    introVideo.play().catch(() => {});
-  }
+  let isVideoPlaying = false;
 
+  // Function to reveal hero section and start wedding music
   function revealHeroSection() {
     if (isIntroOpened) return;
     isIntroOpened = true;
@@ -142,20 +140,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // When intro video ends, open the hero section automatically
+  // Handle touch/click on the intro overlay or button
+  function handleIntroInteraction(e) {
+    if (e) e.stopPropagation();
+    if (isIntroOpened) return;
+
+    if (!isVideoPlaying) {
+      // First touch: Hide the 'Tap to open' button completely!
+      isVideoPlaying = true;
+      if (introTapBtnContainer) {
+        introTapBtnContainer.style.opacity = '0';
+        introTapBtnContainer.style.transform = 'translateY(15px) scale(0.92)';
+        introTapBtnContainer.style.pointerEvents = 'none';
+      }
+
+      // Play the intro video with audio
+      if (introVideo) {
+        introVideo.currentTime = 0;
+        introVideo.muted = false;
+        const playPromise = introVideo.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            // Fallback to muted if browser blocks unmuted audio on gesture
+            introVideo.muted = true;
+            introVideo.play().catch(() => revealHeroSection());
+          });
+        }
+      } else {
+        revealHeroSection();
+      }
+    } else {
+      // Second touch while video is playing: Skip directly to invitation card!
+      revealHeroSection();
+    }
+  }
+
+  // When intro video ends naturally, open the hero section automatically
   if (introVideo) {
     introVideo.addEventListener('ended', revealHeroSection);
   }
 
-  // Tap button & overlay listeners: Immediately opens the card!
+  // Tap button & overlay listeners
   if (introTapBtn) {
-    introTapBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      revealHeroSection();
-    });
+    introTapBtn.addEventListener('click', handleIntroInteraction);
   }
   if (peacockOverlay) {
-    peacockOverlay.addEventListener('click', revealHeroSection);
+    peacockOverlay.addEventListener('click', handleIntroInteraction);
   }
 
   // 2. AUDIO PLAY / MUTE TOGGLE

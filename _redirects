@@ -36,12 +36,12 @@
 /kirti-weds-arpan/*       /invitations/arpan-weds-kirti/:splat             200
 
 # Client: shouvik-weds-sneha (Shouvik & Sneha)
-/shouvik-weds-sneha         /shouvik-weds-sneha/                               301
+/shouvik-weds-sneha         /shouvik-weds-sneha/                               302
 /shouvik-weds-sneha/        /invitations/shouvik-weds-sneha/index.html         200
 /shouvik-weds-sneha/*       /invitations/shouvik-weds-sneha/:splat             200
 
 # Client alias: sneha-weds-shouvik
-/sneha-weds-shouvik         /sneha-weds-shouvik/                               301
+/sneha-weds-shouvik         /sneha-weds-shouvik/                               302
 /sneha-weds-shouvik/        /invitations/shouvik-weds-sneha/index.html         200
 /sneha-weds-shouvik/*       /invitations/shouvik-weds-sneha/:splat             200
 
