@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
   <defs>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Cinzel:wght@700;800&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&amp;family=Cinzel:wght@700;800&amp;display=swap');
       .cursive-mono {
-        font-family: 'Great Vibes', 'Alex Brush', cursive;
-        font-size: 110px;
-        font-weight: 700;
+        font-family: 'Alex Brush', cursive;
+        font-size: 116px;
+        font-weight: 400;
         fill: #680d17;
       }
       .names-sub {
         font-family: 'Cinzel', serif;
-        font-size: 14px;
-        font-weight: 800;
-        letter-spacing: 5px;
+        font-size: 13.5px;
+        font-weight: 700;
+        letter-spacing: 4.5px;
         fill: #8a6014;
         text-transform: uppercase;
       }
@@ -51,9 +51,8 @@
     <circle cx="16" cy="-4" r="2"/>
   </g>
 
-  <!-- Perfectly Sized & Centered Cursive Monogram: A & B -->
-  <!-- Stays well within r=140 area, completely safe from border! -->
-  <text x="250" y="240" class="cursive-mono" text-anchor="middle">A &amp; B</text>
+  <!-- Perfectly Sized & Centered Cursive Monogram: Capital A & B in Alex Brush -->
+  <text x="250" y="242" class="cursive-mono" text-anchor="middle">A &amp; B</text>
 
   <!-- Names Subtitle -->
   <text x="250" y="295" class="names-sub" text-anchor="middle">ASHISH &amp; BHAVANISHREE</text>
