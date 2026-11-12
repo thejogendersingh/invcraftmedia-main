@@ -7,6 +7,30 @@
   Cache-Control: no-cache, no-store, must-revalidate
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
+/vishesh-weds-neha
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/vishesh-weds-neha/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/vishesh-weds-neha/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/invitations/vishesh-weds-neha/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/shreya-weds-krishna
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/shreya-weds-krishna/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/shreya-weds-krishna/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/invitations/shreya-weds-krishna/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
 
 /arpan-weds-kirti
   Cache-Control: no-cache, no-store, must-revalidate

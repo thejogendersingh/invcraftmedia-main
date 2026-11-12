@@ -1,4 +1,3 @@
-
 window.inviteutsavSiyaramData = {
   "skin": "siyaram-raghukul",
   "bride": {
@@ -306,6 +305,7 @@ window.inviteutsavSiyaramData = {
 
   /* ---------- 2. MOTION ---------- */
   function startIntro() { root.classList.add('siyaram-is-ready'); }
+  startIntro();
   var heroImages = $$('.siyaram-hero img').slice(0, 6);
   var pending = heroImages.filter(function (im) { return !im.complete; }).length;
   if (!pending) { startIntro(); }
@@ -316,7 +316,7 @@ window.inviteutsavSiyaramData = {
       im.addEventListener('load', done, { once: true });
       im.addEventListener('error', done, { once: true });
     });
-    window.setTimeout(startIntro, 2500);
+    window.setTimeout(startIntro, 400);
   }
 
   var reveals = $$('.siyaram-reveal');
@@ -660,7 +660,36 @@ window.inviteutsavSiyaramData = {
       canvas.addEventListener('pointercancel', stop);
       canvas.addEventListener('pointerenter', function (e) { if (!revealed && cursor && e.pointerType === 'mouse') { cursor.classList.add('is-active'); } });
       canvas.addEventListener('pointerleave', function () { if (!scratching && cursor) { cursor.classList.remove('is-active'); } });
+      heart.addEventListener('click', function () {
+        if (!revealed) {
+          done();
+        }
+      });
     });
+
+    if ('IntersectionObserver' in window) {
+      var dateObs = new IntersectionObserver(function (entries) {
+        if (entries[0] && entries[0].isIntersecting) {
+          hearts.forEach(function (h) {
+            var cv = h.querySelector('.siyaram-date__canvas');
+            if (cv && !cv.classList.contains('is-revealed')) {
+              var b = h.getBoundingClientRect();
+              if (b.width > 20 && Math.abs(cv.width - b.width) > 5) {
+                cv.width = Math.round(b.width);
+                cv.height = Math.round(b.height);
+                var c = cv.getContext('2d');
+                var g = c.createLinearGradient(0, 0, cv.width, cv.height);
+                g.addColorStop(0, '#a8452a'); g.addColorStop(0.5, '#7a2418'); g.addColorStop(1, '#4b0f16');
+                c.fillStyle = g; c.fillRect(0, 0, cv.width, cv.height);
+                c.strokeStyle = 'rgba(255,214,150,.20)'; c.lineWidth = 2;
+                for (var x = -cv.height; x < cv.width; x += 11) { c.beginPath(); c.moveTo(x, 0); c.lineTo(x + cv.height, cv.height); c.stroke(); }
+              }
+            }
+          });
+        }
+      }, { threshold: 0.1 });
+      dateObs.observe(box);
+    }
     // reduced motion: nothing to scratch, the date is simply shown
     if (reduceMotion) { $$('.siyaram-date__canvas', box).forEach(function (cv) { cv.style.display = 'none'; }); }
   })();
@@ -1026,4 +1055,94 @@ window.inviteutsavSiyaramData = {
   }
 
   if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); } else { init(); }
+})();
+
+/* ============ INTRO VIDEO: TOUCH TO PLAY COMPLETE VIDEO -> WHITE BLINK -> HERO ============ */
+(function initIntroVideo() {
+  var overlay = document.getElementById('intro-overlay');
+  var video = document.getElementById('intro-video');
+  var flash = document.getElementById('intro-white-flash');
+  var audio = document.querySelector('.siyaram-music__audio');
+  var musicWrap = document.querySelector('.siyaram-music-wrap');
+
+  if (!overlay || !video || !flash) { return; }
+
+  var isStarted = false;
+  var transitionStarted = false;
+
+  // STRICTLY PAUSED ON LOAD - NO TEXT, WAITS FOR FIRST TOUCH
+  video.pause();
+  try { video.currentTime = 0; } catch (e) {}
+
+  function triggerWhiteFlashTransition() {
+    if (transitionStarted) { return; }
+    transitionStarted = true;
+
+    // 1. Smooth slow white flash bloom in
+    flash.classList.add('is-flashing');
+
+    // 2. At peak of white flash (520ms), hide video, open hero and start background music
+    setTimeout(function () {
+      overlay.style.display = 'none';
+      try { video.pause(); } catch (e) {}
+
+      // Start background music
+      if (audio) {
+        var p = audio.play();
+        if (p && p.catch) { p.catch(function () {}); }
+        if (musicWrap) { musicWrap.classList.add('is-playing'); }
+      }
+
+      // 3. Smooth slow fade out of white revealing hero section
+      flash.classList.remove('is-flashing');
+      flash.classList.add('is-fading-out');
+
+      // 4. Remove flash layer completely after fade completes
+      setTimeout(function () {
+        flash.style.display = 'none';
+      }, 1000);
+    }, 520);
+  }
+
+  function startVideoOnFirstTouch() {
+    if (isStarted) {
+      // Video is ALREADY playing: MUST run completely, no interruption!
+      return;
+    }
+    isStarted = true;
+
+    // Remove touch listeners immediately so subsequent touches do nothing
+    overlay.removeEventListener('click', startVideoOnFirstTouch);
+    overlay.removeEventListener('touchend', startVideoOnFirstTouch);
+    overlay.removeEventListener('pointerup', startVideoOnFirstTouch);
+
+    // Play complete video with sound
+    video.muted = false;
+    var playPromise = video.play();
+    if (playPromise && playPromise.catch) {
+      playPromise.catch(function () {
+        // Fallback to muted if device restricts sound
+        video.muted = true;
+        video.play().catch(function () {});
+      });
+    }
+  }
+
+  // Listen for the first touch/click anywhere on screen to start
+  overlay.addEventListener('click', startVideoOnFirstTouch);
+  overlay.addEventListener('touchend', startVideoOnFirstTouch, { passive: true });
+  overlay.addEventListener('pointerup', startVideoOnFirstTouch, { passive: true });
+
+  // When video completes (near end at 5.3s of 6.02s clip), trigger smooth white blink transition
+  video.addEventListener('timeupdate', function () {
+    if (isStarted && !transitionStarted && video.currentTime >= 5.3) {
+      triggerWhiteFlashTransition();
+    }
+  });
+
+  video.addEventListener('ended', function () {
+    if (isStarted) {
+      triggerWhiteFlashTransition();
+    }
+  });
 })();

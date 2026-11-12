@@ -10,6 +10,11 @@
 # 3. 200 Rewrite: Proxies all internal assets, scripts, media and stylesheets directly
 # ==============================================================================
 
+# Client: vishesh-weds-neha (Active Live Client)
+/vishesh-weds-neha         /vishesh-weds-neha/                               302
+/vishesh-weds-neha/        /invitations/vishesh-weds-neha/index.html         200
+/vishesh-weds-neha/*       /invitations/vishesh-weds-neha/:splat             200
+
 # Client: krishna-weds-shreya (Active Live Client)
 /krishna-weds-shreya         /krishna-weds-shreya/                               301
 /krishna-weds-shreya/        /invitations/krishna-weds-shreya/index.html         200
@@ -262,8 +267,3 @@
 # Client alias: palkesh-weds-khusbhu
 /palkesh-weds-khusbhu/        /invitations/palkesh-weds-khushbu/index.html         200
 /palkesh-weds-khusbhu/*       /invitations/palkesh-weds-khushbu/:splat             200
-
-# Client: vishesh-weds-neha
-/vishesh-weds-neha         /vishesh-weds-neha/                               301
-/vishesh-weds-neha/        /invitations/vishesh-weds-neha/index.html         200
-/vishesh-weds-neha/*       /invitations/vishesh-weds-neha/:splat             200

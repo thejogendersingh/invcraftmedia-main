@@ -15,6 +15,15 @@
 @font-face{font-family:"Allura";font-weight:400;font-style:normal;font-display:swap;src:url("./assets/siyaram/fonts/allura-400.woff2") format("woff2");}
 @font-face{font-family:"Inter";font-weight:700;font-style:normal;font-display:swap;src:url("./assets/siyaram/fonts/inter-700.woff2") format("woff2");}
 
+html, body.siyaram-body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto !important;
+  background: #ffefe2;
+}
 
 .siyaram-invitation{
   --siyaram-color-cream:#ffefe2;
@@ -596,20 +605,16 @@ a.siyaram-footer__brand:hover{text-decoration:underline;}
 .siyaram-details__icon{display:block;flex:0 0 auto;width:calc(var(--siyaram-u) * 47);height:calc(var(--siyaram-u) * 65);margin-top:calc(var(--siyaram-u) * 4);}
 .siyaram-details__invocation img,.siyaram-details__icon img{width:100%;height:100%;object-fit:contain;}
 .siyaram-details__vandana{margin:calc(var(--siyaram-u) * 8) 0 0;padding:0 calc(var(--siyaram-u) * 16);font-family:var(--siyaram-font-display);font-weight:700;font-size:calc(var(--siyaram-u) * 13.5);line-height:1.6;color:var(--siyaram-color-details-ink);text-align:center;overflow-wrap:anywhere;}
-.siyaram-details__stack{display:flex;flex-direction:column;align-items:center;width:100%;margin-top:calc(var(--siyaram-u) * 20);}
-.siyaram-details__stack > *{margin-block:0;margin-inline:auto;text-align:center;max-width:100%;}
-.siyaram-details__stack .siyaram-details__line{margin-top:calc(var(--siyaram-u) * 0);}
-.siyaram-details__stack .siyaram-details__name--first{margin-top:calc(var(--siyaram-u) * 0);}
-.siyaram-details__stack .siyaram-details__connector{margin-top:calc(var(--siyaram-u) * 0);}
-.siyaram-details__stack .siyaram-details__name--second{margin-top:calc(var(--siyaram-u) * -6);}
-.siyaram-details__stack .siyaram-details__label{margin-top:calc(var(--siyaram-u) * 12);}
-.siyaram-details__stack .siyaram-details__parents--second{margin-top:calc(var(--siyaram-u) * -1);}
-.siyaram-details__stack .siyaram-details__intro{margin-top:calc(var(--siyaram-u) * 13);}
+.siyaram-details__stack{display:flex;flex-direction:column;align-items:center;width:100%;margin-top:calc(var(--siyaram-u) * 15);gap:calc(var(--siyaram-u) * 4);}
+.siyaram-details__stack > *{position:static !important;left:auto !important;top:auto !important;margin-block:0;margin-inline:auto;text-align:center;max-width:100%;}
+.siyaram-details__stack .siyaram-details__parents{width:92%;font-size:calc(var(--siyaram-u) * 13);font-weight:600;color:var(--siyaram-color-details-sub);line-height:1.3;}
+.siyaram-details__stack .siyaram-details__line{width:88%;font-family:var(--siyaram-font-body);font-size:calc(var(--siyaram-u) * 12);font-weight:500;line-height:1.35;color:var(--siyaram-color-details-ink);margin-top:calc(var(--siyaram-u) * 4);}
+.siyaram-details__stack .siyaram-details__name{width:100%;font-family:var(--siyaram-font-name);font-size:calc(var(--siyaram-u) * 36) !important;line-height:1.15;color:var(--siyaram-color-details-name);margin-top:calc(var(--siyaram-u) * 2);}
+.siyaram-details__stack .siyaram-details__connector{display:block;width:100%;text-align:center;font-family:var(--siyaram-font-script);font-size:calc(var(--siyaram-u) * 28) !important;color:var(--siyaram-color-details-name);line-height:1;rotate:-9deg;margin:calc(var(--siyaram-u) * 2) 0 !important;}
+.siyaram-details__stack .siyaram-details__label{font-family:var(--siyaram-font-display);font-size:calc(var(--siyaram-u) * 12);font-weight:700;color:var(--siyaram-color-details-ink);margin-top:calc(var(--siyaram-u) * 4);}
+.siyaram-details__stack .siyaram-details__parents--second{width:92%;}
+.siyaram-details__stack .siyaram-details__intro{width:88%;font-family:var(--siyaram-font-display);font-size:calc(var(--siyaram-u) * 13);font-weight:600;line-height:1.45;color:var(--siyaram-color-details-ink);text-shadow:0 0 6px #ffefe2,0 0 10px #ffefe2;margin-top:calc(var(--siyaram-u) * 6);}
 .siyaram-details__stack .siyaram-details__grand{margin-top:calc(var(--siyaram-u) * 3);font-size:calc(var(--siyaram-u) * 11);font-weight:500;font-style:italic;color:var(--siyaram-color-details-sub);line-height:1.25;width:calc(var(--siyaram-u) * 280);overflow-wrap:anywhere;}
-.siyaram-details__stack .siyaram-details__parents{width:calc(var(--siyaram-u) * 320);}
-.siyaram-details__stack .siyaram-details__parents--second{width:calc(var(--siyaram-u) * 200);}
-.siyaram-details__stack .siyaram-details__line{width:calc(var(--siyaram-u) * 220);}
-.siyaram-details__stack .siyaram-details__name{width:100%;}
 .siyaram-details__connector{rotate:-9deg;}
 .siyaram-details__intro{text-shadow:0 0 6px #ffefe2,0 0 10px #ffefe2;}
 .siyaram-details__arrow{--l:170;--t:1499;--w:50;--h:60;}
@@ -658,8 +663,115 @@ a.siyaram-footer__brand:hover{text-decoration:underline;}
 .siyaram-stay__text{display:flex;flex-direction:column;align-items:center;gap:calc(var(--siyaram-u) * 4);padding:calc(var(--siyaram-u) * 16) calc(var(--siyaram-u) * 18);}
 .siyaram-stay__name{font-family:var(--siyaram-font-display);font-weight:700;font-size:calc(var(--siyaram-u) * 21);line-height:1.2;color:var(--siyaram-color-brown);}
 .siyaram-stay__address{font-size:calc(var(--siyaram-u) * 12.5);line-height:1.4;color:var(--siyaram-color-details-sub);overflow-wrap:anywhere;}
-.siyaram-hashtag__pill{display:inline-flex;align-items:center;gap:calc(var(--siyaram-u) * 10);padding:calc(var(--siyaram-u) * 12) calc(var(--siyaram-u) * 22);border:1px solid var(--siyaram-color-gold);border-radius:calc(var(--siyaram-u) * 30);background:rgba(255,255,255,.7);color:var(--siyaram-color-rust);font-family:var(--siyaram-font-display);font-size:calc(var(--siyaram-u) * 22);font-weight:700;cursor:pointer;overflow-wrap:anywhere;}
-.siyaram-hashtag__pill:hover{background:var(--siyaram-color-rust);color:#ffefe2;}
+/* ============ DIVINE BLESSINGS SECTION ============ */
+.siyaram-blessings {
+  padding-top: calc(var(--siyaram-u) * 36);
+  padding-bottom: calc(var(--siyaram-u) * 44);
+  background: var(--siyaram-color-cream);
+  text-align: center;
+}
+.siyaram-blessings__card {
+  position: relative;
+  max-width: calc(var(--siyaram-u) * 340);
+  margin: calc(var(--siyaram-u) * 18) auto 0;
+  padding: calc(var(--siyaram-u) * 14);
+  border-radius: calc(var(--siyaram-u) * 22);
+  background: rgba(255, 248, 238, 0.94);
+  border: 1.5px solid rgba(221, 164, 93, 0.85);
+  box-shadow: 0 calc(var(--siyaram-u) * 8) calc(var(--siyaram-u) * 24) rgba(95, 16, 15, 0.12);
+}
+.siyaram-blessings__frame {
+  position: relative;
+  width: 100%;
+  border-radius: calc(var(--siyaram-u) * 16);
+  overflow: hidden;
+  border: 1px solid rgba(221, 164, 93, 0.5);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+.siyaram-blessings__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.siyaram-blessings__caption {
+  margin-top: calc(var(--siyaram-u) * 14);
+  padding: 0 calc(var(--siyaram-u) * 8);
+}
+.siyaram-blessings__quote {
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 12.5);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--siyaram-color-details-ink);
+  margin: 0 0 calc(var(--siyaram-u) * 8);
+}
+.siyaram-blessings__tag {
+  display: inline-block;
+  padding: calc(var(--siyaram-u) * 3) calc(var(--siyaram-u) * 14);
+  border-radius: calc(var(--siyaram-u) * 12);
+  background: rgba(221, 164, 93, 0.2);
+  border: 1px solid rgba(221, 164, 93, 0.6);
+  font-family: var(--siyaram-font-display);
+  font-size: calc(var(--siyaram-u) * 11);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--siyaram-color-rust);
+  text-transform: uppercase;
+}
+
+/* ============ HASHTAG SECTION WITH TIGER THE DOG ============ */
+.siyaram-hashtag {
+  padding-top: calc(var(--siyaram-u) * 30);
+  padding-bottom: calc(var(--siyaram-u) * 44);
+}
+.siyaram-hashtag__dog-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: calc(var(--siyaram-u) * 300);
+  margin: calc(var(--siyaram-u) * 14) auto calc(var(--siyaram-u) * 16);
+}
+.siyaram-hashtag__dog-frame {
+  position: relative;
+  width: calc(var(--siyaram-u) * 220);
+  max-width: 260px;
+  margin: 0 auto;
+  filter: drop-shadow(0 calc(var(--siyaram-u) * 6) calc(var(--siyaram-u) * 14) rgba(95, 16, 15, 0.18));
+}
+.siyaram-hashtag__dog-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.siyaram-hashtag__dog-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--siyaram-u) * 4);
+  margin-top: calc(var(--siyaram-u) * 8);
+  padding: calc(var(--siyaram-u) * 3) calc(var(--siyaram-u) * 12);
+  border-radius: 999px;
+  background: rgba(221, 164, 93, 0.25);
+  border: 1px solid rgba(221, 164, 93, 0.65);
+  color: var(--siyaram-color-rust);
+  font-size: calc(var(--siyaram-u) * 11);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.siyaram-hashtag__dog-text {
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 12);
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--siyaram-color-brown);
+  margin: calc(var(--siyaram-u) * 6) 0 0;
+  max-width: calc(var(--siyaram-u) * 260);
+  text-align: center;
+}
+.siyaram-hashtag__pill{display:inline-flex;align-items:center;gap:calc(var(--siyaram-u) * 10);padding:calc(var(--siyaram-u) * 12) calc(var(--siyaram-u) * 22);border:1.5px solid var(--siyaram-color-gold);border-radius:calc(var(--siyaram-u) * 30);background:rgba(255,255,255,.9);color:var(--siyaram-color-rust);font-family:var(--siyaram-font-display);font-size:calc(var(--siyaram-u) * 22);font-weight:700;cursor:pointer;overflow-wrap:anywhere;box-shadow:0 4px 14px rgba(95,16,15,.12);transition:transform .2s ease,background .2s ease;}
+.siyaram-hashtag__pill:hover{background:var(--siyaram-color-rust);color:#ffefe2;transform:scale(1.04);}
 .siyaram-hashtag__hint{margin-top:calc(var(--siyaram-u) * 10);font-size:calc(var(--siyaram-u) * 12);color:var(--siyaram-color-details-sub);}
 .siyaram-hashtag__hint.siyaram-is-copied{color:var(--siyaram-color-rust);font-weight:600;}
 
@@ -669,20 +781,196 @@ a.siyaram-footer__brand:hover{text-decoration:underline;}
 .siyaram-location__flow{--l:24;--t:327;--w:342;--z:20;}
 .siyaram-location__flow .siyaram-location__heading{position:static;left:auto;width:100%;margin-bottom:calc(var(--siyaram-u) * 30.8);}
 .siyaram-venues{display:flex;flex-direction:column;gap:calc(var(--siyaram-u) * 12);}
-.siyaram-venue__card{position:relative;height:auto;min-height:calc(var(--siyaram-u) * 112);padding:calc(var(--siyaram-u) * 18) calc(var(--siyaram-u) * 24);border-radius:calc(var(--siyaram-u) * 18);background:var(--siyaram-color-tan);}
-.siyaram-venue__name{font-size:calc(var(--siyaram-u) * 17);font-weight:600;line-height:1.25;color:#2a1209;margin-bottom:calc(var(--siyaram-u) * 4);overflow-wrap:anywhere;}
-.siyaram-venue__image{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:calc(var(--siyaram-u) * 12);margin-bottom:calc(var(--siyaram-u) * 12);}
-.siyaram-venue__role{font-size:calc(var(--siyaram-u) * 11);font-weight:600;letter-spacing:.02em;color:var(--siyaram-color-rust);margin-bottom:calc(var(--siyaram-u) * 4);overflow-wrap:anywhere;}
-.siyaram-venue__address{font-size:calc(var(--siyaram-u) * 12.5);line-height:1.3;color:#4a2412;overflow-wrap:anywhere;}
-.siyaram-venue__actions{display:flex;align-items:center;gap:calc(var(--siyaram-u) * 10);margin-top:calc(var(--siyaram-u) * 10);}
-.siyaram-venue__directions{display:inline-flex;align-items:center;gap:calc(var(--siyaram-u) * 6);padding:calc(var(--siyaram-u) * 7) calc(var(--siyaram-u) * 14);border-radius:calc(var(--siyaram-u) * 14);background:#5f100f;color:#ffefe2;font-size:calc(var(--siyaram-u) * 11.5);font-weight:600;text-decoration:none;}
-.siyaram-venue__directions:hover{background:var(--siyaram-color-rust);}
-.siyaram-venue__copy{position:static;width:calc(var(--siyaram-u) * 32);height:calc(var(--siyaram-u) * 32);border:0;border-radius:calc(var(--siyaram-u) * 9);background:rgba(255,239,226,.55);display:grid;place-items:center;cursor:pointer;color:#4a2412;}
-.siyaram-venue__copy.siyaram-is-copied{background:#5f100f;color:#ffefe2;}
 
-/* ----- RSVP: the site's own guest form, in the original card style ----- */
-.siyaram-rsvp{--l:25;--t:1078;--w:340;height:auto;display:block;}
-.siyaram-rsvp__title{font-family:var(--siyaram-font-display);font-size:calc(var(--siyaram-u) * 19);font-weight:700;line-height:1.25;color:var(--siyaram-color-brown);margin-bottom:calc(var(--siyaram-u) * 14);text-align:center;}
+/* ============ VENUE CARD (ROYAL THEME UPGRADE) ============ */
+.siyaram-venue__card {
+  position: relative;
+  height: auto;
+  min-height: calc(var(--siyaram-u) * 160);
+  padding: calc(var(--siyaram-u) * 22) calc(var(--siyaram-u) * 20);
+  border-radius: calc(var(--siyaram-u) * 22);
+  background: rgba(255, 248, 238, 0.94);
+  border: 1.5px solid rgba(221, 164, 93, 0.85);
+  box-shadow: 0 calc(var(--siyaram-u) * 8) calc(var(--siyaram-u) * 24) rgba(95, 16, 15, 0.12);
+  text-align: center;
+}
+.siyaram-venue__badge {
+  display: inline-block;
+  margin-bottom: calc(var(--siyaram-u) * 8);
+  padding: calc(var(--siyaram-u) * 3) calc(var(--siyaram-u) * 12);
+  border-radius: calc(var(--siyaram-u) * 10);
+  background: rgba(178, 67, 4, 0.1);
+  border: 1px solid rgba(178, 67, 4, 0.35);
+  color: var(--siyaram-color-rust);
+  font-size: calc(var(--siyaram-u) * 10.5);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.siyaram-venue__name {
+  font-family: var(--siyaram-font-name);
+  font-size: calc(var(--siyaram-u) * 22);
+  font-weight: 700;
+  color: var(--siyaram-color-title);
+  line-height: 1.2;
+  margin: 0 0 calc(var(--siyaram-u) * 4);
+}
+.siyaram-venue__role {
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 12);
+  font-weight: 600;
+  color: var(--siyaram-color-rust);
+  margin: 0 0 calc(var(--siyaram-u) * 8);
+}
+.siyaram-venue__address {
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 13);
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--siyaram-color-details-ink);
+  max-width: calc(var(--siyaram-u) * 280);
+  margin: 0 auto calc(var(--siyaram-u) * 14);
+}
+.siyaram-venue__actions {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--siyaram-u) * 8);
+  width: 100%;
+  max-width: calc(var(--siyaram-u) * 260);
+  margin: 0 auto;
+}
+.siyaram-venue__btn-directions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--siyaram-u) * 8);
+  width: 100%;
+  padding: calc(var(--siyaram-u) * 10) calc(var(--siyaram-u) * 16);
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--siyaram-color-rust), var(--siyaram-color-brown));
+  color: #fff;
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 13);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(95, 16, 15, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.siyaram-venue__btn-directions:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(95, 16, 15, 0.35);
+  color: #fff;
+}
+.siyaram-venue__btn-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--siyaram-u) * 6);
+  width: 100%;
+  padding: calc(var(--siyaram-u) * 8) calc(var(--siyaram-u) * 14);
+  border-radius: 999px;
+  background: rgba(255, 239, 226, 0.7);
+  border: 1px solid rgba(221, 164, 93, 0.7);
+  color: var(--siyaram-color-brown);
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 12);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.siyaram-venue__btn-copy:hover {
+  background: rgba(221, 164, 93, 0.35);
+}
+
+/* ============ RSVP SECTION (ROYAL THEME UPGRADE) ============ */
+.siyaram-rsvp {
+  --l: 24;
+  --t: 1078;
+  --w: 342;
+  --h: auto;
+  --z: 20;
+  padding: calc(var(--siyaram-u) * 22) calc(var(--siyaram-u) * 18);
+  border-radius: calc(var(--siyaram-u) * 24);
+  background: rgba(255, 248, 238, 0.94);
+  border: 1.5px solid rgba(221, 164, 93, 0.85);
+  box-shadow: 0 calc(var(--siyaram-u) * 8) calc(var(--siyaram-u) * 24) rgba(95, 16, 15, 0.12);
+  text-align: center;
+}
+.siyaram-rsvp__title {
+  font-family: var(--siyaram-font-name);
+  font-size: calc(var(--siyaram-u) * 19);
+  font-weight: 700;
+  color: var(--siyaram-color-title);
+  margin: 0 0 calc(var(--siyaram-u) * 4);
+}
+.siyaram-rsvp__subtext {
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 12);
+  font-weight: 500;
+  color: var(--siyaram-color-details-sub);
+  margin: 0 auto calc(var(--siyaram-u) * 14);
+  max-width: calc(var(--siyaram-u) * 280);
+  line-height: 1.4;
+}
+.siyaram-rsvp__cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--siyaram-u) * 10);
+  width: 100%;
+}
+.siyaram-rsvp__card-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(var(--siyaram-u) * 8) calc(var(--siyaram-u) * 12);
+  border-radius: calc(var(--siyaram-u) * 14);
+  background: rgba(255, 239, 226, 0.55);
+  border: 1px solid rgba(221, 164, 93, 0.5);
+}
+.siyaram-rsvp__contact-info {
+  text-align: left;
+}
+.siyaram-rsvp__contact-name {
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 12.5);
+  font-weight: 700;
+  color: var(--siyaram-color-brown);
+}
+.siyaram-rsvp__contact-number {
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 11.5);
+  font-weight: 500;
+  color: var(--siyaram-color-rust);
+}
+.siyaram-rsvp__btn-group {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--siyaram-u) * 6);
+}
+.siyaram-rsvp__action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--siyaram-u) * 34);
+  height: calc(var(--siyaram-u) * 34);
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: calc(var(--siyaram-u) * 15);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.siyaram-rsvp__action-btn--call {
+  background: linear-gradient(135deg, #b24304, #5f100f);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(95, 16, 15, 0.2);
+}
+.siyaram-rsvp__action-btn--wa {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(18, 140, 126, 0.25);
+}
+.siyaram-rsvp__action-btn:hover {
+  transform: scale(1.08);
+}
 .siyaram-rsvp__field{position:relative;margin-bottom:calc(var(--siyaram-u) * 12);}
 .siyaram-rsvp__field label{display:block;margin-bottom:calc(var(--siyaram-u) * 5);font-size:calc(var(--siyaram-u) * 12);font-weight:600;color:var(--siyaram-color-brown);}
 .siyaram-rsvp__field label em{color:#c0392b;font-style:normal;}
@@ -771,11 +1059,9 @@ body[class*="iu-lang-"] .siyaram-details__line,body[class*="iu-lang-"] .siyaram-
 @media (prefers-reduced-motion:reduce){.siyaram-petals{display:none;}}
 /* ----- invitation panel look + readable invitation text (requested) ----- */
 .siyaram-details__panel{border-radius:180px !important;background:rgba(255,239,226,.58);-webkit-backdrop-filter:blur(10px) saturate(1.1);backdrop-filter:blur(10px) saturate(1.1);box-shadow:none !important;}
-.siyaram-details__stack{display:flex;flex-direction:column;align-items:center;width:100%;margin-top:calc(var(--siyaram-u) * 20);gap:5px;}
-.siyaram-details__stack .siyaram-details__name--second,.siyaram-details__stack .siyaram-details__parents--second{margin-top:0;}
-.siyaram-details__stack .siyaram-details__parents{--fs:15;}
-.siyaram-details__stack .siyaram-details__line{--fs:12.5;font-family:var(--siyaram-font-body);font-weight:500;line-height:1.4;}
-.siyaram-details__stack .siyaram-details__name{--fs:36.4;}
+.siyaram-details__stack .siyaram-details__parents{--fs:14;}
+.siyaram-details__stack .siyaram-details__line{--fs:12;}
+.siyaram-details__stack .siyaram-details__name{--fs:36;}
 .siyaram-couple__card .siyaram-couple__message{padding:0 15%;}
 
 .siyaram-location__photo{--t:0;--h:467.5;}
@@ -1010,7 +1296,7 @@ body[class*="iu-lang-"] .siyaram-details__line,body[class*="iu-lang-"] .siyaram-
 }
 
 /* ================= OPENING SCREEN (gives the tap that lets mobile browsers play the music) ================= */
-html.siyaram-gate-lock,html.siyaram-gate-lock body{overflow:hidden!important;}
+/* Gate removed */
 .siyaram-gate{position:fixed;inset:0;z-index:100000;display:flex;align-items:flex-end;justify-content:center;padding:0 24px calc(48px + env(safe-area-inset-bottom,0px));text-align:center;color:#ffefe2;background:linear-gradient(180deg,rgba(40,10,5,0) 45%,rgba(40,10,5,.72) 100%);transition:opacity .7s ease,visibility .7s ease;font-family:"Montserrat","Helvetica Neue",Arial,sans-serif;}
 .siyaram-gate.is-leaving{opacity:0;visibility:hidden;pointer-events:none;}
 .siyaram-gate__inner{position:relative;z-index:1;max-width:520px;}
@@ -1110,71 +1396,747 @@ html.iu-music-left .siyaram-music {
 
 
 /* =========================================
-   SIYARAM FAMILY SECTION STYLES
+   SIYARAM FAMILY SECTION STYLES (NO BOXES)
    ========================================= */
 .siyaram-family {
-  padding-top: calc(var(--siyaram-u) * 40);
+  padding-top: calc(var(--siyaram-u) * 35);
   padding-bottom: calc(var(--siyaram-u) * 50);
-}
-.siyaram-family__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: calc(var(--siyaram-u) * 20);
-  max-width: calc(var(--siyaram-u) * 1020);
-  margin: 0 auto;
-}
-.siyaram-family__card {
-  padding: calc(var(--siyaram-u) * 22) calc(var(--siyaram-u) * 20);
-  border: 1px solid rgba(221, 164, 93, 0.7);
-  border-radius: calc(var(--siyaram-u) * 20);
-  background: rgba(255, 255, 255, 0.65);
-  box-shadow: 0 calc(var(--siyaram-u) * 6) calc(var(--siyaram-u) * 18) rgba(95, 37, 15, 0.1);
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.siyaram-family__card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 calc(var(--siyaram-u) * 8) calc(var(--siyaram-u) * 24) rgba(95, 37, 15, 0.15);
+.siyaram-family__wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--siyaram-u) * 20);
+  max-width: calc(var(--siyaram-u) * 600);
+  margin: calc(var(--siyaram-u) * 25) auto 0;
+  padding: 0 calc(var(--siyaram-u) * 18);
+}
+.siyaram-family__group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
 }
 .siyaram-family__tag {
   display: inline-block;
-  margin-bottom: calc(var(--siyaram-u) * 10);
-  padding: calc(var(--siyaram-u) * 4) calc(var(--siyaram-u) * 14);
+  margin-bottom: calc(var(--siyaram-u) * 6);
+  padding: calc(var(--siyaram-u) * 3) calc(var(--siyaram-u) * 14);
   border-radius: calc(var(--siyaram-u) * 12);
-  background: var(--siyaram-color-tan, #e8d7be);
-  color: var(--siyaram-color-brown, #5f250f);
-  font-size: calc(var(--siyaram-u) * 11.5);
+  background: rgba(221, 164, 93, 0.22);
+  border: 1px solid rgba(221, 164, 93, 0.6);
+  color: var(--siyaram-color-rust, #b24304);
+  font-family: var(--siyaram-font-body, "Montserrat", sans-serif);
+  font-size: calc(var(--siyaram-u) * 11);
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-.siyaram-family__title {
-  font-family: var(--siyaram-font-sans, "Montserrat", sans-serif);
+.siyaram-family__role {
+  font-family: var(--siyaram-font-body, "Montserrat", sans-serif);
   font-size: calc(var(--siyaram-u) * 12);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--siyaram-color-rust, #a13d17);
-  margin-bottom: calc(var(--siyaram-u) * 4);
+  letter-spacing: 0.08em;
+  color: var(--siyaram-color-rust, #b24304);
+  margin: calc(var(--siyaram-u) * 6) 0 calc(var(--siyaram-u) * 4);
 }
-.siyaram-family__names {
-  font-family: var(--siyaram-font-display, "Playfair Display", serif);
-  font-size: calc(var(--siyaram-u) * 15.5);
+.siyaram-family__people {
+  font-family: var(--siyaram-font-name, "Playfair Display", serif);
+  font-size: calc(var(--siyaram-u) * 16.5);
   color: var(--siyaram-color-brown, #5f250f);
-  line-height: 1.4;
+  line-height: 1.55;
   margin: 0;
 }
-.siyaram-family__names.primary {
+.siyaram-family__people.highlight {
+  font-size: calc(var(--siyaram-u) * 18.5);
   font-weight: 700;
-  font-size: calc(var(--siyaram-u) * 17.5);
+  color: var(--siyaram-color-title, #8f1d2c);
 }
-.siyaram-family__list {
+.siyaram-family__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: rgba(221, 164, 93, 0.7);
+  font-size: calc(var(--siyaram-u) * 18);
+  margin: calc(var(--siyaram-u) * 4) 0;
+}
+.siyaram-family__divider::before,
+.siyaram-family__divider::after {
+  content: "";
+  flex: 1;
+  max-width: calc(var(--siyaram-u) * 120);
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(221, 164, 93, 0.7), transparent);
+  margin: 0 calc(var(--siyaram-u) * 12);
+}
+
+/* ============ RSVP BUTTONS ============ */
+.siyaram-rsvp__phone-list {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--siyaram-u) * 5);
-  font-family: var(--siyaram-font-sans, "Montserrat", sans-serif);
+  gap: calc(var(--siyaram-u) * 8);
+  align-items: center;
+  width: 100%;
+  max-width: calc(var(--siyaram-u) * 260);
+  margin: calc(var(--siyaram-u) * 12) auto 0;
+}
+.siyaram-rsvp__phone-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--siyaram-u) * 8);
+  width: 100%;
+  padding: calc(var(--siyaram-u) * 8) calc(var(--siyaram-u) * 18);
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--siyaram-color-rust, #b24304), var(--siyaram-color-brown, #5f100f));
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--siyaram-font-body, "Montserrat", sans-serif);
   font-size: calc(var(--siyaram-u) * 13);
-  font-weight: 500;
-  color: var(--siyaram-color-brown, #5f250f);
-  line-height: 1.45;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(95, 37, 15, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.siyaram-rsvp__phone-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(95, 37, 15, 0.35);
+  color: #fff;
+}
+
+
+/* ============ AESTHETIC DOG (TIGER) INVITATION CARD ============ */
+.siyaram-dog-card {
+  position: relative;
+  max-width: calc(var(--siyaram-u) * 330);
+  margin: calc(var(--siyaram-u) * 16) auto;
+  padding: calc(var(--siyaram-u) * 20) calc(var(--siyaram-u) * 18);
+  border-radius: calc(var(--siyaram-u) * 22);
+  background: rgba(255, 249, 241, 0.94);
+  border: 1px solid rgba(212, 163, 89, 0.75);
+  box-shadow: 0 calc(var(--siyaram-u) * 8) calc(var(--siyaram-u) * 26) rgba(100, 40, 15, 0.1);
+  text-align: center;
+}
+.siyaram-dog-card__portrait {
+  position: relative;
+  width: calc(var(--siyaram-u) * 160);
+  max-width: 200px;
+  margin: 0 auto calc(var(--siyaram-u) * 14);
+}
+.siyaram-dog-card__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--siyaram-u) * 16);
+  filter: drop-shadow(0 6px 14px rgba(139, 69, 19, 0.22));
+}
+.siyaram-dog-card__eyebrow {
+  display: inline-block;
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 11);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #a8581e;
+  font-weight: 700;
+  margin-bottom: calc(var(--siyaram-u) * 4);
+}
+.siyaram-dog-card__name {
+  font-family: var(--siyaram-font-name);
+  font-size: calc(var(--siyaram-u) * 20);
+  font-weight: 700;
+  color: #5f100f;
+  margin: 0 0 calc(var(--siyaram-u) * 8);
+}
+.siyaram-dog-card__message {
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 12);
+  font-style: italic;
+  line-height: 1.55;
+  color: #634335;
+  margin: 0 auto;
+  max-width: calc(var(--siyaram-u) * 290);
+}
+.siyaram-hashtag__action {
+  text-align: center;
+  margin-top: calc(var(--siyaram-u) * 12);
+}
+.siyaram-hashtag__tag-text {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+/* ============ ROYAL AUTHENTIC RSVP SECTION ============ */
+.siyaram-rsvp {
+  --l: 24;
+  --t: 330;
+  --w: 342;
+  --h: auto;
+  --z: 20;
+  padding: calc(var(--siyaram-u) * 22) calc(var(--siyaram-u) * 18);
+  border-radius: calc(var(--siyaram-u) * 24);
+  background: rgba(255, 249, 241, 0.95);
+  border: 1.5px solid rgba(212, 163, 89, 0.85);
+  box-shadow: 0 calc(var(--siyaram-u) * 10) calc(var(--siyaram-u) * 28) rgba(95, 16, 15, 0.12);
+  text-align: center;
+}
+.siyaram-rsvp__inner {
+  position: relative;
+}
+.siyaram-rsvp__top-tag {
+  display: inline-block;
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 13);
+  font-weight: 600;
+  color: #a8581e;
+  letter-spacing: 0.12em;
+  margin-bottom: calc(var(--siyaram-u) * 4);
+}
+.siyaram-rsvp__royal-title {
+  font-family: var(--siyaram-font-name);
+  font-size: calc(var(--siyaram-u) * 26);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #5f100f;
+  margin: 0;
+}
+.siyaram-rsvp__divider-ornament {
+  font-size: calc(var(--siyaram-u) * 16);
+  color: #d4a359;
+  margin: calc(var(--siyaram-u) * 4) 0 calc(var(--siyaram-u) * 8);
+}
+.siyaram-rsvp__royal-sub {
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 11.5);
+  line-height: 1.5;
+  color: #5a4237;
+  max-width: calc(var(--siyaram-u) * 290);
+  margin: 0 auto calc(var(--siyaram-u) * 16);
+}
+.siyaram-rsvp__royal-list {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--siyaram-u) * 12);
+}
+.siyaram-rsvp__royal-item {
+  padding: calc(var(--siyaram-u) * 12) calc(var(--siyaram-u) * 14);
+  border-radius: calc(var(--siyaram-u) * 14);
+  background: rgba(255, 243, 230, 0.7);
+  border: 1px solid rgba(212, 163, 89, 0.45);
+  text-align: center;
+}
+.siyaram-rsvp__item-role {
+  display: block;
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 10);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #925828;
+  font-weight: 600;
+  margin-bottom: calc(var(--siyaram-u) * 3);
+}
+.siyaram-rsvp__item-name {
+  font-family: var(--siyaram-font-name);
+  font-size: calc(var(--siyaram-u) * 16);
+  font-weight: 700;
+  color: #4a110a;
+  margin: 0 0 calc(var(--siyaram-u) * 8);
+}
+.siyaram-rsvp__item-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--siyaram-u) * 8);
+  flex-wrap: wrap;
+}
+.siyaram-rsvp__royal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--siyaram-u) * 5);
+  padding: calc(var(--siyaram-u) * 5) calc(var(--siyaram-u) * 12);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7c2612, #521008);
+  color: #fff !important;
+  text-decoration: none;
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 11);
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(82, 16, 8, 0.25);
+  transition: all 0.2s ease;
+}
+.siyaram-rsvp__royal-btn:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 10px rgba(82, 16, 8, 0.35);
+}
+.siyaram-rsvp__royal-btn--wa {
+  background: linear-gradient(135deg, #25a05a, #167a42);
+  box-shadow: 0 2px 6px rgba(22, 122, 66, 0.25);
+}
+.siyaram-rsvp__royal-btn--wa:hover {
+  box-shadow: 0 4px 10px rgba(22, 122, 66, 0.35);
+}
+
+@media (min-width: 1024px) {
+  .siyaram-dog-card {
+    max-width: calc(var(--siyaram-u) * 600);
+    padding: calc(var(--siyaram-u) * 36) calc(var(--siyaram-u) * 32);
+    border-radius: calc(var(--siyaram-u) * 36);
+  }
+  .siyaram-dog-card__portrait {
+    width: calc(var(--siyaram-u) * 220);
+    max-width: 260px;
+  }
+  .siyaram-dog-card__name {
+    font-size: calc(var(--siyaram-u) * 32);
+  }
+  .siyaram-dog-card__message {
+    font-size: calc(var(--siyaram-u) * 18);
+    max-width: calc(var(--siyaram-u) * 520);
+  }
+  .siyaram-rsvp {
+    --l: 420;
+    --t: 980;
+    --w: 600;
+    padding: calc(var(--siyaram-u) * 36) calc(var(--siyaram-u) * 32);
+  }
+  .siyaram-rsvp__royal-title {
+    font-size: calc(var(--siyaram-u) * 40);
+  }
+  .siyaram-rsvp__royal-sub {
+    font-size: calc(var(--siyaram-u) * 17);
+    max-width: calc(var(--siyaram-u) * 500);
+  }
+  .siyaram-rsvp__item-name {
+    font-size: calc(var(--siyaram-u) * 22);
+  }
+  .siyaram-rsvp__royal-btn {
+    font-size: calc(var(--siyaram-u) * 14);
+    padding: calc(var(--siyaram-u) * 7) calc(var(--siyaram-u) * 18);
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .siyaram-blessings__card {
+    max-width: calc(var(--siyaram-u) * 560);
+    padding: calc(var(--siyaram-u) * 20);
+    border-radius: calc(var(--siyaram-u) * 32);
+  }
+}
+
+
+/* ============ UNBOXED ART: DIVINE BLESSINGS & TIGER PET ============ */
+.siyaram-blessings {
+  padding-top: calc(var(--siyaram-u) * 28);
+  padding-bottom: calc(var(--siyaram-u) * 18);
+  background: var(--siyaram-color-cream);
+  text-align: center;
+}
+.siyaram-blessings__art {
+  position: relative;
+  width: 92%;
+  max-width: calc(var(--siyaram-u) * 350);
+  margin: calc(var(--siyaram-u) * 12) auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.siyaram-blessings__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  filter: drop-shadow(0 8px 24px rgba(100, 30, 10, 0.12));
+}
+
+.siyaram-dog {
+  position: relative;
+  width: 92%;
+  max-width: calc(var(--siyaram-u) * 340);
+  margin: calc(var(--siyaram-u) * 14) auto;
+  text-align: center;
+}
+.siyaram-dog__art {
+  position: relative;
+  width: calc(var(--siyaram-u) * 220);
+  max-width: 250px;
+  margin: 0 auto calc(var(--siyaram-u) * 10);
+}
+.siyaram-dog__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  filter: drop-shadow(0 8px 20px rgba(100, 40, 15, 0.16));
+}
+.siyaram-dog__eyebrow {
+  display: inline-block;
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 11);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #a8581e;
+  font-weight: 700;
+  margin-bottom: calc(var(--siyaram-u) * 3);
+}
+.siyaram-dog__name {
+  font-family: var(--siyaram-font-name);
+  font-size: calc(var(--siyaram-u) * 21);
+  font-weight: 700;
+  color: #5f100f;
+  margin: 0 0 calc(var(--siyaram-u) * 6);
+}
+.siyaram-dog__message {
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 12.5);
+  font-style: italic;
+  line-height: 1.55;
+  color: #634335;
+  margin: 0 auto;
+  max-width: calc(var(--siyaram-u) * 300);
+}
+
+@media (min-width: 1024px) {
+  .siyaram-blessings__art {
+    max-width: calc(var(--siyaram-u) * 600);
+    margin: calc(var(--siyaram-u) * 18) auto 0;
+  }
+  .siyaram-dog {
+    max-width: calc(var(--siyaram-u) * 640);
+    margin: calc(var(--siyaram-u) * 24) auto;
+  }
+  .siyaram-dog__art {
+    width: calc(var(--siyaram-u) * 320);
+    max-width: 360px;
+  }
+  .siyaram-dog__name {
+    font-size: calc(var(--siyaram-u) * 32);
+  }
+  .siyaram-dog__message {
+    font-size: calc(var(--siyaram-u) * 18);
+    max-width: calc(var(--siyaram-u) * 540);
+  }
+}
+
+
+/* ============ FINAL HARMONIZED STYLING: NO BOXES & TIGHT LAYOUT ============ */
+
+/* 1. Divine Blessings Subtext & Perfectly Sized Art */
+.siyaram-blessings {
+  padding-top: calc(var(--siyaram-u) * 28);
+  padding-bottom: calc(var(--siyaram-u) * 20);
+  background: var(--siyaram-color-cream);
+  text-align: center;
+}
+.siyaram-blessings__subtext {
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 12.5);
+  line-height: 1.6;
+  color: var(--siyaram-color-details-sub);
+  max-width: calc(var(--siyaram-u) * 310);
+  margin: calc(var(--siyaram-u) * 6) auto calc(var(--siyaram-u) * 14);
+}
+.siyaram-blessings__art {
+  width: 92%;
+  max-width: calc(var(--siyaram-u) * 330);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.siyaram-blessings__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  filter: drop-shadow(0 8px 24px rgba(100, 30, 10, 0.12));
+}
+
+/* 2. Tiger Pet Image: Prominent & Clearly Readable */
+.siyaram-hashtag {
+  padding-top: calc(var(--siyaram-u) * 24);
+  padding-bottom: calc(var(--siyaram-u) * 28);
+  background: var(--siyaram-color-cream);
+  text-align: center;
+}
+.siyaram-dog {
+  width: 92%;
+  max-width: calc(var(--siyaram-u) * 320);
+  margin: calc(var(--siyaram-u) * 10) auto calc(var(--siyaram-u) * 14);
+  text-align: center;
+}
+.siyaram-dog__art {
+  width: 100%;
+  max-width: calc(var(--siyaram-u) * 310);
+  margin: 0 auto;
+}
+.siyaram-dog__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  filter: drop-shadow(0 8px 22px rgba(100, 40, 15, 0.16));
+}
+
+/* 3. Unboxed Royal Hashtag (Pure Typography, No Box) */
+.siyaram-hashtag__royal {
+  text-align: center;
+  margin: calc(var(--siyaram-u) * 12) auto calc(var(--siyaram-u) * 6);
+}
+.siyaram-hashtag__text {
+  display: inline-block;
+  font-family: var(--siyaram-font-name);
+  font-size: calc(var(--siyaram-u) * 26);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--siyaram-color-brown);
+  cursor: pointer;
+  padding: calc(var(--siyaram-u) * 4) calc(var(--siyaram-u) * 14);
+  transition: transform 0.2s ease, color 0.2s ease;
+  user-select: all;
+}
+.siyaram-hashtag__text:hover {
+  transform: scale(1.05);
+  color: var(--siyaram-color-rust);
+}
+
+/* 4. Royal RSVP Flow (No Boxes, Warm Traditional Aesthetic) */
+.siyaram-rsvp-flow {
+  padding-top: calc(var(--siyaram-u) * 26);
+  padding-bottom: calc(var(--siyaram-u) * 32);
+  background: var(--siyaram-color-cream);
+  text-align: center;
+}
+.siyaram-rsvp__wrap {
+  width: 92%;
+  max-width: calc(var(--siyaram-u) * 340);
+  margin: calc(var(--siyaram-u) * 16) auto 0;
+}
+.siyaram-rsvp__entry {
+  padding: calc(var(--siyaram-u) * 10) 0;
+}
+.siyaram-rsvp__role {
+  display: block;
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 11);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--siyaram-color-rust);
+  font-weight: 600;
+  margin-bottom: calc(var(--siyaram-u) * 4);
+}
+.siyaram-rsvp__name {
+  font-family: var(--siyaram-font-name);
+  font-size: calc(var(--siyaram-u) * 18);
+  font-weight: 700;
+  color: var(--siyaram-color-brown);
+  margin: 0 0 calc(var(--siyaram-u) * 8);
+}
+.siyaram-rsvp__actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--siyaram-u) * 10);
+  flex-wrap: wrap;
+}
+.siyaram-rsvp__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--siyaram-u) * 6);
+  padding: calc(var(--siyaram-u) * 6) calc(var(--siyaram-u) * 14);
+  border-radius: 999px;
+  background: rgba(221, 164, 93, 0.18);
+  border: 1px solid rgba(221, 164, 93, 0.7);
+  color: var(--siyaram-color-details-name) !important;
+  text-decoration: none;
+  font-family: var(--siyaram-font-body);
+  font-size: calc(var(--siyaram-u) * 11.5);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.siyaram-rsvp__btn:hover {
+  background: var(--siyaram-color-rust);
+  border-color: var(--siyaram-color-rust);
+  color: #fff !important;
+  transform: translateY(-1.5px);
+  box-shadow: 0 3px 10px rgba(178, 67, 4, 0.25);
+}
+.siyaram-rsvp__btn--wa {
+  background: rgba(37, 211, 102, 0.12);
+  border-color: rgba(37, 211, 102, 0.5);
+  color: #128c7e !important;
+}
+.siyaram-rsvp__btn--wa:hover {
+  background: #128c7e;
+  border-color: #128c7e;
+  color: #fff !important;
+  box-shadow: 0 3px 10px rgba(18, 140, 126, 0.25);
+}
+.siyaram-rsvp__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: calc(var(--siyaram-u) * 8) 0;
+  color: var(--siyaram-color-gold);
+  font-size: calc(var(--siyaram-u) * 16);
+  opacity: 0.75;
+}
+
+/* 5. Page B: Tight & Compact with ZERO Unnecessary Space */
+.siyaram-page--b {
+  height: calc(var(--siyaram-u) * 440) !important;
+  min-height: unset !important;
+  overflow: hidden;
+}
+.siyaram-page--b .siyaram-location__scene {
+  --l: -10;
+  --t: 0;
+  --w: 410;
+  --h: 440;
+  --z: 13;
+  --dy: 0 !important;
+}
+.siyaram-page--b .siyaram-countdown__heading {
+  --t: 36;
+  --dy: 0 !important;
+}
+.siyaram-page--b .siyaram-countdown__text {
+  --t: 74;
+  --dy: 0 !important;
+}
+.siyaram-page--b .siyaram-countdown__divider {
+  --t: 132;
+  --dy: 0 !important;
+}
+.siyaram-page--b .siyaram-countdown {
+  --t: 172;
+  --dy: 0 !important;
+}
+.siyaram-page--b .siyaram-footer {
+  --t: 280;
+  --dy: 0 !important;
+}
+
+@media (min-width: 1024px) {
+  .siyaram-blessings__subtext {
+    font-size: calc(var(--siyaram-u) * 16);
+    max-width: calc(var(--siyaram-u) * 540);
+  }
+  .siyaram-blessings__art {
+    max-width: calc(var(--siyaram-u) * 580);
+  }
+  .siyaram-dog {
+    max-width: calc(var(--siyaram-u) * 560);
+  }
+  .siyaram-dog__art {
+    max-width: calc(var(--siyaram-u) * 440);
+  }
+  .siyaram-hashtag__text {
+    font-size: calc(var(--siyaram-u) * 42);
+  }
+  .siyaram-rsvp__wrap {
+    max-width: calc(var(--siyaram-u) * 640);
+  }
+  .siyaram-rsvp__role {
+    font-size: calc(var(--siyaram-u) * 14);
+  }
+  .siyaram-rsvp__name {
+    font-size: calc(var(--siyaram-u) * 26);
+  }
+  .siyaram-rsvp__btn {
+    font-size: calc(var(--siyaram-u) * 14);
+    padding: calc(var(--siyaram-u) * 8) calc(var(--siyaram-u) * 20);
+  }
+  .siyaram-page--b {
+    height: calc(var(--siyaram-u) * 820) !important;
+  }
+  .siyaram-page--b .siyaram-location__scene {
+    --l: 0;
+    --t: 0;
+    --w: 1440;
+    --h: 820;
+  }
+  .siyaram-page--b .siyaram-countdown__heading {
+    --t: 80;
+  }
+  .siyaram-page--b .siyaram-countdown__text {
+    --t: 155;
+  }
+  .siyaram-page--b .siyaram-countdown__divider {
+    --t: 260;
+  }
+  .siyaram-page--b .siyaram-countdown {
+    --t: 330;
+  }
+  .siyaram-page--b .siyaram-footer {
+    --t: 550;
+  }
+}
+
+
+/* ============ FULL-BLEED CORNER-TO-CORNER INTRO VIDEO ============ */
+.intro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 99998;
+  background: #000;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Slow and Smooth White Flash / Blink Animation */
+.intro-white-flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 99999;
+  background: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.52s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.intro-white-flash.is-flashing {
+  opacity: 1;
+}
+
+.intro-white-flash.is-fading-out {
+  opacity: 0;
+  transition: opacity 0.92s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+
+
+  100% { transform: scale(1.3); opacity: 1; }
 }

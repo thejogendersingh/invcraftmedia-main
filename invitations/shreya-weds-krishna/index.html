@@ -17,16 +17,18 @@
 	<meta property="og:description" content="Two hearts, one journey, a lifetime together. Join us in celebrating our wedding on 3rd December 2026 at Swayamvar Lawn, Mughalsarai.">
 	<meta property="og:image" content="https://invcraftmedia.com/shreya-weds-krishna/assets/siyaram/images/backgrounds/hero-temple-desktop.webp">
 
-	<link rel="stylesheet" href="./style.css?v=70">
+	<link rel="stylesheet" href="./style.css?v=105">
 </head>
 <body class="siyaram-body">
 
-	<!-- ============ OPENING GATE OVERLAY ============ -->
-	<div class="siyaram-gate siyaram-skin-siyaram-raghukul" id="siyaram-gate" role="dialog" aria-modal="true" aria-label="Invitation opening screen">
-		<div class="siyaram-gate__inner">
-			<button type="button" class="siyaram-gate__btn" id="siyaram-gate-btn">Open Invitation</button>
-		</div>
+	<!-- ============ INTRO VIDEO OVERLAY (EDGE-TO-EDGE, NO TEXT, TOUCH TO PLAY) ============ -->
+	<div id="intro-overlay" class="intro-overlay">
+		<video id="intro-video" class="intro-video" src="./assets/intro-perfect-trimmed.mp4" poster="./assets/intro-poster.jpg" playsinline webkit-playsinline preload="auto"></video>
 	</div>
+
+	<!-- White Blink / Flash Transition Layer -->
+	<div id="intro-white-flash" class="intro-white-flash" aria-hidden="true"></div>
+
 
 	<!-- ============ MUSIC CONTROLS ============ -->
 	<div class="siyaram-music-wrap">
@@ -37,54 +39,51 @@
 	</div>
 
 	<!-- ============ MAIN INVITATION CONTAINER ============ -->
-	<div class="siyaram-invitation siyaram-skin-siyaram-raghukul" id="siyaram-invitation" data-siyaram-events="6" data-siyaram-venues="1">
-		
-		<!-- Floating Scroll to Continue Cue -->
-		<button type="button" class="siyaram-scrollcue" id="siyaram-scrollcue" aria-label="Scroll to Continue">
-			<svg class="siyaram-scrollcue__arrow" viewBox="0 0 24 30" width="22" height="27" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-				<path class="siyaram-scrollcue__c1" d="M5 4l7 7 7-7"/>
-				<path class="siyaram-scrollcue__c2" d="M5 15l7 7 7-7"/>
-			</svg>
-			<span class="siyaram-scrollcue__text">Scroll to Continue</span>
-		</button>
+	<div class="siyaram-invitation siyaram-skin-siyaram-raghukul siyaram-is-ready" id="siyaram-invitation" data-siyaram-events="6" data-siyaram-venues="1">
 
+		<!-- ============ 1. PARALLAX TEMPLE HERO & CELEBRATIONS PAGE ============ -->
 		<div class="siyaram-page siyaram-page--a">
-
-			<!-- ============ 1. HERO (AYODHYA TEMPLE, SUN, SKY, BELLS, BIRDS) ============ -->
+			
+			<!-- SECTION 1: HERO -->
 			<section class="siyaram-hero" aria-label="Wedding invitation opening">
 				<picture class="siyaram-pos siyaram-hero__sky" data-siyaram-parallax="0.7">
 					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/hero-sky-desktop.webp">
 					<img src="./assets/siyaram/images/backgrounds/hero-sky-mobile.webp" alt="" draggable="false">
 				</picture>
+
 				<picture class="siyaram-pos siyaram-hero__sun" data-siyaram-parallax="0.55">
 					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/hero-sun-desktop.webp">
 					<img src="./assets/siyaram/images/backgrounds/hero-sun-mobile.webp" alt="" draggable="false">
 				</picture>
+
 				<picture class="siyaram-pos siyaram-hero__mountain" data-siyaram-parallax="0.42">
 					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/hero-mountain-desktop.webp">
 					<img src="./assets/siyaram/images/backgrounds/hero-mountain-mobile.webp" alt="" draggable="false">
 				</picture>
+
 				<picture class="siyaram-pos siyaram-hero__cloud" data-siyaram-parallax="0.9">
 					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/hero-cloud-desktop.webp">
 					<img src="./assets/siyaram/images/backgrounds/hero-cloud-mobile.webp" alt="" draggable="false">
 				</picture>
+
 				<picture class="siyaram-pos siyaram-hero__temple" data-siyaram-parallax="0.18">
 					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/hero-temple-desktop.webp">
 					<img src="./assets/siyaram/images/backgrounds/hero-temple-mobile.webp" alt="" draggable="false">
 				</picture>
+
 				<picture class="siyaram-pos siyaram-hero__spire" data-siyaram-parallax="0.18">
 					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/decorations/temple-flagpole-desktop.webp">
 					<img src="./assets/siyaram/images/decorations/temple-flagpole-mobile.webp" alt="" draggable="false">
 				</picture>
 
-				<!-- Waving Flag with "जय श्री राम" -->
+				<!-- Temple Flag with Jai Shree Ram -->
 				<div class="siyaram-pos siyaram-hero__flag" data-siyaram-parallax="0.18" aria-hidden="true">
 					<svg class="siyaram-flag__svg" viewBox="0 0 120 80" preserveAspectRatio="none">
 						<defs>
 							<linearGradient id="siyaram-flag-gradient" x1="0" y1="0" x2="1" y2="1">
-								<stop offset="0" stop-color="#ff7a1a"/>
-								<stop offset=".55" stop-color="#e8531c"/>
-								<stop offset="1" stop-color="#c93a12"/>
+								<stop offset="0%" stop-color="#ff7a1a"/>
+								<stop offset="55%" stop-color="#e8531c"/>
+								<stop offset="100%" stop-color="#c93a12"/>
 							</linearGradient>
 						</defs>
 						<path class="siyaram-flag__cloth" d="M2 5 C30 -1 52 13 80 7 C98 4 108 6 118 8 L100 30 L118 52 C108 54 98 56 80 53 C52 59 30 45 2 52 Z" fill="url(#siyaram-flag-gradient)"/>
@@ -97,114 +96,126 @@
 					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/decorations/bells-frame-desktop.webp">
 					<img src="./assets/siyaram/images/decorations/bells-frame-mobile.webp" alt="" draggable="false">
 				</picture>
-				
-				<!-- Swinging Bells -->
+
+				<!-- Swinging temple bells -->
 				<img class="siyaram-pos siyaram-hero__bell siyaram-hero__bell--1" src="./assets/siyaram/images/decorations/hanging-bell-a.webp" alt="" draggable="false">
 				<img class="siyaram-pos siyaram-hero__bell siyaram-hero__bell--2" src="./assets/siyaram/images/decorations/hanging-bell-a.webp" alt="" draggable="false">
 				<img class="siyaram-pos siyaram-hero__bell siyaram-hero__bell--3" src="./assets/siyaram/images/decorations/hanging-bell-b.webp" alt="" draggable="false">
 				<img class="siyaram-pos siyaram-hero__bell siyaram-hero__bell--4" src="./assets/siyaram/images/decorations/hanging-bell-b.webp" alt="" draggable="false">
 				<img class="siyaram-pos siyaram-hero__bell siyaram-hero__bell--5" src="./assets/siyaram/images/decorations/hanging-bell-b.webp" alt="" draggable="false">
 				<img class="siyaram-pos siyaram-hero__bell siyaram-hero__bell--6" src="./assets/siyaram/images/decorations/hanging-bell-b.webp" alt="" draggable="false">
-				
-				<!-- Birds Canvas -->
+
 				<canvas class="siyaram-pos siyaram-hero__birds" aria-hidden="true"></canvas>
 
-				<!-- Hero Title -->
+				<!-- Hero Title: Krishna & Shreya with proper connector -->
 				<h1 class="siyaram-pos siyaram-hero__title" data-siyaram-parallax="0.28">
-					<span class="siyaram-hero__name siyaram-hero__name--first" data-field="groom.shortName">Krishna</span>
+					<span class="siyaram-hero__name siyaram-hero__name--first">Shreya</span>
 					<span class="siyaram-hero__connector">&amp;</span>
-					<span class="siyaram-hero__name siyaram-hero__name--second" data-field="bride.shortName">Shreya</span>
+					<span class="siyaram-hero__name siyaram-hero__name--second">Krishna</span>
 				</h1>
 			</section>
 
-			<!-- ============ 2. INVITATION DETAILS & GANPATI VANDANA ============ -->
+			<!-- SECTION 2: DETAILS (GANPATI & INVOCATION) -->
 			<section class="siyaram-details" aria-label="Invitation details">
 				<picture class="siyaram-pos siyaram-details__garden siyaram-shift-1">
 					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/garden-bridge-desktop.webp">
 					<img src="./assets/siyaram/images/backgrounds/garden-bridge-mobile.webp" alt="" draggable="false">
 				</picture>
+
 				<div class="siyaram-pos siyaram-details__panel siyaram-reveal" data-siyaram-reveal="soft">
 					<picture class="siyaram-details__icon">
 						<source media="(min-width:1024px)" srcset="./assets/siyaram/images/decorations/ganpati-icon-desktop.webp">
-						<img src="./assets/siyaram/images/decorations/ganpati-icon-mobile.webp" alt="" draggable="false">
+						<img src="./assets/siyaram/images/decorations/ganpati-icon-mobile.webp" alt="Lord Ganesha" draggable="false">
 					</picture>
-					<p class="siyaram-details__vandana" lang="sa">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥</p>
-					
-					<div class="siyaram-details__message">
-						<p class="siyaram-details__parents siyaram-details__parents--first"><span class="iu-nm">Smt. Madhu Agrawal</span> &amp; <span class="iu-nm">Shri Anil Agrawal</span></p>
-						<p class="siyaram-details__line">With joy and the divine blessings of our ancestors &amp; elders, we invite you to the wedding of our dear son</p>
-						<p class="siyaram-details__name siyaram-details__name--first" data-siyaram-fit data-field="groom.name">Krishna</p>
-						<p class="siyaram-details__connector">and</p>
-						<p class="siyaram-details__name siyaram-details__name--second" data-siyaram-fit data-field="bride.name">Shreya</p>
-						<p class="siyaram-details__label">Beloved daughter of</p>
-						<p class="siyaram-details__parents siyaram-details__parents--second"><span class="iu-nm">Smt. Raksha Parmar</span> &amp; <span class="iu-nm">Shri Krishna Kumar Parmar</span></p>
+
+					<p class="siyaram-details__vandana" lang="sa">
+						वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ।<br>
+						निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥
+					</p>
+
+					<div class="siyaram-details__stack">
+						<p class="siyaram-details__parents siyaram-details__parents--first">
+							<span class="iu-nm">Smt. Raksha Parmar</span> &amp; <span class="iu-nm">Shri Krishna Kumar Parmar</span>
+						</p>
+						<p class="siyaram-details__line">With joy and the blessings of our elders, we invite you to the wedding of their beloved daughter</p>
+						<p class="siyaram-details__name siyaram-details__name--first" data-siyaram-fit>Shreya</p>
+						<p class="siyaram-details__connector">with</p>
+						<p class="siyaram-details__name siyaram-details__name--second" data-siyaram-fit>Krishna</p>
+						<p class="siyaram-details__label">Son of</p>
+						<p class="siyaram-details__parents siyaram-details__parents--second">
+							<span class="iu-nm">Smt. Madhu Agrawal</span> &amp; <span class="iu-nm">Shri Anil Agrawal</span>
+						</p>
+						<p class="siyaram-details__intro">
+							Together with their families, they invite you to join them in celebrating their new beginning with divine love, joy, and blessings.
+						</p>
 					</div>
 				</div>
+
 				<div class="siyaram-pos siyaram-details__arrow siyaram-shift-1" aria-hidden="true"><span class="siyaram-details__arrow-line"></span></div>
 			</section>
 
-			<!-- ============ 3. MEET THE COUPLE & DATE SCRATCH CARDS ============ -->
+			<!-- SECTION 3: MEET THE COUPLE & DATE REVEAL -->
 			<section class="siyaram-couple" aria-label="Meet the couple">
 				<picture class="siyaram-pos siyaram-couple__backdrop siyaram-shift-2">
 					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/couple-section-desktop.webp">
 					<img src="./assets/siyaram/images/backgrounds/couple-section-mobile.webp" alt="" draggable="false">
 				</picture>
+
 				<img class="siyaram-pos siyaram-couple__mandala siyaram-couple__mandala--left siyaram-shift-2 siyaram-reveal" data-siyaram-reveal="mandala" src="./assets/siyaram/images/decorations/mandala.webp" alt="" draggable="false">
 				<img class="siyaram-pos siyaram-couple__mandala siyaram-couple__mandala--right siyaram-shift-2 siyaram-reveal" data-siyaram-reveal="mandala" src="./assets/siyaram/images/decorations/mandala.webp" alt="" draggable="false">
-				
-				<!-- Scratch-To-Reveal Wedding Date -->
+
+				<!-- Wedding date reveal: three independent scratch hearts + fireworks -->
 				<div class="siyaram-pos siyaram-date siyaram-shift-2" id="siyaramDate">
-					<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-						<defs>
-							<clipPath id="siyaramHeartClip" clipPathUnits="objectBoundingBox">
-								<path d="M0.5,0.94 C0.5,0.94 0.04,0.62 0.04,0.31 C0.04,0.11 0.21,0 0.36,0 C0.45,0 0.5,0.07 0.5,0.07 C0.5,0.07 0.55,0 0.64,0 C0.79,0 0.96,0.11 0.96,0.31 C0.96,0.62 0.5,0.94 0.5,0.94 Z"/>
-							</clipPath>
-						</defs>
-					</svg>
+					<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><clipPath id="siyaramHeartClip" clipPathUnits="objectBoundingBox"><path d="M0.5,0.94 C0.5,0.94 0.04,0.62 0.04,0.31 C0.04,0.11 0.21,0 0.36,0 C0.45,0 0.5,0.07 0.5,0.07 C0.5,0.07 0.55,0 0.64,0 C0.79,0 0.96,0.11 0.96,0.31 C0.96,0.62 0.5,0.94 0.5,0.94 Z"/></clipPath></defs></svg>
 					<canvas class="siyaram-date__fireworks siyaram-date__fireworks--left" id="siyaramFireworksLeft" aria-hidden="true"></canvas>
 					<canvas class="siyaram-date__fireworks siyaram-date__fireworks--right" id="siyaramFireworksRight" aria-hidden="true"></canvas>
+					
 					<div class="siyaram-date__inner">
 						<p class="siyaram-date__eyebrow siyaram-reveal" data-siyaram-reveal="rise">A Date To Remember</p>
 						<div class="siyaram-date__hearts siyaram-reveal" data-siyaram-reveal="pop" role="group" aria-label="Scratch each heart to reveal our wedding date">
-							<div class="siyaram-date__heart"><span class="siyaram-date__label">Day</span><span class="siyaram-date__value" data-field="wedding.dateNum">03</span></div>
-							<div class="siyaram-date__heart"><span class="siyaram-date__label">Month</span><span class="siyaram-date__value" data-field="wedding.month">DEC</span></div>
-							<div class="siyaram-date__heart"><span class="siyaram-date__label">Year</span><span class="siyaram-date__value" data-field="wedding.year">2026</span></div>
+							<div class="siyaram-date__heart" style="cursor:pointer;"><span class="siyaram-date__label">Day</span><span class="siyaram-date__value">03</span></div>
+							<div class="siyaram-date__heart" style="cursor:pointer;"><span class="siyaram-date__label">Month</span><span class="siyaram-date__value">DEC</span></div>
+							<div class="siyaram-date__heart" style="cursor:pointer;"><span class="siyaram-date__label">Year</span><span class="siyaram-date__value">2026</span></div>
 						</div>
-						<p class="siyaram-date__instruction siyaram-reveal" data-siyaram-reveal="soft" aria-hidden="true">Scratch to reveal the date</p>
-						<div class="siyaram-date__cursor" id="siyaramScratchCursor" aria-hidden="true">
-							<svg viewBox="0 0 40 40" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2">
-								<path d="M12 28l16-16m-12 0h12v12"/>
-							</svg>
-						</div>
-						<p class="siyaram-date__msg siyaram-reveal" data-siyaram-reveal="rise">Mark your calendars — our forever begins on this joyous day, and we would be honoured to have you by our side.</p>
+						<p class="siyaram-date__hint siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="80">Scratch the hearts to reveal the dates ❤️</p>
+						<p class="siyaram-date__msg siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="120">Mark your calendars — our forever begins on this joyous day, and we would be honoured to have you by our side.</p>
 					</div>
+					<div class="siyaram-date__cursor" id="siyaramScratchCursor" aria-hidden="true"></div>
+				</div>
+
+				<h2 class="siyaram-pos siyaram-couple__heading siyaram-shift-2 siyaram-reveal" data-siyaram-reveal="zoom">
+					<span>Meet the</span><br><span>Bride &amp; Groom</span>
+				</h2>
+
+				<div class="siyaram-pos siyaram-couple__card siyaram-shift-2">
+					<p class="siyaram-couple__message" style="white-space:pre-line">With our hearts full and smiles wide, come celebrate our love, share our joy, and help make this day a beautiful memory we will cherish forever!</p>
 				</div>
 			</section>
 
-			<!-- ============ 4. WEDDING TIMELINE / CELEBRATIONS ============ -->
+			<!-- SECTION 4: TIMELINE OF CELEBRATIONS (IMAGE 5 LAYOUT) -->
 			<section class="siyaram-timeline" id="siyaram-timeline" aria-label="Wedding timeline">
 				<picture class="siyaram-pos siyaram-timeline__paper siyaram-shift-1">
 					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/timeline-paper-mobile.webp">
 					<img src="./assets/siyaram/images/backgrounds/timeline-paper-mobile.webp" alt="" draggable="false">
 				</picture>
-				
+
 				<div class="siyaram-pos siyaram-timeline__flow siyaram-shift-1">
 					<h2 class="siyaram-timeline__heading siyaram-reveal" data-siyaram-reveal="rise">
 						<span class="siyaram-only-mobile">Our Celebrations</span>
 						<span class="siyaram-only-desktop">Our Celebrations</span>
 					</h2>
 					<p class="siyaram-timeline__subtext siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="120">Save these dates, we would love to celebrate with you</p>
-					
+
 					<ol class="siyaram-events" data-siyaram-events style="--rows:3">
 						
-						<!-- Event 1: Mehendi -->
+						<!-- 1. Mehendi -->
 						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-left" data-siyaram-delay="0">
 							<div class="siyaram-event__card">
 								<img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false">
 								<div class="siyaram-event__body">
-									<span class="siyaram-event__date">1st Dec 2026</span>
-									<h3 class="siyaram-event__title">Mehendi Ceremony</h3>
-									<span class="siyaram-event__time">11:00 AM Onwards</span>
+									<span class="siyaram-event__date">01st Dec 2026</span>
+									<h3 class="siyaram-event__title">Mehndi</h3>
+									<span class="siyaram-event__time">4:00 PM Onwards</span>
 								</div>
 							</div>
 							<div class="siyaram-event__info">
@@ -219,13 +230,13 @@
 							<img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false">
 						</li>
 
-						<!-- Event 2: Engagement -->
-						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-right" data-siyaram-delay="0">
+						<!-- 2. Engagement -->
+						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-right" data-siyaram-delay="80">
 							<div class="siyaram-event__card">
 								<img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false">
 								<div class="siyaram-event__body">
-									<span class="siyaram-event__date">2nd Dec 2026</span>
-									<h3 class="siyaram-event__title">Engagement Ceremony</h3>
+									<span class="siyaram-event__date">01st Dec 2026</span>
+									<h3 class="siyaram-event__title">Engagement</h3>
 									<span class="siyaram-event__time">7:00 PM Onwards</span>
 								</div>
 							</div>
@@ -241,14 +252,14 @@
 							<img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false">
 						</li>
 
-						<!-- Event 3: Ganesh Sthapna -->
-						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-left" data-siyaram-delay="120">
+						<!-- 3. Ganesh Sthapna -->
+						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-left" data-siyaram-delay="0">
 							<div class="siyaram-event__card">
 								<img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false">
 								<div class="siyaram-event__body">
-									<span class="siyaram-event__date">3rd Dec 2026</span>
+									<span class="siyaram-event__date">02nd Dec 2026</span>
 									<h3 class="siyaram-event__title">Ganesh Sthapna</h3>
-									<span class="siyaram-event__time">8:00 AM Onwards</span>
+									<span class="siyaram-event__time">10:00 AM Onwards</span>
 								</div>
 							</div>
 							<div class="siyaram-event__info">
@@ -263,14 +274,14 @@
 							<img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false">
 						</li>
 
-						<!-- Event 4: Samorta -->
-						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-right" data-siyaram-delay="120">
+						<!-- 4. Samorta -->
+						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-right" data-siyaram-delay="80">
 							<div class="siyaram-event__card">
 								<img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false">
 								<div class="siyaram-event__body">
-									<span class="siyaram-event__date">3rd Dec 2026</span>
+									<span class="siyaram-event__date">02nd Dec 2026</span>
 									<h3 class="siyaram-event__title">Samorta</h3>
-									<span class="siyaram-event__time">9:00 AM Onwards</span>
+									<span class="siyaram-event__time">4:00 PM Onwards</span>
 								</div>
 							</div>
 							<div class="siyaram-event__info">
@@ -285,14 +296,14 @@
 							<img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false">
 						</li>
 
-						<!-- Event 5: Haldi -->
-						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-left" data-siyaram-delay="180">
+						<!-- 5. Haldi -->
+						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-left" data-siyaram-delay="0">
 							<div class="siyaram-event__card">
 								<img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false">
 								<div class="siyaram-event__body">
-									<span class="siyaram-event__date">3rd Dec 2026</span>
-									<h3 class="siyaram-event__title">Haldi Ceremony</h3>
-									<span class="siyaram-event__time">11:00 AM Onwards</span>
+									<span class="siyaram-event__date">03rd Dec 2026</span>
+									<h3 class="siyaram-event__title">Haldi</h3>
+									<span class="siyaram-event__time">10:00 AM Onwards</span>
 								</div>
 							</div>
 							<div class="siyaram-event__info">
@@ -307,13 +318,13 @@
 							<img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false">
 						</li>
 
-						<!-- Event 6: Hastmelap -->
-						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-right" data-siyaram-delay="180">
+						<!-- 6. Hastmelap / Shubh Vivaah -->
+						<li class="siyaram-event is-last-row siyaram-reveal" data-siyaram-reveal="card-right" data-siyaram-delay="80">
 							<div class="siyaram-event__card">
 								<img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false">
 								<div class="siyaram-event__body">
-									<span class="siyaram-event__date">3rd Dec 2026</span>
-									<h3 class="siyaram-event__title">Hastmelap (Shubh Vivaah)</h3>
+									<span class="siyaram-event__date">03rd Dec 2026</span>
+									<h3 class="siyaram-event__title">Hastmelap</h3>
 									<span class="siyaram-event__time">6:30 PM Onwards</span>
 								</div>
 							</div>
@@ -338,202 +349,217 @@
 				</div>
 			</section>
 
-			<!-- ============ 5. OUR FAMILIES & EXTENDED FAMILY (CUSTOM THEME SECTION) ============ -->
-			<section class="siyaram-flow siyaram-family" id="siyaram-family" aria-label="Our Families">
-				<h2 class="siyaram-flow__heading siyaram-reveal" data-siyaram-reveal="zoom">Our Families</h2>
-				<p class="siyaram-flow__subtext siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="100">
-					With the divine blessings of our ancestors and the loving presence of our elders &amp; relatives
-				</p>
-
-				<div class="siyaram-family__grid siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="150">
-					
-					<!-- Bride's Family -->
-					<div class="siyaram-family__card">
-						<span class="siyaram-family__tag">Bride's Family (Parmar Family)</span>
-						<h3 class="siyaram-family__title">With Blessings of Grandparents</h3>
-						<p class="siyaram-family__names">Lt. Mohan Lal ji Parmar &amp; Lt. Usha Parmar</p>
-						
-						<h3 class="siyaram-family__title" style="margin-top: 14px;">Loving Parents</h3>
-						<p class="siyaram-family__names primary">Smt. Raksha Parmar &amp; Shri Krishna Kumar Parmar</p>
-					</div>
-
-					<!-- Groom's Family -->
-					<div class="siyaram-family__card">
-						<span class="siyaram-family__tag">Groom's Family (Agrawal Family)</span>
-						<h3 class="siyaram-family__title">With Blessings of Grandparents</h3>
-						<p class="siyaram-family__names">Lt. Girdhari Lal Agrawal &amp; Lt. Vimla Devi</p>
-						
-						<h3 class="siyaram-family__title" style="margin-top: 14px;">Loving Parents</h3>
-						<p class="siyaram-family__names primary">Smt. Madhu Agrawal &amp; Shri Anil Agrawal</p>
-					</div>
-
-					<!-- Vineet (Cordially Invited By) -->
-					<div class="siyaram-family__card">
-						<span class="siyaram-family__tag">Vineet</span>
-						<h3 class="siyaram-family__title">Cordially Invited By</h3>
-						<div class="siyaram-family__list">
-							<div>Smt. Raksha Ben &amp; Shri Krishna Kumar Parmar</div>
-							<div>Smt. Rashmi Ben &amp; Shri Sanjeev Kumar Parmar</div>
-							<div>Smt. Neha Ben &amp; Shri Lomesh Kumar Parmar</div>
-							<div>Chi. Gitesh Kumar Parmar</div>
-						</div>
-					</div>
-
-					<!-- Mausaar Paksh (Maternal Family) -->
-					<div class="siyaram-family__card">
-						<span class="siyaram-family__tag">Mausaar Paksh</span>
-						<h3 class="siyaram-family__title">Maternal Family</h3>
-						<div class="siyaram-family__list">
-							<div>Lt. Smt. Narmada Daya Ram Parmar</div>
-							<div>Lt. Smt. Parul Pritesh Parmar</div>
-							<div>Shri Kalpesh Parmar &amp; Smt. Kavita Parmar</div>
-							<div>Heet Parmar</div>
-						</div>
-					</div>
-
-					<!-- Aashirvachak (With Blessings of Elders) -->
-					<div class="siyaram-family__card">
-						<span class="siyaram-family__tag">Aashirvachak</span>
-						<h3 class="siyaram-family__title">With Divine Blessings of Elders</h3>
-						<div class="siyaram-family__list">
-							<div>Lt. Smt. Prem Kunwar Ben Parmar &amp; Lt. Shri Lal Ji Kunwar Ji Bhai Parmar</div>
-							<div>Lt. Smt. Usha Ben Parmar &amp; Lt. Shri Mohan Lal Ji Bhai Parmar</div>
-						</div>
-					</div>
-
-					<!-- Darshanabhilashi (Well Wishers) -->
-					<div class="siyaram-family__card">
-						<span class="siyaram-family__tag">Darshanabhilashi</span>
-						<h3 class="siyaram-family__title">With Best Compliments &amp; Well Wishers</h3>
-						<div class="siyaram-family__list">
-							<div>Chahat Parmar • Kush Parmar • Bhavya Parmar • Tiger</div>
-							<div style="font-weight: 700; color: #a13d17; margin-top: 5px; font-size: 14px;">&amp; All Parmar Family</div>
-						</div>
-					</div>
-
-				</div>
-			</section>
-
-			<!-- ============ 6. OUR STORY ============ -->
-			<section class="siyaram-flow siyaram-story" id="siyaram-story" aria-label="Our story">
-				<h2 class="siyaram-flow__heading siyaram-reveal" data-siyaram-reveal="zoom">Our Story</h2>
-				<p class="siyaram-flow__subtext siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="100">How two hearts met and began forever</p>
-				<ol class="siyaram-story__list">
-					<li class="siyaram-story__item siyaram-story__item--left siyaram-reveal" data-siyaram-reveal="rise">
-						<span class="siyaram-story__dot"></span>
-						<div class="siyaram-story__card">
-							<span class="siyaram-story__when">2021</span>
-							<h3 class="siyaram-story__title">First Meeting</h3>
-							<p class="siyaram-story__text">A beautiful first conversation filled with smiles, shared values and an instant bond of connection.</p>
-						</div>
-					</li>
-					<li class="siyaram-story__item siyaram-story__item--right siyaram-reveal" data-siyaram-reveal="rise">
-						<span class="siyaram-story__dot"></span>
-						<div class="siyaram-story__card">
-							<span class="siyaram-story__when">2023</span>
-							<h3 class="siyaram-story__title">Growing Fondness</h3>
-							<p class="siyaram-story__text">Countless shared laughs, deep conversations and discovering our shared dreams for the future.</p>
-						</div>
-					</li>
-					<li class="siyaram-story__item siyaram-story__item--left siyaram-reveal" data-siyaram-reveal="rise">
-						<span class="siyaram-story__dot"></span>
-						<div class="siyaram-story__card">
-							<span class="siyaram-story__when">2025</span>
-							<h3 class="siyaram-story__title">Families Connected</h3>
-							<p class="siyaram-story__text">With warmth and blessings, our parents met and sealed our lifelong bond of love and unity.</p>
-						</div>
-					</li>
-					<li class="siyaram-story__item siyaram-story__item--right siyaram-reveal" data-siyaram-reveal="rise">
-						<span class="siyaram-story__dot"></span>
-						<div class="siyaram-story__card">
-							<span class="siyaram-story__when">3 Dec 2026</span>
-							<h3 class="siyaram-story__title">Forever Begins</h3>
-							<p class="siyaram-story__text">Surrounded by our loved ones and elders, we take our sacred vows. We can't wait to celebrate with you!</p>
-						</div>
-					</li>
-				</ol>
-			</section>
-
-			<!-- ============ 7. WEDDING HASHTAG ============ -->
-			<section class="siyaram-flow siyaram-hashtag" id="siyaram-hashtag" aria-label="Wedding hashtag">
-				<h2 class="siyaram-flow__heading siyaram-reveal" data-siyaram-reveal="zoom">Our Hashtag</h2>
-				<button type="button" class="siyaram-hashtag__pill siyaram-reveal" data-siyaram-reveal="pop" data-siyaram-copy="#Krisha">
-					<span>#Krisha</span>
-					<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="5" width="8" height="8" rx="1.5"/><path d="M3 10.5V4a1 1 0 0 1 1-1h6.5"/></svg>
-				</button>
-				<p class="siyaram-hashtag__hint" data-hint-default="Tap to copy &amp; use it in all your posts!" data-hint-done="Copied to clipboard! ✨">Tap to copy &amp; use it in all your posts!</p>
-			</section>
-
 		</div><!-- End .siyaram-page--a -->
 
-		<div class="siyaram-page siyaram-page--b">
-			
-			<!-- ============ 8. VENUE LOCATION, COUNTDOWN & RSVP ============ -->
-			<section class="siyaram-location" id="siyaram-location" aria-label="Venue and countdown">
-				<picture class="siyaram-pos siyaram-location__backdrop siyaram-shift-b0">
-					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/location-section-desktop.webp">
-					<img src="./assets/siyaram/images/backgrounds/location-section-mobile.webp" alt="" draggable="false">
-				</picture>
+		<!-- ============ 2b. DIVINE BLESSINGS SECTION ============ -->
+		<section class="siyaram-flow siyaram-blessings" id="siyaram-blessings" aria-label="Divine Blessings">
+			<h2 class="siyaram-flow__heading siyaram-reveal" data-siyaram-reveal="zoom">Divine Blessings</h2>
+			<p class="siyaram-blessings__subtext siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="60">
+				With the divine grace and celestial blessings of Lord Shiva &amp; Goddess Parvati,<br>
+				we begin our sacred journey of togetherness and love.
+			</p>
 
-				<picture class="siyaram-pos siyaram-location__countdown-scene siyaram-shift-b0">
+			<div class="siyaram-blessings__art siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="100">
+				<img src="./assets/divine-image.png" alt="Divine Blessings of Lord Shiva and Mata Parvati" class="siyaram-blessings__img" loading="lazy">
+			</div>
+		</section>
+
+		
+		<!-- ============ 2. ROYAL FAMILY SECTION (NO BOXES - ROYAL TYPOGRAPHY) ============ -->
+		<section class="siyaram-flow siyaram-family" id="siyaram-family" aria-label="Our Families">
+			<img class="siyaram-flow__ornament siyaram-reveal" data-siyaram-reveal="rise" src="./assets/siyaram/images/decorations/lotus-ornament-mobile.webp" alt="" draggable="false">
+			
+			<h2 class="siyaram-flow__heading siyaram-reveal" data-siyaram-reveal="zoom">Our Families</h2>
+			<p class="siyaram-flow__subtext siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="100">
+				With the divine blessings of our ancestors and the loving presence of our elders &amp; relatives
+			</p>
+
+			<div class="siyaram-family__wrap siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="150">
+				
+				<!-- Bride's Family -->
+				<div class="siyaram-family__group">
+					<span class="siyaram-family__tag">Bride's Family (Parmar Family)</span>
+					<h3 class="siyaram-family__role">With Blessings of Grandparents</h3>
+					<p class="siyaram-family__people">Lt. Mohan Lal ji Parmar &amp; Lt. Usha Parmar</p>
+					
+					<h3 class="siyaram-family__role">Loving Parents</h3>
+					<p class="siyaram-family__people highlight">Smt. Raksha Parmar &amp; Shri Krishna Kumar Parmar</p>
+				</div>
+
+				<div class="siyaram-family__divider"><span>❧</span></div>
+
+				<!-- Groom's Family -->
+				<div class="siyaram-family__group">
+					<span class="siyaram-family__tag">Groom's Family (Agrawal Family)</span>
+					<h3 class="siyaram-family__role">With Blessings of Grandparents</h3>
+					<p class="siyaram-family__people">Lt. Girdhari Lal Agrawal &amp; Lt. Vimla Devi</p>
+					
+					<h3 class="siyaram-family__role">Loving Parents</h3>
+					<p class="siyaram-family__people highlight">Smt. Madhu Agrawal &amp; Shri Anil Agrawal</p>
+				</div>
+
+				<div class="siyaram-family__divider"><span>❧</span></div>
+
+				<!-- Vineet (Cordially Invited By) -->
+				<div class="siyaram-family__group">
+					<span class="siyaram-family__tag">Vineet</span>
+					<h3 class="siyaram-family__role">Cordially Invited By</h3>
+					<p class="siyaram-family__people">
+						Smt. Raksha Ben &amp; Shri Krishna Kumar Parmar<br>
+						Smt. Rashmi Ben &amp; Shri Sanjeev Kumar Parmar<br>
+						Smt. Neha Ben &amp; Shri Lomesh Kumar Parmar<br>
+						Chi. Gitesh Kumar Parmar
+					</p>
+				</div>
+
+				<div class="siyaram-family__divider"><span>❧</span></div>
+
+				<!-- Mausaar Paksh (Maternal Family) -->
+				<div class="siyaram-family__group">
+					<span class="siyaram-family__tag">Mausaar Paksh</span>
+					<h3 class="siyaram-family__role">Maternal Family</h3>
+					<p class="siyaram-family__people">
+						Lt. Smt. Narmada Daya Ram Parmar<br>
+						Lt. Smt. Parul Pritesh Parmar<br>
+						Shri Kalpesh Parmar &amp; Smt. Kavita Parmar<br>
+						Heet Parmar
+					</p>
+				</div>
+
+				<div class="siyaram-family__divider"><span>❧</span></div>
+
+				<!-- Aashirvachak (Blessings of Elders) -->
+				<div class="siyaram-family__group">
+					<span class="siyaram-family__tag">Aashirvachak</span>
+					<h3 class="siyaram-family__role">With Divine Blessings of Elders</h3>
+					<p class="siyaram-family__people">
+						Lt. Smt. Prem Kunwar Ben Parmar &amp; Lt. Shri Lal Ji Kunwar Ji Bhai Parmar<br>
+						Lt. Smt. Usha Ben Parmar &amp; Lt. Shri Mohan Lal Ji Bhai Parmar
+					</p>
+				</div>
+
+				<div class="siyaram-family__divider"><span>❧</span></div>
+
+				<!-- Darshanabhilashi (Well Wishers) -->
+				<div class="siyaram-family__group">
+					<span class="siyaram-family__tag">Darshanabhilashi</span>
+					<h3 class="siyaram-family__role">With Best Compliments &amp; Well Wishers</h3>
+					<p class="siyaram-family__people">
+						Chahat Parmar • Kush Parmar • Bhavya Parmar • Tiger<br>
+						<span class="highlight" style="font-size:15px; margin-top:4px; display:inline-block;">&amp; All Parmar Family</span>
+					</p>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- ============ 3. WEDDING HASHTAG & TIGER ============ -->
+		<section class="siyaram-flow siyaram-hashtag" id="siyaram-hashtag" aria-label="Wedding hashtag">
+			<img class="siyaram-flow__ornament siyaram-reveal" data-siyaram-reveal="rise" src="./assets/siyaram/images/decorations/lotus-ornament-mobile.webp" alt="" draggable="false">
+
+			<div class="siyaram-dog siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="80">
+				<div class="siyaram-dog__art">
+					<img src="./assets/tiger-pet.png" alt="A Special Invitation from Tiger" class="siyaram-dog__img" draggable="false">
+				</div>
+			</div>
+
+			<div class="siyaram-hashtag__royal siyaram-reveal" data-siyaram-reveal="zoom" data-siyaram-delay="120">
+				<span class="siyaram-hashtag__text" data-siyaram-copy="#Krisha" role="button" tabindex="0" title="Click to copy #Krisha">
+					✦ &nbsp;#Krisha&nbsp; ✦
+				</span>
+			</div>
+		</section>
+
+		<!-- ============ 4. ROYAL RSVP SECTION (NO BOXES - ROYAL TYPOGRAPHY) ============ -->
+		<section class="siyaram-flow siyaram-rsvp-flow" id="siyaram-rsvp" aria-label="RSVP">
+			<img class="siyaram-flow__ornament siyaram-reveal" data-siyaram-reveal="rise" src="./assets/siyaram/images/decorations/lotus-ornament-mobile.webp" alt="" draggable="false">
+
+			<h2 class="siyaram-flow__heading siyaram-reveal" data-siyaram-reveal="zoom">R. S. V. P.</h2>
+			<p class="siyaram-flow__subtext siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="60">
+				॥ सादर आमंत्रण ॥<br>
+				Your gracious presence will bless this auspicious union.<br>
+				For travel assistance and hospitality, our family is delighted to assist you:
+			</p>
+
+			<div class="siyaram-rsvp__wrap siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="100">
+				<div class="siyaram-rsvp__entry">
+					<span class="siyaram-rsvp__role">With Warm Regards</span>
+					<h3 class="siyaram-rsvp__name">Shri Krishna Kumar Parmar</h3>
+					<div class="siyaram-rsvp__actions">
+						<a href="tel:9450613006" class="siyaram-rsvp__btn">
+							<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+							<span>+91 94506 13006</span>
+						</a>
+						<a href="https://wa.me/919450613006?text=Namaste!%20Regarding%20Shreya%20%26%20Krishna%20Wedding" target="_blank" rel="noopener" class="siyaram-rsvp__btn siyaram-rsvp__btn--wa">
+							<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+							<span>WhatsApp</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="siyaram-rsvp__divider"><span>❧</span></div>
+
+				<div class="siyaram-rsvp__entry">
+					<span class="siyaram-rsvp__role">Family Coordination</span>
+					<h3 class="siyaram-rsvp__name">Shri Sanjeev Kumar Parmar</h3>
+					<div class="siyaram-rsvp__actions">
+						<a href="tel:9721446357" class="siyaram-rsvp__btn">
+							<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+							<span>+91 97214 46357</span>
+						</a>
+						<a href="https://wa.me/919721446357?text=Namaste!%20Regarding%20Shreya%20%26%20Krishna%20Wedding" target="_blank" rel="noopener" class="siyaram-rsvp__btn siyaram-rsvp__btn--wa">
+							<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+							<span>WhatsApp</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="siyaram-rsvp__divider"><span>❧</span></div>
+
+				<div class="siyaram-rsvp__entry">
+					<span class="siyaram-rsvp__role">Hospitality &amp; Travel Helpline</span>
+					<h3 class="siyaram-rsvp__name">Parmar Family Helpline</h3>
+					<div class="siyaram-rsvp__actions">
+						<a href="tel:9807711904" class="siyaram-rsvp__btn">
+							<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+							<span>+91 98077 11904</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ 5. COUNTDOWN & TEMPLE SCENE (PAGE B - TIGHT & ZERO EXTRA SPACE) ============ -->
+		<div class="siyaram-page siyaram-page--b">
+			<section class="siyaram-location" id="siyaram-location" aria-label="Auspicious Muhurtham Countdown">
+				<picture class="siyaram-pos siyaram-location__scene">
 					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/countdown-scene-desktop.webp">
 					<img src="./assets/siyaram/images/backgrounds/countdown-scene-mobile.webp" alt="" draggable="false">
 				</picture>
 
-				<!-- Live Countdown Timer -->
-				<div class="siyaram-pos siyaram-countdown siyaram-shift-b0" data-siyaram-until="2026-12-03T18:30:00+05:30" aria-label="Countdown to wedding">
-					<div class="siyaram-countdown__heading siyaram-reveal" data-siyaram-reveal="rise">The Auspicious Muhurtham</div>
-					<div class="siyaram-countdown__units">
-						<div class="siyaram-countdown__unit"><span class="siyaram-countdown__num siyaram-countdown__days">00</span><span class="siyaram-countdown__lbl">Days</span></div>
-						<div class="siyaram-countdown__unit"><span class="siyaram-countdown__num siyaram-countdown__hours">00</span><span class="siyaram-countdown__lbl">Hours</span></div>
-						<div class="siyaram-countdown__unit"><span class="siyaram-countdown__num siyaram-countdown__mins">00</span><span class="siyaram-countdown__lbl">Mins</span></div>
-						<div class="siyaram-countdown__unit"><span class="siyaram-countdown__num siyaram-countdown__secs">00</span><span class="siyaram-countdown__lbl">Secs</span></div>
-					</div>
-					<p class="siyaram-countdown__note siyaram-reveal" data-siyaram-reveal="soft">Counting down the sacred moments until we say forever</p>
-				</div>
-
-				<!-- Venue Details Card -->
-				<div class="siyaram-pos siyaram-location__card siyaram-shift-b0 siyaram-reveal" data-siyaram-reveal="soft">
-					<h3 class="siyaram-location__heading">Wedding Venue</h3>
-					<p class="siyaram-location__name">Swayamvar Lawn</p>
-					<p class="siyaram-location__address">Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai</p>
-					<a class="siyaram-event__directions siyaram-location__directions" href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" rel="noopener">
-						<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg>
-						<span>Open in Google Maps</span>
-					</a>
-				</div>
-
-				<!-- RSVP & Wishes Card -->
-				<div class="siyaram-pos siyaram-rsvp-box siyaram-shift-b0 siyaram-reveal" data-siyaram-reveal="soft" style="margin-top: 24px; text-align: center;">
-					<h3 style="font-family: var(--siyaram-font-display); font-size: 22px; color: #5f250f; font-weight: 700; margin-bottom: 8px;">For RSVP &amp; Queries</h3>
-					<p style="font-family: var(--siyaram-font-sans); font-size: 13.5px; color: #7b2d3e; margin-bottom: 16px;">We would be honored by your warm presence!</p>
-					
-					<div style="display: flex; flex-direction: column; gap: 10px; align-items: center; max-width: 280px; margin: 0 auto;">
-						<a href="tel:9450613006" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 10px 18px; border-radius: 999px; background: linear-gradient(135deg, #a13d17, #5f250f); color: #fff; text-decoration: none; font-family: var(--siyaram-font-sans); font-size: 13.5px; font-weight: 600; box-shadow: 0 4px 14px rgba(95, 37, 15, 0.25);">
-							<span>📞</span> +91 94506 13006
-						</a>
-						<a href="tel:9721446357" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 10px 18px; border-radius: 999px; background: linear-gradient(135deg, #a13d17, #5f250f); color: #fff; text-decoration: none; font-family: var(--siyaram-font-sans); font-size: 13.5px; font-weight: 600; box-shadow: 0 4px 14px rgba(95, 37, 15, 0.25);">
-							<span>📞</span> +91 97214 46357
-						</a>
-						<a href="tel:9807711904" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 10px 18px; border-radius: 999px; background: linear-gradient(135deg, #a13d17, #5f250f); color: #fff; text-decoration: none; font-family: var(--siyaram-font-sans); font-size: 13.5px; font-weight: 600; box-shadow: 0 4px 14px rgba(95, 37, 15, 0.25);">
-							<span>📞</span> +91 98077 11904
-						</a>
-					</div>
+				<!-- Countdown Timer -->
+				<h2 class="siyaram-pos siyaram-countdown__heading siyaram-reveal" data-siyaram-reveal="zoom">The Auspicious Muhurtham</h2>
+				<p class="siyaram-pos siyaram-countdown__text siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="100">Our families are delighted that you will join us for one of the happiest days of our lives</p>
+				<img class="siyaram-pos siyaram-countdown__divider siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="160" src="./assets/siyaram/images/decorations/divider-mobile.webp" alt="" draggable="false" data-siyaram-desktop-src="./assets/siyaram/images/decorations/divider-desktop.webp">
+				<div class="siyaram-pos siyaram-countdown siyaram-reveal" data-siyaram-reveal="pop" data-siyaram-delay="220" role="timer" aria-live="off" data-siyaram-date="2026-12-03T18:30:00+05:30">
+					<div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="days">00</span><span class="siyaram-countdown__label">Days</span></div>
+					<div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="hours">00</span><span class="siyaram-countdown__label">Hours</span></div>
+					<div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="minutes">00</span><span class="siyaram-countdown__label">Mins</span></div>
+					<div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="seconds">00</span><span class="siyaram-countdown__label">Secs</span></div>
 				</div>
 
 				<!-- Footer -->
-				<footer class="siyaram-pos siyaram-footer siyaram-shift-b0" style="margin-top: 40px; padding-bottom: 30px;">
-					<p style="font-family: var(--siyaram-font-display); font-size: 20px; color: #5f250f; font-weight: 700; margin-bottom: 4px;">Krishna &amp; Shreya</p>
-					<p style="font-family: var(--siyaram-font-sans); font-size: 13px; color: #a13d17; letter-spacing: 0.1em; text-transform: uppercase;">#Krisha • 3rd December 2026</p>
+				<footer class="siyaram-pos siyaram-footer siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="300">
+					<p class="siyaram-footer__text">Shreya &amp; Krishna • #Krisha • 3rd December 2026</p>
+					<p class="siyaram-footer__text" style="margin-top:6px;font-size:12px;opacity:0.8;">Crafted with <span class="siyaram-footer__heart" aria-hidden="true">&#10084;</span> by InvCraft Media</p>
 				</footer>
 			</section>
-
-		</div><!-- End .siyaram-page--b -->
+		</div>
 
 	</div><!-- End #siyaram-invitation -->
 
 	<!-- Scripts -->
 	<script src="./assets/siyaram/jquery.min.js"></script>
-	<script src="./script.js?v=70"></script>
+	<script src="./script.js?v=105"></script>
 </body>
 </html>
