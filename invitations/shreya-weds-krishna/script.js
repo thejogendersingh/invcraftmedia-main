@@ -955,7 +955,9 @@ window.inviteutsavSiyaramData = {
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function update() {
     var top = window.pageYOffset || document.documentElement.scrollTop || 0;
-    cue.classList.toggle('is-on', !document.getElementById('siyaram-gate') && top < 60);
+    var overlay = document.getElementById('intro-overlay');
+    var isIntroActive = overlay && overlay.style.display !== 'none';
+    cue.classList.toggle('is-on', !isIntroActive && !document.getElementById('siyaram-gate') && top < 120);
   }
   var gliding = false;
   function glideTo(targetTop) {
@@ -1120,6 +1122,8 @@ window.inviteutsavSiyaramData = {
       // 4. Remove flash layer completely after fade completes
       setTimeout(function () {
         flash.style.display = 'none';
+        var scrollCue = document.getElementById('siyaram-scrollcue');
+        if (scrollCue) { scrollCue.classList.add('is-on'); }
       }, 1000);
     }, 520);
   }
@@ -1128,6 +1132,16 @@ window.inviteutsavSiyaramData = {
     if (isStarted) return;
     isStarted = true;
     if (e && e.preventDefault && e.cancelable) { e.preventDefault(); }
+
+    // Fade out and remove floating tap cue
+    var tapCue = document.getElementById('intro-tap-cue');
+    if (tapCue) {
+      tapCue.style.opacity = '0';
+      tapCue.style.transform = 'translate(-50%, -50%) scale(0.92)';
+      setTimeout(function () {
+        try { tapCue.remove(); } catch (err) {}
+      }, 450);
+    }
 
     // Remove all listeners immediately so NO further touches interrupt or skip video
     overlay.removeEventListener('click', startVideoOnFirstTouch);
