@@ -15,6 +15,11 @@
 /vishesh-weds-neha/        /invitations/vishesh-weds-neha/index.html         200
 /vishesh-weds-neha/*       /invitations/vishesh-weds-neha/:splat             200
 
+# Client: vishesh-weds-neha-invitation (Vishesh & Neha - Without Couple Gallery)
+/vishesh-weds-neha-invitation         /vishesh-weds-neha-invitation/                               302
+/vishesh-weds-neha-invitation/        /invitations/vishesh-weds-neha-invitation/index.html         200
+/vishesh-weds-neha-invitation/*       /invitations/vishesh-weds-neha-invitation/:splat             200
+
 # Client: ashish-weds-bhavanishree (Ashish & Dr. Bhavanishree - Groom Side)
 /ashish-weds-bhavanishree         /ashish-weds-bhavanishree/                               302
 /ashish-weds-bhavanishree/        /invitations/ashish-weds-bhavanishree/index.html         200
