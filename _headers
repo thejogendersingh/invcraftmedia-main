@@ -16,6 +16,18 @@
 /vishesh-weds-neha/*
   Cache-Control: no-cache, no-store, must-revalidate
 
+/ashish-weds-bhavanishree
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/ashish-weds-bhavanishree/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/ashish-weds-bhavanishree/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/invitations/ashish-weds-bhavanishree/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
 /invitations/vishesh-weds-neha/*
   Cache-Control: no-cache, no-store, must-revalidate
 

@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Metallic olive gold gradients matching Dharmendra/Sanchita theme -->
+    <linearGradient id="abGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4d6139"/>
+      <stop offset="25%" stop-color="#738e55"/>
+      <stop offset="50%" stop-color="#3d4f2c"/>
+      <stop offset="75%" stop-color="#8ba869"/>
+      <stop offset="100%" stop-color="#2c3a1e"/>
+    </linearGradient>
+
+    <linearGradient id="abHighlight" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#374828"/>
+      <stop offset="35%" stop-color="#7e9c5e"/>
+      <stop offset="65%" stop-color="#a4c282"/>
+      <stop offset="100%" stop-color="#4a5d36"/>
+    </linearGradient>
+
+    <linearGradient id="abHeartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a0283b"/>
+      <stop offset="50%" stop-color="#c84b5e"/>
+      <stop offset="100%" stop-color="#801b2a"/>
+    </linearGradient>
+
+    <!-- Subtle luxury drop shadow -->
+    <filter id="abShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#1a2512" flood-opacity="0.38"/>
+      <feDropShadow dx="-1" dy="-1" stdDeviation="2" flood-color="#ffffff" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#abShadow)">
+    <!-- Decorative Outer Wreath Circle Ring -->
+    <circle cx="250" cy="250" r="215" fill="none" stroke="url(#abGoldGrad)" stroke-width="2.5" opacity="0.45" stroke-dasharray="8 6"/>
+    <circle cx="250" cy="250" r="202" fill="none" stroke="url(#abHighlight)" stroke-width="1.2" opacity="0.6"/>
+
+    <!-- Flourish Botanical Accents -->
+    <path d="M 250,38 C 242,48 238,58 238,68 C 248,68 258,62 262,48 Z" fill="url(#abGoldGrad)" opacity="0.8"/>
+    <path d="M 250,38 C 258,48 262,58 262,68 C 252,68 242,62 238,48 Z" fill="url(#abHighlight)" opacity="0.8"/>
+    <circle cx="250" cy="38" r="3.5" fill="url(#abHighlight)"/>
+
+    <path d="M 250,462 C 242,452 238,442 238,432 C 248,432 258,438 262,452 Z" fill="url(#abGoldGrad)" opacity="0.8"/>
+    <path d="M 250,462 C 258,452 262,442 262,432 C 252,432 242,438 238,452 Z" fill="url(#abHighlight)" opacity="0.8"/>
+    <circle cx="250" cy="462" r="3.5" fill="url(#abHighlight)"/>
+
+    <!-- Letter A (Left) -->
+    <g transform="translate(45, 30)">
+      <!-- Left leg of A with elegant bottom curl -->
+      <path d="M 125,310 C 105,310 90,300 85,285 C 80,270 92,255 110,255 C 122,255 132,262 135,272 L 185,145 C 190,132 195,120 205,115 L 215,115 L 210,130 L 160,265 L 140,310 Z" 
+            fill="url(#abGoldGrad)"/>
+      <!-- Right stem of A -->
+      <path d="M 205,115 C 215,115 225,122 230,135 L 290,290 C 295,302 305,310 320,310 L 320,316 C 300,316 275,316 260,316 L 260,310 C 275,310 280,302 275,290 L 262,255 L 195,255 L 180,295 C 175,306 182,310 195,310 L 195,316 C 175,316 145,316 125,316 L 125,310 Z" 
+            fill="url(#abHighlight)"/>
+      <!-- Crossbar of A with flourish wave -->
+      <path d="M 175,252 C 205,248 245,248 275,252 C 285,253 285,259 275,260 C 245,264 205,264 175,260 C 165,259 165,253 175,252 Z" 
+            fill="url(#abGoldGrad)"/>
+      <!-- Peak flourish -->
+      <path d="M 205,115 C 200,95 185,85 168,85 C 150,85 140,98 145,110 C 150,122 165,125 175,118 C 182,112 185,102 182,95 C 192,95 200,102 205,115 Z" 
+            fill="url(#abHighlight)"/>
+    </g>
+
+    <!-- Intertwining Ampersand & Central Heart -->
+    <g transform="translate(250, 245)">
+      <!-- Stylized Heart -->
+      <path d="M 0,-15 C -15,-38 -45,-25 -45,5 C -45,35 -5,55 0,72 C 5,55 45,35 45,5 C 45,-25 15,-38 0,-15 Z" 
+            fill="none" stroke="url(#abGoldGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+      <path d="M 0,-15 C -15,-38 -45,-25 -45,5 C -45,35 -5,55 0,72 C 5,55 45,35 45,5 C 45,-25 15,-38 0,-15 Z" 
+            fill="none" stroke="url(#abHighlight)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Letter B (Right) -->
+    <g transform="translate(145, 30)">
+      <!-- Main stem of B -->
+      <path d="M 175,120 C 178,135 180,160 180,205 L 180,290 C 180,312 172,320 155,324 L 155,330 C 175,330 205,330 225,330 L 225,324 C 210,320 202,312 202,290 L 202,150 C 202,128 210,120 225,116 L 225,110 C 205,110 185,110 175,110 Z" 
+            fill="url(#abGoldGrad)"/>
+      <!-- Top lobe of B -->
+      <path d="M 202,120 C 235,118 285,125 292,165 C 298,202 265,225 220,228 C 210,228 202,226 202,224 C 202,220 215,216 230,214 C 265,208 280,192 278,168 C 275,138 238,132 202,132 Z" 
+            fill="url(#abHighlight)"/>
+      <!-- Bottom lobe of B (grand sweep) -->
+      <path d="M 202,224 C 248,224 305,232 312,275 C 318,318 275,335 222,335 C 195,335 182,332 182,328 C 182,324 195,322 215,322 C 265,322 295,310 292,278 C 288,245 245,236 202,236 Z" 
+            fill="url(#abGoldGrad)"/>
+      <!-- Bottom decorative curl flourish -->
+      <path d="M 155,324 C 135,324 118,310 118,290 C 118,272 132,258 150,258 C 160,258 168,264 170,272 C 162,274 152,282 152,295 C 152,310 162,318 175,322 Z" 
+            fill="url(#abHighlight)"/>
+    </g>
+
+    <!-- Subtitle: ASHISH & BHAVANISHREE -->
+    <text x="250" y="405" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="16" letter-spacing="6" fill="url(#abGoldGrad)" font-weight="600">
+      ASHISH &#x2665; BHAVANISHREE
+    </text>
+    <text x="250" y="425" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="10.5" letter-spacing="3" fill="#5a7342" font-weight="500">
+      DECEMBER 2026
+    </text>
+  </g>
+</svg>

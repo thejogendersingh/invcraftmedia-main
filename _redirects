@@ -15,6 +15,11 @@
 /vishesh-weds-neha/        /invitations/vishesh-weds-neha/index.html         200
 /vishesh-weds-neha/*       /invitations/vishesh-weds-neha/:splat             200
 
+# Client: ashish-weds-bhavanishree (Ashish & Dr. Bhavanishree - Groom Side)
+/ashish-weds-bhavanishree         /ashish-weds-bhavanishree/                               302
+/ashish-weds-bhavanishree/        /invitations/ashish-weds-bhavanishree/index.html         200
+/ashish-weds-bhavanishree/*       /invitations/ashish-weds-bhavanishree/:splat             200
+
 # Client: krishna-weds-shreya (Active Live Client)
 /krishna-weds-shreya         /krishna-weds-shreya/                               301
 /krishna-weds-shreya/        /invitations/krishna-weds-shreya/index.html         200
@@ -55,10 +60,6 @@
 /bhavanishree-weds-ashish/        /invitations/bhavanishree-weds-ashish/index.html         200
 /bhavanishree-weds-ashish/*       /invitations/bhavanishree-weds-ashish/:splat             200
 
-# Client alias: ashish-weds-bhavanishree
-/ashish-weds-bhavanishree         /ashish-weds-bhavanishree/                               301
-/ashish-weds-bhavanishree/        /invitations/bhavanishree-weds-ashish/index.html         200
-/ashish-weds-bhavanishree/*       /invitations/bhavanishree-weds-ashish/:splat             200
 
 # Client: sameeksha-weds-kiran (Sameeksha & Kiran)
 /sameeksha-weds-kiran         /sameeksha-weds-kiran/                               301
