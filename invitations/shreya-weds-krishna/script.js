@@ -47,14 +47,14 @@ window.inviteutsavSiyaramData = {
       "index": 0
     },
     {
-      "name": "Engagement Ceremony",
-      "date": "2nd December 2026",
-      "dateShort": "2nd Dec 2026",
-      "time": "7:00 PM Onwards",
+      "name": "Raas / Garba",
+      "date": "1st December 2026",
+      "dateShort": "1st Dec 2026",
+      "time": "6:00 PM Onwards",
       "venue": "Swayamvar Lawn",
       "address": "Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai",
-      "dress": "Evening Elegance",
-      "description": "An enchanting evening of rings, promises and music.",
+      "dress": "Traditional Chaniya Choli & Kurta",
+      "description": "An enchanting evening of music, dance, and Raas Garba celebrations.",
       "mapUrl": "https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai",
       "index": 1
     },

@@ -376,6 +376,107 @@ document.addEventListener('DOMContentLoaded', () => {
       playSong();
     }
   }, { once: true });
+
+  // =========================================================================
+  // 6. AUTO-SLIDING SWEET MEMORIES PHOTO GALLERY
+  // =========================================================================
+  const galleryTrack = document.getElementById('gallerySliderTrack');
+  const galleryPrevBtn = document.getElementById('galleryPrevBtn');
+  const galleryNextBtn = document.getElementById('galleryNextBtn');
+  const galleryDots = document.querySelectorAll('.gallery-dot');
+  const galleryCaptions = document.querySelectorAll('.gallery-caption-item');
+  const galleryViewport = document.getElementById('gallerySliderViewport');
+
+  if (galleryTrack && galleryDots.length > 0) {
+    let currentGallerySlide = 0;
+    const totalGallerySlides = galleryDots.length;
+    let autoSlideInterval = null;
+
+    function setSlide(index) {
+      currentGallerySlide = (index + totalGallerySlides) % totalGallerySlides;
+      galleryTrack.style.transform = 'translateX(-' + (currentGallerySlide * 100) + '%)';
+
+      // Update dots
+      galleryDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentGallerySlide);
+      });
+
+      // Update captions
+      galleryCaptions.forEach((caption, i) => {
+        caption.classList.toggle('active', i === currentGallerySlide);
+      });
+    }
+
+    function startAutoSlide() {
+      stopAutoSlide();
+      autoSlideInterval = setInterval(() => {
+        setSlide(currentGallerySlide + 1);
+      }, 3200); // 3.2s smooth auto transition
+    }
+
+    function stopAutoSlide() {
+      if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = null;
+      }
+    }
+
+    if (galleryPrevBtn) {
+      galleryPrevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setSlide(currentGallerySlide - 1);
+        startAutoSlide();
+      });
+    }
+
+    if (galleryNextBtn) {
+      galleryNextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setSlide(currentGallerySlide + 1);
+        startAutoSlide();
+      });
+    }
+
+    galleryDots.forEach((dot) => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const slideIdx = parseInt(dot.getAttribute('data-slide'), 10);
+        if (!isNaN(slideIdx)) {
+          setSlide(slideIdx);
+          startAutoSlide();
+        }
+      });
+    });
+
+    // Touch swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    if (galleryViewport) {
+      galleryViewport.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoSlide();
+      }, { passive: true });
+
+      galleryViewport.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diffX = touchEndX - touchStartX;
+        if (Math.abs(diffX) > 40) {
+          if (diffX < 0) {
+            setSlide(currentGallerySlide + 1);
+          } else {
+            setSlide(currentGallerySlide - 1);
+          }
+        }
+        startAutoSlide();
+      }, { passive: true });
+
+      // Pause on hover on desktop
+      galleryViewport.addEventListener('mouseenter', stopAutoSlide);
+      galleryViewport.addEventListener('mouseleave', startAutoSlide);
+    }
+
+    // Start auto slide initially
+    startAutoSlide();
+  }
 });
-
-

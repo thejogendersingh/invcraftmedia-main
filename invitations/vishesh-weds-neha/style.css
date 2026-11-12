@@ -21,6 +21,11 @@
   --font-cursive: 'Great Vibes', 'Alex Brush', cursive;
   --font-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
   --font-header: 'Marcellus', 'Cinzel', serif;
+  /* Authentic Devanagari / Hindi Calligraphy & Display Stacks */
+  --font-hindi-title: 'Rozha One', 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', 'Mangal', serif;
+  --font-hindi-display: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', 'Gotu', serif;
+  --font-hindi-body: 'Noto Serif Devanagari', 'Gotu', 'Nirmala UI', serif;
+  --font-hindi-hand: 'Kalam', 'Rozha One', cursive, sans-serif;
   --app-max-width: 440px;
 }
 
@@ -146,12 +151,12 @@ body {
 }
 
 .ganesh-mantra {
-  font-family: var(--font-header);
-  font-size: 0.88rem;
-  font-weight: 600;
+  font-family: var(--font-hindi-title);
+  font-size: 1.05rem;
+  font-weight: 500;
   color: var(--maroon-accent);
-  letter-spacing: 0.22em;
-  opacity: 0.88;
+  letter-spacing: 0.14em;
+  opacity: 0.95;
 }
 
 .shubh-title-row {
@@ -168,12 +173,11 @@ body {
 }
 
 .shubh-text {
-  font-family: var(--font-header);
-  font-size: 0.98rem;
-  letter-spacing: 0.28em;
+  font-family: var(--font-hindi-title);
+  font-size: 1.25rem;
+  letter-spacing: 0.22em;
   color: var(--maroon-deep);
-  font-weight: 700;
-  text-transform: uppercase;
+  font-weight: 500;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
@@ -227,20 +231,13 @@ body {
   display: block;
   outline: none !important;
   border: none !important;
-  filter: drop-shadow(0 16px 32px rgba(112, 16, 19, 0.26))
-          drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 10px 22px rgba(90, 15, 18, 0.16));
   transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2);
 }
 
 /* Ambient glow around envelope */
 .envelope-glow {
-  position: absolute;
-  inset: -14%;
-  background: radial-gradient(circle, rgba(223, 178, 62, 0.32) 0%, rgba(203, 161, 53, 0.08) 45%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: auraPulse 5s ease-in-out infinite alternate;
-  z-index: 0;
+  display: none !important;
 }
 
 @keyframes auraPulse {
@@ -306,11 +303,13 @@ body {
 }
 
 .wedding-tag {
-  font-family: var(--font-cursive);
-  font-size: 2.15rem;
-  line-height: 1.1;
+  font-family: var(--font-hindi-title);
+  font-size: 1.7rem;
+  line-height: 1.25;
   color: var(--maroon-rich);
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-top: 0.25rem;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
@@ -1134,11 +1133,11 @@ body {
 }
 
 .card-eyebrow {
-  font-family: var(--font-header);
-  font-size: 0.82rem;
-  letter-spacing: 0.22em;
+  font-family: var(--font-hindi-title);
+  font-size: 1.02rem;
+  letter-spacing: 0.15em;
   color: var(--maroon-accent);
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
 }
 
@@ -1150,25 +1149,27 @@ body {
 }
 
 .family-name {
-  font-family: var(--font-serif);
+  font-family: var(--font-hindi-display);
   font-size: 1.55rem;
   color: var(--maroon-deep);
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .family-sub {
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-family: var(--font-hindi-body);
+  font-size: 1.02rem;
   color: var(--text-muted);
-  margin-top: 0.25rem;
+  margin-top: 0.35rem;
+  line-height: 1.5;
+  font-weight: 500;
 }
 
 .contact-person {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
+  font-family: var(--font-hindi-display);
+  font-size: 1.45rem;
   color: var(--maroon-deep);
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 0.3rem;
 }
 
@@ -1496,20 +1497,22 @@ body {
 }
 
 .bal-poem-text {
-  font-family: var(--font-serif);
-  font-size: 1.22rem;
-  line-height: 1.6;
-  color: var(--maroon-deep);
-  font-weight: 600;
-  margin: 0.4rem 0;
+  font-family: var(--font-hindi-hand);
+  font-size: 1.35rem;
+  line-height: 1.7;
+  color: var(--maroon-rich);
+  font-weight: 700;
+  margin: 0.5rem 0;
+  letter-spacing: 0.02em;
 }
 
 .bal-kid-tag {
-  font-family: var(--font-header);
-  font-size: 1.05rem;
+  font-family: var(--font-hindi-display);
+  font-size: 1.18rem;
   color: var(--maroon-accent);
-  letter-spacing: 0.08em;
-  font-weight: 600;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  margin-top: 0.35rem;
 }
 
 .var-yatra-box {
@@ -1524,11 +1527,12 @@ body {
 }
 
 .var-yatra-text {
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  line-height: 1.55;
-  color: var(--text-dark);
-  margin-top: 0.3rem;
+  font-family: var(--font-hindi-body);
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--maroon-deep);
+  margin-top: 0.4rem;
 }
 
 .bal-aagrah-section {
@@ -1541,4 +1545,344 @@ body {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+}
+
+
+/* ==========================================================================
+   SWEET MEMORIES / GALLERY SECTION (GROOM, BRIDE, COUPLE)
+   ========================================================================== */
+.gallery-section {
+  position: relative;
+  width: 100%;
+  background: var(--bg-cream-warm);
+  background: radial-gradient(circle at 50% 25%, #fffbf5 0%, var(--bg-cream-warm) 60%, var(--bg-parchment) 100%);
+  display: flex;
+  flex-direction: column;
+  padding: 2.6rem 1.4rem 2.8rem;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.gallery-header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1.6rem;
+}
+
+.gallery-decor-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3rem;
+  opacity: 0.85;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-eyebrow {
+  font-family: var(--font-header);
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  color: var(--sage-olive);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.gallery-main-title {
+  font-family: var(--font-hindi-title);
+  font-size: 2.1rem;
+  line-height: 1.25;
+  color: var(--maroon-deep);
+  font-weight: 500;
+  margin-top: 0.2rem;
+  text-shadow: 0 1px 3px rgba(112, 16, 19, 0.15);
+}
+
+.gallery-sub-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--maroon-accent);
+  margin-top: 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.gallery-decor-motif {
+  color: var(--gold-warm);
+  font-size: 1.1rem;
+  margin-top: 0.4rem;
+  opacity: 0.9;
+}
+
+/* Single Box Auto Slider */
+.gallery-single-box {
+  width: 100%;
+  background: #ffffff;
+  background: linear-gradient(145deg, #ffffff 0%, #fdf8f0 100%);
+  border-radius: 24px;
+  padding: 14px 14px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 14px 35px rgba(112, 16, 19, 0.14),
+              0 2px 10px rgba(0, 0, 0, 0.05);
+  border: 2px solid rgba(203, 161, 53, 0.55);
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Slider Viewport */
+.gallery-slider-viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f5ece0;
+  box-shadow: inset 0 0 0 1px rgba(203, 161, 53, 0.3),
+              0 6px 18px rgba(0, 0, 0, 0.08);
+  touch-action: pan-y;
+  user-select: none;
+  margin-bottom: 22px; /* Generous breathing room between photo and caption */
+}
+
+/* Slider Track */
+.gallery-slider-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* Individual Slide */
+.gallery-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.gallery-slide-img-box {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gallery-slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+/* Slider Navigation Buttons (Prev / Next Arrows) */
+.slider-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid rgba(203, 161, 53, 0.6);
+  color: #701013;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  z-index: 10;
+  transition: all 0.25s ease;
+  padding: 0;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slider-nav-btn:hover,
+.slider-nav-btn:focus-visible {
+  background: #ffffff;
+  color: #9d1b1f;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 6px 18px rgba(112, 16, 19, 0.3);
+}
+
+.slider-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+/* Dynamic Caption Area */
+.gallery-caption-wrapper {
+  width: 100%;
+  position: relative;
+  min-height: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 8px;
+}
+
+.gallery-caption-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 4px;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.gallery-caption-item.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.gallery-role-badge {
+  font-family: var(--font-hindi-title);
+  font-size: 0.95rem;
+  letter-spacing: 0.16em;
+  color: var(--maroon-accent);
+  font-weight: 500;
+  text-transform: uppercase;
+  background: rgba(203, 161, 53, 0.12);
+  border: 1px solid rgba(203, 161, 53, 0.35);
+  padding: 4px 18px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.couple-badge {
+  font-family: var(--font-header);
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  font-weight: 700;
+  color: #701013;
+  background: linear-gradient(135deg, rgba(223, 178, 62, 0.25) 0%, rgba(203, 161, 53, 0.12) 100%);
+  border: 1px solid rgba(203, 161, 53, 0.6);
+}
+
+.gallery-person-name {
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  color: var(--maroon-deep);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.gallery-hindi-name {
+  font-family: var(--font-hindi-display);
+  font-size: 1.35rem;
+  color: var(--maroon-accent);
+  font-weight: 600;
+  margin-top: 3px;
+  letter-spacing: 0.04em;
+}
+
+.gallery-card-motif {
+  color: var(--gold-warm);
+  font-size: 0.75rem;
+  margin: 6px 0 3px;
+  opacity: 0.8;
+}
+
+.gallery-couple-date {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+/* Dots Indicator */
+.gallery-dots-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding-bottom: 4px;
+}
+
+.gallery-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(203, 161, 53, 0.3);
+  border: 1px solid rgba(203, 161, 53, 0.6);
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  transition: all 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.gallery-dot.active {
+  width: 28px;
+  background: linear-gradient(90deg, #cba135 0%, #dfb23e 100%);
+  border-color: #9d1b1f;
+  box-shadow: 0 2px 6px rgba(203, 161, 53, 0.4);
+}
+
+.gallery-footer-spacer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.6rem;
+  color: var(--gold-warm);
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* Venue address styling */
+.venue-address {
+  font-family: var(--font-hindi-body);
+  font-size: 1.02rem;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--text-dark);
+}
+
+.venue-address strong {
+  font-family: var(--font-hindi-display);
+  font-weight: 700;
+  color: var(--maroon-deep);
+}
+
+/* Family names and pair items */
+.family-names-text {
+  font-family: var(--font-hindi-body);
+  font-size: 1.08rem;
+  line-height: 1.75;
+  font-weight: 600;
+  color: var(--maroon-deep);
+}
+
+.family-pair-item {
+  font-family: var(--font-hindi-body);
+  font-size: 1.08rem;
+  line-height: 1.7;
+  font-weight: 600;
+  color: var(--maroon-deep);
 }

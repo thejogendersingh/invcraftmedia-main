@@ -8,10 +8,10 @@
   <title>Vishesh weds Neha - Wedding Invitation</title>
   <meta name="description" content="Wedding Invitation of Vishesh & Neha (ह्रदयांश संग ह्रदयांशिका) - An auspicious celebration">
   
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Elegant Devanagari & Latin Calligraphy -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600;1,700&family=Great+Vibes&family=Marcellus&family=Montserrat:wght@400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600;1,700&family=Gotu&family=Great+Vibes&family=Kalam:wght@400;700&family=Marcellus&family=Montserrat:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700;800&family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&family=Yatra+One&display=swap" rel="stylesheet">
   
   <!-- Preload Critical Above-The-Fold Images for Superfast Load -->
   <link rel="preload" as="image" href="assets/intro-envolp.webp" type="image/webp" fetchpriority="high">
@@ -69,9 +69,8 @@
       <!-- Center Content: Envelope + Invitation Text (Grouped tightly together) -->
       <div class="intro-center-group">
         
-        <!-- Center Envelope Container -->
+        <!-- Center Envelope Container (Clean without glassmorphism) -->
         <div class="envelope-wrapper" id="envelopeWrapper" role="button" tabindex="0" aria-label="Tap to open wedding invitation">
-          <div class="envelope-glow"></div>
           <div class="envelope-card">
             <img src="assets/intro-envolp.webp" alt="Wedding Invitation Envelope" class="envelope-img" id="envelopeImg" draggable="false" fetchpriority="high" decoding="async">
           </div>
@@ -309,21 +308,109 @@
 
         </section>
 
-        <!-- ================= AWAITING YOUR PRESENCE SECTION ================= -->
-        <section class="presence-section" id="presenceSection">
-          <div class="presence-decor-top" aria-hidden="true">
-            <span class="decor-branch-left">🍃</span>
-            <span class="decor-flower-right">🌸</span>
+        <!-- ================= SWEET MEMORIES / AUTO-SLIDING GALLERY SECTION ================= -->
+        <section class="gallery-section" id="gallerySection">
+          
+          <header class="gallery-header">
+            <div class="gallery-decor-top" aria-hidden="true">
+              <span class="gallery-decor-leaf">🍃</span>
+              <span class="gallery-decor-flower">🌸</span>
+              <span class="gallery-decor-leaf">🍃</span>
+            </div>
+            
+            <p class="gallery-eyebrow">SWEET MOMENTS</p>
+            <h2 class="gallery-main-title">ह्रदयांश संग ह्रदयांशिका</h2>
+            <p class="gallery-sub-quote">"Two Souls, One Beautiful Journey of Love"</p>
+            
+            <div class="gallery-decor-motif" aria-hidden="true">
+              <span class="gallery-motif-flower">❀</span>
+            </div>
+          </header>
+
+          <!-- Single Box Auto Slider -->
+          <div class="gallery-single-box" id="gallerySingleBox">
+            
+            <!-- Slider Viewport -->
+            <div class="gallery-slider-viewport" id="gallerySliderViewport">
+              <div class="gallery-slider-track" id="gallerySliderTrack">
+                
+                <!-- Slide 1: Groom -->
+                <div class="gallery-slide" data-index="0">
+                  <div class="gallery-slide-img-box">
+                    <img src="assets/groom.png" alt="Vishesh - The Groom" class="gallery-slide-img" draggable="false" fetchpriority="high">
+                  </div>
+                </div>
+
+                <!-- Slide 2: Bride -->
+                <div class="gallery-slide" data-index="1">
+                  <div class="gallery-slide-img-box">
+                    <img src="assets/bride.png" alt="Neha - The Bride" class="gallery-slide-img" draggable="false" loading="lazy">
+                  </div>
+                </div>
+
+                <!-- Slide 3: Couple -->
+                <div class="gallery-slide" data-index="2">
+                  <div class="gallery-slide-img-box">
+                    <img src="assets/couple.png" alt="Vishesh & Neha - Made For Each Other" class="gallery-slide-img" draggable="false" loading="lazy">
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Navigation Arrows -->
+              <button class="slider-nav-btn prev-btn" id="galleryPrevBtn" aria-label="Previous photo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <button class="slider-nav-btn next-btn" id="galleryNextBtn" aria-label="Next photo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Dynamic Caption Area (Synchronized with active slide) -->
+            <div class="gallery-caption-wrapper" id="galleryCaptionWrapper">
+              
+              <!-- Caption 1: Groom -->
+              <div class="gallery-caption-item active" data-caption="0">
+                <span class="gallery-role-badge">: वर :</span>
+                <h3 class="gallery-person-name">Vishesh</h3>
+                <p class="gallery-hindi-name">ह्रदयांश</p>
+              </div>
+
+              <!-- Caption 2: Bride -->
+              <div class="gallery-caption-item" data-caption="1">
+                <span class="gallery-role-badge">: वधू :</span>
+                <h3 class="gallery-person-name">Neha</h3>
+                <p class="gallery-hindi-name">ह्रदयांशिका</p>
+              </div>
+
+              <!-- Caption 3: Couple -->
+              <div class="gallery-caption-item" data-caption="2">
+                <span class="gallery-role-badge couple-badge">MADE FOR EACH OTHER</span>
+                <h3 class="gallery-person-name">Vishesh &amp; Neha</h3>
+                <p class="gallery-hindi-name">ह्रदयांश संग ह्रदयांशिका</p>
+                <div class="gallery-card-motif" aria-hidden="true">❖</div>
+                <p class="gallery-couple-date">25th November 2026</p>
+              </div>
+
+            </div>
+
+            <!-- Dots Indicator -->
+            <div class="gallery-dots-container" id="galleryDots">
+              <button class="gallery-dot active" data-slide="0" aria-label="Slide 1: Groom"></button>
+              <button class="gallery-dot" data-slide="1" aria-label="Slide 2: Bride"></button>
+              <button class="gallery-dot" data-slide="2" aria-label="Slide 3: Couple"></button>
+            </div>
+
           </div>
 
-          <h2 class="presence-title">Awaiting Your Noble Presence</h2>
-          <div class="presence-motif" aria-hidden="true">❀</div>
-          <p class="presence-quote">Because meeting two souls requires twice the fun — and you!</p>
-
-          <div class="presence-decor-bottom" aria-hidden="true">
-            <span class="flower-motif">🌼</span>
-            <span class="leaf-motif">🍃</span>
+          <div class="gallery-footer-spacer" aria-hidden="true">
+            <span class="events-footer-motif">❖</span>
           </div>
+
         </section>
 
         <!-- ================= THE FAMILIES SECTION (COMPLETE DETAILS) ================= -->
@@ -390,6 +477,17 @@
               <p class="family-sub">(दीदी - जीजा जी)</p>
             </div>
 
+            <!-- Card 6: बाल आग्रह (Family Details ke sbse niche) -->
+            <div class="family-info-card bal-aagrah-box" id="balAagrahCard">
+              <p class="card-eyebrow">: बाल आग्रह :</p>
+              <div class="card-motif" aria-hidden="true">❀</div>
+              <p class="bal-poem-text">
+                "पूड़ी खा के रसगुल्ले खा के, कॉफी पीके जाना जी।<br>
+                हमारे मामा की शादी में, पक्का पक्का आना जी ॥"
+              </p>
+              <p class="bal-kid-tag">— मिवान (Mivan)</p>
+            </div>
+
           </div>
         </section>
 
@@ -435,19 +533,6 @@
               </svg>
               <span>Get Directions to Bilanda</span>
             </a>
-          </div>
-        </section>
-
-        <!-- ================= BAAL AAGRAH SECTION (SABSE NICHE) ================= -->
-        <section class="bal-aagrah-section" id="balAagrahSection">
-          <div class="family-info-card bal-aagrah-box" style="margin: 0 auto; width: 100%;">
-            <p class="card-eyebrow">: बाल आग्रह :</p>
-            <div class="card-motif" aria-hidden="true">❀</div>
-            <p class="bal-poem-text">
-              "पूड़ी खा के रसगुल्ले खा के, कॉफी पीके जाना जी।<br>
-              हमारे मामा की शादी में, पक्का पक्का आना जी ॥"
-            </p>
-            <p class="bal-kid-tag">— मिवान (Mivan)</p>
           </div>
         </section>
 

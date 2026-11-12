@@ -8,3 +8,17 @@
   box-shadow: 0 12px 35px -6px rgba(92, 15, 20, 0.15), 0 4px 12px rgba(0, 0, 0, 0.05) !important;
   border-radius: 1.5rem !important;
 }
+
+/* Event Cards Full Background Image Display */
+.event-card-full-bg {
+  min-height: 720px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+@media (min-width: 640px) {
+  .event-card-full-bg {
+    min-height: 840px !important;
+  }
+}
