@@ -30,7 +30,7 @@ window.inviteutsavSiyaramData = {
     "detailsIcon": "",
     "hashtag": "#Krisha",
     "brideFirst": false,
-    "musicSrc": "./assets/ram-siya-ram.mp3",
+    "musicSrc": "./assets/vela_milan_ni.mp3",
     "brideGroomFont": null
   },
   "events": [
