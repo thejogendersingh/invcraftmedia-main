@@ -1095,13 +1095,14 @@ body[class*="iu-lang-"] .siyaram-details__line,body[class*="iu-lang-"] .siyaram-
 .siyaram-couple .siyaram-couple__backdrop.siyaram-shift-2,
 .siyaram-couple .siyaram-couple__mandala.siyaram-shift-2{--dy:var(--dy1);}
 .siyaram-timeline .siyaram-timeline__flow.siyaram-shift-1{--dy:calc(var(--dy1) + var(--dy3));}
-.siyaram-invitation{--siyaram-page-a:3880;}
-.siyaram-couple__backdrop{--l:-3;--t:2160;--w:397;--h:1487;--z:9;}
-.siyaram-couple__photo{--l:85;--t:2160;--w:220;--h:310;--z:22;display:flex;justify-content:center;align-items:center;pointer-events:none;}
+.siyaram-invitation{--siyaram-page-a:3910;}
+.siyaram-couple__backdrop{--l:-3;--t:2170;--w:397;--h:1487;--z:9;}
+.siyaram-couple__photo{--l:80;--t:2240;--w:230;--h:340;--z:22;display:flex;justify-content:center;align-items:center;pointer-events:none;}
 .siyaram-couple__photo-img{width:100%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 calc(var(--siyaram-u) * 6) calc(var(--siyaram-u) * 14) rgba(40,10,5,0.28));}
-.siyaram-couple__heading{--t:2480;--fs:30;--z:22;}
-.siyaram-couple__card{--l:27;--t:2540;--w:337;height:auto;min-height:calc(var(--siyaram-u) * 280);}
-.siyaram-timeline__flow{--t:2840;}
+.siyaram-couple__heading{--t:2600;--fs:29;--z:22;}
+.siyaram-couple__card{--l:27;--t:2670;--w:337;height:auto;min-height:calc(var(--siyaram-u) * 260);}
+.siyaram-timeline__flow{--t:2970;}
+.siyaram-blessings{padding-top:calc(var(--siyaram-u) * 20) !important;}
 .siyaram-timeline__paper{height:calc(var(--siyaram-u) * (var(--h) + var(--dy3)));}
 .siyaram-couple__backdrop{height:calc(var(--siyaram-u) * (var(--h) + var(--dy2)));}
 /* ceremony cards: 20px gap (requested) */
@@ -1183,13 +1184,14 @@ body[class*="iu-lang-"] .siyaram-details__line,body[class*="iu-lang-"] .siyaram-
   .siyaram-date__value{font-size:calc(var(--siyaram-u) * 44);}
   .siyaram-date__msg{max-width:calc(var(--siyaram-u) * 720);font-size:calc(var(--siyaram-u) * 24);}
   .siyaram-couple__backdrop{--t:4680;}
-  .siyaram-couple__photo{--l:570;--t:4700;--w:300;--h:420;--z:22;display:flex;justify-content:center;align-items:center;pointer-events:none;}
-  .siyaram-couple__heading{--t:5140;--fs:64;}
-  .siyaram-couple__card{--l:470;--t:5250;--w:500;min-height:calc(var(--siyaram-u) * 380);border-width:calc(var(--siyaram-u) * 124) 0 calc(var(--siyaram-u) * 121) 0;padding:calc(var(--siyaram-u) * 53) calc(var(--siyaram-u) * 40) 0;}
+  .siyaram-couple__photo{--l:555;--t:4720;--w:330;--h:480;--z:22;display:flex;justify-content:center;align-items:center;pointer-events:none;}
+  .siyaram-couple__heading{--t:5220;--fs:56;}
+  .siyaram-couple__card{--l:470;--t:5330;--w:500;min-height:calc(var(--siyaram-u) * 360);border-width:calc(var(--siyaram-u) * 124) 0 calc(var(--siyaram-u) * 121) 0;padding:calc(var(--siyaram-u) * 53) calc(var(--siyaram-u) * 40) 0;}
   .siyaram-couple__card .siyaram-couple__message{font-size:calc(var(--siyaram-u) * 14.5);line-height:1.9;padding:0 8%;}
   .siyaram-couple__mandala{--t:5100;}
-  .siyaram-timeline__flow{--t:5650;}
-  .siyaram-invitation{--siyaram-page-a:6800;}
+  .siyaram-timeline__flow{--t:5820;}
+  .siyaram-invitation{--siyaram-page-a:6580;}
+  .siyaram-blessings{padding-top:calc(var(--siyaram-u) * 36) !important;}
   .siyaram-countdown__value{width:calc(var(--siyaram-u) * 150);height:calc(var(--siyaram-u) * 150);font-size:calc(var(--siyaram-u) * 46);}
   .siyaram-countdown__value::before{-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - var(--siyaram-u) * 9),#000 calc(100% - var(--siyaram-u) * 8.5));mask:radial-gradient(farthest-side,transparent calc(100% - var(--siyaram-u) * 9),#000 calc(100% - var(--siyaram-u) * 8.5));}
   .siyaram-countdown__label{margin-top:calc(var(--siyaram-u) * 14);}
