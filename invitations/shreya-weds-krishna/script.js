@@ -1124,13 +1124,15 @@ window.inviteutsavSiyaramData = {
     }, 520);
   }
 
-  function startVideoOnFirstTouch() {
-    if (isStarted) {
-      // Second tap: skip intro and open wedding card with background music immediately
-      triggerWhiteFlashTransition();
-      return;
-    }
+  function startVideoOnFirstTouch(e) {
+    if (isStarted) return;
     isStarted = true;
+    if (e && e.preventDefault && e.cancelable) { e.preventDefault(); }
+
+    // Remove all listeners immediately so NO further touches interrupt or skip video
+    overlay.removeEventListener('click', startVideoOnFirstTouch);
+    overlay.removeEventListener('touchend', startVideoOnFirstTouch);
+    overlay.removeEventListener('pointerup', startVideoOnFirstTouch);
 
     // Prime / unlock audio under direct user gesture so browser permits playback
     if (audio) {
