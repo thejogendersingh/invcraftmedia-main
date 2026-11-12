@@ -1088,8 +1088,28 @@ window.inviteutsavSiyaramData = {
 
       // Start background music
       if (audio) {
+        audio.currentTime = 0;
         var p = audio.play();
-        if (p && p.catch) { p.catch(function () {}); }
+        if (p && p.then) {
+          p.then(function () {
+            document.documentElement.classList.add('siyaram-is-music-playing');
+            if (musicWrap) { musicWrap.classList.add('is-playing'); }
+          }).catch(function () {
+            var playOnGesture = function () {
+              audio.play().then(function () {
+                document.documentElement.classList.add('siyaram-is-music-playing');
+                if (musicWrap) { musicWrap.classList.add('is-playing'); }
+              }).catch(function () {});
+              ['click', 'touchend', 'scroll', 'pointerup', 'keydown'].forEach(function (e) {
+                document.removeEventListener(e, playOnGesture, true);
+              });
+            };
+            ['click', 'touchend', 'scroll', 'pointerup', 'keydown'].forEach(function (e) {
+              document.addEventListener(e, playOnGesture, true);
+            });
+          });
+        }
+        document.documentElement.classList.add('siyaram-is-music-playing');
         if (musicWrap) { musicWrap.classList.add('is-playing'); }
       }
 
@@ -1106,15 +1126,23 @@ window.inviteutsavSiyaramData = {
 
   function startVideoOnFirstTouch() {
     if (isStarted) {
-      // Video is ALREADY playing: MUST run completely, no interruption!
+      // Second tap: skip intro and open wedding card with background music immediately
+      triggerWhiteFlashTransition();
       return;
     }
     isStarted = true;
 
-    // Remove touch listeners immediately so subsequent touches do nothing
-    overlay.removeEventListener('click', startVideoOnFirstTouch);
-    overlay.removeEventListener('touchend', startVideoOnFirstTouch);
-    overlay.removeEventListener('pointerup', startVideoOnFirstTouch);
+    // Prime / unlock audio under direct user gesture so browser permits playback
+    if (audio) {
+      audio.load();
+      var unlockPromise = audio.play();
+      if (unlockPromise && unlockPromise.then) {
+        unlockPromise.then(function () {
+          audio.pause();
+          audio.currentTime = 0;
+        }).catch(function () {});
+      }
+    }
 
     // Play complete video with sound
     video.muted = false;
