@@ -262,3 +262,8 @@
 # Client alias: palkesh-weds-khusbhu
 /palkesh-weds-khusbhu/        /invitations/palkesh-weds-khushbu/index.html         200
 /palkesh-weds-khusbhu/*       /invitations/palkesh-weds-khushbu/:splat             200
+
+# Client: vishesh-weds-neha
+/vishesh-weds-neha         /vishesh-weds-neha/                               301
+/vishesh-weds-neha/        /invitations/vishesh-weds-neha/index.html         200
+/vishesh-weds-neha/*       /invitations/vishesh-weds-neha/:splat             200

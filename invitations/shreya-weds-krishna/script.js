@@ -1,1147 +1,1029 @@
-/**
- * Mahal Swipe - Royal Wedding Invitation Logic
- * Shreya Parmar weds Krishna Agrawal
- */
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Elements
-  const peacockOverlay = document.getElementById('peacock-intro-overlay') || document.getElementById('intro-overlay');
-  const peacockStage = document.getElementById('peacock-feather-stage') || document.getElementById('royal-envelope');
-  const peacockOpenBtn = document.getElementById('peacock-open-btn') || document.getElementById('open-prompt-btn');
-  const peacockCanvas = document.getElementById('peacock-canvas');
-  const audioBtn = document.getElementById('audio-btn');
-  const bgAudio = document.getElementById('bg-audio');
-  const canvas = document.getElementById('particles-canvas');
-  const ctx = canvas.getContext('2d');
-  const cards = Array.from(document.querySelectorAll('.invitation-card'));
-  const paginationContainer = document.getElementById('side-pagination');
-  const langDropdown = document.getElementById('lang-dropdown');
-  const langTrigger = document.getElementById('lang-trigger');
-  const langCurrent = document.getElementById('lang-current');
-  const langOptions = document.querySelectorAll('.lang-option');
-
-  // Palace & Haveli Transition Elements
-  const staticBgLayer = document.getElementById('static-bg-layer');
-  const mahalSwipeLayer = document.getElementById('mahal-swipe-layer');
-  const navLeft = document.getElementById('nav-left');
-  const navRight = document.getElementById('nav-right');
-  const swipeHintBar = document.getElementById('swipe-hint-bar');
-
-  let currentCardIndex = 0;
-  let currentPalaceIndex = 0;
-  let isTransitioning = false;
-  let isPalaceTransitioning = false;
-  let isAudioPlaying = false;
-  let isIntroOpened = false;
-  let peacockAnimFrameId = null;
-
-  // Set up audio source
-  bgAudio.volume = 0.7;
-
-  // =========================================================
-  // 1. PEACOCK FEATHER AMBIENT PARTICLES
-  // =========================================================
-  if (peacockCanvas) {
-    const pCtx = peacockCanvas.getContext('2d');
-    let pWidth = (peacockCanvas.width = window.innerWidth);
-    let pHeight = (peacockCanvas.height = window.innerHeight);
-
-    window.addEventListener('resize', () => {
-      pWidth = peacockCanvas.width = window.innerWidth;
-      pHeight = peacockCanvas.height = window.innerHeight;
-    });
-
-    const motesColors = [
-      'rgba(223, 186, 115,', // Gold
-      'rgba(0, 229, 255,',   // Cyan / Peacock Blue
-      'rgba(16, 185, 129,',  // Emerald Green
-      'rgba(255, 235, 150,'  // Shimmering Light
-    ];
-
-    const peacockMotes = Array.from({ length: 45 }, () => ({
-      x: Math.random() * pWidth,
-      y: Math.random() * pHeight,
-      r: Math.random() * 2.5 + 0.8,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: -(Math.random() * 0.6 + 0.25),
-      alpha: Math.random() * 0.7 + 0.2,
-      pulse: Math.random() * 0.03 + 0.015,
-      pulseStep: Math.random() * Math.PI * 2,
-      color: motesColors[Math.floor(Math.random() * motesColors.length)]
-    }));
-
-    function renderPeacockCanvas() {
-      pCtx.clearRect(0, 0, pWidth, pHeight);
-      peacockMotes.forEach(m => {
-        m.y += m.vy;
-        m.x += m.vx;
-        m.pulseStep += m.pulse;
-        const currentAlpha = Math.max(0.1, m.alpha + Math.sin(m.pulseStep) * 0.25);
-        if (m.y < -10) {
-          m.y = pHeight + 10;
-          m.x = Math.random() * pWidth;
-        }
-        if (m.x < -10) m.x = pWidth + 10;
-        if (m.x > pWidth + 10) m.x = -10;
-
-        pCtx.save();
-        pCtx.beginPath();
-        pCtx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
-        pCtx.fillStyle = `${m.color} ${currentAlpha})`;
-        pCtx.shadowColor = m.color.includes('223') ? '#dfba73' : '#00e5ff';
-        pCtx.shadowBlur = 8;
-        pCtx.fill();
-        pCtx.restore();
-      });
-      peacockAnimFrameId = requestAnimationFrame(renderPeacockCanvas);
+window.inviteutsavSiyaramData = {
+  "skin": "siyaram-raghukul",
+  "bride": {
+    "name": "Shreya Parmar",
+    "shortName": "Shreya",
+    "father": "Shri Krishna Kumar Parmar",
+    "mother": "Smt. Raksha Parmar",
+    "grandparents": "Lt. Mohan Lal ji Parmar & Lt. Usha Parmar",
+    "photo": ""
+  },
+  "groom": {
+    "name": "Krishna Agrawal",
+    "shortName": "Krishna",
+    "father": "Shri Anil Agrawal",
+    "mother": "Smt. Madhu Anil Agrawal",
+    "grandparents": "Lt. Girdhari Lal Agrawal & Lt. Vimla Devi",
+    "photo": ""
+  },
+  "wedding": {
+    "dateISO": "2026-12-03T18:30:00+05:30",
+    "hasDate": true,
+    "dateDisplay": "3rd December 2026",
+    "dateNum": "03",
+    "month": "DEC",
+    "year": "2026",
+    "saveDateMsg": "Mark your calendars — our forever begins on this joyous day, and we would be honoured to have you by our side.",
+    "city": "Mughalsarai",
+    "tagline": "Two hearts one journey a lifetime together",
+    "blessingText": "With the divine blessings of Lord Rama & Sita",
+    "detailsIcon": "",
+    "hashtag": "#Krisha",
+    "brideFirst": false,
+    "musicSrc": "./assets/ram-siya-ram.mp3",
+    "brideGroomFont": null
+  },
+  "events": [
+    {
+      "name": "Mehendi Ceremony",
+      "date": "1st December 2026",
+      "dateShort": "1st Dec 2026",
+      "time": "11:00 AM Onwards",
+      "venue": "Swayamvar Lawn",
+      "address": "Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai",
+      "dress": "Traditional Festive Green",
+      "description": "Auspicious beginning with henna, smiles and folk tunes.",
+      "mapUrl": "https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai",
+      "index": 0
+    },
+    {
+      "name": "Engagement Ceremony",
+      "date": "2nd December 2026",
+      "dateShort": "2nd Dec 2026",
+      "time": "7:00 PM Onwards",
+      "venue": "Swayamvar Lawn",
+      "address": "Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai",
+      "dress": "Evening Elegance",
+      "description": "An enchanting evening of rings, promises and music.",
+      "mapUrl": "https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai",
+      "index": 1
+    },
+    {
+      "name": "Ganesh Sthapna",
+      "date": "3rd December 2026",
+      "dateShort": "3rd Dec 2026",
+      "time": "8:00 AM Onwards",
+      "venue": "Swayamvar Lawn",
+      "address": "Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai",
+      "dress": "Traditional Puja Attire",
+      "description": "॥ श्री गणेशाय नमः ॥ Seeking divine blessings of Lord Ganesha.",
+      "mapUrl": "https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai",
+      "index": 2
+    },
+    {
+      "name": "Samorta",
+      "date": "3rd December 2026",
+      "dateShort": "3rd Dec 2026",
+      "time": "9:00 AM Onwards",
+      "venue": "Swayamvar Lawn",
+      "address": "Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai",
+      "dress": "Traditional Family Festive",
+      "description": "Sacred traditional family rituals & blessings.",
+      "mapUrl": "https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai",
+      "index": 3
+    },
+    {
+      "name": "Haldi Ceremony",
+      "date": "3rd December 2026",
+      "dateShort": "3rd Dec 2026",
+      "time": "11:00 AM Onwards",
+      "venue": "Swayamvar Lawn",
+      "address": "Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai",
+      "dress": "Shades of Yellow",
+      "description": "A splash of golden turmeric, love and family blessings.",
+      "mapUrl": "https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai",
+      "index": 4
+    },
+    {
+      "name": "Hastmelap (Shubh Vivaah)",
+      "date": "3rd December 2026",
+      "dateShort": "3rd Dec 2026",
+      "time": "6:30 PM Onwards",
+      "venue": "Swayamvar Lawn",
+      "address": "Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai",
+      "dress": "Royal Wedding Finery",
+      "description": "The sacred union, pheras and beginning of a lifetime together.",
+      "mapUrl": "https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai",
+      "index": 5
     }
-    renderPeacockCanvas();
-  }
-
-  // =========================================================
-  // 2. INTRO VIDEO & HERO REVEAL EXPERIENCE
-  // =========================================================
-  const introVideo = document.getElementById('intro-video');
-  const introBgAudio = document.getElementById('intro-bg-audio');
-  const introTapBtnContainer = document.getElementById('intro-tap-btn-container');
-  const introTapBtn = document.getElementById('intro-tap-btn');
-  let isVideoPlaying = false;
-  let lastIntroInteractionTime = 0;
-
-  // Function to reveal hero section and start wedding music
-  function revealHeroSection() {
-    if (isIntroOpened) return;
-    isIntroOpened = true;
-
-    // Stop intro video and intro audio
-    if (introBgAudio) {
-      try {
-        introBgAudio.pause();
-        introBgAudio.currentTime = 0;
-      } catch (err) {}
+  ],
+  "venues": [
+    {
+      "name": "Swayamvar Lawn",
+      "role": "All Auspicious Celebrations",
+      "address": "Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai",
+      "mapUrl": "https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai",
+      "image": ""
     }
-    if (introVideo) {
-      try {
-        introVideo.pause();
-      } catch (err) {}
+  ],
+  "journey": [
+    {
+      "year": "2021",
+      "title": "First Meeting",
+      "description": "A beautiful first conversation filled with smiles, values and an instant bond of connection.",
+      "image": ""
+    },
+    {
+      "year": "2023",
+      "title": "Growing Fondness",
+      "description": "Countless shared laughs, long talks and discovering our shared dreams and values.",
+      "image": ""
+    },
+    {
+      "year": "2025",
+      "title": "Families Connected",
+      "description": "With warmth and blessings, our parents met and sealed our lifelong bond of love.",
+      "image": ""
+    },
+    {
+      "year": "3 Dec 2026",
+      "title": "Forever Begins",
+      "description": "Surrounded by our loved ones and elders, we take our sacred vows. Join us as we celebrate!",
+      "image": ""
     }
-
-    // Start background wedding music
-    if (bgAudio) {
-      bgAudio.currentTime = 0;
-      bgAudio.play().then(() => {
-        isAudioPlaying = true;
-        audioBtn.classList.add('playing');
-        updateAudioIcon(true);
-      }).catch(err => {
-        console.log('Audio autoplay prevented or interaction needed', err);
-      });
-    }
-
-    // Celebratory dual confetti bursts
-    createConfettiBurst(window.innerWidth / 2, window.innerHeight * 0.42);
-    setTimeout(() => {
-      createConfettiBurst(window.innerWidth / 2 + 25, window.innerHeight * 0.38);
-    }, 160);
-
-    // Smoothly fade out intro overlay
-    if (peacockOverlay) {
-      peacockOverlay.classList.add('fade-out');
-      setTimeout(() => {
-        peacockOverlay.style.display = 'none';
-        if (peacockAnimFrameId) cancelAnimationFrame(peacockAnimFrameId);
-      }, 1000);
-    }
-  }
-
-  // Handle touch/click on the intro overlay or button
-  function handleIntroInteraction(e) {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-    const now = Date.now();
-    if (now - lastIntroInteractionTime < 400) return;
-    lastIntroInteractionTime = now;
-
-    if (isIntroOpened) return;
-
-    if (!isVideoPlaying) {
-      // First touch: Hide the 'Tap to open' button completely!
-      isVideoPlaying = true;
-      if (introTapBtnContainer) {
-        introTapBtnContainer.style.opacity = '0';
-        introTapBtnContainer.style.transform = 'translateY(15px) scale(0.92)';
-        introTapBtnContainer.style.pointerEvents = 'none';
-        setTimeout(() => {
-          introTapBtnContainer.style.display = 'none';
-        }, 350);
+  ],
+  "accommodation": [],
+  "gallery": [],
+  "rsvp": {
+    "contacts": [
+      {
+        "name": "Shri Krishna Kumar Parmar",
+        "role": "Bride's Family",
+        "mobile": "+91 94506 13006",
+        "whatsapp_enabled": true
+      },
+      {
+        "name": "Shri Sanjeev Kumar Parmar",
+        "role": "Bride's Family",
+        "mobile": "+91 97214 46357",
+        "whatsapp_enabled": true
+      },
+      {
+        "name": "Shri Lomesh Kumar Parmar",
+        "role": "Bride's Family",
+        "mobile": "+91 98077 11904",
+        "whatsapp_enabled": true
       }
+    ]
+  },
+  "ui": {
+    "sending": "Sending…",
+    "error": "Could not send your RSVP. Please try again.",
+    "network": "Network error. Please try again."
+  },
+  "footer": {
+    "showCredit": false
+  }
+};
 
-      // Play background intro audio (extracted YouTube track)
-      if (introBgAudio) {
-        introBgAudio.currentTime = 0;
-        introBgAudio.volume = 0.9;
-        introBgAudio.play().catch(err => {
-          console.log('Intro audio play note:', err);
+
+/*
+ * Siyaram Raghukul — invitation script.
+ *   1. layout   : text areas grow with their content, so the layers below them are shifted by the measured growth (design units)
+ *   2. motion   : hero intro, scroll reveals, parallax, birds, message word-lighting (original design)
+ *   3. features : photo carousel, countdown, music, copy buttons, video, guest RSVP (the site's own RSVP endpoint)
+ * Everything the guest reads is already server-rendered in the invitation language (template-parts/siyaram-raghukul/invitation.php);
+ * this file only measures, animates and wires interactions. No external libraries.
+ */
+(function () {
+  'use strict';
+
+  var root = document.getElementById('siyaram-invitation');
+  if (!root) { return; }
+  var data = window.inviteutsavSiyaramData || {};
+  var rsvpCfg = window.siyaramRsvp || {};
+  var ui = data.ui || {};
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var raf = window.requestAnimationFrame.bind(window);
+  var desktopQuery = window.matchMedia('(min-width:1024px)');
+
+  function $(sel, scope) { return (scope || root).querySelector(sel); }
+  function $$(sel, scope) { return Array.prototype.slice.call((scope || root).querySelectorAll(sel)); }
+  function el(tag, className, text) {
+    var n = document.createElement(tag);
+    if (className) { n.className = className; }
+    if (text !== undefined) { n.textContent = text; }
+    return n;
+  }
+  function unit() {
+    var page = $('.siyaram-page');
+    var w = page ? page.getBoundingClientRect().width : root.getBoundingClientRect().width;
+    return w / (desktopQuery.matches ? 1440 : 390);
+  }
+  function cssNum(name) { return parseFloat(getComputedStyle(root).getPropertyValue(name)) || 0; }
+
+  /* ---------- desktop variants for plain <img> elements ---------- */
+  function swapDesktopSources() {
+    $$('img[data-siyaram-desktop-src]').forEach(function (img) {
+      if (!img.hasAttribute('data-siyaram-mobile-src')) { img.setAttribute('data-siyaram-mobile-src', img.getAttribute('src')); }
+      img.setAttribute('src', desktopQuery.matches ? img.getAttribute('data-siyaram-desktop-src') : img.getAttribute('data-siyaram-mobile-src'));
+    });
+  }
+  swapDesktopSources();
+
+  /* ---------- 1. LAYOUT ---------- */
+  var names = $$('.siyaram-details__name, .siyaram-hero__name');
+  function fitNames() {
+    var u = unit();
+    var range = document.createRange();
+    names.forEach(function (node) {
+      var max = parseFloat(getComputedStyle(node).getPropertyValue('--fit-w')) || parseFloat(getComputedStyle(node.parentElement).getPropertyValue('--fit-w')) || 0;
+      if (!max) { return; }
+      node.style.setProperty('--siyaram-fit', '1');
+      range.selectNodeContents(node);
+      var natural = range.getBoundingClientRect().width;
+      var limit = max * u;
+      node.style.setProperty('--siyaram-fit', natural > limit ? (limit / natural).toFixed(3) : '1');
+    });
+  }
+
+  /* Very long ceremony names shrink until date, name and time fit inside the card frame. */
+  function fitEventTitles() {
+    $$('.siyaram-event__body').forEach(function (body) {
+      body.style.setProperty('--siyaram-tfit', '1');
+      var k = 1;
+      var guard = 0;
+      var limit = body.clientHeight * 0.64; // the frame's inner window is shorter than the box
+      var last = body.lastElementChild;
+      while (last && last.offsetTop + last.offsetHeight > limit && k > 0.4 && guard++ < 16) {
+        k -= 0.04;
+        body.style.setProperty('--siyaram-tfit', k.toFixed(2));
+      }
+    });
+  }
+
+  function markRows() {
+    var items = $$('.siyaram-event');
+    if (!items.length) { return; }
+    var tops = items.map(function (n) { return n.offsetTop; });
+    var maxTop = Math.max.apply(null, tops);
+    items.forEach(function (n, i) {
+      n.classList.toggle('is-last-row', tops[i] === maxTop);
+      n.classList.toggle('is-row-end', i === items.length - 1 || tops[i + 1] !== tops[i]);
+    });
+  }
+
+  function setVar(name, value) { root.style.setProperty(name, String(Math.round(value * 10) / 10)); }
+  function minUnits(node) { return node ? parseFloat(getComputedStyle(node).minHeight) / unit() : 0; }
+
+  var layoutQueued = false;
+  function layout() {
+    layoutQueued = false;
+    var u = unit();
+    if (!u) { return; }
+    fitNames();
+    fitEventTitles();
+    markRows();
+
+    var panel = $('.siyaram-details__panel');
+    setVar('--dy1', panel ? Math.max(0, panel.offsetHeight / u - minUnits(panel)) : 0);
+
+    var flow = $('.siyaram-timeline__flow');
+    setVar('--dy2', flow ? flow.offsetHeight / u - cssNum('--base-flow') : -cssNum('--base-flow')); // no ceremonies: the block collapses
+
+    var card = $('.siyaram-couple__card');
+    setVar('--dy3', card ? Math.max(0, card.offsetHeight / u - minUnits(card)) : 0);
+
+    setVar('--dyg', $('.siyaram-carousel') ? cssNum('--gallery-extra') : -cssNum('--base-gallery')); // photos are 4:5, taller than the original landscape window
+
+    var venues = $('.siyaram-venues');
+    setVar('--dyv', venues ? venues.offsetHeight / u - cssNum('--base-venue') : -cssNum('--base-venue'));
+
+    var rsvp = $('.siyaram-rsvp');
+    setVar('--dyr', rsvp ? rsvp.offsetHeight / u - cssNum('--base-rsvp') : -cssNum('--base-rsvp'));
+  }
+  function requestLayout() { if (!layoutQueued) { layoutQueued = true; raf(layout); } }
+  window.addEventListener('resize', function () { swapDesktopSources(); requestLayout(); });
+  if (desktopQuery.addEventListener) { desktopQuery.addEventListener('change', function () { swapDesktopSources(); requestLayout(); }); }
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(requestLayout); }
+  window.addEventListener('load', requestLayout);
+  requestLayout();
+  if (window.ResizeObserver) {
+    var ro = new ResizeObserver(requestLayout);
+    ['.siyaram-details__panel', '.siyaram-timeline__flow', '.siyaram-couple__card', '.siyaram-venues', '.siyaram-rsvp'].forEach(function (s) { var n = $(s); if (n) { ro.observe(n); } });
+  }
+
+  /* ---------- 2. MOTION ---------- */
+  function startIntro() { root.classList.add('siyaram-is-ready'); }
+  var heroImages = $$('.siyaram-hero img').slice(0, 6);
+  var pending = heroImages.filter(function (im) { return !im.complete; }).length;
+  if (!pending) { startIntro(); }
+  else {
+    heroImages.forEach(function (im) {
+      if (im.complete) { return; }
+      var done = function () { pending -= 1; if (pending <= 0) { startIntro(); } };
+      im.addEventListener('load', done, { once: true });
+      im.addEventListener('error', done, { once: true });
+    });
+    window.setTimeout(startIntro, 2500);
+  }
+
+  var reveals = $$('.siyaram-reveal');
+  reveals.forEach(function (node) {
+    var delay = node.getAttribute('data-siyaram-delay');
+    if (delay) { node.style.setProperty('--siyaram-delay', delay + 'ms'); }
+  });
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('siyaram-is-visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    reveals.forEach(function (node) { observer.observe(node); });
+  } else {
+    reveals.forEach(function (node) { node.classList.add('siyaram-is-visible'); });
+  }
+
+  // The couple's message lights up word by word as it scrolls into view.
+  var message = $('.siyaram-couple__message');
+  if (message) {
+    // The owner's own line breaks stay: each typed line is lit word by word, with a line break between lines.
+    var lines = message.textContent.trim().split(/\r?\n+/);
+    message.textContent = '';
+    lines.forEach(function (line, li) {
+      var words = line.trim().split(/\s+/).filter(Boolean);
+      if (li > 0) { message.appendChild(document.createElement('br')); }
+      words.forEach(function (word, idx) {
+        message.appendChild(el('span', 'siyaram-message__word', word));
+        if (idx < words.length - 1) { message.appendChild(document.createTextNode(' ')); }
+      });
+    });
+  }
+  var messageWords = $$('.siyaram-message__word');
+  var parallaxNodes = $$('[data-siyaram-parallax]').map(function (n) { return { node: n, factor: parseFloat(n.getAttribute('data-siyaram-parallax')) || 0 }; });
+  var scheduled = false;
+  function update() {
+    scheduled = false;
+    var rect = root.getBoundingClientRect();
+    var scrolled = Math.max(0, -rect.top);
+    var limit = 1300 * unit();
+    if (!reduceMotion) {
+      var y = Math.min(scrolled, limit);
+      parallaxNodes.forEach(function (item) { item.node.style.setProperty('--siyaram-py', (y * item.factor).toFixed(1) + 'px'); });
+    }
+    if (message && messageWords.length) {
+      var box = message.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var progress = (vh * 0.82 - box.top) / (vh * 0.55 + box.height * 0.2);
+      progress = Math.min(1, Math.max(0, progress));
+      var lit = reduceMotion ? messageWords.length : Math.round(progress * messageWords.length);
+      messageWords.forEach(function (w, i) { w.classList.toggle('siyaram-is-lit', i < lit); });
+    }
+  }
+  function requestUpdate() { if (!scheduled) { scheduled = true; raf(update); } }
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate);
+  requestUpdate();
+
+  // Small flowers drifting down from the top of the screen (fixed canvas, drawn in code, very soft).
+  if (!reduceMotion) {
+    var fc = document.createElement('canvas');
+    fc.className = 'siyaram-petals';
+    fc.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(fc);
+    var fx = fc.getContext('2d');
+    var fw = 0;
+    var fh = 0;
+    var fdpr = Math.min(window.devicePixelRatio || 1, 2);
+    var flowers = [];
+    var fcolors = ['#d9822b', '#b24304', '#e0a458', '#c2556b'];
+    var fsize = function () {
+      fw = window.innerWidth; fh = window.innerHeight;
+      fc.width = Math.round(fw * fdpr); fc.height = Math.round(fh * fdpr);
+      fx.setTransform(fdpr, 0, 0, fdpr, 0, 0);
+    };
+    fsize();
+    window.addEventListener('resize', fsize);
+    var fcount = fw < 700 ? 14 : 24;
+    for (var q = 0; q < fcount; q += 1) {
+      flowers.push({ x: Math.random(), y: Math.random() * -1, r: 4 + Math.random() * 4, vy: 22 + Math.random() * 28, sway: 12 + Math.random() * 22, ph: Math.random() * 6.28, rot: Math.random() * 6.28, vr: (Math.random() - 0.5) * 1.2, c: fcolors[q % fcolors.length] });
+    }
+    var drawFlower = function (f, px, py) {
+      fx.save();
+      fx.translate(px, py);
+      fx.rotate(f.rot);
+      fx.fillStyle = f.c;
+      for (var k = 0; k < 5; k += 1) {
+        fx.rotate(1.2566);
+        fx.beginPath();
+        fx.ellipse(0, -f.r * 0.62, f.r * 0.36, f.r * 0.62, 0, 0, 6.2832);
+        fx.fill();
+      }
+      fx.fillStyle = '#fff3d6';
+      fx.beginPath();
+      fx.arc(0, 0, f.r * 0.22, 0, 6.2832);
+      fx.fill();
+      fx.restore();
+    };
+    var flast = performance.now();
+    var fall = function (now) {
+      var dt = Math.min(0.05, (now - flast) / 1000);
+      flast = now;
+      if (!document.hidden) {
+        fx.clearRect(0, 0, fw, fh);
+        flowers.forEach(function (f) {
+          f.y += f.vy * dt / fh;
+          f.ph += dt * 1.1;
+          f.rot += f.vr * dt;
+          if (f.y > 1.05) { f.y = -0.05; f.x = Math.random(); }
+          drawFlower(f, f.x * fw + Math.sin(f.ph) * f.sway, f.y * fh);
         });
       }
+      requestAnimationFrame(fall);
+    };
+    requestAnimationFrame(fall);
+  }
 
-      // Play intro video (muted, full-bleed, no black borders)
-      if (introVideo) {
-        introVideo.currentTime = 0;
-        introVideo.muted = true;
-        const playPromise = introVideo.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(err => {
-            console.log('Intro video play error:', err);
-          });
-        }
+  // Soft lamp lights rising through the hero (replaces the flock of birds).
+  var canvas = $('.siyaram-hero__birds');
+  if (canvas && canvas.getContext && !reduceMotion) {
+    var ctx = canvas.getContext('2d');
+    var birds = [];
+    var heroVisible = true;
+    var width = 0;
+    var height = 0;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var sizeCanvas = function () {
+      var b = canvas.getBoundingClientRect();
+      width = Math.max(1, b.width); height = Math.max(1, b.height);
+      canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    sizeCanvas();
+    window.addEventListener('resize', sizeCanvas);
+    for (var i = 0; i < 16; i += 1) {
+      birds.push({ x: 0.08 + Math.random() * 0.84, y: 0.35 + Math.random() * 0.6, vy: 0.012 + Math.random() * 0.02, sway: 0.006 + Math.random() * 0.012, size: 0.7 + Math.random() * 1.1, phase: Math.random() * 6.28 });
+    }    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) { heroVisible = entries[0].isIntersecting; }).observe(canvas);
+    }
+    var last = performance.now();
+    var fly = function (now) {
+      var dt = Math.min(0.05, (now - last) / 1000);
+      last = now;
+      if (heroVisible) {
+        ctx.clearRect(0, 0, width, height);
+        var scale = width / 395;
+        birds.forEach(function (b) {
+          b.y -= b.vy * dt;
+          b.phase += dt * 2.2;
+          if (b.y < 0.08) { b.y = 0.98; b.x = 0.08 + Math.random() * 0.84; }
+          var px = (b.x + Math.sin(b.phase) * b.sway) * width;
+          var py = b.y * height;
+          var r = (2.2 + Math.sin(b.phase * 3.1) * 0.5) * b.size * scale;
+          var fade = Math.min(1, b.y / 0.25) * Math.min(1, (1 - b.y) / 0.12);
+          var g = ctx.createRadialGradient(px, py, 0, px, py, r * 4.2);
+          g.addColorStop(0, 'rgba(255,214,128,' + (0.85 * fade).toFixed(3) + ')');
+          g.addColorStop(0.35, 'rgba(255,170,70,' + (0.34 * fade).toFixed(3) + ')');
+          g.addColorStop(1, 'rgba(255,150,50,0)');
+          ctx.fillStyle = g;
+          ctx.beginPath();
+          ctx.arc(px, py, r * 4.2, 0, 6.2832);
+          ctx.fill();
+          ctx.fillStyle = 'rgba(255,240,200,' + (0.95 * fade).toFixed(3) + ')';
+          ctx.beginPath();
+          ctx.arc(px, py, r * 0.55, 0, 6.2832);
+          ctx.fill();        });
       }
-    } else {
-      // Second touch while video is playing: Skip directly to invitation card!
-      revealHeroSection();
+      raf(fly);
+    };
+    raf(fly);
+  }
+
+  /* ---------- 2b. WEDDING DATE REVEAL: three scratch hearts + fireworks (same mechanic as the Shubh Patrika letter theme) ---------- */
+  (function dateReveal() {
+    var box = $('#siyaramDate');
+    if (!box) { return; }
+    var hearts = $$('.siyaram-date__heart', box);
+    var cursor = $('#siyaramScratchCursor');
+    var trigger = function () {};
+
+    // fireworks on both sides, started once all three hearts are revealed
+    var leftC = $('#siyaramFireworksLeft');
+    var rightC = $('#siyaramFireworksRight');
+    if (leftC && rightC && !reduceMotion) {
+      var COLORS = ['#ecc87a', '#fff1d0', '#d9822b', '#e8aebb', '#c2556b', '#f4d98f'];
+      var SIZE = {
+        small: { rise: 0.013, count: [8, 14], speed: [0.6, 1.6], decay: [0.02, 0.034], dot: [1, 2], ty: [0.24, 0.4] },
+        medium: { rise: 0.017, count: [16, 24], speed: [0.9, 2.2], decay: [0.014, 0.026], dot: [1.2, 2.4], ty: [0.16, 0.32] },
+        large: { rise: 0.021, count: [26, 40], speed: [1.3, 3.1], decay: [0.009, 0.018], dot: [1.6, 3.1], ty: [0.08, 0.22] }
+      };
+      var rigs = [{ canvas: leftC, side: 'left' }, { canvas: rightC, side: 'right' }].map(function (r) {
+        return { canvas: r.canvas, side: r.side, ctx: r.canvas.getContext('2d'), dpr: Math.min(window.devicePixelRatio || 1, 2), parts: [], running: false, launching: false, w: 0, h: 0 };
+      });
+      var sizeRig = function (rig) {
+        var b = rig.canvas.getBoundingClientRect();
+        rig.w = b.width; rig.h = b.height;
+        rig.canvas.width = Math.max(1, b.width * rig.dpr); rig.canvas.height = Math.max(1, b.height * rig.dpr);
+        rig.ctx.setTransform(rig.dpr, 0, 0, rig.dpr, 0, 0);
+      };
+      rigs.forEach(sizeRig);
+      window.addEventListener('resize', function () { rigs.forEach(sizeRig); }, { passive: true });
+      var rnd = function (a, b) { return a + Math.random() * (b - a); };
+      var launch = function (rig, size, style) {
+        var cfg = SIZE[size];
+        var left = rig.side === 'left';
+        var ox = left ? rig.w * rnd(0.05, 0.23) : rig.w * rnd(0.77, 0.95);
+        var tx = left ? rig.w * rnd(0.18, 0.18 + (size === 'large' ? 0.4 : 0.3)) : rig.w * rnd(0.44, 0.44 + (size === 'large' ? 0.4 : 0.3));
+        rig.parts.push({ kind: 'shell', x: ox, y: rig.h, vx: (tx - ox) / rnd(56, 70), vy: -(rig.h * cfg.rise + Math.random() * 1.8), ty: rig.h * rnd(cfg.ty[0], cfg.ty[1]), color: COLORS[Math.floor(Math.random() * COLORS.length)], size: size, style: style, r: size === 'large' ? 2.6 : size === 'small' ? 1.4 : 2, trail: [] });
+      };
+      var explode = function (rig, sh) {
+        var cfg = SIZE[sh.size];
+        var n = Math.floor(rnd(cfg.count[0], cfg.count[1]));
+        for (var i = 0; i < n; i += 1) {
+          var ang = (Math.PI * 2 * i) / n + Math.random() * 0.3;
+          var sp = rnd(cfg.speed[0], cfg.speed[1]);
+          var decay = rnd(cfg.decay[0], cfg.decay[1]);
+          var grav = 0.026;
+          if (sh.style === 'peony') { sp *= 0.7 + Math.random() * 0.7; }
+          if (sh.style === 'willow') { sp *= 0.55; decay *= 0.55; grav = 0.05; }
+          rig.parts.push({ kind: 'spark', x: sh.x, y: sh.y, vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp, g: grav, life: 1, decay: decay, color: sh.color, size: rnd(cfg.dot[0], cfg.dot[1]) });
+        }
+      };
+      var tick = function (rig) {
+        if (!rig.running) { return; }
+        var ctx = rig.ctx;
+        ctx.clearRect(0, 0, rig.w, rig.h);
+        for (var i = rig.parts.length - 1; i >= 0; i -= 1) {
+          var p = rig.parts[i];
+          if (p.kind === 'shell') {
+            p.trail.push({ x: p.x, y: p.y });
+            if (p.trail.length > 6) { p.trail.shift(); }
+            p.x += p.vx; p.y += p.vy; p.vy += 0.05;
+            ctx.fillStyle = p.color;
+            for (var t = 0; t < p.trail.length; t += 1) {
+              ctx.globalAlpha = ((t + 1) / p.trail.length) * 0.36;
+              ctx.beginPath(); ctx.arc(p.trail[t].x, p.trail[t].y, p.r * 0.65, 0, 6.2832); ctx.fill();
+            }
+            ctx.globalAlpha = 0.92; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.2832); ctx.fill();
+            if (p.vy >= -0.3 || p.y <= p.ty) { explode(rig, p); rig.parts.splice(i, 1); }
+          } else {
+            p.x += p.vx; p.y += p.vy; p.vy += p.g; p.vx *= 0.99; p.life -= p.decay;
+            if (p.life <= 0) { rig.parts.splice(i, 1); continue; }
+            ctx.fillStyle = p.color;
+            ctx.globalAlpha = p.life * 0.22; ctx.beginPath(); ctx.arc(p.x, p.y, p.size * 2.8, 0, 6.2832); ctx.fill();
+            ctx.globalAlpha = p.life; ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, 6.2832); ctx.fill();
+          }
+        }
+        ctx.globalAlpha = 1;
+        if (!rig.launching && rig.parts.length === 0) { rig.running = false; ctx.clearRect(0, 0, rig.w, rig.h); return; }
+        raf(function () { tick(rig); });
+      };
+      var PROGRAM = [[0, 'large', 'peony'], [260, 'small', 'ring'], [700, 'medium', 'willow'], [1150, 'large', 'ring'], [1600, 'small', 'peony'], [2100, 'medium', 'peony'], [2600, 'large', 'willow']];
+      var start = function (rig, offset) {
+        if (rig.running) { return; }
+        rig.running = true; rig.launching = true;
+        var last = 0;
+        PROGRAM.forEach(function (s) {
+          var d = Math.max(0, s[0] + offset + (Math.random() - 0.5) * 220);
+          last = Math.max(last, d);
+          window.setTimeout(function () { launch(rig, s[1], s[2]); }, d);
+        });
+        window.setTimeout(function () { rig.launching = false; }, last + 150);
+        raf(function () { tick(rig); });
+      };
+      trigger = function () { sizeRig(rigs[0]); sizeRig(rigs[1]); start(rigs[0], 0); start(rigs[1], 180); };
     }
+
+    var revealedCount = 0;
+    hearts.forEach(function (heart) {
+      var canvas = document.createElement('canvas');
+      canvas.className = 'siyaram-date__canvas';
+      heart.appendChild(canvas);
+      var ctx = canvas.getContext('2d');
+      var w = 0;
+      var h = 0;
+      var revealed = false;
+      var scratching = false;
+      var touched = false;
+      var tickCount = 0;
+      var paint = function () {
+        var b = heart.getBoundingClientRect();
+        w = canvas.width = Math.max(1, Math.round(b.width));
+        h = canvas.height = Math.max(1, Math.round(b.height));
+        var g = ctx.createLinearGradient(0, 0, w, h);
+        var foil = getComputedStyle(document.getElementById('siyaram-invitation') || document.body); g.addColorStop(0, foil.getPropertyValue('--siyaram-foil-a').trim() || '#a8452a'); g.addColorStop(0.5, foil.getPropertyValue('--siyaram-foil-b').trim() || '#7a2418'); g.addColorStop(1, foil.getPropertyValue('--siyaram-foil-c').trim() || '#4b0f16'); // reddish-brown foil, clear against the saffron parchment
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+        ctx.strokeStyle = 'rgba(255,214,150,.20)'; ctx.lineWidth = 2;
+        for (var x = -h; x < w; x += 11) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x + h, h); ctx.stroke(); }
+      };
+      paint();
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(function () { if (!touched && !revealed) { paint(); } }); }
+      window.addEventListener('resize', function () { if (!touched && !revealed) { paint(); } }, { passive: true });
+      // the invitation scales with its width; repaint once layout has settled so the foil matches the heart box
+      window.setTimeout(function () { if (!touched && !revealed) { paint(); } }, 1200);
+      var point = function (e) { var r = canvas.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
+      var scratch = function (x, y) {
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.beginPath(); ctx.arc(x, y, Math.max(14, w * 0.2), 0, 6.2832); ctx.fill();
+      };
+      var done = function () {
+        if (revealed) { return; }
+        revealed = true;
+        canvas.classList.add('is-revealed');
+        if (cursor) { cursor.classList.remove('is-active', 'is-scratching'); }
+        window.setTimeout(function () { canvas.style.visibility = 'hidden'; }, 550);
+        revealedCount += 1;
+        if (revealedCount >= hearts.length) { trigger(); }
+      };
+      var check = function () {
+        tickCount += 1;
+        if (tickCount % 4 !== 0) { return; }
+        var d = ctx.getImageData(0, 0, w, h).data;
+        var cleared = 0;
+        var total = 0;
+        for (var i = 3; i < d.length; i += 24) { total += 1; if (d[i] < 40) { cleared += 1; } }
+        if (total && cleared / total > 0.55) { done(); }
+      };
+      var moveCursor = function (e) { if (cursor && e.pointerType === 'mouse') { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; } };
+      canvas.addEventListener('pointerdown', function (e) {
+        if (revealed) { return; }
+        touched = true; scratching = true;
+        try { canvas.setPointerCapture(e.pointerId); } catch (err) { /* capture unsupported */ }
+        moveCursor(e);
+        if (cursor && e.pointerType === 'mouse') { cursor.classList.add('is-active', 'is-scratching'); }
+        var p = point(e); scratch(p.x, p.y); check();
+        e.preventDefault();
+      });
+      canvas.addEventListener('pointermove', function (e) {
+        moveCursor(e);
+        if (!scratching || revealed) { return; }
+        var p = point(e); scratch(p.x, p.y); check();
+      });
+      var stop = function (e) {
+        scratching = false;
+        if (cursor) { cursor.classList.remove('is-scratching'); }
+        if (e && e.pointerId != null) { try { canvas.releasePointerCapture(e.pointerId); } catch (err) { /* ignore */ } }
+      };
+      canvas.addEventListener('pointerup', stop);
+      canvas.addEventListener('pointercancel', stop);
+      canvas.addEventListener('pointerenter', function (e) { if (!revealed && cursor && e.pointerType === 'mouse') { cursor.classList.add('is-active'); } });
+      canvas.addEventListener('pointerleave', function () { if (!scratching && cursor) { cursor.classList.remove('is-active'); } });
+    });
+    // reduced motion: nothing to scratch, the date is simply shown
+    if (reduceMotion) { $$('.siyaram-date__canvas', box).forEach(function (cv) { cv.style.display = 'none'; }); }
+  })();
+  /* ---------- 3. FEATURES ---------- */
+  // Countdown to the wedding day.
+  var cd = $('[data-siyaram-date]');
+  if (cd) {
+    var target = new Date(cd.getAttribute('data-siyaram-date')).getTime();
+    var units = { days: $('[data-siyaram-unit="days"]', cd), hours: $('[data-siyaram-unit="hours"]', cd), minutes: $('[data-siyaram-unit="minutes"]', cd), seconds: $('[data-siyaram-unit="seconds"]', cd) };
+    var pad = function (n) { return n < 10 ? '0' + n : String(n); };
+    var tick = function () {
+      var total = Math.floor(Math.max(0, target - Date.now()) / 1000);
+      units.days.textContent = pad(Math.floor(total / 86400));
+      units.hours.textContent = pad(Math.floor((total % 86400) / 3600));
+      units.minutes.textContent = pad(Math.floor((total % 3600) / 60));
+      units.seconds.textContent = pad(total % 60);
+      units.days.style.setProperty('--p', Math.min(100, Math.floor(total / 86400)).toString());
+      units.hours.style.setProperty('--p', (Math.floor((total % 86400) / 3600) / 24 * 100).toFixed(1));
+      units.minutes.style.setProperty('--p', (Math.floor((total % 3600) / 60) / 60 * 100).toFixed(1));
+      units.seconds.style.setProperty('--p', ((total % 60) / 60 * 100).toFixed(1));
+    };
+    if (!isNaN(target)) { tick(); window.setInterval(tick, 1000); }
   }
 
-  // When intro video or intro audio ends naturally, open the hero section automatically
-  if (introVideo) {
-    introVideo.addEventListener('ended', revealHeroSection);
-  }
-  if (introBgAudio) {
-    introBgAudio.addEventListener('ended', revealHeroSection);
-  }
-
-  // Tap button & overlay listeners
-  if (introTapBtn) {
-    introTapBtn.addEventListener('click', handleIntroInteraction);
-    introTapBtn.addEventListener('touchend', handleIntroInteraction);
-  }
-  if (peacockOverlay) {
-    peacockOverlay.addEventListener('click', handleIntroInteraction);
-    peacockOverlay.addEventListener('touchend', handleIntroInteraction);
-  }
-
-  // 2. AUDIO PLAY / MUTE TOGGLE
-  function updateAudioIcon(playing) {
-    if (playing) {
-      audioBtn.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-        </svg>`;
-      audioBtn.setAttribute('aria-label', 'Mute music');
-    } else {
-      audioBtn.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-          <line x1="23" y1="9" x2="17" y2="15"></line>
-          <line x1="17" y1="9" x2="23" y2="15"></line>
-        </svg>`;
-      audioBtn.setAttribute('aria-label', 'Play music');
-    }
-  }
-
-  audioBtn.addEventListener('click', () => {
-    if (isAudioPlaying) {
-      bgAudio.pause();
-      isAudioPlaying = false;
-      audioBtn.classList.remove('playing');
-      updateAudioIcon(false);
-    } else {
-      bgAudio.play().then(() => {
-        isAudioPlaying = true;
-        audioBtn.classList.add('playing');
-        updateAudioIcon(true);
+  // Background music.
+  var musicBtn = $('.siyaram-music');
+  var audio = $('.siyaram-music__audio');
+  if (musicBtn && audio) {
+    var syncMusic = function () { root.classList.toggle('siyaram-is-music-playing', !audio.paused); musicBtn.setAttribute('aria-pressed', audio.paused ? 'false' : 'true'); };
+    musicBtn.addEventListener('click', function () { if (audio.paused) { audio.play().then(syncMusic, syncMusic); } else { audio.pause(); syncMusic(); } });
+    // Music starts when the invitation opens. Browsers block sound before the visitor interacts, so if the first try is refused it is retried
+    // on every interaction until one is accepted. Android Chrome only accepts a play() started from a finished tap (touchend / pointerup /
+    // click) - NOT from touchstart / pointerdown (the old listener tried there, was refused, and then removed itself, so music never started) and
+    // not from a scroll or swipe. Scroll / swipe are still tried (harmless when refused, and they work where the browser already allows sound).
+    audio.preload = 'auto'; // buffered by the time of the first tap, so sound starts at once
+    var startMusic = function () { var p = audio.play(); if (p && p.then) { p.then(syncMusic, armMusic); } };
+    var armed = false;
+    var armMusic = function () {
+      if (armed) { return; }
+      armed = true;
+      var tapEvents = ['touchend', 'pointerup', 'mouseup', 'click', 'keydown'];
+      var tryEvents = ['scroll', 'wheel', 'touchmove'];
+      var lastTry = 0;
+      var disarm = function () {
+        tapEvents.concat(tryEvents).forEach(function (t) { document.removeEventListener(t, go, true); window.removeEventListener(t, go, true); });
+      };
+      var go = function (ev) {
+        if (ev && ev.target && ev.target.nodeType === 1 && musicBtn.contains(ev.target)) { return; } // the button handles its own tap
+        if (!audio.paused || musicBtn.__userPaused) { if (!audio.paused) { disarm(); } return; }
+        var now = Date.now();
+        if (now - lastTry < 400) { return; }
+        lastTry = now;
+        var p = audio.play();
+        if (p && p.then) { p.then(function () { syncMusic(); disarm(); }, function () { /* refused: stay armed for the next interaction */ }); }
+        else { disarm(); }
+      };
+      tapEvents.forEach(function (t) { document.addEventListener(t, go, true); });
+      tryEvents.forEach(function (t) { document.addEventListener(t, go, true); window.addEventListener(t, go, true); });
+    };
+    musicBtn.addEventListener('click', function () { musicBtn.__userPaused = !audio.paused; }, true);
+    // Opening screen: its button is the visitor's first tap, so the music starts together with the invitation opening (even on Android).
+    var gate = document.getElementById('siyaram-gate');
+    var gateBtn = document.getElementById('siyaram-gate-btn');
+    if (gate && gateBtn) {
+      var htmlEl = document.documentElement;
+      htmlEl.classList.add('siyaram-gate-lock');
+      gateBtn.addEventListener('click', function () {
+        var p = audio.play(); // called inside the tap, which is what lets the browser start sound
+        if (p && p.then) { p.then(syncMusic, armMusic); }
+        htmlEl.classList.remove('siyaram-gate-lock');
+        gate.classList.add('is-leaving');
+        window.setTimeout(function () { if (gate.parentNode) { gate.parentNode.removeChild(gate); } }, 900);
       });
     }
-  });
+    if (document.readyState === 'complete') { startMusic(); } else { window.addEventListener('load', startMusic); }
+    audio.addEventListener('play', syncMusic);
+    audio.addEventListener('pause', syncMusic);
+  }
 
-  // 3. LANGUAGE SWITCHER
-  langTrigger.addEventListener('click', (e) => {
-    e.stopPropagation();
-    langDropdown.classList.toggle('open');
-  });
-
-  document.addEventListener('click', () => {
-    langDropdown.classList.remove('open');
-  });
-
-  const translations = {
-    en: {
-      tagline: "Two hearts one journey a lifetime together",
-      weds: "weds",
-      scrollToBegin: "Scroll to begin",
-      switchPalaces: "Swipe to Switch Palaces",
-      dateTitle: "Date & Time",
-      dateSubtitle: "When we will tie the knot",
-      countdownTitle: "The Countdown",
-      countdownSubtitle: "Counting down to our big day",
-      eventsTitle: "Wedding Events",
-      eventsSubtitle: "Join us for the celebrations",
-      storyTitle: "Our Story",
-      storySubtitle: "How it all began",
-      galleryTitle: "Photo Gallery",
-      gallerySubtitle: "Capturing our best moments",
-      familiesTitle: "Our Families",
-      familiesSubtitle: "With the blessings of our parents",
-      extendedFamilyTitle: "Family & Relatives",
-      extendedFamilySubtitle: "With heartfelt love & blessings of all family members",
-      groomFamily: "GROOM'S FAMILY",
-      brideFamily: "BRIDE'S FAMILY",
-      rsvpTitle: "RSVP",
-      rsvpSubtitle: "Please let us know if you can make it",
-      thankYouTitle: "Thank You",
-      thankYouSubtitle: "For your love and support"
-    },
-    hi: {
-      tagline: "दो दिल, एक सफर, उम्र भर का साथ",
-      weds: "संग",
-      scrollToBegin: "शुरू करने के लिए स्क्रॉल करें",
-      switchPalaces: "महल बदलने के लिए स्वाइप करें",
-      dateTitle: "शुभ लग्न एवं तिथि",
-      dateSubtitle: "जब हम एक दूजे के होंगे",
-      countdownTitle: "उल्टी गिनती",
-      countdownSubtitle: "शुभ विवाह के पावन क्षण",
-      eventsTitle: "मांगलिक कार्यक्रम",
-      eventsSubtitle: "हमारे उत्सव में पधारें",
-      storyTitle: "हमारी कहानी",
-      storySubtitle: "प्यार की खूबसूरत शुरुआत",
-      galleryTitle: "तस्वीरों की झलक",
-      gallerySubtitle: "हमारी प्यारी यादें",
-      familiesTitle: "हमारे परिवार",
-      familiesSubtitle: "माता-पिता एवं बड़ों के आशीर्वाद से",
-      extendedFamilyTitle: "स्नेहीजन एवं परिजन",
-      extendedFamilySubtitle: "समस्त परिवारजनों के शुभाशीष एवं मंगलकामनाएं",
-      groomFamily: "वर पक्ष",
-      brideFamily: "वधू पक्ष",
-      rsvpTitle: "निमंत्रण स्वीकार करें",
-      rsvpSubtitle: "कृपया अपनी उपस्थिति दर्ज कराएं",
-      thankYouTitle: "हार्दिक धन्यवाद",
-      thankYouSubtitle: "आपके असीम स्नेह और आशीर्वाद हेतु"
-    },
-    gu: {
-      tagline: "બે હૃદય, એક સફર, જીવનભરનો સાથ",
-      weds: "સંગે",
-      scrollToBegin: "શરૂ કરવા માટે સ્ક્રોલ કરો",
-      switchPalaces: "મહેલ બદલવા માટે સ્વાઇપ કરો",
-      dateTitle: "તારીખ અને સમય",
-      dateSubtitle: "લગ્ન પ્રસંગ",
-      countdownTitle: "કાઉન્ટડાઉન",
-      countdownSubtitle: "લગ્નના શુભ દિવસ સુધી",
-      eventsTitle: "શુભ પ્રસંગો",
-      eventsSubtitle: "અમારા ઉત્સવમાં પધારો",
-      storyTitle: "અમારી વાર્તા",
-      storySubtitle: "પ્રેમની શરૂઆત",
-      galleryTitle: "ફોટો ગેલેરી",
-      gallerySubtitle: "શ્રેષ્ઠ પળો",
-      familiesTitle: "અમારા પરિવારો",
-      familiesSubtitle: "વડીલોના આશીર્વાદ સાથે",
-      extendedFamilyTitle: "સ્નેહીજનો અને પરિવાર",
-      extendedFamilySubtitle: "સમસ્ત પરિવારજનોના આશીર્વાદ અને સ્નેહ સાથે",
-      groomFamily: "વર પક્ષ",
-      brideFamily: "કન્યા પક્ષ",
-      rsvpTitle: "આરએસવીપી",
-      rsvpSubtitle: "કૃપા કરીને તમારી ઉપસ્થિતિ જણાવો",
-      thankYouTitle: "આભાર",
-      thankYouSubtitle: "તમારા પ્રેમ અને સ્નેહ બદલ"
-    },
-    pa: {
-      tagline: "ਦੋ ਦਿਲ, ਇੱਕ ਸਫ਼ਰ, ਸਦਾ ਲਈ ਸਾਥ",
-      weds: "ਸੰਗ",
-      scrollToBegin: "ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਸਕ੍ਰੋਲ ਕਰੋ",
-      switchPalaces: "ਮਹਿਲ ਬਦਲਣ ਲਈ ਸਵਾਈਪ ਕਰੋ",
-      dateTitle: "ਮਿਤੀ ਅਤੇ ਸਮਾਂ",
-      dateSubtitle: "ਵਿਆਹ ਦਾ ਸ਼ੁਭ ਦਿਹਾੜਾ",
-      countdownTitle: "ਕਾਊਂਟਡਾਊਨ",
-      countdownSubtitle: "ਖ਼ਾਸ ਦਿਨ ਤੱਕ ਦਾ ਸਮਾਂ",
-      eventsTitle: "ਵਿਆਹ ਦੇ ਸਮਾਗਮ",
-      eventsSubtitle: "ਖੁਸ਼ੀਆਂ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ",
-      storyTitle: "ਸਾਡੀ ਕਹਾਣੀ",
-      storySubtitle: "ਪਿਆਰ ਦਾ ਆਗਾਜ਼",
-      galleryTitle: "ਫ਼ੋਟੋ ਗੈਲਰੀ",
-      gallerySubtitle: "ਸਾਡੇ ਖ਼ਾਸ ਪਲ",
-      familiesTitle: "ਸਾਡੇ ਪਰਿਵਾਰ",
-      familiesSubtitle: "ਵੱਡਿਆਂ ਦੇ ਆਸ਼ੀਰਵਾਦ ਨਾਲ",
-      extendedFamilyTitle: "ਪਰਿਵਾਰ ਅਤੇ ਰਿਸ਼ਤੇਦਾਰ",
-      extendedFamilySubtitle: "ਸਾਰੇ ਪਰਿਵਾਰਕ ਮੈਂਬਰਾਂ ਦੇ ਪਿਆਰ ਅਤੇ ਅਸੀਸਾਂ ਨਾਲ",
-      groomFamily: "ਲਾੜੇ ਦਾ ਪਰਿਵਾਰ",
-      brideFamily: "ਲਾੜੀ ਦਾ ਪਰਿਵਾਰ",
-      rsvpTitle: "ਆਰ.ਐੱਸ.ਵੀ.ਪੀ.",
-      rsvpSubtitle: "ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੀ ਆਮਦ ਦੱਸੋ",
-      thankYouTitle: "ਧੰਨਵਾਦ",
-      thankYouSubtitle: "ਤੁਹਾਡੇ ਪਿਆਰ ਅਤੇ ਅਸੀਸਾਂ ਲਈ"
-    }
-  };
-
-  langOptions.forEach(opt => {
-    opt.addEventListener('click', () => {
-      langOptions.forEach(o => o.classList.remove('active'));
-      opt.classList.add('active');
-      const lang = opt.dataset.lang;
-      langCurrent.textContent = opt.dataset.name;
-      langDropdown.classList.remove('open');
-      applyLanguage(lang);
+  // Copy buttons (venue address, hashtag).
+  function copyText(text, done) {
+    if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(done, done); return; }
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch (e) { /* ignore */ }
+    document.body.removeChild(ta); done();
+  }
+  root.addEventListener('click', function (event) {
+    var t = event.target.closest ? event.target.closest('[data-siyaram-copy]') : null;
+    if (!t || !root.contains(t)) { return; }
+    var hint = t.classList.contains('siyaram-hashtag__pill') ? $('.siyaram-hashtag__hint') : null;
+    copyText(t.getAttribute('data-siyaram-copy'), function () {
+      t.classList.add('siyaram-is-copied');
+      if (hint) { hint.textContent = hint.getAttribute('data-hint-done'); hint.classList.add('siyaram-is-copied'); }
+      window.setTimeout(function () {
+        t.classList.remove('siyaram-is-copied');
+        if (hint) { hint.textContent = hint.getAttribute('data-hint-default'); hint.classList.remove('siyaram-is-copied'); }
+      }, 1800);
     });
   });
 
-  function applyLanguage(lang) {
-    const t = translations[lang] || translations.en;
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.dataset.i18n;
-      if (t[key]) el.textContent = t[key];
+  // Pre-wedding film: the poster turns into the player on tap.
+  root.addEventListener('click', function (event) {
+    var b = event.target.closest ? event.target.closest('[data-siyaram-video]') : null;
+    if (!b || !root.contains(b)) { return; }
+    var url = b.getAttribute('data-siyaram-video');
+    var frame = document.createElement('iframe');
+    frame.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&origin=' + encodeURIComponent(window.location.origin);
+    frame.title = '';
+    frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen';
+    frame.allowFullscreen = true;
+    frame.referrerPolicy = 'strict-origin-when-cross-origin';
+    b.parentNode.replaceChild(frame, b);
+    if (window.inviteutsavWatchYouTube) { window.inviteutsavWatchYouTube(frame); } // pauses the music while the film plays
+  });
+
+  // Photo carousel: autoplay, arrows, dots, swipe, keyboard.
+  (function () {
+    var box = $('.siyaram-carousel');
+    var track = box ? $('.siyaram-carousel__track', box) : null;
+    if (!box || !track) { return; }
+    var slideNodes = $$('.siyaram-carousel__slide', box);
+    var dots = $$('.siyaram-carousel__dot', box);
+    var total = slideNodes.length;
+    if (total < 2) { return; }
+    var delay = 4500;
+    var index = 0;
+    var timer = null;
+    var paused = false;
+    var visible = true;
+    function render(dragOffset) {
+      track.style.transition = dragOffset === undefined ? '' : 'none';
+      track.style.transform = 'translate3d(' + (-index * 100) + '%,0,0)' + (dragOffset ? ' translate3d(' + dragOffset + 'px,0,0)' : '');
+      slideNodes.forEach(function (n, i) { n.setAttribute('aria-hidden', i === index ? 'false' : 'true'); });
+      dots.forEach(function (d, i) { d.classList.toggle('siyaram-is-active', i === index); });
+    }
+    function restart() {
+      window.clearInterval(timer);
+      if (reduceMotion || paused || !visible) { return; }
+      timer = window.setInterval(function () { index = (index + 1) % total; render(); }, delay);
+    }
+    function goTo(next) { index = (next + total) % total; render(); restart(); }
+    box.addEventListener('click', function (event) {
+      var n = event.target.closest ? event.target.closest('[data-siyaram-action],[data-siyaram-slide]') : null;
+      if (!n) { return; }
+      if (n.hasAttribute('data-siyaram-slide')) { goTo(parseInt(n.getAttribute('data-siyaram-slide'), 10) || 0); return; }
+      var a = n.getAttribute('data-siyaram-action');
+      if (a === 'carousel-prev') { goTo(index - 1); } else if (a === 'carousel-next') { goTo(index + 1); }
     });
-  }
-
-  // 4. SIDE PAGINATION SETUP
-  cards.forEach((_, idx) => {
-    const dot = document.createElement('div');
-    dot.className = `page-dot ${idx === 0 ? 'active' : ''}`;
-    dot.setAttribute('title', `Slide ${idx + 1}`);
-    dot.addEventListener('click', () => goToCard(idx));
-    paginationContainer.appendChild(dot);
-  });
-
-  const dots = document.querySelectorAll('.page-dot');
-
-  function updatePagination() {
-    dots.forEach((dot, idx) => {
-      dot.classList.toggle('active', idx === currentCardIndex);
+    box.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') { goTo(index - 1); } else if (e.key === 'ArrowRight') { goTo(index + 1); } });
+    box.addEventListener('mouseenter', function () { paused = true; restart(); });
+    box.addEventListener('mouseleave', function () { paused = false; restart(); });
+    box.addEventListener('focusin', function () { paused = true; restart(); });
+    box.addEventListener('focusout', function () { paused = false; restart(); });
+    var startX = null; var dragged = 0;
+    box.addEventListener('pointerdown', function (e) {
+      if (e.target.closest && e.target.closest('button')) { return; }
+      startX = e.clientX; dragged = 0; paused = true; restart();
+      try { box.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
     });
+    box.addEventListener('pointermove', function (e) { if (startX === null) { return; } dragged = e.clientX - startX; render(dragged); });
+    function endDrag() {
+      if (startX === null) { return; }
+      var threshold = box.clientWidth * 0.15;
+      startX = null; paused = false;
+      if (dragged < -threshold) { goTo(index + 1); } else if (dragged > threshold) { goTo(index - 1); } else { render(); restart(); }
+      dragged = 0;
+    }
+    box.addEventListener('pointerup', endDrag);
+    box.addEventListener('pointercancel', endDrag);
+    if ('IntersectionObserver' in window) { new IntersectionObserver(function (entries) { visible = entries[0].isIntersecting; restart(); }).observe(box); }
+    document.addEventListener('visibilitychange', function () { visible = !document.hidden; restart(); });
+    render(); restart();
+  })();
+
+  // Guest RSVP — posts to the site's own RSVP endpoint (answers appear in the customer's dashboard).
+  (function () {
+    var form = document.getElementById('siyaramGuestForm');
+    if (!form || !document.getElementById('siyaramGuestName')) { return; } /* contact-persons-only panel (guest form switched off) has no fields */
+    var nameInput = document.getElementById('siyaramGuestName');
+    var phoneInput = document.getElementById('siyaramGuestPhone');
+    var noteInput = document.getElementById('siyaramGuestNote');
+    var submit = $('.siyaram-rsvp__submit', form);
+    var errorEl = document.getElementById('siyaramGuestError');
+    var success = document.getElementById('siyaramGuestSuccess');
+    var label = submit ? submit.querySelector('span') : null;
+    var idleText = label ? label.textContent : '';
+
+    function mark(input, ok) { var f = input.closest('.siyaram-rsvp__field'); if (f) { f.classList.toggle('has-error', !ok); } return ok; }
+    [nameInput, phoneInput].forEach(function (i) { i.addEventListener('input', function () { mark(i, true); }); });
+
+    var wrap = phoneInput.closest('[data-phone-field]');
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var nameOk = mark(nameInput, nameInput.value.trim().length >= 2);
+      var phoneOk = mark(phoneInput, (wrap && window.InviteutsavPhone) ? window.InviteutsavPhone.isValid(wrap) : /^\d{7,15}$/.test(phoneInput.value.trim()));
+      if (!nameOk || !phoneOk) { (nameOk ? phoneInput : nameInput).focus(); return; }
+      if (errorEl) { errorEl.hidden = true; }
+
+      // Advanced RSVP block (wedding invitations on the new form): validated here, merged into the submission below.
+      var adv = window.InviteutsavRsvpAdv ? window.InviteutsavRsvpAdv.collect(form) : null;
+      if (adv && !adv.ok) { return; }
+
+      function showDone() { form.classList.add('is-sent'); success.hidden = false; requestLayout(); }
+      if (!rsvpCfg.restUrl) { showDone(); return; }
+
+      // The guest's answers to the optional questions travel inside the message (no schema change needed).
+      var answers = [];
+      $$('.siyaram-rsvp__question', form).forEach(function (q) {
+        var qText = (q.querySelector('.siyaram-rsvp__q') || {}).textContent;
+        var sel = q.querySelector('select');
+        var checks = $$('input[type="checkbox"]:checked', q);
+        var radio = q.querySelector('input[type="radio"]:checked');
+        var ans = sel ? sel.value : (checks.length ? checks.map(function (c) { return c.value; }).join(', ') : (radio ? radio.value : ''));
+        if (qText && ans) { answers.push(qText.trim() + ' ' + ans); }
+      });
+      var note = ((noteInput && noteInput.value) || '').trim();
+      var msg = [note, answers.join(' · ')].filter(Boolean).join(note ? ' — ' : '');
+
+      if (submit) { submit.disabled = true; if (label) { label.textContent = ui.sending || 'Sending…'; } }
+      fetch(rsvpCfg.restUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify((function (b) { return adv ? adv.merge(b) : b; })({ website: (form.querySelector('[name="website"]') || {}).value || '', guest_name: nameInput.value.trim(), guest_mobile: (function () { var h = wrap && wrap.querySelector('input[type="hidden"]'); return (h && h.value) ? h.value : phoneInput.value.trim(); })(), attending: 'yes', message: msg }))
+      }).then(function (res) { return res.json().then(function (d) { return { ok: res.ok, d: d }; }); })
+        .then(function (r) {
+          if (submit) { submit.disabled = false; if (label) { label.textContent = idleText; } }
+          if (!r.ok || !r.d.success) {
+            if (errorEl) { errorEl.textContent = (r.d && r.d.message) || ui.error || 'Could not send your RSVP. Please try again.'; errorEl.hidden = false; requestLayout(); }
+            return;
+          }
+          showDone();
+          if (adv) { window.InviteutsavRsvpAdv.done(form, r.d, success); }
+          if (window.inviteutsavRenderWhatsappRsvpButtons) {
+            var host = document.getElementById('siyaramGuestWhatsapp');
+            window.inviteutsavRenderWhatsappRsvpButtons(host, {
+              contacts: (data.rsvp || {}).contacts || [],
+              brideDisplayName: (data.bride || {}).shortName,
+              groomDisplayName: (data.groom || {}).shortName,
+              guestName: nameInput.value.trim(),
+              attending: (adv && adv.fields.attending === 'no') ? 'No' : 'Yes',
+              message: msg,
+              behavior: rsvpCfg.whatsappBehavior
+            });
+          }
+        })
+        .catch(function () {
+          if (submit) { submit.disabled = false; if (label) { label.textContent = idleText; } }
+          if (errorEl) { errorEl.textContent = ui.network || 'Network error. Please try again.'; errorEl.hidden = false; requestLayout(); }
+        });
+    });
+  })();
+})();
+
+
+/* Siyaram invitations: the Scroll to Continue cue on the landing screen. Shown once the opening screen is gone and while the guest is still at the top;
+   a tap glides slowly (about two seconds) to the invitation panel; any wheel / touch / key press by the guest stops the glide. */
+(function () {
+  'use strict';
+  var cue = document.getElementById('siyaram-scrollcue');
+  if (!cue) { return; }
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function update() {
+    var top = window.pageYOffset || document.documentElement.scrollTop || 0;
+    cue.classList.toggle('is-on', !document.getElementById('siyaram-gate') && top < 60);
   }
-
-  // =========================================================
-  // 5. OFFICIAL MAHAL-SWIPE PALACE & ARCH THEMES (SHAADIKACARD)
-  // =========================================================
-  const palaceThemes = [
-    {
-      id: "theme-3",
-      bg: "assets/base-3-mobile.webp",
-      arch: "assets/mahal.webp",
-      archClass: "mahal-image-lower",
-      gradient: "linear-gradient(135deg, rgba(253, 238, 244, 0.35) 0%, rgba(245, 203, 221, 0.35) 100%)"
-    },
-    {
-      id: "theme-1",
-      bg: "assets/base-1-mobile.webp",
-      arch: "assets/media_1787051662761.webp",
-      archClass: "mahal-image",
-      gradient: "linear-gradient(135deg, rgba(255, 240, 245, 0.35) 0%, rgba(243, 210, 223, 0.35) 100%)"
-    },
-    {
-      id: "theme-2",
-      bg: "assets/base-2-mobile.webp",
-      arch: "assets/arch-india-gate.webp",
-      archClass: "mahal-image-lower",
-      gradient: "linear-gradient(135deg, rgba(253, 244, 240, 0.35) 0%, rgba(238, 213, 202, 0.35) 100%)"
-    },
-    {
-      id: "theme-4",
-      bg: "assets/base-4-mobile.webp",
-      arch: "assets/media_1787051664439.webp",
-      archClass: "mahal-image",
-      gradient: "linear-gradient(135deg, rgba(252, 251, 248, 0.35) 0%, rgba(228, 226, 222, 0.35) 100%)"
-    },
-    {
-      id: "theme-5",
-      bg: "assets/base-5-mobile.webp",
-      arch: "assets/media_1787051669265.webp",
-      archClass: "mahal-image",
-      gradient: "linear-gradient(135deg, rgba(247, 240, 250, 0.35) 0%, rgba(223, 209, 234, 0.35) 100%)"
-    },
-    {
-      id: "theme-6",
-      bg: "assets/base-6-mobile.webp",
-      arch: "assets/media_1787051677037.webp",
-      archClass: "mahal-image",
-      gradient: "linear-gradient(135deg, rgba(253, 253, 240, 0.35) 0%, rgba(235, 225, 181, 0.35) 100%)"
-    },
-    {
-      id: "theme-7",
-      bg: "assets/base-7-mobile.webp",
-      arch: "assets/arch-jodhpur.webp",
-      archClass: "mahal-image-lower",
-      gradient: "linear-gradient(135deg, rgba(255, 248, 242, 0.35) 0%, rgba(245, 220, 205, 0.35) 100%)"
+  var gliding = false;
+  function glideTo(targetTop) {
+    var from = window.pageYOffset || document.documentElement.scrollTop || 0;
+    var dist = targetTop - from;
+    if (!dist) { return; }
+    if (reduce) { window.scrollTo(0, targetTop); return; }
+    var dur = Math.min(3200, Math.max(2000, Math.abs(dist) * 1.5)); // slow on purpose
+    var t0 = null;
+    gliding = true;
+    function stop() { gliding = false; }
+    ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) { window.addEventListener(ev, stop, { once: true, passive: true }); });
+    function step(ts) {
+      if (!gliding) { return; }
+      if (t0 === null) { t0 = ts; }
+      var p = Math.min(1, (ts - t0) / dur);
+      var e = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; // ease in-out
+      window.scrollTo(0, from + dist * e);
+      if (p < 1) { window.requestAnimationFrame(step); } else { gliding = false; }
     }
-  ];
-
-  // Preload all 7 palace bases and arches for instantaneous silky switching
-  palaceThemes.forEach(t => {
-    const bImg = new Image();
-    bImg.src = t.bg;
-    const aImg = new Image();
-    aImg.src = t.arch;
-  });
-
-  // Switch Palace Theme (Parallax 3D Sliding Haveli Gate Transition)
-  function switchPalace(direction) {
-    if (isPalaceTransitioning || !staticBgLayer || !mahalSwipeLayer) return;
-    isPalaceTransitioning = true;
-
-    const nextIndex = (currentPalaceIndex + direction + palaceThemes.length) % palaceThemes.length;
-    const nextTheme = palaceThemes[nextIndex];
-
-    const currentBgSlide = staticBgLayer.querySelector('.bg-slide.current-bg');
-    const currentArchSlide = mahalSwipeLayer.querySelector('.arch-slide.current-arch');
-
-    // Create incoming background slide
-    const newBgSlide = document.createElement('div');
-    newBgSlide.className = `bg-slide ${direction > 0 ? 'bg-slide-in-right' : 'bg-slide-in-left'}`;
-    newBgSlide.innerHTML = `
-      <img src="${nextTheme.bg}" class="bg-image-full" alt="Palace Backdrop" />
-      <div class="bg-gradient-overlay" style="background: ${nextTheme.gradient};"></div>
-    `;
-
-    // Create incoming arch slide
-    const newArchSlide = document.createElement('div');
-    newArchSlide.className = `arch-slide ${direction > 0 ? 'arch-slide-in-right' : 'arch-slide-in-left'}`;
-    newArchSlide.innerHTML = `
-      <img src="${nextTheme.arch}" class="${nextTheme.archClass}" alt="Haveli Arch" />
-    `;
-
-    // Animate out existing slides
-    if (currentBgSlide) {
-      currentBgSlide.classList.remove('current-bg');
-      currentBgSlide.classList.add(direction > 0 ? 'bg-slide-out-left' : 'bg-slide-out-right');
-    }
-    if (currentArchSlide) {
-      currentArchSlide.classList.remove('current-arch');
-      currentArchSlide.classList.add(direction > 0 ? 'arch-slide-out-left' : 'arch-slide-out-right');
-    }
-
-    staticBgLayer.appendChild(newBgSlide);
-    mahalSwipeLayer.appendChild(newArchSlide);
-
-    currentPalaceIndex = nextIndex;
-
-    // Optional haptic feedback
-    if (navigator.vibrate) {
-      navigator.vibrate(25);
-    }
-
-    setTimeout(() => {
-      newBgSlide.className = 'bg-slide current-bg';
-      newArchSlide.className = 'arch-slide current-arch';
-      if (currentBgSlide && currentBgSlide.parentNode) currentBgSlide.parentNode.removeChild(currentBgSlide);
-      if (currentArchSlide && currentArchSlide.parentNode) currentArchSlide.parentNode.removeChild(currentArchSlide);
-      isPalaceTransitioning = false;
-    }, 720);
+    window.requestAnimationFrame(step);
   }
-
-  // Update Navigation Controls (Swipe Hints)
-  function updateNavControls() {
-    if (swipeHintBar) {
-      if (currentCardIndex === 0) {
-        swipeHintBar.classList.remove('hidden');
-        swipeHintBar.classList.remove('dimmed');
-      } else {
-        swipeHintBar.classList.add('dimmed');
-      }
-    }
-  }
-
-  // 6. CARD NAVIGATION (VERTICAL SCROLL & SWIPE)
-  function goToCard(targetIndex) {
-    if (isTransitioning || targetIndex === currentCardIndex) return;
-    if (targetIndex < 0 || targetIndex >= cards.length) return;
-
-    isTransitioning = true;
-    const direction = targetIndex > currentCardIndex ? 'down' : 'up';
-    const oldCard = cards[currentCardIndex];
-    const newCard = cards[targetIndex];
-
-    oldCard.className = `invitation-card ${direction === 'down' ? 'prev' : 'next'}`;
-    newCard.className = `invitation-card active`;
-
-    currentCardIndex = targetIndex;
-    updatePagination();
-    updateNavControls();
-
-    setTimeout(() => {
-      isTransitioning = false;
-    }, 600);
-  }
-
-  // Initial nav control state
-  updateNavControls();
-
-  // Navigation Indicators click listeners
-  if (navLeft) navLeft.addEventListener('click', () => switchPalace(-1));
-  if (navRight) navRight.addEventListener('click', () => switchPalace(1));
-  if (swipeHintBar) swipeHintBar.addEventListener('click', () => switchPalace(1));
-
-  // Smooth Laptop Trackpad & Mouse Wheel Navigation (Vertical Card Scroll)
-  let accumulatedDeltaY = 0;
-  let wheelLock = false;
-  let wheelResetTimer = null;
-
-  window.addEventListener('wheel', (e) => {
-    if (peacockOverlay && peacockOverlay.style.display !== 'none') return;
-
-    // Check if user is scrolling inside a scrollable card or container (e.g. events list)
-    const scrollableEl = e.target.closest('.events-list-scroll, .events-scrollable, .story-scroll-container, .families-block');
-    if (scrollableEl && scrollableEl.scrollHeight > scrollableEl.clientHeight) {
-      const atTop = scrollableEl.scrollTop <= 2 && e.deltaY < 0;
-      const atBottom = (scrollableEl.scrollTop + scrollableEl.clientHeight >= scrollableEl.scrollHeight - 2) && e.deltaY > 0;
-      if (!atTop && !atBottom) {
-        // Allow native inner scrolling
-        return;
-      }
-    }
-
-    if (wheelLock || isTransitioning) return;
-
-    accumulatedDeltaY += e.deltaY;
-    clearTimeout(wheelResetTimer);
-    wheelResetTimer = setTimeout(() => {
-      accumulatedDeltaY = 0;
-    }, 180);
-
-    // Require intentional accumulated scroll threshold to prevent accidental jump
-    const SCROLL_THRESHOLD = 45;
-    if (Math.abs(accumulatedDeltaY) >= SCROLL_THRESHOLD) {
-      const direction = accumulatedDeltaY > 0 ? 1 : -1;
-      accumulatedDeltaY = 0;
-      wheelLock = true;
-      goToCard(currentCardIndex + direction);
-
-      // Dampen trackpad inertia momentum (700ms cooldown)
-      setTimeout(() => {
-        wheelLock = false;
-        accumulatedDeltaY = 0;
-      }, 700);
-    }
-  }, { passive: true });
-
-  // Touch Swipe Navigation (Horizontal = Palaces, Vertical = Cards)
-  let touchStartY = 0;
-  let touchStartX = 0;
-  let isMouseDragging = false;
-
-  window.addEventListener('touchstart', (e) => {
-    touchStartY = e.touches[0].clientY;
-    touchStartX = e.touches[0].clientX;
-  }, { passive: true });
-
-  window.addEventListener('touchend', (e) => {
-    if (peacockOverlay && peacockOverlay.style.display !== 'none') return;
-    const touchEndY = e.changedTouches[0].clientY;
-    const touchEndX = e.changedTouches[0].clientX;
-    const diffY = touchStartY - touchEndY;
-    const diffX = touchStartX - touchEndX;
-
-    // Horizontal swipe: switch palace!
-    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
-      if (diffX > 0) {
-        switchPalace(1); // Swipe left -> Next Palace
-      } else {
-        switchPalace(-1); // Swipe right -> Previous Palace
-      }
-    }
-    // Vertical swipe: switch invitation card!
-    else if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 35) {
-      // Check if user is scrolling inside a scrollable container
-      const scrollableEl = e.target.closest('.events-list-scroll, .story-scroll-container');
-      if (scrollableEl && scrollableEl.scrollHeight > scrollableEl.clientHeight) {
-        const atTop = scrollableEl.scrollTop <= 4 && diffY < 0;
-        const atBottom = (scrollableEl.scrollTop + scrollableEl.clientHeight >= scrollableEl.scrollHeight - 4) && diffY > 0;
-        if (!atTop && !atBottom) {
-          // Allow inner scrolling, don't flip card!
-          return;
-        }
-      }
-
-      if (diffY > 0) {
-        goToCard(currentCardIndex + 1);
-      } else {
-        goToCard(currentCardIndex - 1);
-      }
-    }
-  }, { passive: true });
-
-  // Mouse Drag Support for Desktop (Swipe sideways or vertically)
-  window.addEventListener('mousedown', (e) => {
-    if (peacockOverlay && peacockOverlay.style.display !== 'none') return;
-    if (e.target.closest('button') || e.target.closest('a') || e.target.closest('input') || 
-        e.target.closest('select') || e.target.closest('textarea') || e.target.closest('.lang-dropdown') || 
-        e.target.closest('.nav-indicator') || e.target.closest('.page-dot')) return;
-    
-    touchStartX = e.clientX;
-    touchStartY = e.clientY;
-    isMouseDragging = true;
+  cue.addEventListener('click', function () {
+    // the invitation panel is the next block after the landing screen (the section element itself starts at the page top)
+    var target = document.querySelector('.siyaram-details__panel') || document.querySelector('.siyaram-details');
+    if (target) { glideTo(Math.max(0, Math.round(target.getBoundingClientRect().top + (window.pageYOffset || 0) - 30))); }
   });
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  if (window.MutationObserver) { new MutationObserver(update).observe(document.body, { childList: true }); }
+  document.addEventListener('click', function () { window.setTimeout(update, 120); });
+  window.setTimeout(update, 600);
+  update();
+})();
 
-  window.addEventListener('mouseup', (e) => {
-    if (!isMouseDragging) return;
-    isMouseDragging = false;
-    const diffX = touchStartX - e.clientX;
-    const diffY = touchStartY - e.clientY;
+/**
+ * Shared music control for the demo invitations.
+ *  - A template that already has its own music button keeps it (no duplicate); shared-music.css only moves it to the left edge.
+ *  - A template with background music but no button gets a small play/pause button on the left.
+ * The music is whatever <audio> the template already carries (the invitation's configured track). Browsers that block autoplay
+ * simply leave the button on "play" until the visitor taps it.
+ */
+(function () {
+  'use strict';
+  var BUTTONS = '#musicToggle,#musicBtn,.music-toggle,.music-btn,.music-orb,.pd-music,.siyaram-music';
+  var root = document.documentElement;
 
-    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
-      if (diffX > 0) switchPalace(1);
-      else switchPalace(-1);
-    } else if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 40) {
-      const scrollableEl = e.target.closest('.events-list-scroll, .story-scroll-container');
-      if (scrollableEl && scrollableEl.scrollHeight > scrollableEl.clientHeight) {
-        const atTop = scrollableEl.scrollTop <= 4 && diffY < 0;
-        const atBottom = (scrollableEl.scrollTop + scrollableEl.clientHeight >= scrollableEl.scrollHeight - 4) && diffY > 0;
-        if (!atTop && !atBottom) {
-          return;
-        }
-      }
-      if (diffY > 0) goToCard(currentCardIndex + 1);
-      else goToCard(currentCardIndex - 1);
-    }
-  });
-
-  // Keyboard navigation
-  window.addEventListener('keydown', (e) => {
-    if (peacockOverlay && peacockOverlay.style.display !== 'none') return;
-    if (e.key === 'ArrowRight') {
-      switchPalace(1);
-    } else if (e.key === 'ArrowLeft') {
-      switchPalace(-1);
-    } else if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
-      goToCard(currentCardIndex + 1);
-    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-      goToCard(currentCardIndex - 1);
-    }
-  });
-
-  // Prompt buttons
-  document.querySelectorAll('.scroll-prompt-btn, .scroll-next-btn').forEach(btn => {
-    btn.addEventListener('click', () => goToCard(currentCardIndex + 1));
-  });
-
-  document.querySelectorAll('.scroll-top-btn').forEach(btn => {
-    btn.addEventListener('click', () => goToCard(0));
-  });
-
-  // 6. LIVE COUNTDOWN TIMER
-  const targetDate = new Date('2026-12-03T18:30:00+05:30').getTime();
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-
-    if (distance <= 0) {
-      document.getElementById('days-count').textContent = '00';
-      document.getElementById('hours-count').textContent = '00';
-      document.getElementById('minutes-count').textContent = '00';
-      document.getElementById('seconds-count').textContent = '00';
+  function init() {
+    var audio = document.querySelector('audio[src], audio source') ? document.querySelector('audio') : null;
+    if (!audio) { return; }
+    if (document.querySelector(BUTTONS)) {
+      root.classList.add('iu-music-left'); // reuse the template's own control, just place it on the left
       return;
     }
+    if (document.querySelector('.iu-music-fab')) { return; }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'iu-music-fab';
+    btn.setAttribute('aria-label', 'Play or pause music');
+    btn.setAttribute('aria-pressed', 'false');
+    btn.innerHTML =
+      '<svg class="iu-music-fab__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.2v13.6a1 1 0 0 0 1.52.85l10.9-6.8a1 1 0 0 0 0-1.7L9.52 4.35A1 1 0 0 0 8 5.2z"/></svg>' +
+      '<svg class="iu-music-fab__pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4.2" height="14" rx="1.2"/><rect x="13.8" y="5" width="4.2" height="14" rx="1.2"/></svg>';
+    document.body.appendChild(btn);
 
-    const pad = (n) => String(n).padStart(2, '0');
-
-    const daysEl = document.getElementById('days-count');
-    const hoursEl = document.getElementById('hours-count');
-    const minsEl = document.getElementById('minutes-count');
-    const secsEl = document.getElementById('seconds-count');
-
-    if (daysEl) daysEl.textContent = pad(days);
-    if (hoursEl) hoursEl.textContent = pad(hours);
-    if (minsEl) minsEl.textContent = pad(minutes);
-    if (secsEl) secsEl.textContent = pad(seconds);
-  }
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-
-  // 7. PHOTO GALLERY CAROUSEL
-  const galleryImages = [
-    'assets/photo_1.webp',
-    'assets/photo_2.webp',
-    'assets/photo_3.webp',
-    'assets/photo_4.webp',
-    'assets/photo_5.webp',
-    'assets/photo_6.webp',
-    'assets/couple.webp'
-  ];
-
-  let currentGalleryIndex = 0;
-  const galleryMainImg = document.getElementById('gallery-main-img');
-  const galleryCounter = document.getElementById('gallery-counter');
-  const galleryPrevBtn = document.getElementById('gallery-prev');
-  const galleryNextBtn = document.getElementById('gallery-next');
-  const galleryThumbs = document.querySelectorAll('.gallery-thumb-item');
-
-  function setGalleryImage(idx) {
-    if (idx < 0) idx = galleryImages.length - 1;
-    if (idx >= galleryImages.length) idx = 0;
-    currentGalleryIndex = idx;
-
-    galleryMainImg.style.opacity = '0';
-    setTimeout(() => {
-      galleryMainImg.src = galleryImages[currentGalleryIndex];
-      galleryMainImg.style.opacity = '1';
-    }, 150);
-
-    if (galleryCounter) {
-      galleryCounter.textContent = `${currentGalleryIndex + 1} / ${galleryImages.length}`;
-    }
-
-    galleryThumbs.forEach((thumb, i) => {
-      thumb.classList.toggle('active', i === currentGalleryIndex);
-    });
-  }
-
-  if (galleryPrevBtn) {
-    galleryPrevBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      setGalleryImage(currentGalleryIndex - 1);
-    });
-  }
-
-  if (galleryNextBtn) {
-    galleryNextBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      setGalleryImage(currentGalleryIndex + 1);
-    });
-  }
-
-  galleryThumbs.forEach((thumb, idx) => {
-    thumb.addEventListener('click', (e) => {
-      e.stopPropagation();
-      setGalleryImage(idx);
-    });
-  });
-
-  // 8. RSVP SUBMIT LOGIC
-  const rsvpForm = document.getElementById('wedding-rsvp-form');
-  const rsvpSuccess = document.getElementById('rsvp-success-msg');
-
-  if (rsvpForm) {
-    rsvpForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      createConfettiBurst(window.innerWidth / 2, window.innerHeight / 2);
-      rsvpForm.style.display = 'none';
-      rsvpSuccess.style.display = 'block';
-    });
-  }
-
-  // 9. FALLING ROSE PETALS & PARTICLES CANVAS
-  let width = (canvas.width = window.innerWidth);
-  let height = (canvas.height = window.innerHeight);
-
-  window.addEventListener('resize', () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  });
-
-  class Petal {
-    constructor() {
-      this.reset(true);
-    }
-
-    reset(initial = false) {
-      this.x = Math.random() * width;
-      this.y = initial ? Math.random() * height : -30;
-      this.size = Math.random() * 12 + 10;
-      this.speedY = Math.random() * 1.2 + 0.8;
-      this.speedX = Math.random() * 1.5 - 0.75;
-      this.rotation = Math.random() * 360;
-      this.rotationSpeed = (Math.random() - 0.5) * 2;
-      this.oscillation = Math.random() * 0.04 + 0.01;
-      this.oscillationStep = Math.random() * Math.PI * 2;
-      this.opacity = Math.random() * 0.5 + 0.45;
-      this.color = Math.random() > 0.3 ? '#f3a6b8' : '#e67389';
-    }
-
-    update() {
-      this.y += this.speedY;
-      this.oscillationStep += this.oscillation;
-      this.x += Math.sin(this.oscillationStep) * 1.2 + this.speedX;
-      this.rotation += this.rotationSpeed;
-
-      if (this.y > height + 30 || this.x < -30 || this.x > width + 30) {
-        this.reset();
+    var sync = function () {
+      var on = !audio.paused;
+      btn.classList.toggle('is-playing', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    };
+    audio.addEventListener('play', sync);
+    audio.addEventListener('pause', sync);
+    audio.addEventListener('ended', sync);
+    btn.addEventListener('click', function () {
+      if (audio.paused) {
+        var p = audio.play();
+        if (p && p.catch) { p.catch(function () { sync(); }); }
+      } else {
+        audio.pause();
       }
-    }
-
-    draw() {
-      ctx.save();
-      ctx.translate(this.x, this.y);
-      ctx.rotate((this.rotation * Math.PI) / 180);
-      ctx.globalAlpha = this.opacity;
-
-      // Realistic rose petal path
-      ctx.fillStyle = this.color;
-      ctx.beginPath();
-      ctx.moveTo(0, -this.size / 2);
-      ctx.bezierCurveTo(this.size / 2, -this.size / 2, this.size / 1.5, this.size / 2, 0, this.size);
-      ctx.bezierCurveTo(-this.size / 1.5, this.size / 2, -this.size / 2, -this.size / 2, 0, -this.size / 2);
-      ctx.fill();
-
-      // Delicate petal highlight
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-
-      ctx.restore();
-    }
-  }
-
-  class GoldParticle {
-    constructor() {
-      this.reset(true);
-    }
-
-    reset(initial = false) {
-      this.x = Math.random() * width;
-      this.y = initial ? Math.random() * height : -10;
-      this.size = Math.random() * 3 + 1;
-      this.speedY = Math.random() * 0.8 + 0.4;
-      this.speedX = Math.random() * 0.8 - 0.4;
-      this.opacity = Math.random() * 0.6 + 0.2;
-    }
-
-    update() {
-      this.y += this.speedY;
-      this.x += this.speedX;
-      if (this.y > height + 10) this.reset();
-    }
-
-    draw() {
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(223, 186, 115, ${this.opacity})`;
-      ctx.shadowColor = '#dfba73';
-      ctx.shadowBlur = 6;
-      ctx.fill();
-      ctx.restore();
-    }
-  }
-
-  const petals = Array.from({ length: 30 }, () => new Petal());
-  const sparkles = Array.from({ length: 25 }, () => new GoldParticle());
-
-  function animateCanvas() {
-    ctx.clearRect(0, 0, width, height);
-    sparkles.forEach(s => { s.update(); s.draw(); });
-    petals.forEach(p => { p.update(); p.draw(); });
-    requestAnimationFrame(animateCanvas);
-  }
-
-  animateCanvas();
-
-  // 10. CONFETTI BURST EFFECT
-  function createConfettiBurst(originX, originY) {
-    const burstParticles = [];
-    const colors = ['#dfba73', '#ffd700', '#00e5ff', '#10b981', '#0f766e', '#f3a6b8', '#fff4d6', '#7b2d3e'];
-
-    for (let i = 0; i < 60; i++) {
-      const angle = Math.random() * Math.PI * 2;
-      const speed = Math.random() * 8 + 3;
-      burstParticles.push({
-        x: originX,
-        y: originY,
-        vx: Math.cos(angle) * speed,
-        vy: Math.sin(angle) * speed - 2,
-        size: Math.random() * 8 + 4,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        life: 1,
-        decay: Math.random() * 0.02 + 0.015,
-        rotation: Math.random() * 360,
-        rotSpeed: (Math.random() - 0.5) * 10
-      });
-    }
-
-    function renderBurst() {
-      if (burstParticles.length === 0) return;
-
-      burstParticles.forEach((p, idx) => {
-        p.x += p.vx;
-        p.y += p.vy;
-        p.vy += 0.2; // gravity
-        p.life -= p.decay;
-        p.rotation += p.rotSpeed;
-
-        if (p.life > 0) {
-          ctx.save();
-          ctx.translate(p.x, p.y);
-          ctx.rotate((p.rotation * Math.PI) / 180);
-          ctx.globalAlpha = p.life;
-          ctx.fillStyle = p.color;
-          ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 1.5);
-          ctx.restore();
-        } else {
-          burstParticles.splice(idx, 1);
-        }
-      });
-
-      if (burstParticles.length > 0) {
-        requestAnimationFrame(renderBurst);
-      }
-    }
-
-    renderBurst();
-  }
-});
-
-  // =========================================================
-  // SCRATCH TO REVEAL TIMER
-  // =========================================================
-  function initScratchCard() {
-    const canvas = document.getElementById('timer-scratch-canvas');
-    const container = document.getElementById('scratch-boxes-wrapper');
-    if (!canvas || !container) return;
-
-    let isRevealed = false;
-    let isDrawing = false;
-
-    function setupCanvas() {
-      if (isRevealed) return;
-      const rect = container.getBoundingClientRect();
-      const dpr = window.devicePixelRatio || 1;
-      canvas.width = Math.round(rect.width * dpr);
-      canvas.height = Math.round(rect.height * dpr);
-
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-      ctx.scale(dpr, dpr);
-
-      function drawRoundRect(x, y, w, h, r) {
-        ctx.beginPath();
-        ctx.moveTo(x + r, y);
-        ctx.lineTo(x + w - r, y);
-        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
-        ctx.lineTo(x + w, y + h - r);
-        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-        ctx.lineTo(x + r, y + h);
-        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
-        ctx.lineTo(x, y + r);
-        ctx.quadraticCurveTo(x, y, x + r, y);
-        ctx.closePath();
-      }
-
-      // Exact warm peach-blush haveli floral gradient (matches Jaipur pink stone & flowers)
-      const grad = ctx.createLinearGradient(0, 0, rect.width, rect.height);
-      grad.addColorStop(0, '#fdf0ee');    // warm creamy peach
-      grad.addColorStop(0.3, '#f7d2cb');  // soft blush petal
-      grad.addColorStop(0.65, '#ebb4a9'); // warm haveli rose
-      grad.addColorStop(1, '#df9e92');    // elegant terracotta rose
-
-      drawRoundRect(0, 0, rect.width, rect.height, 14);
-      ctx.fillStyle = grad;
-      ctx.fill();
-
-      // Subtle warm rose border with corner radius
-      drawRoundRect(3.5, 3.5, rect.width - 7, rect.height - 7, 10.5);
-      ctx.strokeStyle = 'rgba(196, 128, 116, 0.55)';
-      ctx.lineWidth = 1.2;
-      ctx.stroke();
-
-      // Text: Deep Royal Burgundy / Maroon matching the invitation theme
-      ctx.save();
-      ctx.fillStyle = '#6b1d2e';
-      ctx.font = '700 12.5px "Cinzel", serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.letterSpacing = '0.08em';
-      ctx.fillText('✦ SCRATCH TO REVEAL ✦', rect.width / 2, rect.height / 2 - 6);
-
-      ctx.font = 'italic 11px "Cormorant Garamond", serif';
-      ctx.fillStyle = '#8a3547';
-      ctx.fillText('Swipe or tap to unveil countdown', rect.width / 2, rect.height / 2 + 9);
-      ctx.restore();
-    }
-
-    function scratch(x, y) {
-      if (isRevealed) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-      const dpr = window.devicePixelRatio || 1;
-      ctx.save();
-      ctx.globalCompositeOperation = 'destination-out';
-      ctx.beginPath();
-      ctx.arc(x * dpr, y * dpr, 26 * dpr, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
-      checkScratchPercentage();
-    }
-
-    function checkScratchPercentage() {
-      if (isRevealed) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-      try {
-        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-        let clear = 0;
-        let total = 0;
-        for (let i = 3; i < imgData.length; i += 64) {
-          total++;
-          if (imgData[i] < 80) clear++;
-        }
-        if (total > 0 && (clear / total) > 0.32) {
-          revealCountdown();
-        }
-      } catch (e) {}
-    }
-
-    function revealCountdown() {
-      if (isRevealed) return;
-      isRevealed = true;
-      canvas.style.opacity = '0';
-      canvas.style.pointerEvents = 'none';
-      setTimeout(() => {
-        if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
-      }, 500);
-
-      // Confetti burst
-      const rect = container.getBoundingClientRect();
-      createConfettiBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
-    }
-
-    function getPos(e) {
-      const rect = canvas.getBoundingClientRect();
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-      return {
-        x: clientX - rect.left,
-        y: clientY - rect.top
-      };
-    }
-
-    canvas.addEventListener('mousedown', (e) => {
-      isDrawing = true;
-      const pos = getPos(e);
-      scratch(pos.x, pos.y);
     });
-    window.addEventListener('mousemove', (e) => {
-      if (!isDrawing) return;
-      const pos = getPos(e);
-      scratch(pos.x, pos.y);
-    });
-    window.addEventListener('mouseup', () => { isDrawing = false; });
+    sync();
 
-    canvas.addEventListener('touchstart', (e) => {
-      isDrawing = true;
-      const pos = getPos(e);
-      scratch(pos.x, pos.y);
-    }, { passive: true });
-    canvas.addEventListener('touchmove', (e) => {
-      if (!isDrawing) return;
-      const pos = getPos(e);
-      scratch(pos.x, pos.y);
-    }, { passive: true });
-    canvas.addEventListener('touchend', () => { isDrawing = false; });
-
-    // Click fallback: direct click reveals
-    canvas.addEventListener('click', () => {
-      revealCountdown();
-    });
-
-    setupCanvas();
-    window.addEventListener('resize', setupCanvas);
+    // This template has no music button of its own, so start the music on the visitor's first tap / swipe (browsers block sound before that).
+    var armed = true;
+    var first = function (ev) {
+      if (!armed) { return; }
+      if (ev && ev.target && btn.contains(ev.target)) { armed = false; cleanup(); return; } // the button handles its own tap
+      armed = false;
+      cleanup();
+      if (audio.paused) { var p = audio.play(); if (p && p.catch) { p.catch(function () { sync(); }); } }
+    };
+    var evs = ['pointerdown', 'touchend', 'click', 'keydown'];
+    var cleanup = function () { evs.forEach(function (t) { document.removeEventListener(t, first, true); }); };
+    evs.forEach(function (t) { document.addEventListener(t, first, true); });
   }
 
-  // Initialize scratch card when DOM is ready
-  setTimeout(initScratchCard, 350);
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); } else { init(); }
+})();

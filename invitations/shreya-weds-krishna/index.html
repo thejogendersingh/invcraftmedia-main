@@ -1,672 +1,539 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="siyaram-skin-siyaram-raghukul">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Shreya Parmar weds Krishna Agrawal — Royal Wedding Invitation #Krisha</title>
-  <meta name="description" content="Two hearts one journey a lifetime together. Join us in celebrating the wedding of Shreya Parmar and Krishna Agrawal at Swayamvar Lawn, Mughalsarai #Krisha." />
-  <meta name="theme-color" content="#f7e6ea" />
+	<meta charset="utf-8">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<title>Krishna &amp; Shreya — Royal Wedding Invitation #Krisha</title>
+	<meta name="description" content="Two hearts, one journey, a lifetime together. Join us in celebrating the wedding of Krishna Agrawal and Shreya Parmar on 3rd December 2026 at Swayamvar Lawn, Mughalsarai.">
+	<meta name="theme-color" content="#5f250f">
 
-  <!-- Open Graph / WhatsApp Sharing -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://invcraftmedia.com/shreya-weds-krishna/" />
-  <meta property="og:title" content="Shreya Parmar weds Krishna Agrawal — Royal Wedding Invitation #Krisha" />
-  <meta property="og:description" content="Two hearts one journey a lifetime together. Join us in celebrating our wedding on 3rd December 2026." />
-  <meta property="og:image" content="https://invcraftmedia.com/shreya-weds-krishna/assets/mahal_backdrop.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="stylesheet" href="style.css?v=67" />
+	<!-- Open Graph / WhatsApp Sharing -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://invcraftmedia.com/shreya-weds-krishna/">
+	<meta property="og:title" content="Krishna &amp; Shreya — Royal Wedding Invitation #Krisha">
+	<meta property="og:description" content="Two hearts, one journey, a lifetime together. Join us in celebrating our wedding on 3rd December 2026 at Swayamvar Lawn, Mughalsarai.">
+	<meta property="og:image" content="https://invcraftmedia.com/shreya-weds-krishna/assets/siyaram/images/backgrounds/hero-temple-desktop.webp">
+
+	<link rel="stylesheet" href="./style.css?v=70">
 </head>
-<body>
-
-  <!-- Background Music Audio -->
-  <audio id="bg-audio" loop preload="auto">
-    <source src="assets/main-bgm.mp3" type="audio/mpeg" />
-  </audio>
-
-  <!-- =========================================================
-       PEACOCK FEATHER INTRO ANIMATION OVERLAY (SHAADIKACARD)
-       ========================================================= -->
-  <div id="peacock-intro-overlay">
-    <!-- Full Screen Intro Video (Full Bleed, No Black Borders, Instant Poster) -->
-    <video id="intro-video" src="assets/intro-final.mp4" poster="assets/intro-poster.jpg" playsinline webkit-playsinline disablePictureInPicture preload="auto" muted></video>
-
-    <!-- Background Intro Audio extracted from YouTube -->
-    <audio id="intro-bg-audio" preload="auto">
-      <source src="assets/intro-bgm.mp3" type="audio/mpeg" />
-    </audio>
-
-    <!-- Tap to Open Cursive Prompt (Floating gracefully without background box or dot) -->
-    <div id="intro-tap-btn-container">
-      <button id="intro-tap-btn" type="button" aria-label="Tap to open invitation">
-        <span>Tap to open</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- =========================================
-       MAIN APPLICATION / PALACE EXPERIENCE
-       ========================================= -->
-  <div class="app-container">
-
-    <!-- Fixed Palace Background Layer (Swipable Haveli/Palace Bases) -->
-    <div class="static-background-layer" id="static-bg-layer">
-      <div class="bg-slide current-bg">
-        <img src="assets/base-3-mobile.webp" class="bg-image-full" id="palace-bg-img" alt="Royal Palace Backdrop" />
-        <div class="bg-gradient-overlay" id="palace-bg-gradient" style="background: linear-gradient(135deg, rgba(253, 238, 244, 0.35) 0%, rgba(245, 203, 221, 0.35) 100%);"></div>
-      </div>
-    </div>
-
-    <!-- Rose Petals & Golden Sparkles Canvas -->
-    <canvas id="particles-canvas"></canvas>
-
-    <!-- Floating Top Bar Controls -->
-    <div class="top-controls">
-      <!-- Music Player Button -->
-      <button class="audio-btn" id="audio-btn" aria-label="Play music">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-          <line x1="23" y1="9" x2="17" y2="15"></line>
-          <line x1="17" y1="9" x2="23" y2="15"></line>
-        </svg>
-      </button>
-
-      <!-- Language Selector Dropdown -->
-      <div class="lang-dropdown" id="lang-dropdown">
-        <button class="lang-trigger" id="lang-trigger" aria-haspopup="listbox" aria-expanded="false">
-          <span id="lang-current">English</span>
-          <svg class="lang-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none">
-            <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-        </button>
-        <div class="lang-menu" id="lang-menu">
-          <div class="lang-option active" data-lang="en" data-name="English">
-            <span>English</span>
-          </div>
-          <div class="lang-option" data-lang="hi" data-name="हिन्दी">
-            <span>हिन्दी (Hindi)</span>
-          </div>
-          <div class="lang-option" data-lang="gu" data-name="ગુજરાતી">
-            <span>ગુજરાતી (Gujarati)</span>
-          </div>
-          <div class="lang-option" data-lang="pa" data-name="ਪੰਜਾਬੀ">
-            <span>ਪੰਜਾਬੀ (Punjabi)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Central Mahal Viewport -->
-    <div class="card-viewport" id="card-viewport">
-
-      <!-- Palace Navigation Indicators (Left/Right) -->
-      <div class="nav-indicator nav-left" id="nav-left" title="Previous Palace">⟨</div>
-      <div class="nav-indicator nav-right" id="nav-right" title="Next Palace">⟩</div>
-
-      <!-- Text Content Layer with Glass Plaque & Cards (BEHIND HAVELI GATE) -->
-      <div class="text-content-layer">
-        <div class="arch-glass-plaque">
-          <div class="arch-glass-plaque-inner"></div>
-        </div>
-
-        <!-- Swipable Cards Container -->
-        <div class="cards-slider">
-          <div class="cards-track" id="cards-track">
-
-          <!-- ================= CARD 1: COVER (HERO) ================= -->
-          <section class="invitation-card active" data-card="0">
-            <p class="hero-tagline" data-i18n="tagline">Two hearts one journey a lifetime together</p>
-            
-            <div class="gold-divider">
-              <span class="divider-line"></span>
-              <span class="divider-heart">♥</span>
-              <span class="divider-line"></span>
-            </div>
-
-            <div class="names-block">
-              <h2 class="bride-name" style="color: var(--crimson-accent); font-size: clamp(26px, 7cqw, 34px);">Shreya Parmar</h2>
-              <div class="weds-connector" data-i18n="weds">weds</div>
-              <h2 class="groom-name" style="color: var(--crimson-accent); font-size: clamp(26px, 7cqw, 34px);">Krishna Agrawal</h2>
-            </div>
-
-            <div style="font-family: var(--font-cinzel); font-size: 14px; font-weight: 700; color: #a27237; letter-spacing: 0.25em; margin: 6px 0;">
-              #Krisha
-            </div>
-
-            <div class="gold-divider">
-              <span class="divider-line"></span>
-              <span class="divider-heart">♥</span>
-              <span class="divider-line"></span>
-            </div>
-
-            <div class="date-text" style="font-size: clamp(16px, 4.8cqw, 20px); font-weight: 700;">3rd December 2026</div>
-            <div class="time-text" style="font-size: clamp(13px, 3.8cqw, 15px); font-weight: 600; color: #7b2d3e; margin-top: 2px;">• Hastmelap (Shubh Vivaah): 6:30 PM •</div>
-
-            <div class="gold-divider">
-              <span class="divider-line"></span>
-              <span class="divider-heart">♥</span>
-              <span class="divider-line"></span>
-            </div>
-
-            <div class="venue-block">
-              <div class="venue-name">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7b2d3e" stroke-width="2">
-                  <path d="M3 21h18"></path>
-                  <path d="M9 8h1"></path>
-                  <path d="M9 12h1"></path>
-                  <path d="M9 16h1"></path>
-                  <path d="M14 8h1"></path>
-                  <path d="M14 12h1"></path>
-                  <path d="M14 16h1"></path>
-                  <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path>
-                </svg>
-                <span>Swayamvar Lawn</span>
-              </div>
-              <div class="venue-city">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#7b2d3e" stroke-width="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai</span>
-              </div>
-            </div>
-
-            <div class="scroll-prompt-btn">
-              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-                <path d="M1 1L6 6L11 1" stroke="#4a352c" stroke-width="1.5"></path>
-              </svg>
-              <span data-i18n="scrollToBegin">Scroll to begin</span>
-            </div>
-          </section>
-
-          <!-- ================= CARD 2: DATE & TIME (CALENDAR) ================= -->
-          <section class="invitation-card next" data-card="1">
-            <h3 class="card-script-title" data-i18n="dateTitle">Save The Date</h3>
-            <p class="card-subtitle" data-i18n="dateSubtitle">When we will tie the knot</p>
-
-            <div class="gold-divider">
-              <span class="divider-line"></span>
-              <span class="divider-heart">♥</span>
-              <span class="divider-line"></span>
-            </div>
-
-            <div class="calendar-container">
-              <div class="calendar-month">December 2026</div>
-              <div class="calendar-header">
-                <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
-              </div>
-              <div class="calendar-grid">
-                <!-- Dec 2026 starts on Tuesday (2 empty slots for Sun, Mon) -->
-                <div class="cal-day empty"></div>
-                <div class="cal-day empty"></div>
-                <div class="cal-day special" title="Mehendi Ceremony">1</div>
-                <div class="cal-day special" title="Engagement Ceremony">2</div>
-                <div class="cal-day wedding-day" title="The Wedding Day!">3</div>
-                <div class="cal-day">4</div>
-                <div class="cal-day">5</div>
-                <div class="cal-day">6</div>
-                <div class="cal-day">7</div>
-                <div class="cal-day">8</div>
-                <div class="cal-day">9</div>
-                <div class="cal-day">10</div>
-                <div class="cal-day">11</div>
-                <div class="cal-day">12</div>
-                <div class="cal-day">13</div>
-                <div class="cal-day">14</div>
-                <div class="cal-day">15</div>
-                <div class="cal-day">16</div>
-                <div class="cal-day">17</div>
-                <div class="cal-day">18</div>
-                <div class="cal-day">19</div>
-                <div class="cal-day">20</div>
-                <div class="cal-day">21</div>
-                <div class="cal-day">22</div>
-                <div class="cal-day">23</div>
-                <div class="cal-day">24</div>
-                <div class="cal-day">25</div>
-                <div class="cal-day">26</div>
-                <div class="cal-day">27</div>
-                <div class="cal-day">28</div>
-                <div class="cal-day">29</div>
-                <div class="cal-day">30</div>
-                <div class="cal-day">31</div>
-              </div>
-            </div>
-
-            <div class="gold-divider">
-              <span class="divider-line"></span>
-              <span class="divider-heart">♥</span>
-              <span class="divider-line"></span>
-            </div>
-
-            <div class="calendar-footer-date" style="font-size: 13.5px; font-weight: 700; color: #7b2d3e;">3rd December 2026 • Mughalsarai</div>
-
-            <div class="scroll-prompt-btn scroll-next-btn">
-              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-                <path d="M1 1L6 6L11 1" stroke="#4a352c" stroke-width="1.5"></path>
-              </svg>
-            </div>
-          </section>
-
-          <!-- ================= CARD 3: THE COUNTDOWN ================= -->
-          <section class="invitation-card next" data-card="2" style="padding-top: clamp(16px, 4.5vh, 28px); justify-content: flex-start;">
-            <!-- Top Artwork Image (Shifted slightly higher into Haveli Arch, Natural / No Borders) -->
-            <div style="position: relative; width: 100%; max-width: 275px; margin: -26px auto 0; display: flex; justify-content: center; z-index: 2;">
-              <img src="assets/timer-uper.png" alt="A Special Invitation from Tiger" style="width: 100%; max-width: 275px; height: auto; max-height: 38vh; object-fit: contain; display: block;" />
-            </div>
-
-            <!-- Countdown Container (Shifted Upwards, Visible Header & Footer, Scratch over Boxes Only) -->
-            <div class="scratch-timer-wrapper" style="position: relative; width: 100%; max-width: 295px; margin: -6px auto 0; text-align: center; z-index: 5;">
-              
-              <!-- Visible Header Text -->
-              <div style="font-family: var(--font-cinzel); font-size: 11px; font-weight: 700; letter-spacing: 0.22em; color: #7b2d3e; text-transform: uppercase; margin-bottom: 5px;">
-                The Royal Countdown
-              </div>
-
-              <!-- Only the 4 timer boxes are wrapped with the scratch canvas -->
-              <div id="scratch-boxes-wrapper" style="position: relative; width: 100%; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 14px rgba(123, 45, 62, 0.12);">
-                
-                <!-- Underneath: The 4 Live Countdown Boxes -->
-                <div class="countdown-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 6px; background: rgba(255, 245, 243, 0.92); border: 1.2px solid rgba(220, 160, 150, 0.45); border-radius: 14px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
-                  <div class="countdown-box" style="background: rgba(255, 255, 255, 0.98); border-radius: 8px; padding: 5px 2px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-                    <span class="countdown-num" id="days-count" style="font-family: var(--font-cinzel); font-size: 18px; font-weight: 700; color: #7b2d3e; display: block; line-height: 1.1;">00</span>
-                    <span class="countdown-lbl" style="font-size: 9px; color: #5a202d; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Days</span>
-                  </div>
-                  <div class="countdown-box" style="background: rgba(255, 255, 255, 0.98); border-radius: 8px; padding: 5px 2px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-                    <span class="countdown-num" id="hours-count" style="font-family: var(--font-cinzel); font-size: 18px; font-weight: 700; color: #7b2d3e; display: block; line-height: 1.1;">00</span>
-                    <span class="countdown-lbl" style="font-size: 9px; color: #5a202d; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Hours</span>
-                  </div>
-                  <div class="countdown-box" style="background: rgba(255, 255, 255, 0.98); border-radius: 8px; padding: 5px 2px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-                    <span class="countdown-num" id="minutes-count" style="font-family: var(--font-cinzel); font-size: 18px; font-weight: 700; color: #7b2d3e; display: block; line-height: 1.1;">00</span>
-                    <span class="countdown-lbl" style="font-size: 9px; color: #5a202d; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Mins</span>
-                  </div>
-                  <div class="countdown-box" style="background: rgba(255, 255, 255, 0.98); border-radius: 8px; padding: 5px 2px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-                    <span class="countdown-num" id="seconds-count" style="font-family: var(--font-cinzel); font-size: 18px; font-weight: 700; color: #7b2d3e; display: block; line-height: 1.1;">00</span>
-                    <span class="countdown-lbl" style="font-size: 9px; color: #5a202d; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Secs</span>
-                  </div>
-                </div>
-
-                <!-- Scratch Canvas Overlay (Covers ONLY the 4 countdown boxes) -->
-                <canvas id="timer-scratch-canvas" style="position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 14px; cursor: pointer; touch-action: none; z-index: 5; transition: opacity 0.5s ease;"></canvas>
-              </div>
-
-              <!-- Visible Footer Text -->
-              <p style="font-family: var(--font-serif); font-size: 11.5px; font-style: italic; color: #7b2d3e; margin-top: 5px; margin-bottom: 0;">
-                Counting down to our big day #Krisha
-              </p>
-            </div>
-
-            <div class="scroll-prompt-btn scroll-next-btn" style="margin-top: 10px;">
-              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-                <path d="M1 1L6 6L11 1" stroke="#4a352c" stroke-width="1.5"></path>
-              </svg>
-            </div>
-          </section>
-
-          <!-- Gallery Section with Divine Blessing Artwork -->
-          <section class="invitation-card next" data-card="5">
-            <h3 class="card-script-title">Divine Blessings</h3>
-            <p class="card-subtitle">With eternal love &amp; auspicious blessings</p>
-
-            <div class="gold-divider">
-              <span class="divider-line"></span>
-              <span class="divider-heart">♥</span>
-              <span class="divider-line"></span>
-            </div>
-
-            <div style="position: relative; width: 100%; max-width: 310px; margin: 4px auto 8px; padding: 6px; border-radius: 20px; background: linear-gradient(135deg, #dfba73, #9e6d32, #dfba73); box-shadow: 0 10px 30px rgba(123, 45, 62, 0.28);">
-              <div style="width: 100%; border-radius: 16px; overflow: hidden; background: #ffffff; border: 2px solid #ffffff; box-shadow: inset 0 0 10px rgba(0,0,0,0.1);">
-                <img src="assets/gallery-with-shivji-parvatiji-bless-msg-heading.jpeg" alt="Divine Blessings" style="width: 100%; height: auto; max-height: 52vh; object-fit: contain; display: block;" />
-              </div>
-            </div>
-
-            <div style="font-family: var(--font-cinzel); font-size: 13.5px; font-weight: 700; color: #a27237; letter-spacing: 0.25em; margin-top: 4px;">
-              #Krisha
-            </div>
-
-            <div class="scroll-prompt-btn scroll-next-btn" style="margin-top: 14px;">
-              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-                <path d="M1 1L6 6L11 1" stroke="#4a352c" stroke-width="1.5"></path>
-              </svg>
-            </div>
-          </section>
-
-          <!-- ================= CARD 4: WEDDING EVENTS ================= -->
-          <section class="invitation-card next" data-card="3">
-            <h3 class="card-script-title" data-i18n="eventsTitle">Wedding Events</h3>
-            <p class="card-subtitle" data-i18n="eventsSubtitle">Join us for the celebrations</p>
-
-            <div class="events-list-scroll">
-              <!-- Event 1: Mehendi -->
-              <div class="event-item-card">
-                <div class="single-event-icon-jharokha">
-                  <img src="assets/events/mehendi.webp" alt="Mehendi" class="event-icon-img" />
-                </div>
-                <div class="event-card-body">
-                  <div class="event-card-header">
-                    <span class="event-name">Mehendi Ceremony</span>
-                    <span class="event-date-badge">1 Dec • 11:00 AM</span>
-                  </div>
-                  <div class="event-time-venue">Tuesday, 1st December 2026 • Morning from 11:00 AM</div>
-                  <p class="event-notes">Swayamvar Lawn behind Agrawal Petrol Pump, G.T. Road, Mughalsarai</p>
-                  <a href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" class="event-map-link">📍 View on Map</a>
-                </div>
-              </div>
-
-              <!-- Event 2: Engagement -->
-              <div class="event-item-card">
-                <div class="single-event-icon-jharokha">
-                  <img src="assets/events/ring-ceremony.webp" alt="Engagement Ceremony" class="event-icon-img" />
-                </div>
-                <div class="event-card-body">
-                  <div class="event-card-header">
-                    <span class="event-name">Engagement Ceremony</span>
-                    <span class="event-date-badge">2 Dec • 7:00 PM</span>
-                  </div>
-                  <div class="event-time-venue">Wednesday, 2nd December 2026 • Evening 7:00 PM</div>
-                  <p class="event-notes">Swayamvar Lawn behind Agrawal Petrol Pump, G.T. Road, Mughalsarai</p>
-                  <a href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" class="event-map-link">📍 View on Map</a>
-                </div>
-              </div>
-
-              <!-- Event 3: Ganesh Sthapna -->
-              <div class="event-item-card">
-                <div class="single-event-icon-jharokha">
-                  <img src="assets/events/haldi.webp" alt="Ganesh Sthapna" class="event-icon-img" />
-                </div>
-                <div class="event-card-body">
-                  <div class="event-card-header">
-                    <span class="event-name">Ganesh Sthapna</span>
-                    <span class="event-date-badge">3 Dec • 8:00 AM</span>
-                  </div>
-                  <div class="event-time-venue">Thursday, 3rd December 2026 • Morning 8:00 AM</div>
-                  <p class="event-notes">॥ श्री गणेशाय नमः ॥ Auspicious beginning with divine blessings.</p>
-                  <a href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" class="event-map-link">📍 View on Map</a>
-                </div>
-              </div>
-
-              <!-- Event 4: Samorta -->
-              <div class="event-item-card">
-                <div class="single-event-icon-jharokha">
-                  <img src="assets/events/sangeet.webp" alt="Samorta" class="event-icon-img" />
-                </div>
-                <div class="event-card-body">
-                  <div class="event-card-header">
-                    <span class="event-name">Samorta</span>
-                    <span class="event-date-badge">3 Dec • 9:00 AM</span>
-                  </div>
-                  <div class="event-time-venue">Thursday, 3rd December 2026 • Morning 9:00 AM</div>
-                  <p class="event-notes">Traditional rituals and family festivities.</p>
-                  <a href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" class="event-map-link">📍 View on Map</a>
-                </div>
-              </div>
-
-              <!-- Event 5: Haldi Ceremony -->
-              <div class="event-item-card">
-                <div class="single-event-icon-jharokha">
-                  <img src="assets/events/haldi.webp" alt="Haldi Ceremony" class="event-icon-img" />
-                </div>
-                <div class="event-card-body">
-                  <div class="event-card-header">
-                    <span class="event-name">Haldi Ceremony</span>
-                    <span class="event-date-badge">3 Dec • 11:00 AM</span>
-                  </div>
-                  <div class="event-time-venue">Thursday, 3rd December 2026 • Morning 11:00 AM</div>
-                  <p class="event-notes">A vibrant splash of turmeric, laughter & blessings.</p>
-                  <a href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" class="event-map-link">📍 View on Map</a>
-                </div>
-              </div>
-
-              <!-- Event 6: Hastmelap (Shubh Vivaah) - Main Event -->
-              <div class="event-item-card main-event">
-                <div class="single-event-icon-jharokha">
-                  <img src="assets/events/wedding-ceremony.webp" alt="Hastmelap (Shubh Vivaah)" class="event-icon-img" />
-                </div>
-                <div class="event-card-body">
-                  <div class="event-card-header">
-                    <span class="event-name">Hastmelap (Shubh Vivaah)</span>
-                    <span class="event-date-badge">3 Dec • 6:30 PM</span>
-                  </div>
-                  <div class="event-time-venue">Thursday, 3rd December 2026 • Evening 6:30 PM</div>
-                  <p class="event-notes">Swayamvar Lawn behind Agrawal Petrol Pump, G.T. Road, Mughalsarai</p>
-                  <a href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" class="event-map-link">📍 View on Map</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="scroll-prompt-btn scroll-next-btn">
-              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-                <path d="M1 1L6 6L11 1" stroke="#4a352c" stroke-width="1.5"></path>
-              </svg>
-            </div>
-          </section>
-
-          <!-- ================= CARD 5: OUR STORY ================= -->
-          <!-- ================= CARD 6: PHOTO GALLERY ================= -->
-          <!-- ================= CARD 7: OUR FAMILIES ================= -->
-          <section class="invitation-card next" data-card="6">
-            <h3 class="card-script-title" data-i18n="familiesTitle">Our Families</h3>
-            <p class="card-subtitle" data-i18n="familiesSubtitle">With the divine blessings of our ancestors & parents</p>
-
-            <div class="families-block" style="max-height: 60vh; overflow-y: auto; padding: 4px 6px;">
-              <!-- Bride's Family -->
-              <div class="family-section">
-                <span class="family-label" style="font-weight: 700; color: #a27237; letter-spacing: 0.15em;">Bride's Family (Parmar Family)</span>
-                <div style="margin: 4px 0 2px; font-size: 12px; color: #7b2d3e; font-weight: 600;">With Blessings of Grandparents:</div>
-                <div class="family-parent-names" style="font-size: 14px;">Lt. Mohan Lal ji Parmar &amp; Lt. Usha Parmar</div>
-                <div style="margin: 6px 0 2px; font-size: 12px; color: #7b2d3e; font-weight: 600;">Loving Parents:</div>
-                <div class="family-parent-names" style="font-size: 15px; font-weight: 700;">Shri Krishn Kumar Parmar</div>
-                <div class="family-ampersand" style="margin: 2px 0;">&amp;</div>
-                <div class="family-parent-names" style="font-size: 15px; font-weight: 700;">Smt. Raksha Krishn Parmar</div>
-              </div>
-
-              <div class="gold-divider">
-                <span class="divider-line"></span>
-                <span class="divider-heart">♥</span>
-                <span class="divider-line"></span>
-              </div>
-
-              <!-- Groom's Family -->
-              <div class="family-section">
-                <span class="family-label" style="font-weight: 700; color: #a27237; letter-spacing: 0.15em;">Groom's Family (Agrawal Family)</span>
-                <div style="margin: 4px 0 2px; font-size: 12px; color: #7b2d3e; font-weight: 600;">With Blessings of Grandparents:</div>
-                <div class="family-parent-names" style="font-size: 14px;">Lt. Girdhari Lal Agrawal &amp; Lt. Vimla Devi</div>
-                <div style="margin: 6px 0 2px; font-size: 12px; color: #7b2d3e; font-weight: 600;">Loving Parents:</div>
-                <div class="family-parent-names" style="font-size: 15px; font-weight: 700;">Shri Anil Agrawal</div>
-                <div class="family-ampersand" style="margin: 2px 0;">&amp;</div>
-                <div class="family-parent-names" style="font-size: 15px; font-weight: 700;">Smt. Madhu Anil Agrawal</div>
-              </div>
-            </div>
-
-            <div class="scroll-prompt-btn scroll-next-btn" style="margin-top: 14px;">
-              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-                <path d="M1 1L6 6L11 1" stroke="#4a352c" stroke-width="1.5"></path>
-              </svg>
-            </div>
-          </section>
-
-          <!-- ================= CARD 7: EXTENDED FAMILY & RELATIVES ================= -->
-          <section class="invitation-card next" data-card="7">
-            <h3 class="card-script-title" data-i18n="extendedFamilyTitle">Family &amp; Relatives</h3>
-            <p class="card-subtitle" data-i18n="extendedFamilySubtitle">With heartfelt love &amp; blessings of our family</p>
-
-            <div class="gold-divider">
-              <span class="divider-line"></span>
-              <span class="divider-heart">♥</span>
-              <span class="divider-line"></span>
-            </div>
-
-            <div class="families-block" style="max-height: 58vh; overflow-y: auto; padding: 2px 10px; width: 100%; max-width: 320px; margin: 0 auto;">
-              
-              <!-- Vineet (Cordially Invited By) -->
-              <div class="family-section" style="margin-bottom: 8px;">
-                <span class="family-label" style="font-weight: 700; color: #a27237; letter-spacing: 0.16em;">Vineet</span>
-                <div style="font-size: 11px; color: #7b2d3e; font-weight: 600; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.08em;">Cordially Invited By:</div>
-                <div class="family-parent-names" style="font-size: 13.5px; line-height: 1.5; text-align: center;">
-                  <div>Smt. Raksha Ben &amp; Shri Krishna Kumar Parmar</div>
-                  <div>Smt. Rashmi Ben &amp; Shri Sanjeev Kumar Parmar</div>
-                  <div>Smt. Neha Ben &amp; Shri Lomesh Kumar Parmar</div>
-                  <div>Chi. Gitesh Kumar Parmar</div>
-                </div>
-              </div>
-
-              <div class="gold-divider" style="margin: 8px 0;">
-                <span class="divider-line"></span>
-                <span class="divider-heart">♥</span>
-                <span class="divider-line"></span>
-              </div>
-
-              <!-- Mausaar Paksh (Maternal Family) -->
-              <div class="family-section" style="margin-bottom: 8px;">
-                <span class="family-label" style="font-weight: 700; color: #a27237; letter-spacing: 0.16em;">Mausaar Paksh</span>
-                <div style="font-size: 11px; color: #7b2d3e; font-weight: 600; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.08em;">Maternal Family:</div>
-                <div class="family-parent-names" style="font-size: 13.5px; line-height: 1.5; text-align: center;">
-                  <div>Lt. Smt. Narmada Daya Ram Parmar</div>
-                  <div>Lt. Smt. Parul Pritesh Parmar</div>
-                  <div>Shri Kalpesh Parmar &amp; Smt. Kavita Parmar</div>
-                  <div>Heet Parmar</div>
-                </div>
-              </div>
-
-              <div class="gold-divider" style="margin: 8px 0;">
-                <span class="divider-line"></span>
-                <span class="divider-heart">♥</span>
-                <span class="divider-line"></span>
-              </div>
-
-              <!-- Aashirvachak (With Blessings of Elders) -->
-              <div class="family-section" style="margin-bottom: 8px;">
-                <span class="family-label" style="font-weight: 700; color: #a27237; letter-spacing: 0.16em;">Aashirvachak</span>
-                <div style="font-size: 11px; color: #7b2d3e; font-weight: 600; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.08em;">With Divine Blessings of Elders:</div>
-                <div class="family-parent-names" style="font-size: 13.5px; line-height: 1.5; text-align: center;">
-                  <div>Lt. Smt. Prem Kunwar Ben Parmar &amp; Lt. Shri Lal Ji Kunwar Ji Bhai Parmar</div>
-                  <div>Lt. Smt. Usha Ben Parmar &amp; Lt. Shri Mohan Lal Ji Bhai Parmar</div>
-                </div>
-              </div>
-
-              <div class="gold-divider" style="margin: 8px 0;">
-                <span class="divider-line"></span>
-                <span class="divider-heart">♥</span>
-                <span class="divider-line"></span>
-              </div>
-
-              <!-- Darshanabhilashi (Well Wishers) -->
-              <div class="family-section" style="margin-bottom: 6px;">
-                <span class="family-label" style="font-weight: 700; color: #a27237; letter-spacing: 0.16em;">Darshanabhilashi</span>
-                <div style="font-size: 11px; color: #7b2d3e; font-weight: 600; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.08em;">With Best Compliments &amp; Well Wishers:</div>
-                <div class="family-parent-names" style="font-size: 13.5px; line-height: 1.5; text-align: center;">
-                  <div>Chahat Parmar • Kush Parmar • Bhavya Parmar • Tiger</div>
-                  <div style="color: var(--crimson-accent); font-weight: 700; margin-top: 4px; font-size: 14px;">&amp; All Parmar Family</div>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="scroll-prompt-btn scroll-next-btn" style="margin-top: 10px;">
-              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-                <path d="M1 1L6 6L11 1" stroke="#4a352c" stroke-width="1.5"></path>
-              </svg>
-            </div>
-          </section>
-              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-                <path d="M1 1L6 6L11 1" stroke="#4a352c" stroke-width="1.5"></path>
-              </svg>
-            </div>
-          </section>
-
-          <!-- ================= CARD 8: RSVP ================= -->
-          <!-- ================= CARD 9: THANK YOU ================= -->
-          <section class="invitation-card next" data-card="8">
-            <h3 class="card-script-title" data-i18n="thankYouTitle">Thank You</h3>
-            <p class="card-subtitle" data-i18n="thankYouSubtitle">For your love, blessings and presence</p>
-
-            <div class="gold-divider">
-              <span class="divider-line"></span>
-              <span class="divider-heart">♥</span>
-              <span class="divider-line"></span>
-            </div>
-
-            <div class="thankyou-couple-names" style="color: var(--crimson-accent); font-size: clamp(24px, 6.5cqw, 30px);">Shreya &amp; Krishna</div>
-            <div style="font-family: var(--font-cinzel); font-size: 14px; font-weight: 700; color: #a27237; letter-spacing: 0.25em; margin: 4px 0 8px;">
-              #Krisha
-            </div>
-            <p class="thankyou-note" style="font-size: 13.5px; max-width: 320px; margin: 0 auto 12px; line-height: 1.5;">
-              Your presence and blessings mean the world to us as we begin this new chapter together!
-            </p>
-
-            <div class="gold-divider">
-              <span class="divider-line"></span>
-              <span class="divider-heart">♥</span>
-              <span class="divider-line"></span>
-            </div>
-
-            <!-- RSVP Contacts Block -->
-            <div style="margin: 10px auto; max-width: 300px; width: 100%;">
-              <div style="font-family: var(--font-cinzel); font-size: 12px; font-weight: 700; color: #7b2d3e; letter-spacing: 0.2em; margin-bottom: 8px;">
-                FOR RSVP &amp; WISHES
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 7px; align-items: center;">
-                <a href="tel:9450613006" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 230px; padding: 8px 14px; border-radius: 999px; background: linear-gradient(135deg, #7b2d3e, #4a1525); color: #ffffff; text-decoration: none; font-family: var(--font-cinzel); font-size: 12.5px; font-weight: 600; box-shadow: 0 4px 10px rgba(123, 45, 62, 0.25);">
-                  <span>📞</span> +91 94506 13006
-                </a>
-                <a href="tel:9721446357" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 230px; padding: 8px 14px; border-radius: 999px; background: linear-gradient(135deg, #7b2d3e, #4a1525); color: #ffffff; text-decoration: none; font-family: var(--font-cinzel); font-size: 12.5px; font-weight: 600; box-shadow: 0 4px 10px rgba(123, 45, 62, 0.25);">
-                  <span>📞</span> +91 97214 46357
-                </a>
-                <a href="tel:9807711904" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 230px; padding: 8px 14px; border-radius: 999px; background: linear-gradient(135deg, #7b2d3e, #4a1525); color: #ffffff; text-decoration: none; font-family: var(--font-cinzel); font-size: 12.5px; font-weight: 600; box-shadow: 0 4px 10px rgba(123, 45, 62, 0.25);">
-                  <span>📞</span> +91 98077 11904
-                </a>
-              </div>
-            </div>
-
-            <div style="font-family: var(--font-cinzel); font-size: 11.5px; letter-spacing: 0.15em; color: #7b2d3e; font-weight: 600; margin-top: 10px;">
-              Swayamvar Lawn • Mughalsarai
-            </div>
-
-            <div class="scroll-prompt-btn scroll-top-btn" style="margin-top: 14px; cursor: pointer;">
-              <svg width="12" height="8" viewBox="0 0 12 8" fill="none" style="transform: rotate(180deg);">
-                <path d="M1 1L6 6L11 1" stroke="#4a352c" stroke-width="1.5"></path>
-              </svg>
-              <span style="font-family: var(--font-cinzel); font-size: 11px; letter-spacing: 0.15em; color: #4a352c; text-transform: uppercase;">Back to top</span>
-            </div>
-          </section>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- Swipable Haveli/Mahal Arch Frame (IN FRONT OF PLAQUE) -->
-    <div class="mahal-swipe-layer" id="mahal-swipe-layer">
-      <div class="arch-slide current-arch">
-        <img src="assets/mahal.webp" class="mahal-image-lower" id="mahal-arch-img" alt="Royal Haveli Arch" />
-      </div>
-    </div>
-
-    <!-- Foreground Floral Bouquets (Gently swaying) -->
-    <div class="static-foreground-layer">
-      <img src="assets/right-side-flowers.webp" class="flower-bottom-left" alt="Flower Left Decoration" />
-      <img src="assets/right-side-flowers.webp" class="flower-bottom-right" alt="Flower Right Decoration" />
-    </div>
-
-    <!-- Bottom Hints Bar (Centered Swipe / Click to Switch Palaces) -->
-    <div class="swipe-hint-bar" id="swipe-hint-bar" role="button" aria-label="Swipe or click to switch palaces" tabindex="0">
-      <svg width="8" height="12" viewBox="0 0 8 12" fill="none">
-        <path d="M7 1L2 6L7 11" stroke="#FBEFE2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-      </svg>
-      <span data-i18n="switchPalaces">Swipe to Switch Palaces</span>
-      <svg width="8" height="12" viewBox="0 0 8 12" fill="none">
-        <path d="M1 1L6 6L1 11" stroke="#FBEFE2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-      </svg>
-    </div>
-
-  </div><!-- End of #card-viewport -->
-
-  <!-- Right Side Pagination Dots Indicator -->
-  <div class="side-pagination" id="side-pagination"></div>
-
-</div><!-- End of .app-container -->
-
-  <script src="script.js?v=67"></script>
+<body class="siyaram-body">
+
+	<!-- ============ OPENING GATE OVERLAY ============ -->
+	<div class="siyaram-gate siyaram-skin-siyaram-raghukul" id="siyaram-gate" role="dialog" aria-modal="true" aria-label="Invitation opening screen">
+		<div class="siyaram-gate__inner">
+			<button type="button" class="siyaram-gate__btn" id="siyaram-gate-btn">Open Invitation</button>
+		</div>
+	</div>
+
+	<!-- ============ MUSIC CONTROLS ============ -->
+	<div class="siyaram-music-wrap">
+		<button type="button" class="siyaram-music" id="musicToggle" aria-label="Toggle background music" aria-pressed="false">
+			<span class="siyaram-music__bars"><i></i><i></i><i></i></span>
+		</button>
+		<audio class="siyaram-music__audio" loop preload="none" src="./assets/ram-siya-ram.mp3"></audio>
+	</div>
+
+	<!-- ============ MAIN INVITATION CONTAINER ============ -->
+	<div class="siyaram-invitation siyaram-skin-siyaram-raghukul" id="siyaram-invitation" data-siyaram-events="6" data-siyaram-venues="1">
+		
+		<!-- Floating Scroll to Continue Cue -->
+		<button type="button" class="siyaram-scrollcue" id="siyaram-scrollcue" aria-label="Scroll to Continue">
+			<svg class="siyaram-scrollcue__arrow" viewBox="0 0 24 30" width="22" height="27" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<path class="siyaram-scrollcue__c1" d="M5 4l7 7 7-7"/>
+				<path class="siyaram-scrollcue__c2" d="M5 15l7 7 7-7"/>
+			</svg>
+			<span class="siyaram-scrollcue__text">Scroll to Continue</span>
+		</button>
+
+		<div class="siyaram-page siyaram-page--a">
+
+			<!-- ============ 1. HERO (AYODHYA TEMPLE, SUN, SKY, BELLS, BIRDS) ============ -->
+			<section class="siyaram-hero" aria-label="Wedding invitation opening">
+				<picture class="siyaram-pos siyaram-hero__sky" data-siyaram-parallax="0.7">
+					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/hero-sky-desktop.webp">
+					<img src="./assets/siyaram/images/backgrounds/hero-sky-mobile.webp" alt="" draggable="false">
+				</picture>
+				<picture class="siyaram-pos siyaram-hero__sun" data-siyaram-parallax="0.55">
+					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/hero-sun-desktop.webp">
+					<img src="./assets/siyaram/images/backgrounds/hero-sun-mobile.webp" alt="" draggable="false">
+				</picture>
+				<picture class="siyaram-pos siyaram-hero__mountain" data-siyaram-parallax="0.42">
+					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/hero-mountain-desktop.webp">
+					<img src="./assets/siyaram/images/backgrounds/hero-mountain-mobile.webp" alt="" draggable="false">
+				</picture>
+				<picture class="siyaram-pos siyaram-hero__cloud" data-siyaram-parallax="0.9">
+					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/hero-cloud-desktop.webp">
+					<img src="./assets/siyaram/images/backgrounds/hero-cloud-mobile.webp" alt="" draggable="false">
+				</picture>
+				<picture class="siyaram-pos siyaram-hero__temple" data-siyaram-parallax="0.18">
+					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/hero-temple-desktop.webp">
+					<img src="./assets/siyaram/images/backgrounds/hero-temple-mobile.webp" alt="" draggable="false">
+				</picture>
+				<picture class="siyaram-pos siyaram-hero__spire" data-siyaram-parallax="0.18">
+					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/decorations/temple-flagpole-desktop.webp">
+					<img src="./assets/siyaram/images/decorations/temple-flagpole-mobile.webp" alt="" draggable="false">
+				</picture>
+
+				<!-- Waving Flag with "जय श्री राम" -->
+				<div class="siyaram-pos siyaram-hero__flag" data-siyaram-parallax="0.18" aria-hidden="true">
+					<svg class="siyaram-flag__svg" viewBox="0 0 120 80" preserveAspectRatio="none">
+						<defs>
+							<linearGradient id="siyaram-flag-gradient" x1="0" y1="0" x2="1" y2="1">
+								<stop offset="0" stop-color="#ff7a1a"/>
+								<stop offset=".55" stop-color="#e8531c"/>
+								<stop offset="1" stop-color="#c93a12"/>
+							</linearGradient>
+						</defs>
+						<path class="siyaram-flag__cloth" d="M2 5 C30 -1 52 13 80 7 C98 4 108 6 118 8 L100 30 L118 52 C108 54 98 56 80 53 C52 59 30 45 2 52 Z" fill="url(#siyaram-flag-gradient)"/>
+						<text x="20" y="27" font-size="15" fill="#ffd9a0" font-family="serif">जय श्री</text>
+						<text x="22" y="46" font-size="20" fill="#ffe9c4" font-family="serif" font-weight="700">राम</text>
+					</svg>
+				</div>
+
+				<picture class="siyaram-pos siyaram-hero__bells-frame">
+					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/decorations/bells-frame-desktop.webp">
+					<img src="./assets/siyaram/images/decorations/bells-frame-mobile.webp" alt="" draggable="false">
+				</picture>
+				
+				<!-- Swinging Bells -->
+				<img class="siyaram-pos siyaram-hero__bell siyaram-hero__bell--1" src="./assets/siyaram/images/decorations/hanging-bell-a.webp" alt="" draggable="false">
+				<img class="siyaram-pos siyaram-hero__bell siyaram-hero__bell--2" src="./assets/siyaram/images/decorations/hanging-bell-a.webp" alt="" draggable="false">
+				<img class="siyaram-pos siyaram-hero__bell siyaram-hero__bell--3" src="./assets/siyaram/images/decorations/hanging-bell-b.webp" alt="" draggable="false">
+				<img class="siyaram-pos siyaram-hero__bell siyaram-hero__bell--4" src="./assets/siyaram/images/decorations/hanging-bell-b.webp" alt="" draggable="false">
+				<img class="siyaram-pos siyaram-hero__bell siyaram-hero__bell--5" src="./assets/siyaram/images/decorations/hanging-bell-b.webp" alt="" draggable="false">
+				<img class="siyaram-pos siyaram-hero__bell siyaram-hero__bell--6" src="./assets/siyaram/images/decorations/hanging-bell-b.webp" alt="" draggable="false">
+				
+				<!-- Birds Canvas -->
+				<canvas class="siyaram-pos siyaram-hero__birds" aria-hidden="true"></canvas>
+
+				<!-- Hero Title -->
+				<h1 class="siyaram-pos siyaram-hero__title" data-siyaram-parallax="0.28">
+					<span class="siyaram-hero__name siyaram-hero__name--first" data-field="groom.shortName">Krishna</span>
+					<span class="siyaram-hero__connector">&amp;</span>
+					<span class="siyaram-hero__name siyaram-hero__name--second" data-field="bride.shortName">Shreya</span>
+				</h1>
+			</section>
+
+			<!-- ============ 2. INVITATION DETAILS & GANPATI VANDANA ============ -->
+			<section class="siyaram-details" aria-label="Invitation details">
+				<picture class="siyaram-pos siyaram-details__garden siyaram-shift-1">
+					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/garden-bridge-desktop.webp">
+					<img src="./assets/siyaram/images/backgrounds/garden-bridge-mobile.webp" alt="" draggable="false">
+				</picture>
+				<div class="siyaram-pos siyaram-details__panel siyaram-reveal" data-siyaram-reveal="soft">
+					<picture class="siyaram-details__icon">
+						<source media="(min-width:1024px)" srcset="./assets/siyaram/images/decorations/ganpati-icon-desktop.webp">
+						<img src="./assets/siyaram/images/decorations/ganpati-icon-mobile.webp" alt="" draggable="false">
+					</picture>
+					<p class="siyaram-details__vandana" lang="sa">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥</p>
+					
+					<div class="siyaram-details__message">
+						<p class="siyaram-details__parents siyaram-details__parents--first"><span class="iu-nm">Smt. Madhu Agrawal</span> &amp; <span class="iu-nm">Shri Anil Agrawal</span></p>
+						<p class="siyaram-details__line">With joy and the divine blessings of our ancestors &amp; elders, we invite you to the wedding of our dear son</p>
+						<p class="siyaram-details__name siyaram-details__name--first" data-siyaram-fit data-field="groom.name">Krishna</p>
+						<p class="siyaram-details__connector">and</p>
+						<p class="siyaram-details__name siyaram-details__name--second" data-siyaram-fit data-field="bride.name">Shreya</p>
+						<p class="siyaram-details__label">Beloved daughter of</p>
+						<p class="siyaram-details__parents siyaram-details__parents--second"><span class="iu-nm">Smt. Raksha Parmar</span> &amp; <span class="iu-nm">Shri Krishna Kumar Parmar</span></p>
+					</div>
+				</div>
+				<div class="siyaram-pos siyaram-details__arrow siyaram-shift-1" aria-hidden="true"><span class="siyaram-details__arrow-line"></span></div>
+			</section>
+
+			<!-- ============ 3. MEET THE COUPLE & DATE SCRATCH CARDS ============ -->
+			<section class="siyaram-couple" aria-label="Meet the couple">
+				<picture class="siyaram-pos siyaram-couple__backdrop siyaram-shift-2">
+					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/couple-section-desktop.webp">
+					<img src="./assets/siyaram/images/backgrounds/couple-section-mobile.webp" alt="" draggable="false">
+				</picture>
+				<img class="siyaram-pos siyaram-couple__mandala siyaram-couple__mandala--left siyaram-shift-2 siyaram-reveal" data-siyaram-reveal="mandala" src="./assets/siyaram/images/decorations/mandala.webp" alt="" draggable="false">
+				<img class="siyaram-pos siyaram-couple__mandala siyaram-couple__mandala--right siyaram-shift-2 siyaram-reveal" data-siyaram-reveal="mandala" src="./assets/siyaram/images/decorations/mandala.webp" alt="" draggable="false">
+				
+				<!-- Scratch-To-Reveal Wedding Date -->
+				<div class="siyaram-pos siyaram-date siyaram-shift-2" id="siyaramDate">
+					<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+						<defs>
+							<clipPath id="siyaramHeartClip" clipPathUnits="objectBoundingBox">
+								<path d="M0.5,0.94 C0.5,0.94 0.04,0.62 0.04,0.31 C0.04,0.11 0.21,0 0.36,0 C0.45,0 0.5,0.07 0.5,0.07 C0.5,0.07 0.55,0 0.64,0 C0.79,0 0.96,0.11 0.96,0.31 C0.96,0.62 0.5,0.94 0.5,0.94 Z"/>
+							</clipPath>
+						</defs>
+					</svg>
+					<canvas class="siyaram-date__fireworks siyaram-date__fireworks--left" id="siyaramFireworksLeft" aria-hidden="true"></canvas>
+					<canvas class="siyaram-date__fireworks siyaram-date__fireworks--right" id="siyaramFireworksRight" aria-hidden="true"></canvas>
+					<div class="siyaram-date__inner">
+						<p class="siyaram-date__eyebrow siyaram-reveal" data-siyaram-reveal="rise">A Date To Remember</p>
+						<div class="siyaram-date__hearts siyaram-reveal" data-siyaram-reveal="pop" role="group" aria-label="Scratch each heart to reveal our wedding date">
+							<div class="siyaram-date__heart"><span class="siyaram-date__label">Day</span><span class="siyaram-date__value" data-field="wedding.dateNum">03</span></div>
+							<div class="siyaram-date__heart"><span class="siyaram-date__label">Month</span><span class="siyaram-date__value" data-field="wedding.month">DEC</span></div>
+							<div class="siyaram-date__heart"><span class="siyaram-date__label">Year</span><span class="siyaram-date__value" data-field="wedding.year">2026</span></div>
+						</div>
+						<p class="siyaram-date__instruction siyaram-reveal" data-siyaram-reveal="soft" aria-hidden="true">Scratch to reveal the date</p>
+						<div class="siyaram-date__cursor" id="siyaramScratchCursor" aria-hidden="true">
+							<svg viewBox="0 0 40 40" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M12 28l16-16m-12 0h12v12"/>
+							</svg>
+						</div>
+						<p class="siyaram-date__msg siyaram-reveal" data-siyaram-reveal="rise">Mark your calendars — our forever begins on this joyous day, and we would be honoured to have you by our side.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- ============ 4. WEDDING TIMELINE / CELEBRATIONS ============ -->
+			<section class="siyaram-timeline" id="siyaram-timeline" aria-label="Wedding timeline">
+				<picture class="siyaram-pos siyaram-timeline__paper siyaram-shift-1">
+					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/timeline-paper-mobile.webp">
+					<img src="./assets/siyaram/images/backgrounds/timeline-paper-mobile.webp" alt="" draggable="false">
+				</picture>
+				
+				<div class="siyaram-pos siyaram-timeline__flow siyaram-shift-1">
+					<h2 class="siyaram-timeline__heading siyaram-reveal" data-siyaram-reveal="rise">
+						<span class="siyaram-only-mobile">Our Celebrations</span>
+						<span class="siyaram-only-desktop">Our Celebrations</span>
+					</h2>
+					<p class="siyaram-timeline__subtext siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="120">Save these dates, we would love to celebrate with you</p>
+					
+					<ol class="siyaram-events" data-siyaram-events style="--rows:3">
+						
+						<!-- Event 1: Mehendi -->
+						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-left" data-siyaram-delay="0">
+							<div class="siyaram-event__card">
+								<img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false">
+								<div class="siyaram-event__body">
+									<span class="siyaram-event__date">1st Dec 2026</span>
+									<h3 class="siyaram-event__title">Mehendi Ceremony</h3>
+									<span class="siyaram-event__time">11:00 AM Onwards</span>
+								</div>
+							</div>
+							<div class="siyaram-event__info">
+								<span class="siyaram-event__place">Swayamvar Lawn</span>
+								<span class="siyaram-event__address">Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai</span>
+								<a class="siyaram-event__directions" href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" rel="noopener">
+									<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg>
+									<span>Get Directions</span>
+								</a>
+							</div>
+							<img class="siyaram-event__ornament siyaram-event__ornament--left" src="./assets/siyaram/images/decorations/pillar-ornament-left.webp" alt="" draggable="false">
+							<img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false">
+						</li>
+
+						<!-- Event 2: Engagement -->
+						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-right" data-siyaram-delay="0">
+							<div class="siyaram-event__card">
+								<img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false">
+								<div class="siyaram-event__body">
+									<span class="siyaram-event__date">2nd Dec 2026</span>
+									<h3 class="siyaram-event__title">Engagement Ceremony</h3>
+									<span class="siyaram-event__time">7:00 PM Onwards</span>
+								</div>
+							</div>
+							<div class="siyaram-event__info">
+								<span class="siyaram-event__place">Swayamvar Lawn</span>
+								<span class="siyaram-event__address">Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai</span>
+								<a class="siyaram-event__directions" href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" rel="noopener">
+									<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg>
+									<span>Get Directions</span>
+								</a>
+							</div>
+							<img class="siyaram-event__ornament siyaram-event__ornament--right" src="./assets/siyaram/images/decorations/pillar-ornament-right.webp" alt="" draggable="false">
+							<img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false">
+						</li>
+
+						<!-- Event 3: Ganesh Sthapna -->
+						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-left" data-siyaram-delay="120">
+							<div class="siyaram-event__card">
+								<img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false">
+								<div class="siyaram-event__body">
+									<span class="siyaram-event__date">3rd Dec 2026</span>
+									<h3 class="siyaram-event__title">Ganesh Sthapna</h3>
+									<span class="siyaram-event__time">8:00 AM Onwards</span>
+								</div>
+							</div>
+							<div class="siyaram-event__info">
+								<span class="siyaram-event__place">Swayamvar Lawn</span>
+								<span class="siyaram-event__address">Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai</span>
+								<a class="siyaram-event__directions" href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" rel="noopener">
+									<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg>
+									<span>Get Directions</span>
+								</a>
+							</div>
+							<img class="siyaram-event__ornament siyaram-event__ornament--left" src="./assets/siyaram/images/decorations/pillar-ornament-left.webp" alt="" draggable="false">
+							<img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false">
+						</li>
+
+						<!-- Event 4: Samorta -->
+						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-right" data-siyaram-delay="120">
+							<div class="siyaram-event__card">
+								<img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false">
+								<div class="siyaram-event__body">
+									<span class="siyaram-event__date">3rd Dec 2026</span>
+									<h3 class="siyaram-event__title">Samorta</h3>
+									<span class="siyaram-event__time">9:00 AM Onwards</span>
+								</div>
+							</div>
+							<div class="siyaram-event__info">
+								<span class="siyaram-event__place">Swayamvar Lawn</span>
+								<span class="siyaram-event__address">Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai</span>
+								<a class="siyaram-event__directions" href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" rel="noopener">
+									<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg>
+									<span>Get Directions</span>
+								</a>
+							</div>
+							<img class="siyaram-event__ornament siyaram-event__ornament--right" src="./assets/siyaram/images/decorations/pillar-ornament-right.webp" alt="" draggable="false">
+							<img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false">
+						</li>
+
+						<!-- Event 5: Haldi -->
+						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-left" data-siyaram-delay="180">
+							<div class="siyaram-event__card">
+								<img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false">
+								<div class="siyaram-event__body">
+									<span class="siyaram-event__date">3rd Dec 2026</span>
+									<h3 class="siyaram-event__title">Haldi Ceremony</h3>
+									<span class="siyaram-event__time">11:00 AM Onwards</span>
+								</div>
+							</div>
+							<div class="siyaram-event__info">
+								<span class="siyaram-event__place">Swayamvar Lawn</span>
+								<span class="siyaram-event__address">Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai</span>
+								<a class="siyaram-event__directions" href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" rel="noopener">
+									<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg>
+									<span>Get Directions</span>
+								</a>
+							</div>
+							<img class="siyaram-event__ornament siyaram-event__ornament--left" src="./assets/siyaram/images/decorations/pillar-ornament-left.webp" alt="" draggable="false">
+							<img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false">
+						</li>
+
+						<!-- Event 6: Hastmelap -->
+						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-right" data-siyaram-delay="180">
+							<div class="siyaram-event__card">
+								<img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false">
+								<div class="siyaram-event__body">
+									<span class="siyaram-event__date">3rd Dec 2026</span>
+									<h3 class="siyaram-event__title">Hastmelap (Shubh Vivaah)</h3>
+									<span class="siyaram-event__time">6:30 PM Onwards</span>
+								</div>
+							</div>
+							<div class="siyaram-event__info">
+								<span class="siyaram-event__place">Swayamvar Lawn</span>
+								<span class="siyaram-event__address">Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai</span>
+								<a class="siyaram-event__directions" href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" rel="noopener">
+									<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg>
+									<span>Get Directions</span>
+								</a>
+							</div>
+							<img class="siyaram-event__ornament siyaram-event__ornament--right" src="./assets/siyaram/images/decorations/pillar-ornament-right.webp" alt="" draggable="false">
+							<img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false">
+						</li>
+
+					</ol>
+
+					<picture class="siyaram-timeline__lotus siyaram-reveal" data-siyaram-reveal="rise">
+						<source media="(min-width:1024px)" srcset="./assets/siyaram/images/decorations/lotus-ornament-desktop.webp">
+						<img src="./assets/siyaram/images/decorations/lotus-ornament-mobile.webp" alt="" draggable="false">
+					</picture>
+				</div>
+			</section>
+
+			<!-- ============ 5. OUR FAMILIES & EXTENDED FAMILY (CUSTOM THEME SECTION) ============ -->
+			<section class="siyaram-flow siyaram-family" id="siyaram-family" aria-label="Our Families">
+				<h2 class="siyaram-flow__heading siyaram-reveal" data-siyaram-reveal="zoom">Our Families</h2>
+				<p class="siyaram-flow__subtext siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="100">
+					With the divine blessings of our ancestors and the loving presence of our elders &amp; relatives
+				</p>
+
+				<div class="siyaram-family__grid siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="150">
+					
+					<!-- Bride's Family -->
+					<div class="siyaram-family__card">
+						<span class="siyaram-family__tag">Bride's Family (Parmar Family)</span>
+						<h3 class="siyaram-family__title">With Blessings of Grandparents</h3>
+						<p class="siyaram-family__names">Lt. Mohan Lal ji Parmar &amp; Lt. Usha Parmar</p>
+						
+						<h3 class="siyaram-family__title" style="margin-top: 14px;">Loving Parents</h3>
+						<p class="siyaram-family__names primary">Smt. Raksha Parmar &amp; Shri Krishna Kumar Parmar</p>
+					</div>
+
+					<!-- Groom's Family -->
+					<div class="siyaram-family__card">
+						<span class="siyaram-family__tag">Groom's Family (Agrawal Family)</span>
+						<h3 class="siyaram-family__title">With Blessings of Grandparents</h3>
+						<p class="siyaram-family__names">Lt. Girdhari Lal Agrawal &amp; Lt. Vimla Devi</p>
+						
+						<h3 class="siyaram-family__title" style="margin-top: 14px;">Loving Parents</h3>
+						<p class="siyaram-family__names primary">Smt. Madhu Agrawal &amp; Shri Anil Agrawal</p>
+					</div>
+
+					<!-- Vineet (Cordially Invited By) -->
+					<div class="siyaram-family__card">
+						<span class="siyaram-family__tag">Vineet</span>
+						<h3 class="siyaram-family__title">Cordially Invited By</h3>
+						<div class="siyaram-family__list">
+							<div>Smt. Raksha Ben &amp; Shri Krishna Kumar Parmar</div>
+							<div>Smt. Rashmi Ben &amp; Shri Sanjeev Kumar Parmar</div>
+							<div>Smt. Neha Ben &amp; Shri Lomesh Kumar Parmar</div>
+							<div>Chi. Gitesh Kumar Parmar</div>
+						</div>
+					</div>
+
+					<!-- Mausaar Paksh (Maternal Family) -->
+					<div class="siyaram-family__card">
+						<span class="siyaram-family__tag">Mausaar Paksh</span>
+						<h3 class="siyaram-family__title">Maternal Family</h3>
+						<div class="siyaram-family__list">
+							<div>Lt. Smt. Narmada Daya Ram Parmar</div>
+							<div>Lt. Smt. Parul Pritesh Parmar</div>
+							<div>Shri Kalpesh Parmar &amp; Smt. Kavita Parmar</div>
+							<div>Heet Parmar</div>
+						</div>
+					</div>
+
+					<!-- Aashirvachak (With Blessings of Elders) -->
+					<div class="siyaram-family__card">
+						<span class="siyaram-family__tag">Aashirvachak</span>
+						<h3 class="siyaram-family__title">With Divine Blessings of Elders</h3>
+						<div class="siyaram-family__list">
+							<div>Lt. Smt. Prem Kunwar Ben Parmar &amp; Lt. Shri Lal Ji Kunwar Ji Bhai Parmar</div>
+							<div>Lt. Smt. Usha Ben Parmar &amp; Lt. Shri Mohan Lal Ji Bhai Parmar</div>
+						</div>
+					</div>
+
+					<!-- Darshanabhilashi (Well Wishers) -->
+					<div class="siyaram-family__card">
+						<span class="siyaram-family__tag">Darshanabhilashi</span>
+						<h3 class="siyaram-family__title">With Best Compliments &amp; Well Wishers</h3>
+						<div class="siyaram-family__list">
+							<div>Chahat Parmar • Kush Parmar • Bhavya Parmar • Tiger</div>
+							<div style="font-weight: 700; color: #a13d17; margin-top: 5px; font-size: 14px;">&amp; All Parmar Family</div>
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+			<!-- ============ 6. OUR STORY ============ -->
+			<section class="siyaram-flow siyaram-story" id="siyaram-story" aria-label="Our story">
+				<h2 class="siyaram-flow__heading siyaram-reveal" data-siyaram-reveal="zoom">Our Story</h2>
+				<p class="siyaram-flow__subtext siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="100">How two hearts met and began forever</p>
+				<ol class="siyaram-story__list">
+					<li class="siyaram-story__item siyaram-story__item--left siyaram-reveal" data-siyaram-reveal="rise">
+						<span class="siyaram-story__dot"></span>
+						<div class="siyaram-story__card">
+							<span class="siyaram-story__when">2021</span>
+							<h3 class="siyaram-story__title">First Meeting</h3>
+							<p class="siyaram-story__text">A beautiful first conversation filled with smiles, shared values and an instant bond of connection.</p>
+						</div>
+					</li>
+					<li class="siyaram-story__item siyaram-story__item--right siyaram-reveal" data-siyaram-reveal="rise">
+						<span class="siyaram-story__dot"></span>
+						<div class="siyaram-story__card">
+							<span class="siyaram-story__when">2023</span>
+							<h3 class="siyaram-story__title">Growing Fondness</h3>
+							<p class="siyaram-story__text">Countless shared laughs, deep conversations and discovering our shared dreams for the future.</p>
+						</div>
+					</li>
+					<li class="siyaram-story__item siyaram-story__item--left siyaram-reveal" data-siyaram-reveal="rise">
+						<span class="siyaram-story__dot"></span>
+						<div class="siyaram-story__card">
+							<span class="siyaram-story__when">2025</span>
+							<h3 class="siyaram-story__title">Families Connected</h3>
+							<p class="siyaram-story__text">With warmth and blessings, our parents met and sealed our lifelong bond of love and unity.</p>
+						</div>
+					</li>
+					<li class="siyaram-story__item siyaram-story__item--right siyaram-reveal" data-siyaram-reveal="rise">
+						<span class="siyaram-story__dot"></span>
+						<div class="siyaram-story__card">
+							<span class="siyaram-story__when">3 Dec 2026</span>
+							<h3 class="siyaram-story__title">Forever Begins</h3>
+							<p class="siyaram-story__text">Surrounded by our loved ones and elders, we take our sacred vows. We can't wait to celebrate with you!</p>
+						</div>
+					</li>
+				</ol>
+			</section>
+
+			<!-- ============ 7. WEDDING HASHTAG ============ -->
+			<section class="siyaram-flow siyaram-hashtag" id="siyaram-hashtag" aria-label="Wedding hashtag">
+				<h2 class="siyaram-flow__heading siyaram-reveal" data-siyaram-reveal="zoom">Our Hashtag</h2>
+				<button type="button" class="siyaram-hashtag__pill siyaram-reveal" data-siyaram-reveal="pop" data-siyaram-copy="#Krisha">
+					<span>#Krisha</span>
+					<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="5" width="8" height="8" rx="1.5"/><path d="M3 10.5V4a1 1 0 0 1 1-1h6.5"/></svg>
+				</button>
+				<p class="siyaram-hashtag__hint" data-hint-default="Tap to copy &amp; use it in all your posts!" data-hint-done="Copied to clipboard! ✨">Tap to copy &amp; use it in all your posts!</p>
+			</section>
+
+		</div><!-- End .siyaram-page--a -->
+
+		<div class="siyaram-page siyaram-page--b">
+			
+			<!-- ============ 8. VENUE LOCATION, COUNTDOWN & RSVP ============ -->
+			<section class="siyaram-location" id="siyaram-location" aria-label="Venue and countdown">
+				<picture class="siyaram-pos siyaram-location__backdrop siyaram-shift-b0">
+					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/location-section-desktop.webp">
+					<img src="./assets/siyaram/images/backgrounds/location-section-mobile.webp" alt="" draggable="false">
+				</picture>
+
+				<picture class="siyaram-pos siyaram-location__countdown-scene siyaram-shift-b0">
+					<source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/countdown-scene-desktop.webp">
+					<img src="./assets/siyaram/images/backgrounds/countdown-scene-mobile.webp" alt="" draggable="false">
+				</picture>
+
+				<!-- Live Countdown Timer -->
+				<div class="siyaram-pos siyaram-countdown siyaram-shift-b0" data-siyaram-until="2026-12-03T18:30:00+05:30" aria-label="Countdown to wedding">
+					<div class="siyaram-countdown__heading siyaram-reveal" data-siyaram-reveal="rise">The Auspicious Muhurtham</div>
+					<div class="siyaram-countdown__units">
+						<div class="siyaram-countdown__unit"><span class="siyaram-countdown__num siyaram-countdown__days">00</span><span class="siyaram-countdown__lbl">Days</span></div>
+						<div class="siyaram-countdown__unit"><span class="siyaram-countdown__num siyaram-countdown__hours">00</span><span class="siyaram-countdown__lbl">Hours</span></div>
+						<div class="siyaram-countdown__unit"><span class="siyaram-countdown__num siyaram-countdown__mins">00</span><span class="siyaram-countdown__lbl">Mins</span></div>
+						<div class="siyaram-countdown__unit"><span class="siyaram-countdown__num siyaram-countdown__secs">00</span><span class="siyaram-countdown__lbl">Secs</span></div>
+					</div>
+					<p class="siyaram-countdown__note siyaram-reveal" data-siyaram-reveal="soft">Counting down the sacred moments until we say forever</p>
+				</div>
+
+				<!-- Venue Details Card -->
+				<div class="siyaram-pos siyaram-location__card siyaram-shift-b0 siyaram-reveal" data-siyaram-reveal="soft">
+					<h3 class="siyaram-location__heading">Wedding Venue</h3>
+					<p class="siyaram-location__name">Swayamvar Lawn</p>
+					<p class="siyaram-location__address">Behind Agrawal Petrol Pump, G.T. Road, Mughalsarai</p>
+					<a class="siyaram-event__directions siyaram-location__directions" href="https://maps.google.com/?q=Swayamvar+Lawn+Agrawal+Petrol+Pump+GT+Road+Mughalsarai" target="_blank" rel="noopener">
+						<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg>
+						<span>Open in Google Maps</span>
+					</a>
+				</div>
+
+				<!-- RSVP & Wishes Card -->
+				<div class="siyaram-pos siyaram-rsvp-box siyaram-shift-b0 siyaram-reveal" data-siyaram-reveal="soft" style="margin-top: 24px; text-align: center;">
+					<h3 style="font-family: var(--siyaram-font-display); font-size: 22px; color: #5f250f; font-weight: 700; margin-bottom: 8px;">For RSVP &amp; Queries</h3>
+					<p style="font-family: var(--siyaram-font-sans); font-size: 13.5px; color: #7b2d3e; margin-bottom: 16px;">We would be honored by your warm presence!</p>
+					
+					<div style="display: flex; flex-direction: column; gap: 10px; align-items: center; max-width: 280px; margin: 0 auto;">
+						<a href="tel:9450613006" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 10px 18px; border-radius: 999px; background: linear-gradient(135deg, #a13d17, #5f250f); color: #fff; text-decoration: none; font-family: var(--siyaram-font-sans); font-size: 13.5px; font-weight: 600; box-shadow: 0 4px 14px rgba(95, 37, 15, 0.25);">
+							<span>📞</span> +91 94506 13006
+						</a>
+						<a href="tel:9721446357" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 10px 18px; border-radius: 999px; background: linear-gradient(135deg, #a13d17, #5f250f); color: #fff; text-decoration: none; font-family: var(--siyaram-font-sans); font-size: 13.5px; font-weight: 600; box-shadow: 0 4px 14px rgba(95, 37, 15, 0.25);">
+							<span>📞</span> +91 97214 46357
+						</a>
+						<a href="tel:9807711904" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 10px 18px; border-radius: 999px; background: linear-gradient(135deg, #a13d17, #5f250f); color: #fff; text-decoration: none; font-family: var(--siyaram-font-sans); font-size: 13.5px; font-weight: 600; box-shadow: 0 4px 14px rgba(95, 37, 15, 0.25);">
+							<span>📞</span> +91 98077 11904
+						</a>
+					</div>
+				</div>
+
+				<!-- Footer -->
+				<footer class="siyaram-pos siyaram-footer siyaram-shift-b0" style="margin-top: 40px; padding-bottom: 30px;">
+					<p style="font-family: var(--siyaram-font-display); font-size: 20px; color: #5f250f; font-weight: 700; margin-bottom: 4px;">Krishna &amp; Shreya</p>
+					<p style="font-family: var(--siyaram-font-sans); font-size: 13px; color: #a13d17; letter-spacing: 0.1em; text-transform: uppercase;">#Krisha • 3rd December 2026</p>
+				</footer>
+			</section>
+
+		</div><!-- End .siyaram-page--b -->
+
+	</div><!-- End #siyaram-invitation -->
+
+	<!-- Scripts -->
+	<script src="./assets/siyaram/jquery.min.js"></script>
+	<script src="./script.js?v=70"></script>
 </body>
 </html>
