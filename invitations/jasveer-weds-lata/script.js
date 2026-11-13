@@ -70,6 +70,7 @@ window.inviteutsavSiyaramData = {
       node.style.setProperty('--siyaram-fit', natural > limit ? (limit / natural).toFixed(3) : '1');
     });
   }
+  window.siyaramFitNames = fitNames;
 
   /* Very long ceremony names shrink until date, name and time fit inside the card frame. */
   function fitEventTitles() {
@@ -85,6 +86,7 @@ window.inviteutsavSiyaramData = {
       }
     });
   }
+  window.siyaramFitEventTitles = fitEventTitles;
 
   function markRows() {
     var items = $$('.siyaram-event');
@@ -1023,4 +1025,242 @@ window.inviteutsavSiyaramData = {
       triggerWhiteFlashTransition();
     }
   });
+})();
+
+/* ================================================================
+ * BILINGUAL SUPPORT (English & Hindi)
+ * Default / Primary: English (en)
+ * Toggle button: #langToggle
+ * ================================================================ */
+(function() {
+  'use strict';
+
+  var TRANSLATIONS = {
+    en: {
+      page_title: "Jasveer Singh & Lata — Wedding Invitation",
+      tap_heading: "Tap to Open",
+      tap_sub: "✦ Cordially Invited ✦",
+      scroll_cue: "Scroll Down",
+      hero_groom: "Jasveer Singh",
+      hero_weds: "weds",
+      hero_bride: "Lata",
+      vandana: "॥ Om Shri Ganeshay Namah ॥<br>Vakratunda Mahakaya Suryakoti Samaprabha |<br>Nirvighnam Kuru Me Deva Sarvakaryeshu Sarvada ॥",
+      blessing_line: "By the divine grace of the Almighty and eternal blessings of our ancestors and deities",
+      grandma: "Smt. Battu Devi<br><small>(W/o Late Shri Nek Ram)</small>",
+      intro_relation: "solicits your gracious presence at the wedding ceremony of her grandson",
+      groom_name: "Jasveer Singh",
+      groom_parents: "(Son of Smt. Tripta Devi & Shri Bhagat Ram)",
+      connector: "with",
+      bride_name: "Lata",
+      bride_parents: "(Daughter of Smt. Kamlesh & Shri Tulsi Ram)",
+      invite_msg: "to celebrate the auspicious wedding ceremonies at our residence, Village & P.O. Mahlera, Tehsil Krishangarh (Kuthar), Distt. Solan (H.P.). We cordially invite you and your family to bless the couple with your love and presence.",
+      date_eyebrow: "Auspicious Wedding",
+      lbl_day: "DAY",
+      lbl_month: "MONTH",
+      lbl_year: "YEAR",
+      val_month: "DEC",
+      date_hint: "Tuesday, 1st December to Thursday, 3rd December 2026",
+      date_msg: "Your gracious presence and heartfelt blessings will make this celebration truly memorable.",
+      couple_heading: "Cordially Invited",
+      couple_msg: "Please grace the occasion with your family and shower your warm blessings upon the newly wedded couple.",
+      timeline_heading: "Wedding Itinerary",
+      timeline_subtext: "Tuesday, 1st December to Thursday, 3rd December 2026",
+      ev1_date: "Tuesday • 01 December 2026",
+      ev1_p1_title: "Mama Swagat",
+      ev1_p1_time: "03:50 PM Onwards",
+      ev1_p2_title: "Shanti Pujan",
+      ev1_p2_time: "04:50 PM Onwards",
+      ev1_place: "Residence",
+      ev1_addr: "Village & P.O. Mahlera, Teh. Krishangarh (Kuthar), Distt. Solan (H.P.)",
+      ev2_date: "Tuesday • 01 December 2026",
+      ev2_title: "Sehra Bandi",
+      ev2_time: "07:00 PM Onwards",
+      ev2_place: "Residence",
+      ev2_addr: "Village & P.O. Mahlera, Teh. Krishangarh (Kuthar), Distt. Solan (H.P.)",
+      ev3_date: "Wednesday • 02 December 2026",
+      ev3_p1_title: "Barat Prasthan",
+      ev3_p1_time: "06:00 AM Morning",
+      ev3_p2_title: "Vadhu Pravesh",
+      ev3_p2_time: "05:00 PM Evening",
+      ev3_place: "Residence",
+      ev3_addr: "Village & P.O. Mahlera, Teh. Krishangarh (Kuthar), Distt. Solan (H.P.)",
+      ev4_date: "Thursday • 03 December 2026",
+      ev4_title: "Traditional Dhaam (Feast)",
+      ev4_time: "01:00 PM Afternoon",
+      ev4_place: "Residence",
+      ev4_addr: "Village & P.O. Mahlera, Teh. Krishangarh (Kuthar), Distt. Solan (H.P.)",
+      blessings_heading: "॥ Auspicious Wedding Celebration ॥",
+      blessings_sub: "Wishing the newly wedded couple a lifetime of love, joy, and prosperity.",
+      family_heading: "The Bhardwaj Family Cordially Welcomes You",
+      family_subtext: "Your gracious presence will bring immense joy and honour to our celebrations. Please join us with your family to bless the couple.",
+      fam_g1_tag: "Cordially Inviting",
+      fam_g1_role: "Smt. Battu Devi",
+      fam_g1_people: "W/o Late Shri Nek Ram<br>With Family",
+      fam_g2_tag: "Groom's Side",
+      fam_g2_role: "Jasveer Singh",
+      fam_g2_people: "Smt. Tripta Devi & Shri Bhagat Ram",
+      fam_g3_tag: "Bride's Side",
+      fam_g3_role: "Lata",
+      fam_g3_people: "Smt. Kamlesh & Shri Tulsi Ram",
+      fam_g4_tag: "Warm Welcome By",
+      fam_g4_role: "The Bhardwaj Family",
+      fam_g4_people: "Smt. Battu Devi, Shri Bhagat Ram, Smt. Tripta Devi<br>& All Relatives & Friends",
+      cd_heading: "Countdown to Celebrations",
+      cd_text: "Mama Swagat • Tuesday, 1st December 2026 • 03:50 PM",
+      cd_days: "DAYS",
+      cd_hours: "HOURS",
+      cd_mins: "MINS",
+      cd_secs: "SECS",
+      footer_text1: "Jasveer Singh & Lata • 1–3 December 2026",
+      footer_text2: "Cordially Invited • Bhardwaj Family • InvCraft Media"
+    },
+    hi: {
+      page_title: "चि० जसवीर सिंह एवं आ० लता — विवाह निमंत्रण",
+      tap_heading: "Tap to Open",
+      tap_sub: "✦ निमंत्रण पत्र खोलें ✦",
+      scroll_cue: "Scroll Down",
+      hero_groom: "चि० जसवीर सिंह",
+      hero_weds: "संग",
+      hero_bride: "आ० लता",
+      vandana: "॥ ॐ श्री गणेशाय नमः ॥<br>वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥",
+      blessing_line: "परमपिता परमात्मा की असीम अनुकम्पा एवं कुलईष्ट व देवी-देवताओं के परोक्ष आशीर्वाद से",
+      grandma: "श्रीमती बत्तु देवी<br><small>(धर्मपत्नी स्व. श्री नेक राम)</small>",
+      intro_relation: "अपने सुपौत्र",
+      groom_name: "चि० जसवीर सिंह",
+      groom_parents: "(सुपुत्र श्रीमती तृप्ता देवी एवं श्री भगत राम)",
+      connector: "संग",
+      bride_name: "आ० लता",
+      bride_parents: "(सुपुत्री श्रीमती कमलेश एवं श्री तुलसी राम)",
+      invite_msg: "के शुभ विवाहोत्सव की पावन बेला पर आपको अपने निवास स्थान ग्राम व डा. महलेरा, तह. कृष्णगढ़ (कुठाड़), जिला सोलन (हि.प्र.) कार्यक्रमानुसार सपरिवार सादर आमंत्रित करते हैं। कृपया पधार कर नवयुगल को आशीर्वाद देकर अनुगृहीत करें।",
+      date_eyebrow: "शुभ विवाहोत्सव",
+      lbl_day: "दिन",
+      lbl_month: "माह",
+      lbl_year: "वर्ष",
+      val_month: "दिस",
+      date_hint: "मंगलवार, 1 दिसंबर से गुरुवार, 3 दिसंबर 2026",
+      date_msg: "आपकी गरिमामयी उपस्थिति और आशीर्वाद हमारे लिए अनमोल होंगे।",
+      couple_heading: "सादर निमंत्रण",
+      couple_msg: "कृपया पधार कर नवयुगल को अपना स्नेह एवं आशीर्वाद प्रदान करें।",
+      timeline_heading: "वैवाहिक कार्यक्रम",
+      timeline_subtext: "मंगलवार, 1 दिसंबर से गुरुवार, 3 दिसंबर 2026",
+      ev1_date: "मंगलवार • 01 दिसंबर 2026",
+      ev1_p1_title: "मामा स्वागत",
+      ev1_p1_time: "03.50 बजे सायं",
+      ev1_p2_title: "शान्ति पूजन",
+      ev1_p2_time: "04.50 बजे सायं",
+      ev1_place: "निवास स्थान",
+      ev1_addr: "ग्राम व डा. महलेरा, तह. कृष्णगढ़ (कुठाड़), जिला सोलन (हि.प्र.)",
+      ev2_date: "मंगलवार • 01 दिसंबर 2026",
+      ev2_title: "सेहरा बन्दी",
+      ev2_time: "07.00 बजे सायं",
+      ev2_place: "निवास स्थान",
+      ev2_addr: "ग्राम व डा. महलेरा, तह. कृष्णगढ़ (कुठाड़), जिला सोलन (हि.प्र.)",
+      ev3_date: "बुधवार • 02 दिसंबर 2026",
+      ev3_p1_title: "बारात प्रस्थान",
+      ev3_p1_time: "06.00 बजे प्रातः",
+      ev3_p2_title: "वधु प्रवेश",
+      ev3_p2_time: "05.00 बजे सायं",
+      ev3_place: "निवास स्थान",
+      ev3_addr: "ग्राम व डा. महलेरा, तह. कृष्णगढ़ (कुठाड़), जिला सोलन (हि.प्र.)",
+      ev4_date: "वीरवार • 03 दिसंबर 2026",
+      ev4_title: "धाम (प्रीतिभोज)",
+      ev4_time: "01.00 बजे दोपहर",
+      ev4_place: "निवास स्थान",
+      ev4_addr: "ग्राम व डा. महलेरा, तह. कृष्णगढ़ (कुठाड़), जिला सोलन (हि.प्र.)",
+      blessings_heading: "॥ शुभ विवाहोत्सव ॥",
+      blessings_sub: "ईश्वर से नवयुगल के सुखद एवं मंगलमय जीवन की कामना करते हैं।",
+      family_heading: "भारद्वाज परिवार की ओर से आपका हार्दिक स्वागत है",
+      family_subtext: "आपकी उपस्थिति हमारे लिए सम्मान और हर्ष का विषय होगी। सपरिवार पधारें और नवयुगल को अपना स्नेह एवं आशीर्वाद दें।",
+      fam_g1_tag: "सादर आमंत्रित",
+      fam_g1_role: "श्रीमती बत्तु देवी",
+      fam_g1_people: "धर्मपत्नी स्व. श्री नेक राम<br>अपने परिवार सहित",
+      fam_g2_tag: "वर पक्ष",
+      fam_g2_role: "चि० जसवीर सिंह",
+      fam_g2_people: "श्रीमती तृप्ता देवी एवं श्री भगत राम",
+      fam_g3_tag: "वधू पक्ष",
+      fam_g3_role: "आ० लता",
+      fam_g3_people: "श्रीमती कमलेश एवं श्री तुलसी राम",
+      fam_g4_tag: "हार्दिक स्वागतकर्ता",
+      fam_g4_role: "भारद्वाज परिवार",
+      fam_g4_people: "श्रीमती बत्तु देवी, श्री भगत राम, श्रीमती तृप्ता देवी<br>एवं समस्त परिवार व मित्रगण",
+      cd_heading: "शुभारंभ तक",
+      cd_text: "मामा स्वागत • मंगलवार, 1 दिसंबर 2026 • 03.50 बजे सायं",
+      cd_days: "दिन",
+      cd_hours: "घंटे",
+      cd_mins: "मिनट",
+      cd_secs: "सेकंड",
+      footer_text1: "जसवीर सिंह एवं लता • 1–3 दिसंबर 2026",
+      footer_text2: "सादर आमंत्रित • भारद्वाज परिवार • InvCraft Media"
+    }
+  };
+
+  window.TRANSLATIONS = TRANSLATIONS;
+
+  function applyLanguage(lang) {
+    if (!TRANSLATIONS[lang]) return;
+    document.documentElement.lang = lang;
+
+    var dict = TRANSLATIONS[lang];
+    var elements = document.querySelectorAll('[data-i18n]');
+    for (var i = 0; i < elements.length; i++) {
+      var el = elements[i];
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) {
+        el.innerHTML = dict[key];
+      }
+    }
+
+    if (dict.page_title) {
+      document.title = dict.page_title;
+    }
+
+    var badge = document.getElementById('langBadge');
+    var sub = document.getElementById('langSub');
+    var btn = document.getElementById('langToggle');
+    if (badge && sub) {
+      if (lang === 'en') {
+        badge.textContent = 'हिं';
+        sub.textContent = 'HINDI';
+        if (btn) btn.setAttribute('aria-label', 'Switch to Hindi / हिंदी में देखें');
+      } else {
+        badge.textContent = 'EN';
+        sub.textContent = 'ENG';
+        if (btn) btn.setAttribute('aria-label', 'Switch to English / अंग्रेज़ी में देखें');
+      }
+    }
+
+    if (window.siyaramFitNames) { window.siyaramFitNames(); }
+    if (window.siyaramFitEventTitles) { window.siyaramFitEventTitles(); }
+  }
+
+  window.applyLanguage = applyLanguage;
+
+  var currentLang = 'en';
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var urlLang = params.get('lang');
+    if (urlLang === 'hi' || urlLang === 'en') {
+      currentLang = urlLang;
+    } else {
+      var saved = sessionStorage.getItem('jasveer_lang');
+      if (saved === 'hi' || saved === 'en') {
+        currentLang = saved;
+      }
+    }
+  } catch (e) {}
+
+  applyLanguage(currentLang);
+
+  var toggle = document.getElementById('langToggle');
+  if (toggle) {
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      currentLang = currentLang === 'en' ? 'hi' : 'en';
+      try {
+        sessionStorage.setItem('jasveer_lang', currentLang);
+        localStorage.setItem('jasveer_lang', currentLang);
+      } catch (e) {}
+      applyLanguage(currentLang);
+    });
+  }
 })();
