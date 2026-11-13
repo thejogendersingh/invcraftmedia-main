@@ -10,6 +10,10 @@
 # 3. 200 Rewrite: Proxies all internal assets, scripts, media and stylesheets directly
 # ==============================================================================
 
+# Client: sanchita-weds-dharmendhra (exact page rewrites before wildcard rules)
+/sanchita-weds-dharmendhra/        /invitations/sanchita-weds-dharmendhra/index.html         200
+/sanchita-weds-dharmendra/         /invitations/sanchita-weds-dharmendhra/index.html         200
+
 # Client: jasveer-weds-lata (Jasveer Singh & Lata - Active Live Client)
 /jasveer-weds-lata         /jasveer-weds-lata/                               302
 /jasveer-weds-lata/        /invitations/jasveer-weds-lata/index.html         200
@@ -236,7 +240,6 @@
 /rsvp-unnati-weds-nisarg/*       /invitations/rsvp-unnati-weds-nisarg/:splat             200
 
 # Client: sanchita-weds-dharmendhra
-/sanchita-weds-dharmendhra/        /invitations/sanchita-weds-dharmendhra/index.html         200
 /sanchita-weds-dharmendhra/*       /invitations/sanchita-weds-dharmendhra/:splat             200
 
 # Client: shagun-weds-chakshu
@@ -268,7 +271,6 @@
 /khushbu-weds-palkesh/*       /invitations/khusbhu-weds-palkesh/:splat             200
 
 # Client alias: sanchita-weds-dharmendra
-/sanchita-weds-dharmendra/        /invitations/sanchita-weds-dharmendhra/index.html         200
 /sanchita-weds-dharmendra/*       /invitations/sanchita-weds-dharmendhra/:splat             200
 
 # Client alias: dharmendhra-weds-sanchita
