@@ -23,7 +23,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="./style.css?v=1">
+	<link rel="stylesheet" href="./style.css?v=2">
 	<style>
 		html[lang="hi"] .siyaram-invitation :is(h1,h2,h3,p,span,small,button,figcaption,a) {
 			font-family: "Noto Serif Devanagari", "Nirmala UI", "Mangal", serif;
@@ -38,9 +38,9 @@
 		html[lang="hi"] .siyaram-hero__name { font-size:clamp(25px, 8vw, 48px); white-space:nowrap; }
 		html[lang="hi"] .siyaram-hero__connector { font-size:clamp(20px, 5.8vw, 30px); }
 		.intro-overlay { cursor:pointer; background:#34100f; }
-		#intro-tap-cue { top:auto; bottom:8%; }
-		#intro-tap-cue .intro-tap-heading { font-family:"Noto Serif Devanagari",serif; font-size:16px; letter-spacing:0; text-transform:none; color:#ffe9bd; }
-		#intro-tap-cue .intro-tap-sub { font-family:"Noto Serif Devanagari",serif; font-size:12px; letter-spacing:.04em; text-transform:none; color:#f5d28c; }
+		#intro-tap-cue { top:auto; bottom:9%; }
+		#intro-tap-cue .intro-tap-heading { font-family:"Montserrat",Arial,sans-serif; font-size:18px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#ffe9bd; text-shadow:0 2px 10px rgba(0,0,0,0.7); margin:0 0 4px; }
+		#intro-tap-cue .intro-tap-sub { font-family:"Noto Serif Devanagari",serif; font-size:13px; font-weight:600; letter-spacing:.05em; text-transform:none; color:#f5d28c; text-shadow:0 1px 6px rgba(0,0,0,0.6); }
 		.siyaram-couple__heading { --l:0; --w:100%; --t:2660; text-align:center; }
 		@media (min-width:1024px) { .siyaram-couple__heading { --t:5310; } }
 		.siyaram-couple__photo-img { width:100%; height:100%; object-fit:contain; object-position:center bottom; }
@@ -49,9 +49,9 @@
 	</style>
 </head>
 <body class="siyaram-body">
-	<div class="intro-overlay" id="intro-overlay" role="button" tabindex="0" aria-label="निमंत्रण खोलें">
+	<div class="intro-overlay" id="intro-overlay" role="button" tabindex="0" aria-label="Tap to open wedding invitation">
 		<video id="intro-video" class="intro-video" src="./assets/intro-video.mp4" poster="./assets/intro-poster.jpg" playsinline webkit-playsinline preload="metadata"></video>
-		<div id="intro-tap-cue" class="intro-tap-cue" aria-hidden="true"><p class="intro-tap-heading">निमंत्रण खोलें</p><span class="intro-tap-sub">✦ स्पर्श करके आगे बढ़ें ✦</span></div>
+		<div id="intro-tap-cue" class="intro-tap-cue" aria-hidden="true"><p class="intro-tap-heading">Tap to Open</p><span class="intro-tap-sub">✦ निमंत्रण पत्र खोलें ✦</span></div>
 	</div>
 	<div id="intro-white-flash" class="intro-white-flash" aria-hidden="true"></div>
 	<div class="siyaram-music-wrap">
@@ -59,7 +59,7 @@
 		<audio class="siyaram-music__audio" loop preload="none" src="./assets/intro-bgm.mp3"></audio>
 	</div>
 	<div class="siyaram-invitation siyaram-skin-siyaram-raghukul siyaram-is-ready" id="siyaram-invitation" data-siyaram-events="4" data-siyaram-venues="0">
-		<button type="button" class="siyaram-scrollcue" id="siyaram-scrollcue" aria-label="नीचे देखने के लिए स्क्रोल करें"><svg class="siyaram-scrollcue__arrow" viewBox="0 0 26 32" fill="none" stroke="currentColor" aria-hidden="true"><path class="siyaram-scrollcue__c1" d="M3 5 L13 14 L23 5"/><path class="siyaram-scrollcue__c2" d="M3 15 L13 24 L23 15"/></svg><span class="siyaram-scrollcue__text">आगे देखें</span></button>
+		<button type="button" class="siyaram-scrollcue" id="siyaram-scrollcue" aria-label="Scroll to explore invitation"><svg class="siyaram-scrollcue__arrow" viewBox="0 0 26 32" fill="none" stroke="currentColor" aria-hidden="true"><path class="siyaram-scrollcue__c1" d="M3 5 L13 14 L23 5"/><path class="siyaram-scrollcue__c2" d="M3 15 L13 24 L23 15"/></svg><span class="siyaram-scrollcue__text">Scroll Down</span></button>
 		<div class="siyaram-page siyaram-page--a">
 			<section class="siyaram-hero" aria-label="विवाह निमंत्रण">
 				<picture class="siyaram-pos siyaram-hero__sky" data-siyaram-parallax="0.7"><source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/hero-sky-desktop.webp"><img src="./assets/siyaram/images/backgrounds/hero-sky-mobile.webp" alt="" draggable="false"></picture>
@@ -134,6 +134,6 @@
 		<div class="siyaram-page siyaram-page--b"><section class="siyaram-location" id="siyaram-location" aria-label="कार्यक्रम आरंभ होने में शेष समय"><picture class="siyaram-pos siyaram-location__scene"><source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/countdown-scene-desktop.webp"><img src="./assets/siyaram/images/backgrounds/countdown-scene-mobile.webp" alt="" draggable="false"></picture><h2 class="siyaram-pos siyaram-countdown__heading siyaram-reveal" data-siyaram-reveal="zoom">शुभारंभ तक</h2><p class="siyaram-pos siyaram-countdown__text siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="100">मामा स्वागत • मंगलवार, 1 दिसंबर 2026 • 03.50 बजे सायं</p><img class="siyaram-pos siyaram-countdown__divider siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="160" src="./assets/siyaram/images/decorations/divider-mobile.webp" alt="" draggable="false" data-siyaram-desktop-src="./assets/siyaram/images/decorations/divider-desktop.webp"><div class="siyaram-pos siyaram-countdown siyaram-reveal" data-siyaram-reveal="pop" data-siyaram-delay="220" role="timer" aria-live="off" data-siyaram-date="2026-12-01T15:50:00+05:30"><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="days">00</span><span class="siyaram-countdown__label">दिन</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="hours">00</span><span class="siyaram-countdown__label">घंटे</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="minutes">00</span><span class="siyaram-countdown__label">मिनट</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="seconds">00</span><span class="siyaram-countdown__label">सेकंड</span></div></div><footer class="siyaram-pos siyaram-footer siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="300"><p class="siyaram-footer__text">जसवीर सिंह एवं लता • 1–3 दिसंबर 2026</p><p class="siyaram-footer__text" style="margin-top:6px;font-size:12px;opacity:.8">सादर आमंत्रित • InvCraft Media</p></footer></section></div>
 	</div>
 	<script src="./assets/siyaram/jquery.min.js"></script>
-	<script src="./script.js?v=1"></script>
+	<script src="./script.js?v=2"></script>
 </body>
 </html>

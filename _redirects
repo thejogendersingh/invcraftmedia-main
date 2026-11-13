@@ -1,4 +1,4 @@
-# ==============================================================================
+﻿# ==============================================================================
 # INVCRAFT MEDIA – CENTRAL ROUTING CONFIGURATION (Cloudflare Pages)
 # ==============================================================================
 # Format:
@@ -9,6 +9,11 @@
 # 2. 200 Rewrite: Serves index.html cleanly for the invitation directory route
 # 3. 200 Rewrite: Proxies all internal assets, scripts, media and stylesheets directly
 # ==============================================================================
+
+# Client: jasveer-weds-lata (Jasveer Singh & Lata - Active Live Client)
+/jasveer-weds-lata         /jasveer-weds-lata/                               302
+/jasveer-weds-lata/        /invitations/jasveer-weds-lata/index.html         200
+/jasveer-weds-lata/*       /invitations/jasveer-weds-lata/:splat             200
 
 # Client: vishesh-weds-neha (Active Live Client)
 /vishesh-weds-neha         /vishesh-weds-neha/                               302
@@ -273,8 +278,3 @@
 # Client alias: palkesh-weds-khusbhu
 /palkesh-weds-khusbhu/        /invitations/palkesh-weds-khushbu/index.html         200
 /palkesh-weds-khusbhu/*       /invitations/palkesh-weds-khushbu/:splat             200
-
-# Client: jasveer-weds-lata (Jasveer Singh & Lata)
-/jasveer-weds-lata         /jasveer-weds-lata/                                      301
-/jasveer-weds-lata/        /invitations/jasveer-weds-lata/index.html         200
-/jasveer-weds-lata/*       /invitations/jasveer-weds-lata/:splat             200
