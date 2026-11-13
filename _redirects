@@ -273,3 +273,8 @@
 # Client alias: palkesh-weds-khusbhu
 /palkesh-weds-khusbhu/        /invitations/palkesh-weds-khushbu/index.html         200
 /palkesh-weds-khusbhu/*       /invitations/palkesh-weds-khushbu/:splat             200
+
+# Client: jasveer-weds-lata (Jasveer Singh & Lata)
+/jasveer-weds-lata         /jasveer-weds-lata/                                      301
+/jasveer-weds-lata/        /invitations/jasveer-weds-lata/index.html         200
+/jasveer-weds-lata/*       /invitations/jasveer-weds-lata/:splat             200
