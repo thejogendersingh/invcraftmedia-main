@@ -25,30 +25,53 @@
 	<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="./style.css?v=4">
 	<style>
-		/* ============ LUXURY REGAL ENGLISH TYPOGRAPHY ============ */
+		/* ============ LUXURY REGAL ENGLISH & BILINGUAL TYPOGRAPHY ============ */
+		/* Symmetric Hero Vertical Placement */
+		.siyaram-hero__name--first {
+			top: calc(var(--siyaram-u) * 105) !important;
+		}
+		.siyaram-hero__connector {
+			top: calc(var(--siyaram-u) * 165) !important;
+			rotate: 0deg !important;
+		}
+		.siyaram-hero__name--second {
+			top: calc(var(--siyaram-u) * 225) !important;
+		}
+		@media (min-width: 1024px) {
+			.siyaram-hero__name--first {
+				top: calc(var(--siyaram-u) * 110) !important;
+			}
+			.siyaram-hero__connector {
+				top: calc(var(--siyaram-u) * 202) !important;
+				rotate: 0deg !important;
+			}
+			.siyaram-hero__name--second {
+				top: calc(var(--siyaram-u) * 294) !important;
+			}
+		}
+
 		html[lang="en"] .siyaram-hero__name {
 			font-family: "Cinzel", "Playfair Display", Georgia, serif !important;
 			font-weight: 700;
-			font-size: clamp(22px, 6.6vw, 44px) !important;
+			font-size: clamp(22px, 5.8vw, 42px) !important;
 			letter-spacing: 0.05em;
 			text-transform: uppercase;
 			white-space: nowrap;
 		}
 		html[lang="en"] .siyaram-hero__connector {
 			font-family: "Alex Brush", "Allura", cursive !important;
-			font-size: clamp(30px, 8.5vw, 48px) !important;
+			font-size: clamp(28px, 7vw, 44px) !important;
 			font-weight: 400;
 			text-transform: lowercase;
 			font-style: italic;
-			rotate: -6deg;
+			rotate: 0deg !important;
 			margin: 0 4px;
 		}
 		html[lang="en"] .siyaram-details__vandana {
-			font-family: "Cormorant Garamond", Georgia, serif !important;
-			font-style: italic;
-			font-size: calc(var(--siyaram-u) * 13 * var(--siyaram-card-k, 1));
-			letter-spacing: 0.02em;
-			line-height: 1.45;
+			font-family: "Cinzel", "Cormorant Garamond", Georgia, serif !important;
+			font-size: calc(var(--siyaram-u) * 12.5 * var(--siyaram-card-k, 1));
+			letter-spacing: 0.03em;
+			line-height: 1.55;
 		}
 		html[lang="en"] .siyaram-details__name {
 			font-family: "Cinzel", "Playfair Display", Georgia, serif !important;
@@ -62,39 +85,67 @@
 			rotate: -8deg;
 		}
 		html[lang="en"] .siyaram-details__line {
-			font-family: "Montserrat", sans-serif !important;
+			font-family: "Cormorant Garamond", Georgia, serif !important;
+			font-style: italic;
 			font-weight: 600;
 			letter-spacing: 0.02em;
-			line-height: 1.25;
-		}
-		html[lang="en"] .siyaram-details__intro {
-			font-family: "Montserrat", sans-serif !important;
-			font-weight: 500;
-			font-size: calc(var(--siyaram-u) * 11.5 * var(--siyaram-card-k, 1));
 			line-height: 1.35;
 		}
+		html[lang="en"] .siyaram-details__intro {
+			font-family: "Cormorant Garamond", Georgia, serif !important;
+			font-size: calc(var(--siyaram-u) * 13 * var(--siyaram-card-k, 1));
+			font-style: italic;
+			line-height: 1.5;
+			color: #4a2412;
+		}
 		html[lang="en"] .siyaram-details__parents {
-			font-family: "Montserrat", sans-serif !important;
-			font-weight: 500;
+			font-family: "Cinzel", "Cormorant Garamond", serif !important;
+			font-weight: 600;
+			letter-spacing: 0.02em;
+		}
+		html[lang="en"] .siyaram-details__parents small {
+			font-family: "Cormorant Garamond", serif !important;
+			font-style: italic;
 		}
 		html[lang="en"] .siyaram-flow__heading,
 		html[lang="en"] .siyaram-timeline__heading,
-		html[lang="en"] .siyaram-countdown__heading,
 		html[lang="en"] .siyaram-couple__heading {
 			font-family: "Cinzel", "Playfair Display", Georgia, serif !important;
 			font-weight: 700;
-			letter-spacing: 0.06em;
+			letter-spacing: 0.05em;
 			text-transform: uppercase;
 		}
-		html[lang="en"] .siyaram-event__title,
+		html[lang="en"] .siyaram-flow__heading {
+			font-size: clamp(20px, 2.7vw, 29px) !important;
+			line-height: 1.35 !important;
+			max-width: min(600px, 90%) !important;
+			margin: 0 auto 8px !important;
+		}
 		html[lang="en"] .siyaram-event__combo-title {
 			font-family: "Cinzel", "Playfair Display", Georgia, serif !important;
 			font-weight: 700;
+			font-size: clamp(11.5px, 1.2vw, 13.5px) !important;
 			letter-spacing: 0.03em;
+			white-space: normal !important;
+			max-width: 88% !important;
+			line-height: 1.2;
+			margin: 0 auto calc(var(--siyaram-u) * 2 * var(--siyaram-card-k, 1)) !important;
+			text-align: center;
+		}
+		html[lang="en"] .siyaram-event__title {
+			font-family: "Cinzel", "Playfair Display", Georgia, serif !important;
+			font-weight: 700;
+			font-size: clamp(13px, 1.35vw, 16px) !important;
+			letter-spacing: 0.04em;
+			line-height: 1.2;
+			max-width: 90% !important;
+			margin: 0 auto !important;
+			text-align: center;
 		}
 		html[lang="en"] .siyaram-family__role {
 			font-family: "Cinzel", "Playfair Display", Georgia, serif !important;
 			font-weight: 700;
+			font-size: 17px !important;
 			letter-spacing: 0.04em;
 		}
 		html[lang="en"] .siyaram-family__tag {
@@ -102,8 +153,241 @@
 			letter-spacing: 0.14em;
 			text-transform: uppercase;
 		}
-		html[lang="en"] :is(.siyaram-timeline__subtext, .siyaram-event__date, .siyaram-event__time, .siyaram-event__combo-time, .siyaram-event__place, .siyaram-event__address, .siyaram-family__people, .siyaram-couple__message, .siyaram-flow__subtext, .siyaram-date__hint, .siyaram-date__msg, .siyaram-countdown__text, .siyaram-footer__text, .siyaram-date__label, .siyaram-countdown__label) {
+		html[lang="en"] .siyaram-family__people {
+			font-family: "Cormorant Garamond", Georgia, serif !important;
+			font-size: 15.5px !important;
+			line-height: 1.6;
+		}
+		html[lang="en"] :is(.siyaram-timeline__subtext, .siyaram-flow__subtext, .siyaram-date__hint, .siyaram-date__msg, .siyaram-couple__message) {
+			font-family: "Cormorant Garamond", Georgia, serif !important;
+			font-style: italic;
+			font-size: clamp(15px, 1.9vw, 18px);
+			line-height: 1.65;
+		}
+		html[lang="en"] :is(.siyaram-event__date, .siyaram-event__time, .siyaram-event__combo-time, .siyaram-event__place, .siyaram-event__address, .siyaram-date__label, .siyaram-countdown__label) {
 			font-family: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif !important;
+		}
+
+		/* ============ PARENTS SECTION (SEAMLESS CARDLESS) ============ */
+		.siyaram-parents-section {
+			position: relative;
+			z-index: 2;
+			padding: 36px 20px 42px;
+			background: var(--siyaram-color-cream, #faf4eb);
+			text-align: center;
+		}
+		.siyaram-parents__heading {
+			font-family: "Cinzel", "Tiro Devanagari Hindi", serif !important;
+			font-weight: 700;
+			font-size: clamp(20px, 2.7vw, 29px) !important;
+			color: var(--siyaram-color-brown, #5f250f);
+			letter-spacing: 0.05em;
+			line-height: 1.35;
+			margin: 0 auto 6px;
+			max-width: min(600px, 92%);
+		}
+		.siyaram-parents__names {
+			font-family: "Cinzel", "Tiro Devanagari Hindi", serif;
+			font-size: clamp(15px, 2vw, 20px);
+			font-weight: 700;
+			color: var(--siyaram-color-rust, #a03c1b);
+			letter-spacing: 0.04em;
+			margin: 0 auto 18px;
+		}
+		.siyaram-parents__photo-wrap {
+			display: inline-block;
+			position: relative;
+			max-width: min(330px, 86vw);
+			margin: 0 auto 18px;
+			border-radius: 24px;
+			padding: 6px;
+			background: linear-gradient(145deg, #f7dfaf, #d4a359, #b97a2e);
+			box-shadow: 0 14px 32px rgba(95, 37, 15, 0.16), 0 2px 6px rgba(0, 0, 0, 0.06);
+		}
+		.siyaram-parents__img {
+			display: block;
+			width: 100%;
+			height: auto;
+			max-height: 420px;
+			object-fit: cover;
+			border-radius: 19px;
+			background: #fff;
+		}
+		.siyaram-parents__msg {
+			font-family: "Cormorant Garamond", "Noto Serif Devanagari", Georgia, serif;
+			font-size: clamp(15px, 1.85vw, 18px);
+			font-style: italic;
+			line-height: 1.75;
+			color: #4a2412;
+			max-width: min(580px, 92vw);
+			margin: 0 auto;
+			letter-spacing: 0.02em;
+		}
+
+		/* ============ LUXURY THEMED RSVP SECTION ============ */
+		.siyaram-rsvp-section {
+			position: relative;
+			z-index: 2;
+			padding: 40px 20px 50px;
+			background: var(--siyaram-color-cream, #faf4eb);
+			text-align: center;
+		}
+		.siyaram-rsvp__container {
+			max-width: min(500px, 92vw);
+			margin: 0 auto;
+			padding: 28px 22px;
+			background: rgba(255, 255, 255, 0.94);
+			border: 1.5px solid rgba(212, 163, 89, 0.5);
+			border-radius: 22px;
+			box-shadow: 0 12px 34px rgba(95, 37, 15, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+		}
+		.siyaram-rsvp__eyebrow {
+			display: inline-block;
+			font-family: "Montserrat", sans-serif;
+			font-size: 11px;
+			font-weight: 700;
+			letter-spacing: 0.2em;
+			text-transform: uppercase;
+			color: #a03c1b;
+			margin-bottom: 4px;
+		}
+		.siyaram-rsvp__title {
+			font-family: "Cinzel", "Tiro Devanagari Hindi", serif;
+			font-size: clamp(19px, 2.5vw, 25px);
+			font-weight: 700;
+			color: #5f250f;
+			margin: 0 0 6px;
+			letter-spacing: 0.04em;
+		}
+		.siyaram-rsvp__sub {
+			font-family: "Cormorant Garamond", "Noto Serif Devanagari", serif;
+			font-size: clamp(14px, 1.8vw, 16px);
+			font-style: italic;
+			color: #6d422a;
+			margin: 0 auto 20px;
+			max-width: 92%;
+			line-height: 1.5;
+		}
+		.siyaram-rsvp__form {
+			display: flex;
+			flex-direction: column;
+			gap: 13px;
+			text-align: left;
+		}
+		.siyaram-rsvp__group {
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+		}
+		.siyaram-rsvp__label {
+			font-family: "Montserrat", sans-serif;
+			font-size: 11px;
+			font-weight: 600;
+			letter-spacing: 0.06em;
+			color: #632e18;
+			text-transform: uppercase;
+		}
+		.siyaram-rsvp__field {
+			width: 100%;
+			box-sizing: border-box;
+			padding: 11px 15px;
+			border: 1px solid rgba(212, 163, 89, 0.55);
+			border-radius: 12px;
+			background: #fffdfa;
+			font-family: "Montserrat", "Noto Serif Devanagari", sans-serif;
+			font-size: 14px;
+			color: #3b190c;
+			outline: none;
+			transition: border-color 0.25s, box-shadow 0.25s;
+		}
+		.siyaram-rsvp__field:focus {
+			border-color: #a03c1b;
+			box-shadow: 0 0 0 3px rgba(160, 60, 27, 0.15);
+		}
+		.siyaram-rsvp__row-2 {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 12px;
+		}
+		@media (max-width: 480px) {
+			.siyaram-rsvp__row-2 {
+				grid-template-columns: 1fr;
+			}
+		}
+		.siyaram-rsvp__btn-submit {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			margin-top: 8px;
+			width: 100%;
+			padding: 13px 20px;
+			border: none;
+			border-radius: 999px;
+			background: linear-gradient(135deg, #1fa855 0%, #128c7e 100%);
+			color: #ffffff !important;
+			font-family: "Montserrat", sans-serif;
+			font-size: 13.5px;
+			font-weight: 700;
+			letter-spacing: 0.03em;
+			cursor: pointer;
+			box-shadow: 0 6px 18px rgba(18, 140, 126, 0.35);
+			transition: transform 0.2s, box-shadow 0.2s;
+		}
+		.siyaram-rsvp__btn-submit:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 8px 22px rgba(18, 140, 126, 0.45);
+		}
+
+		/* ============ COUNTDOWN & FOOTER (ZERO OVERLAP) ============ */
+		.siyaram-countdown__heading {
+			white-space: nowrap !important;
+			font-size: clamp(18px, 2.4vw, 24px) !important;
+			letter-spacing: 0.08em !important;
+		}
+		.siyaram-countdown__text {
+			font-family: "Montserrat", sans-serif !important;
+			font-size: clamp(11.5px, 1.35vw, 14px) !important;
+			font-weight: 600 !important;
+			line-height: 1.4 !important;
+			letter-spacing: 0.03em !important;
+		}
+		.siyaram-footer {
+			width: 100% !important;
+			left: 0 !important;
+			text-align: center !important;
+			pointer-events: auto !important;
+		}
+		.siyaram-footer__pill {
+			display: inline-flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 3px;
+			background: rgba(255, 252, 246, 0.94);
+			backdrop-filter: blur(6px);
+			-webkit-backdrop-filter: blur(6px);
+			padding: 8px 22px;
+			border-radius: 999px;
+			border: 1px solid rgba(212, 163, 89, 0.55);
+			box-shadow: 0 4px 18px rgba(95, 37, 15, 0.12);
+			max-width: 90%;
+			margin: 0 auto;
+		}
+		.siyaram-footer__text {
+			font-family: "Cinzel", "Tiro Devanagari Hindi", serif !important;
+			font-size: 12px !important;
+			font-weight: 700 !important;
+			color: #5f250f !important;
+			margin: 0 !important;
+			letter-spacing: 0.04em !important;
+		}
+		.siyaram-footer__sub {
+			font-family: "Montserrat", sans-serif !important;
+			font-size: 10.5px !important;
+			font-weight: 600 !important;
+			color: #934c26 !important;
+			margin: 0 !important;
+			letter-spacing: 0.05em !important;
 		}
 
 		/* ============ HINDI REGAL TYPOGRAPHY ============ */
@@ -289,31 +573,79 @@
 					<h2 class="siyaram-timeline__heading siyaram-reveal" data-siyaram-reveal="rise"><span class="siyaram-only-mobile" data-i18n="timeline_heading">Wedding Itinerary</span><span class="siyaram-only-desktop" data-i18n="timeline_heading">Wedding Itinerary</span></h2>
 					<p class="siyaram-timeline__subtext siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="120" data-i18n="timeline_subtext">Tuesday, 1st December to Thursday, 3rd December 2026</p>
 					<ol class="siyaram-events" data-siyaram-events style="--rows:3">
-						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-left"><div class="siyaram-event__card"><img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false"><div class="siyaram-event__body siyaram-event__body--combo"><span class="siyaram-event__date" data-i18n="ev1_date">Tuesday • 01 December 2026</span><div class="siyaram-event__combo"><div class="siyaram-event__combo-part"><h3 class="siyaram-event__combo-title" data-i18n="ev1_p1_title">Mama Swagat</h3><span class="siyaram-event__combo-time" data-i18n="ev1_p1_time">03:50 PM Onwards</span></div><div class="siyaram-event__combo-sep" aria-hidden="true">❖</div><div class="siyaram-event__combo-part"><h3 class="siyaram-event__combo-title" data-i18n="ev1_p2_title">Shanti Pujan</h3><span class="siyaram-event__combo-time" data-i18n="ev1_p2_time">04:50 PM Onwards</span></div></div></div></div><div class="siyaram-event__info"><span class="siyaram-event__place" data-i18n="ev1_place">Residence</span><span class="siyaram-event__address" data-i18n="ev1_addr">Village & P.O. Mahlera, Teh. Krishangarh (Kuthar), Distt. Solan (H.P.)</span></div><img class="siyaram-event__ornament siyaram-event__ornament--left" src="./assets/siyaram/images/decorations/pillar-ornament-left.webp" alt="" draggable="false"><img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false"></li>
-						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-right"><div class="siyaram-event__card"><img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false"><div class="siyaram-event__body"><span class="siyaram-event__date" data-i18n="ev2_date">Tuesday • 01 December 2026</span><h3 class="siyaram-event__title" data-i18n="ev2_title">Sehra Bandi</h3><span class="siyaram-event__time" data-i18n="ev2_time">07:00 PM Onwards</span></div></div><div class="siyaram-event__info"><span class="siyaram-event__place" data-i18n="ev2_place">Residence</span><span class="siyaram-event__address" data-i18n="ev2_addr">Village & P.O. Mahlera, Teh. Krishangarh (Kuthar), Distt. Solan (H.P.)</span></div><img class="siyaram-event__ornament siyaram-event__ornament--right" src="./assets/siyaram/images/decorations/pillar-ornament-right.webp" alt="" draggable="false"><img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false"></li>
-						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-left"><div class="siyaram-event__card"><img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false"><div class="siyaram-event__body siyaram-event__body--combo"><span class="siyaram-event__date" data-i18n="ev3_date">Wednesday • 02 December 2026</span><div class="siyaram-event__combo"><div class="siyaram-event__combo-part"><h3 class="siyaram-event__combo-title" data-i18n="ev3_p1_title">Barat Prasthan</h3><span class="siyaram-event__combo-time" data-i18n="ev3_p1_time">06:00 AM Morning</span></div><div class="siyaram-event__combo-sep" aria-hidden="true">❖</div><div class="siyaram-event__combo-part"><h3 class="siyaram-event__combo-title" data-i18n="ev3_p2_title">Vadhu Pravesh</h3><span class="siyaram-event__combo-time" data-i18n="ev3_p2_time">05:00 PM Evening</span></div></div></div></div><div class="siyaram-event__info"><span class="siyaram-event__place" data-i18n="ev3_place">Residence</span><span class="siyaram-event__address" data-i18n="ev3_addr">Village & P.O. Mahlera, Teh. Krishangarh (Kuthar), Distt. Solan (H.P.)</span></div><img class="siyaram-event__ornament siyaram-event__ornament--left" src="./assets/siyaram/images/decorations/pillar-ornament-left.webp" alt="" draggable="false"><img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false"></li>
-						<li class="siyaram-event siyaram-reveal is-last-row" data-siyaram-reveal="card-right"><div class="siyaram-event__card"><img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false"><div class="siyaram-event__body"><span class="siyaram-event__date" data-i18n="ev4_date">Thursday • 03 December 2026</span><h3 class="siyaram-event__title" data-i18n="ev4_title">Traditional Dhaam (Feast)</h3><span class="siyaram-event__time" data-i18n="ev4_time">01:00 PM Afternoon</span></div></div><div class="siyaram-event__info"><span class="siyaram-event__place" data-i18n="ev4_place">Residence</span><span class="siyaram-event__address" data-i18n="ev4_addr">Village & P.O. Mahlera, Teh. Krishangarh (Kuthar), Distt. Solan (H.P.)</span></div><img class="siyaram-event__ornament siyaram-event__ornament--right" src="./assets/siyaram/images/decorations/pillar-ornament-right.webp" alt="" draggable="false"><img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false"></li>
+						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-left"><div class="siyaram-event__card"><img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false"><div class="siyaram-event__body siyaram-event__body--combo"><span class="siyaram-event__date" data-i18n="ev1_date">Tuesday • 01 December 2026</span><div class="siyaram-event__combo"><div class="siyaram-event__combo-part"><h3 class="siyaram-event__combo-title" data-i18n="ev1_p1_title">Mama Swagat</h3><span class="siyaram-event__combo-time" data-i18n="ev1_p1_time">03:50 PM</span></div><div class="siyaram-event__combo-sep" aria-hidden="true">❖</div><div class="siyaram-event__combo-part"><h3 class="siyaram-event__combo-title" data-i18n="ev1_p2_title">Shanti Pujan</h3><span class="siyaram-event__combo-time" data-i18n="ev1_p2_time">04:50 PM</span></div></div></div></div><div class="siyaram-event__info"><span class="siyaram-event__place" data-i18n="ev1_place">Residence</span><span class="siyaram-event__address" data-i18n="ev1_addr">Village & P.O. Mahlera, Teh. Krishangarh (Kuthar), Distt. Solan (H.P.)</span></div><img class="siyaram-event__ornament siyaram-event__ornament--left" src="./assets/siyaram/images/decorations/pillar-ornament-left.webp" alt="" draggable="false"><img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false"></li>
+						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-right"><div class="siyaram-event__card"><img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false"><div class="siyaram-event__body"><span class="siyaram-event__date" data-i18n="ev2_date">Tuesday • 01 December 2026</span><h3 class="siyaram-event__title" data-i18n="ev2_title">Sehra Bandi</h3><span class="siyaram-event__time" data-i18n="ev2_time">07:00 PM</span></div></div><div class="siyaram-event__info"><span class="siyaram-event__place" data-i18n="ev2_place">Residence</span><span class="siyaram-event__address" data-i18n="ev2_addr">Village & P.O. Mahlera, Teh. Krishangarh (Kuthar), Distt. Solan (H.P.)</span></div><img class="siyaram-event__ornament siyaram-event__ornament--right" src="./assets/siyaram/images/decorations/pillar-ornament-right.webp" alt="" draggable="false"><img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false"></li>
+						<li class="siyaram-event siyaram-reveal" data-siyaram-reveal="card-left"><div class="siyaram-event__card"><img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false"><div class="siyaram-event__body siyaram-event__body--combo"><span class="siyaram-event__date" data-i18n="ev3_date">Wednesday • 02 December 2026</span><div class="siyaram-event__combo"><div class="siyaram-event__combo-part"><h3 class="siyaram-event__combo-title" data-i18n="ev3_p1_title">Barat Prasthan</h3><span class="siyaram-event__combo-time" data-i18n="ev3_p1_time">06:00 AM</span></div><div class="siyaram-event__combo-sep" aria-hidden="true">❖</div><div class="siyaram-event__combo-part"><h3 class="siyaram-event__combo-title" data-i18n="ev3_p2_title">Vadhu Pravesh</h3><span class="siyaram-event__combo-time" data-i18n="ev3_p2_time">05:00 PM</span></div></div></div></div><div class="siyaram-event__info"><span class="siyaram-event__place" data-i18n="ev3_place">Residence</span><span class="siyaram-event__address" data-i18n="ev3_addr">Village & P.O. Mahlera, Teh. Krishangarh (Kuthar), Distt. Solan (H.P.)</span></div><img class="siyaram-event__ornament siyaram-event__ornament--left" src="./assets/siyaram/images/decorations/pillar-ornament-left.webp" alt="" draggable="false"><img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false"></li>
+						<li class="siyaram-event siyaram-reveal is-last-row" data-siyaram-reveal="card-right"><div class="siyaram-event__card"><img class="siyaram-event__frame" src="./assets/siyaram/images/events/event-card-frame.webp" alt="" draggable="false"><div class="siyaram-event__body"><span class="siyaram-event__date" data-i18n="ev4_date">Thursday • 03 December 2026</span><h3 class="siyaram-event__title" data-i18n="ev4_title">Traditional Dhaam</h3><span class="siyaram-event__time" data-i18n="ev4_time">01:00 PM</span></div></div><div class="siyaram-event__info"><span class="siyaram-event__place" data-i18n="ev4_place">Residence</span><span class="siyaram-event__address" data-i18n="ev4_addr">Village & P.O. Mahlera, Teh. Krishangarh (Kuthar), Distt. Solan (H.P.)</span></div><img class="siyaram-event__ornament siyaram-event__ornament--right" src="./assets/siyaram/images/decorations/pillar-ornament-right.webp" alt="" draggable="false"><img class="siyaram-event__lotus" src="./assets/siyaram/images/events/timeline-lotus-motif.webp" alt="" draggable="false"></li>
 					</ol>
 					<picture class="siyaram-timeline__lotus siyaram-reveal" data-siyaram-reveal="rise"><source media="(min-width:1024px)" srcset="./assets/siyaram/images/decorations/lotus-ornament-desktop.webp"><img src="./assets/siyaram/images/decorations/lotus-ornament-mobile.webp" alt="" draggable="false"></picture>
 				</div>
 			</section>
 		</div>
-		<section class="siyaram-flow siyaram-blessings" id="siyaram-blessings" aria-label="Blessings"><h2 class="siyaram-flow__heading siyaram-reveal" data-siyaram-reveal="zoom" data-i18n="blessings_heading">॥ Auspicious Wedding Celebration ॥</h2><p class="siyaram-blessings__subtext siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="60" data-i18n="blessings_sub">Wishing the newly wedded couple a lifetime of love, joy, and prosperity.</p></section>
-		<section class="siyaram-flow siyaram-family" id="siyaram-family" aria-label="The Bhardwaj Family Welcome">
+		<section class="siyaram-flow siyaram-parents-section" id="siyaram-parents" aria-label="Blessings of Parents">
 			<img class="siyaram-flow__ornament siyaram-reveal" data-siyaram-reveal="rise" src="./assets/siyaram/images/decorations/lotus-ornament-mobile.webp" alt="" draggable="false">
+			<h2 class="siyaram-parents__heading siyaram-reveal" data-siyaram-reveal="zoom" data-i18n="parents_heading">With the Divine Blessings of Parents</h2>
+			<p class="siyaram-parents__names siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="60" data-i18n="parents_names">Smt. Tripta Devi &amp; Shri Bhagat Ram</p>
+			<div class="siyaram-parents__photo-wrap siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="100">
+				<img src="./assets/parent.png?v=2" alt="Smt. Tripta Devi &amp; Shri Bhagat Ram" class="siyaram-parents__img" draggable="false">
+			</div>
+			<p class="siyaram-parents__msg siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="140" data-i18n="parents_msg">With immense joy and gratitude, we cordially solicit your gracious presence and heartfelt blessings as our beloved son Jasveer begins this sacred matrimonial journey with Lata. Your gracious presence will make this celebration truly blessed for our entire family.</p>
+		</section>
+		<section class="siyaram-flow siyaram-family" id="siyaram-family" aria-label="The Bhardwaj Family Welcome">
 			<h2 class="siyaram-flow__heading siyaram-reveal" data-siyaram-reveal="zoom" data-i18n="family_heading">The Bhardwaj Family Cordially Welcomes You</h2>
 			<p class="siyaram-flow__subtext siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="80" data-i18n="family_subtext">Your gracious presence will bring immense joy and honour to our celebrations. Please join us with your family to bless the couple.</p>
 			<div class="siyaram-family__wrap siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="130">
 				<div class="siyaram-family__group"><span class="siyaram-family__tag" data-i18n="fam_g1_tag">Cordially Inviting</span><h3 class="siyaram-family__role" data-i18n="fam_g1_role">Smt. Battu Devi</h3><p class="siyaram-family__people" data-i18n="fam_g1_people">W/o Late Shri Nek Ram<br>With Family</p></div>
 				<div class="siyaram-family__divider"><span>❧</span></div>
-				<div class="siyaram-family__group"><span class="siyaram-family__tag" data-i18n="fam_g2_tag">Groom's Side</span><h3 class="siyaram-family__role" data-i18n="fam_g2_role">Jasveer Singh</h3><p class="siyaram-family__people highlight" data-i18n="fam_g2_people">Smt. Tripta Devi & Shri Bhagat Ram</p></div>
+				<div class="siyaram-family__group"><span class="siyaram-family__tag" data-i18n="fam_g2_tag">Groom's Side</span><h3 class="siyaram-family__role" data-i18n="fam_g2_role">Jasveer Singh</h3><p class="siyaram-family__people highlight" data-i18n="fam_g2_people">Smt. Tripta Devi &amp; Shri Bhagat Ram</p></div>
 				<div class="siyaram-family__divider"><span>❧</span></div>
-				<div class="siyaram-family__group"><span class="siyaram-family__tag" data-i18n="fam_g3_tag">Bride's Side</span><h3 class="siyaram-family__role" data-i18n="fam_g3_role">Lata</h3><p class="siyaram-family__people highlight" data-i18n="fam_g3_people">Smt. Kamlesh & Shri Tulsi Ram</p></div>
+				<div class="siyaram-family__group"><span class="siyaram-family__tag" data-i18n="fam_g3_tag">Bride's Side</span><h3 class="siyaram-family__role" data-i18n="fam_g3_role">Lata</h3><p class="siyaram-family__people highlight" data-i18n="fam_g3_people">Smt. Kamlesh &amp; Shri Tulsi Ram</p></div>
 				<div class="siyaram-family__divider"><span>❧</span></div>
-				<div class="siyaram-family__group"><span class="siyaram-family__tag" data-i18n="fam_g4_tag">Warm Welcome By</span><h3 class="siyaram-family__role" data-i18n="fam_g4_role">The Bhardwaj Family</h3><p class="siyaram-family__people" data-i18n="fam_g4_people">Smt. Battu Devi, Shri Bhagat Ram, Smt. Tripta Devi<br>& All Relatives & Friends</p></div>
+				<div class="siyaram-family__group"><span class="siyaram-family__tag" data-i18n="fam_g4_tag">Warm Welcome By</span><h3 class="siyaram-family__role" data-i18n="fam_g4_role">The Bhardwaj Family</h3><p class="siyaram-family__people" data-i18n="fam_g4_people">Smt. Battu Devi, Shri Bhagat Ram, Smt. Tripta Devi<br>&amp; All Relatives &amp; Friends</p></div>
 			</div>
 		</section>
-		<div class="siyaram-page siyaram-page--b"><section class="siyaram-location" id="siyaram-location" aria-label="Countdown to Celebrations"><picture class="siyaram-pos siyaram-location__scene"><source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/countdown-scene-desktop.webp"><img src="./assets/siyaram/images/backgrounds/countdown-scene-mobile.webp" alt="" draggable="false"></picture><h2 class="siyaram-pos siyaram-countdown__heading siyaram-reveal" data-siyaram-reveal="zoom" data-i18n="cd_heading">Countdown to Celebrations</h2><p class="siyaram-pos siyaram-countdown__text siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="100" data-i18n="cd_text">Mama Swagat • Tuesday, 1st December 2026 • 03:50 PM</p><img class="siyaram-pos siyaram-countdown__divider siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="160" src="./assets/siyaram/images/decorations/divider-mobile.webp" alt="" draggable="false" data-siyaram-desktop-src="./assets/siyaram/images/decorations/divider-desktop.webp"><div class="siyaram-pos siyaram-countdown siyaram-reveal" data-siyaram-reveal="pop" data-siyaram-delay="220" role="timer" aria-live="off" data-siyaram-date="2026-12-01T15:50:00+05:30"><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="days">00</span><span class="siyaram-countdown__label" data-i18n="cd_days">DAYS</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="hours">00</span><span class="siyaram-countdown__label" data-i18n="cd_hours">HOURS</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="minutes">00</span><span class="siyaram-countdown__label" data-i18n="cd_mins">MINS</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="seconds">00</span><span class="siyaram-countdown__label" data-i18n="cd_secs">SECS</span></div></div><footer class="siyaram-pos siyaram-footer siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="300"><p class="siyaram-footer__text" data-i18n="footer_text1">Jasveer Singh & Lata • 1–3 December 2026</p><p class="siyaram-footer__text" style="margin-top:6px;font-size:12px;opacity:.8" data-i18n="footer_text2">Cordially Invited • Bhardwaj Family • InvCraft Media</p></footer></section></div>
+		<section class="siyaram-flow siyaram-rsvp-section" id="siyaram-rsvp" aria-label="RSVP">
+			<div class="siyaram-rsvp__container siyaram-reveal" data-siyaram-reveal="rise">
+				<div class="siyaram-rsvp__header">
+					<span class="siyaram-rsvp__eyebrow" data-i18n="rsvp_eyebrow">RSVP</span>
+					<h2 class="siyaram-rsvp__title" data-i18n="rsvp_title">Will You Grace the Occasion?</h2>
+					<p class="siyaram-rsvp__sub" data-i18n="rsvp_sub">Kindly confirm your presence by sending your warm wishes to the family.</p>
+				</div>
+				<form class="siyaram-rsvp__form" id="siyaramRsvpForm" onsubmit="return false;">
+					<div class="siyaram-rsvp__group">
+						<label class="siyaram-rsvp__label" for="rsvpName" data-i18n="rsvp_lbl_name">Your Name / परिवार का नाम</label>
+						<input type="text" id="rsvpName" class="siyaram-rsvp__field" placeholder="e.g. Rahul Sharma" required autocomplete="name">
+					</div>
+					<div class="siyaram-rsvp__row-2">
+						<div class="siyaram-rsvp__group">
+							<label class="siyaram-rsvp__label" for="rsvpAttendance" data-i18n="rsvp_lbl_attend">Attendance Status</label>
+							<select id="rsvpAttendance" class="siyaram-rsvp__field">
+								<option value="Joyfully Attending" data-i18n="rsvp_opt_yes">Joyfully Attending / अवश्य पधारेंगे</option>
+								<option value="Sending Warm Wishes" data-i18n="rsvp_opt_wishes">Sending Warm Wishes / शुभकामनाएं</option>
+							</select>
+						</div>
+						<div class="siyaram-rsvp__group">
+							<label class="siyaram-rsvp__label" for="rsvpGuests" data-i18n="rsvp_lbl_guests">Number of Guests</label>
+							<select id="rsvpGuests" class="siyaram-rsvp__field">
+								<option value="1 Guest">1 Guest</option>
+								<option value="2 Guests" selected>2 Guests</option>
+								<option value="3 Guests">3 Guests</option>
+								<option value="With Family (सपरिवार)">With Family (सपरिवार)</option>
+							</select>
+						</div>
+					</div>
+					<div class="siyaram-rsvp__group">
+						<label class="siyaram-rsvp__label" for="rsvpMsg" data-i18n="rsvp_lbl_msg">Warm Wishes (Optional)</label>
+						<input type="text" id="rsvpMsg" class="siyaram-rsvp__field" placeholder="Best wishes to Jasveer & Lata...">
+					</div>
+					<button type="button" class="siyaram-rsvp__btn-submit" id="rsvpSubmitBtn">
+						<svg class="siyaram-rsvp__wa-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 00-3.48-8.413z"/></svg>
+						<span data-i18n="rsvp_btn_text">Confirm via WhatsApp (+91 82190 85663)</span>
+					</button>
+				</form>
+			</div>
+		</section>
+		<div class="siyaram-page siyaram-page--b"><section class="siyaram-location" id="siyaram-location" aria-label="Countdown to Celebrations"><picture class="siyaram-pos siyaram-location__scene"><source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/countdown-scene-desktop.webp"><img src="./assets/siyaram/images/backgrounds/countdown-scene-mobile.webp" alt="" draggable="false"></picture><h2 class="siyaram-pos siyaram-countdown__heading siyaram-reveal" data-siyaram-reveal="zoom" data-i18n="cd_heading">Wedding Countdown</h2><p class="siyaram-pos siyaram-countdown__text siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="100" data-i18n="cd_text">Mama Swagat • Tuesday, 1st December 2026 • 03:50 PM</p><img class="siyaram-pos siyaram-countdown__divider siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="160" src="./assets/siyaram/images/decorations/divider-mobile.webp" alt="" draggable="false" data-siyaram-desktop-src="./assets/siyaram/images/decorations/divider-desktop.webp"><div class="siyaram-pos siyaram-countdown siyaram-reveal" data-siyaram-reveal="pop" data-siyaram-delay="220" role="timer" aria-live="off" data-siyaram-date="2026-12-01T15:50:00+05:30"><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="days">00</span><span class="siyaram-countdown__label" data-i18n="cd_days">DAYS</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="hours">00</span><span class="siyaram-countdown__label" data-i18n="cd_hours">HOURS</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="minutes">00</span><span class="siyaram-countdown__label" data-i18n="cd_mins">MINS</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="seconds">00</span><span class="siyaram-countdown__label" data-i18n="cd_secs">SECS</span></div></div><footer class="siyaram-pos siyaram-footer siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="300"><div class="siyaram-footer__pill"><p class="siyaram-footer__text" data-i18n="footer_text1">Jasveer Singh & Lata • 1–3 December 2026</p><p class="siyaram-footer__sub" data-i18n="footer_text2">The Bhardwaj Family • InvCraft Media</p></div></footer></section></div>
 	</div>
 	<script src="./assets/siyaram/jquery.min.js"></script>
 	<script src="./script.js?v=4"></script>

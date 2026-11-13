@@ -80,8 +80,8 @@ window.inviteutsavSiyaramData = {
       var guard = 0;
       var limit = body.clientHeight * 0.64; // the frame's inner window is shorter than the box
       var last = body.lastElementChild;
-      while (last && last.offsetTop + last.offsetHeight > limit && k > 0.4 && guard++ < 16) {
-        k -= 0.04;
+      while (last && last.offsetTop + last.offsetHeight > limit && k > 0.75 && guard++ < 16) {
+        k -= 0.03;
         body.style.setProperty('--siyaram-tfit', k.toFixed(2));
       }
     });
@@ -1067,32 +1067,35 @@ window.inviteutsavSiyaramData = {
       timeline_subtext: "Tuesday, 1st December to Thursday, 3rd December 2026",
       ev1_date: "Tuesday • 01 December 2026",
       ev1_p1_title: "Mama Swagat",
-      ev1_p1_time: "03:50 PM Onwards",
+      ev1_p1_time: "03:50 PM",
       ev1_p2_title: "Shanti Pujan",
-      ev1_p2_time: "04:50 PM Onwards",
+      ev1_p2_time: "04:50 PM",
       ev1_place: "Residence",
       ev1_addr: "Village & P.O. Mahlera, Teh. Krishangarh (Kuthar), Distt. Solan (H.P.)",
       ev2_date: "Tuesday • 01 December 2026",
       ev2_title: "Sehra Bandi",
-      ev2_time: "07:00 PM Onwards",
+      ev2_time: "07:00 PM",
       ev2_place: "Residence",
       ev2_addr: "Village & P.O. Mahlera, Teh. Krishangarh (Kuthar), Distt. Solan (H.P.)",
       ev3_date: "Wednesday • 02 December 2026",
       ev3_p1_title: "Barat Prasthan",
-      ev3_p1_time: "06:00 AM Morning",
+      ev3_p1_time: "06:00 AM",
       ev3_p2_title: "Vadhu Pravesh",
-      ev3_p2_time: "05:00 PM Evening",
+      ev3_p2_time: "05:00 PM",
       ev3_place: "Residence",
       ev3_addr: "Village & P.O. Mahlera, Teh. Krishangarh (Kuthar), Distt. Solan (H.P.)",
       ev4_date: "Thursday • 03 December 2026",
-      ev4_title: "Traditional Dhaam (Feast)",
-      ev4_time: "01:00 PM Afternoon",
+      ev4_title: "Traditional Dhaam",
+      ev4_time: "01:00 PM",
       ev4_place: "Residence",
       ev4_addr: "Village & P.O. Mahlera, Teh. Krishangarh (Kuthar), Distt. Solan (H.P.)",
       blessings_heading: "॥ Auspicious Wedding Celebration ॥",
       blessings_sub: "Wishing the newly wedded couple a lifetime of love, joy, and prosperity.",
+      parents_heading: "With the Divine Blessings of Parents",
+      parents_names: "Smt. Tripta Devi & Shri Bhagat Ram",
+      parents_msg: "With immense joy and gratitude, we cordially solicit your gracious presence and heartfelt blessings as our beloved son Jasveer begins this sacred matrimonial journey with Lata. Your gracious presence will make this celebration truly blessed for our entire family.",
       family_heading: "The Bhardwaj Family Cordially Welcomes You",
-      family_subtext: "Your gracious presence will bring immense joy and honour to our celebrations. Please join us with your family to bless the couple.",
+      family_subtext: "Your gracious presence will bring immense joy and honour to our celebrations. Please join us with your family to bless the newly wedded couple.",
       fam_g1_tag: "Cordially Inviting",
       fam_g1_role: "Smt. Battu Devi",
       fam_g1_people: "W/o Late Shri Nek Ram<br>With Family",
@@ -1105,14 +1108,24 @@ window.inviteutsavSiyaramData = {
       fam_g4_tag: "Warm Welcome By",
       fam_g4_role: "The Bhardwaj Family",
       fam_g4_people: "Smt. Battu Devi, Shri Bhagat Ram, Smt. Tripta Devi<br>& All Relatives & Friends",
-      cd_heading: "Countdown to Celebrations",
+      rsvp_eyebrow: "RSVP",
+      rsvp_title: "Will You Grace the Occasion?",
+      rsvp_sub: "Kindly confirm your presence by sending your warm wishes to the family.",
+      rsvp_lbl_name: "Your Name / Family Name",
+      rsvp_lbl_attend: "Attendance Status",
+      rsvp_lbl_guests: "Number of Guests",
+      rsvp_lbl_msg: "Warm Wishes (Optional)",
+      rsvp_opt_yes: "Joyfully Attending",
+      rsvp_opt_wishes: "Sending Warm Wishes",
+      rsvp_btn_text: "Confirm via WhatsApp (+91 82190 85663)",
+      cd_heading: "Wedding Countdown",
       cd_text: "Mama Swagat • Tuesday, 1st December 2026 • 03:50 PM",
       cd_days: "DAYS",
       cd_hours: "HOURS",
       cd_mins: "MINS",
       cd_secs: "SECS",
       footer_text1: "Jasveer Singh & Lata • 1–3 December 2026",
-      footer_text2: "Cordially Invited • Bhardwaj Family • InvCraft Media"
+      footer_text2: "The Bhardwaj Family • InvCraft Media"
     },
     hi: {
       page_title: "चि० जसवीर सिंह एवं आ० लता — विवाह निमंत्रण",
@@ -1163,12 +1176,15 @@ window.inviteutsavSiyaramData = {
       ev3_place: "निवास स्थान",
       ev3_addr: "ग्राम व डा. महलेरा, तह. कृष्णगढ़ (कुठाड़), जिला सोलन (हि.प्र.)",
       ev4_date: "वीरवार • 03 दिसंबर 2026",
-      ev4_title: "धाम (प्रीतिभोज)",
+      ev4_title: "शुभ धाम (प्रीतिभोज)",
       ev4_time: "01.00 बजे दोपहर",
       ev4_place: "निवास स्थान",
       ev4_addr: "ग्राम व डा. महलेरा, तह. कृष्णगढ़ (कुठाड़), जिला सोलन (हि.प्र.)",
       blessings_heading: "॥ शुभ विवाहोत्सव ॥",
       blessings_sub: "ईश्वर से नवयुगल के सुखद एवं मंगलमय जीवन की कामना करते हैं।",
+      parents_heading: "पूज्य माता-पिता का सस्नेह शुभाशीर्वाद",
+      parents_names: "श्रीमती तृप्ता देवी एवं श्री भगत राम",
+      parents_msg: "परमपिता परमात्मा के असीम आशीर्वाद से हमारे सुपुत्र चि० जसवीर के शुभ परिणयोत्सव पर आ० लता संग नव जीवन की पावन शुरुआत की इस वेला पर आप सभी स्नेहीजनों का सपरिवार हार्दिक स्वागत एवं अभिनंदन है। कृपया पधारकर नवदंपति को शुभाशीर्वाद प्रदान करें।",
       family_heading: "भारद्वाज परिवार की ओर से आपका हार्दिक स्वागत है",
       family_subtext: "आपकी उपस्थिति हमारे लिए सम्मान और हर्ष का विषय होगी। सपरिवार पधारें और नवयुगल को अपना स्नेह एवं आशीर्वाद दें।",
       fam_g1_tag: "सादर आमंत्रित",
@@ -1183,6 +1199,16 @@ window.inviteutsavSiyaramData = {
       fam_g4_tag: "हार्दिक स्वागतकर्ता",
       fam_g4_role: "भारद्वाज परिवार",
       fam_g4_people: "श्रीमती बत्तु देवी, श्री भगत राम, श्रीमती तृप्ता देवी<br>एवं समस्त परिवार व मित्रगण",
+      rsvp_eyebrow: "आर.एस.वी.पी.",
+      rsvp_title: "समारोह में आपकी उपस्थिति",
+      rsvp_sub: "कृपया अपनी उपस्थिति की पुष्टि कर परिवार को शुभकामनाएं प्रेषित करें।",
+      rsvp_lbl_name: "आपका नाम / परिवार का नाम",
+      rsvp_lbl_attend: "उपस्थिति स्थिति",
+      rsvp_lbl_guests: "सदस्यों की संख्या",
+      rsvp_lbl_msg: "शुभकामना संदेश (वैकल्पिक)",
+      rsvp_opt_yes: "हाँ, अवश्य पधारेंगे",
+      rsvp_opt_wishes: "हार्दिक शुभकामनाएं",
+      rsvp_btn_text: "व्हाट्सएप पर पुष्टि करें (+91 82190 85663)",
       cd_heading: "शुभारंभ तक",
       cd_text: "मामा स्वागत • मंगलवार, 1 दिसंबर 2026 • 03.50 बजे सायं",
       cd_days: "दिन",
@@ -1190,7 +1216,7 @@ window.inviteutsavSiyaramData = {
       cd_mins: "मिनट",
       cd_secs: "सेकंड",
       footer_text1: "जसवीर सिंह एवं लता • 1–3 दिसंबर 2026",
-      footer_text2: "सादर आमंत्रित • भारद्वाज परिवार • InvCraft Media"
+      footer_text2: "भारद्वाज परिवार • InvCraft Media"
     }
   };
 
@@ -1261,6 +1287,51 @@ window.inviteutsavSiyaramData = {
         localStorage.setItem('jasveer_lang', currentLang);
       } catch (e) {}
       applyLanguage(currentLang);
+    });
+  }
+
+  // RSVP Form Submission -> Redirect to WhatsApp on +91 82190 85663
+  var rsvpBtn = document.getElementById('rsvpSubmitBtn');
+  if (rsvpBtn) {
+    rsvpBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var nameEl = document.getElementById('rsvpName');
+      var name = nameEl ? nameEl.value.trim() : '';
+      if (!name) {
+        if (nameEl) {
+          nameEl.focus();
+          nameEl.style.borderColor = '#c93a12';
+        }
+        alert(currentLang === 'hi' ? 'कृपया अपना नाम दर्ज करें।' : 'Please enter your name.');
+        return;
+      }
+      var attendEl = document.getElementById('rsvpAttendance');
+      var attendance = attendEl ? attendEl.value : 'Joyfully Attending';
+      var guestsEl = document.getElementById('rsvpGuests');
+      var guests = guestsEl ? guestsEl.value : '2 Guests';
+      var msgEl = document.getElementById('rsvpMsg');
+      var msg = msgEl ? msgEl.value.trim() : '';
+
+      var text = '';
+      if (currentLang === 'hi') {
+        text = 'नमस्ते! 🙏\n\n*विवाह निमंत्रण RSVP — जसवीर एवं लता*\n\n' +
+          '• *अतिथि का नाम:* ' + name + '\n' +
+          '• *उपस्थिति:* ' + attendance + '\n' +
+          '• *सदस्यों की संख्या:* ' + guests + '\n' +
+          (msg ? ('• *शुभकामना संदेश:* ' + msg + '\n') : '') +
+          '\nहार्दिक बधाई एवं मंगलकामनाएं! ✨';
+      } else {
+        text = 'Namaste! 🙏\n\n*Wedding RSVP — Jasveer & Lata*\n\n' +
+          '• *Guest Name:* ' + name + '\n' +
+          '• *Attendance:* ' + attendance + '\n' +
+          '• *Number of Guests:* ' + guests + '\n' +
+          (msg ? ('• *Wishes:* ' + msg + '\n') : '') +
+          '\nHeartiest congratulations to the newly wedded couple & family! ✨';
+      }
+
+      var phone = '918219085663';
+      var waUrl = 'https://api.whatsapp.com/send?phone=' + phone + '&text=' + encodeURIComponent(text);
+      window.open(waUrl, '_blank');
     });
   }
 })();
