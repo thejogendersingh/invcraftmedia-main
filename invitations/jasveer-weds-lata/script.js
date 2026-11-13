@@ -1,6 +1,6 @@
 window.inviteutsavSiyaramData = {
   "bride": { "name": "Lata", "shortName": "Lata", "father": "Shri Tulsi Ram", "mother": "Smt. Kamlesh" },
-  "groom": { "name": "Jasveer Singh", "shortName": "Jasveer Singh", "father": "Shri Bhagat Ram", "mother": "Smt. Tripta Devi" },
+  "groom": { "name": "Jasbir Singh", "shortName": "Jasbir Singh", "father": "Shri Bhagat Ram", "mother": "Smt. Tripta Devi" },
   "wedding": { "dateISO": "2026-12-01T15:50:00+05:30", "hasDate": true, "dateDisplay": "1 December 2026", "dateNum": "01", "month": "DEC", "year": "2026", "city": "Mahlera, Krishangarh (Kuthar), Solan, Himachal Pradesh", "musicSrc": "./assets/intro-bgm.mp3?v=3" },
   "events": [],
   "venues": [],
@@ -1037,18 +1037,18 @@ window.inviteutsavSiyaramData = {
 
   var TRANSLATIONS = {
     en: {
-      page_title: "Jasveer Singh & Lata — Wedding Invitation",
+      page_title: "Jasbir Singh & Lata — Wedding Invitation",
       tap_heading: "Tap to Open",
       tap_sub: "✦ Cordially Invited ✦",
       scroll_cue: "Scroll Down",
-      hero_groom: "Jasveer Singh",
+      hero_groom: "Jasbir Singh",
       hero_weds: "weds",
       hero_bride: "Lata",
       vandana: "॥ Om Shri Ganeshay Namah ॥<br>Vakratunda Mahakaya Suryakoti Samaprabha |<br>Nirvighnam Kuru Me Deva Sarvakaryeshu Sarvada ॥",
       blessing_line: "By the divine grace of the Almighty and eternal blessings of our ancestors and deities",
       grandma: "Smt. Battu Devi<br><small>(W/o Late Shri Nek Ram)</small>",
       intro_relation: "solicits your gracious presence at the wedding ceremony of her grandson",
-      groom_name: "Jasveer Singh",
+      groom_name: "Jasbir Singh",
       groom_parents: "(Son of Smt. Tripta Devi & Shri Bhagat Ram)",
       connector: "with",
       bride_name: "Lata",
@@ -1093,14 +1093,14 @@ window.inviteutsavSiyaramData = {
       blessings_sub: "Wishing the newly wedded couple a lifetime of love, joy, and prosperity.",
       parents_heading: "With the Divine Blessings of Parents",
       parents_names: "Smt. Tripta Devi & Shri Bhagat Ram",
-      parents_msg: "With immense joy and gratitude, we cordially solicit your gracious presence and heartfelt blessings as our beloved son Jasveer begins this sacred matrimonial journey with Lata. Your gracious presence will make this celebration truly blessed for our entire family.",
+      parents_msg: "With immense joy and gratitude, we cordially solicit your gracious presence and heartfelt blessings as our beloved son Jasbir begins this sacred matrimonial journey with Lata. Your gracious presence will make this celebration truly blessed for our entire family.",
       family_heading: "The Bhardwaj Family Cordially Welcomes You",
       family_subtext: "Your gracious presence will bring immense joy and honour to our celebrations. Please join us with your family to bless the newly wedded couple.",
       fam_g1_tag: "Cordially Inviting",
       fam_g1_role: "Smt. Battu Devi",
       fam_g1_people: "W/o Late Shri Nek Ram<br>With Family",
       fam_g2_tag: "Groom's Side",
-      fam_g2_role: "Jasveer Singh",
+      fam_g2_role: "Jasbir Singh",
       fam_g2_people: "Smt. Tripta Devi & Shri Bhagat Ram",
       fam_g3_tag: "Bride's Side",
       fam_g3_role: "Lata",
@@ -1125,22 +1125,22 @@ window.inviteutsavSiyaramData = {
       cd_hours: "HOURS",
       cd_mins: "MINS",
       cd_secs: "SECS",
-      footer_text1: "Jasveer Singh & Lata • 1–3 December 2026",
+      footer_text1: "Jasbir Singh & Lata • 1–3 December 2026",
       footer_text2: "The Bhardwaj Family • InvCraft Media"
     },
     hi: {
-      page_title: "चि० जसवीर सिंह एवं आ० लता — विवाह निमंत्रण",
+      page_title: "चि० जसबीर सिंह एवं आ० लता — विवाह निमंत्रण",
       tap_heading: "Tap to Open",
       tap_sub: "✦ निमंत्रण पत्र खोलें ✦",
       scroll_cue: "Scroll Down",
-      hero_groom: "चि० जसवीर सिंह",
+      hero_groom: "चि० जसबीर सिंह",
       hero_weds: "संग",
       hero_bride: "आ० लता",
       vandana: "॥ ॐ श्री गणेशाय नमः ॥<br>वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥",
       blessing_line: "परमपिता परमात्मा की असीम अनुकम्पा एवं कुलईष्ट व देवी-देवताओं के परोक्ष आशीर्वाद से",
       grandma: "श्रीमती बत्तु देवी<br><small>(धर्मपत्नी स्व. श्री नेक राम)</small>",
       intro_relation: "अपने सुपौत्र",
-      groom_name: "चि० जसवीर सिंह",
+      groom_name: "चि० जसबीर सिंह",
       groom_parents: "(सुपुत्र श्रीमती तृप्ता देवी एवं श्री भगत राम)",
       connector: "संग",
       bride_name: "आ० लता",
@@ -1185,14 +1185,14 @@ window.inviteutsavSiyaramData = {
       blessings_sub: "ईश्वर से नवयुगल के सुखद एवं मंगलमय जीवन की कामना करते हैं।",
       parents_heading: "पूज्य माता-पिता का सस्नेह शुभाशीर्वाद",
       parents_names: "श्रीमती तृप्ता देवी एवं श्री भगत राम",
-      parents_msg: "परमपिता परमात्मा के असीम आशीर्वाद से हमारे सुपुत्र चि० जसवीर के शुभ परिणयोत्सव पर आ० लता संग नव जीवन की पावन शुरुआत की इस वेला पर आप सभी स्नेहीजनों का सपरिवार हार्दिक स्वागत एवं अभिनंदन है। कृपया पधारकर नवदंपति को शुभाशीर्वाद प्रदान करें।",
+      parents_msg: "परमपिता परमात्मा के असीम आशीर्वाद से हमारे सुपुत्र चि० जसबीर के शुभ परिणयोत्सव पर आ० लता संग नव जीवन की पावन शुरुआत की इस वेला पर आप सभी स्नेहीजनों का सपरिवार हार्दिक स्वागत एवं अभिनंदन है। कृपया पधारकर नवदंपति को शुभाशीर्वाद प्रदान करें।",
       family_heading: "भारद्वाज परिवार की ओर से आपका हार्दिक स्वागत है",
       family_subtext: "आपकी उपस्थिति हमारे लिए सम्मान और हर्ष का विषय होगी। सपरिवार पधारें और नवयुगल को अपना स्नेह एवं आशीर्वाद दें।",
       fam_g1_tag: "सादर आमंत्रित",
       fam_g1_role: "श्रीमती बत्तु देवी",
       fam_g1_people: "धर्मपत्नी स्व. श्री नेक राम<br>अपने परिवार सहित",
       fam_g2_tag: "वर पक्ष",
-      fam_g2_role: "चि० जसवीर सिंह",
+      fam_g2_role: "चि० जसबीर सिंह",
       fam_g2_people: "श्रीमती तृप्ता देवी एवं श्री भगत राम",
       fam_g3_tag: "वधू पक्ष",
       fam_g3_role: "आ० लता",
@@ -1217,7 +1217,7 @@ window.inviteutsavSiyaramData = {
       cd_hours: "घंटे",
       cd_mins: "मिनट",
       cd_secs: "सेकंड",
-      footer_text1: "जसवीर सिंह एवं लता • 1–3 दिसंबर 2026",
+      footer_text1: "जसबीर सिंह एवं लता • 1–3 दिसंबर 2026",
       footer_text2: "भारद्वाज परिवार • InvCraft Media"
     }
   };
@@ -1316,14 +1316,14 @@ window.inviteutsavSiyaramData = {
 
       var text = '';
       if (currentLang === 'hi') {
-        text = 'नमस्ते! 🙏\n\n*विवाह निमंत्रण RSVP — जसवीर एवं लता*\n\n' +
+        text = 'नमस्ते! 🙏\n\n*विवाह निमंत्रण RSVP — जसबीर एवं लता*\n\n' +
           '• *अतिथि का नाम:* ' + name + '\n' +
           '• *उपस्थिति:* ' + attendance + '\n' +
           '• *सदस्यों की संख्या:* ' + guests + '\n' +
           (msg ? ('• *शुभकामना संदेश:* ' + msg + '\n') : '') +
           '\nहार्दिक बधाई एवं मंगलकामनाएं! ✨';
       } else {
-        text = 'Namaste! 🙏\n\n*Wedding RSVP — Jasveer & Lata*\n\n' +
+        text = 'Namaste! 🙏\n\n*Wedding RSVP — Jasbir & Lata*\n\n' +
           '• *Guest Name:* ' + name + '\n' +
           '• *Attendance:* ' + attendance + '\n' +
           '• *Number of Guests:* ' + guests + '\n' +
