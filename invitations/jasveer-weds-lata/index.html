@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="siyaram-skin-siyaram-raghukul">
 <head>
 	<meta charset="utf-8">
@@ -23,7 +23,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="./style.css?v=4">
+	<link rel="stylesheet" href="./style.css?v=5">
 	<style>
 		/* ============ LUXURY REGAL ENGLISH & BILINGUAL TYPOGRAPHY ============ */
 		/* Symmetric Hero Vertical Placement */
@@ -195,23 +195,16 @@
 			margin: 0 auto 18px;
 		}
 		.siyaram-parents__photo-wrap {
-			display: inline-block;
-			position: relative;
-			max-width: min(330px, 86vw);
+			display: block;
+			max-width: min(340px, 86vw);
 			margin: 0 auto 18px;
-			border-radius: 24px;
-			padding: 6px;
-			background: linear-gradient(145deg, #f7dfaf, #d4a359, #b97a2e);
-			box-shadow: 0 14px 32px rgba(95, 37, 15, 0.16), 0 2px 6px rgba(0, 0, 0, 0.06);
 		}
 		.siyaram-parents__img {
 			display: block;
 			width: 100%;
 			height: auto;
-			max-height: 420px;
-			object-fit: cover;
-			border-radius: 19px;
-			background: #fff;
+			max-height: 460px;
+			object-fit: contain;
 		}
 		.siyaram-parents__msg {
 			font-family: "Cormorant Garamond", "Noto Serif Devanagari", Georgia, serif;
@@ -233,13 +226,18 @@
 			text-align: center;
 		}
 		.siyaram-rsvp__container {
-			max-width: min(500px, 92vw);
+			max-width: min(460px, 90vw);
 			margin: 0 auto;
-			padding: 28px 22px;
-			background: rgba(255, 255, 255, 0.94);
-			border: 1.5px solid rgba(212, 163, 89, 0.5);
-			border-radius: 22px;
-			box-shadow: 0 12px 34px rgba(95, 37, 15, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+			padding: 0;
+			background: none;
+			border: none;
+			box-shadow: none;
+		}
+		.siyaram-rsvp__ornament {
+			display: block;
+			width: 120px;
+			height: auto;
+			margin: 0 auto 8px;
 		}
 		.siyaram-rsvp__eyebrow {
 			display: inline-block;
@@ -324,19 +322,20 @@
 			padding: 13px 20px;
 			border: none;
 			border-radius: 999px;
-			background: linear-gradient(135deg, #1fa855 0%, #128c7e 100%);
-			color: #ffffff !important;
+			background: linear-gradient(135deg, #8f1d2c 0%, #5e0f1c 100%);
+			color: #ffe9bd !important;
 			font-family: "Montserrat", sans-serif;
 			font-size: 13.5px;
 			font-weight: 700;
 			letter-spacing: 0.03em;
 			cursor: pointer;
-			box-shadow: 0 6px 18px rgba(18, 140, 126, 0.35);
+			border: 1px solid #d8a03a;
+			box-shadow: 0 6px 18px rgba(94, 15, 28, 0.3);
 			transition: transform 0.2s, box-shadow 0.2s;
 		}
 		.siyaram-rsvp__btn-submit:hover {
 			transform: translateY(-2px);
-			box-shadow: 0 8px 22px rgba(18, 140, 126, 0.45);
+			box-shadow: 0 8px 22px rgba(94, 15, 28, 0.4);
 		}
 
 		/* ============ COUNTDOWN & FOOTER (ZERO OVERLAP) ============ */
@@ -358,36 +357,22 @@
 			text-align: center !important;
 			pointer-events: auto !important;
 		}
-		.siyaram-footer__pill {
-			display: inline-flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 3px;
-			background: rgba(255, 252, 246, 0.94);
-			backdrop-filter: blur(6px);
-			-webkit-backdrop-filter: blur(6px);
-			padding: 8px 22px;
-			border-radius: 999px;
-			border: 1px solid rgba(212, 163, 89, 0.55);
-			box-shadow: 0 4px 18px rgba(95, 37, 15, 0.12);
-			max-width: 90%;
-			margin: 0 auto;
-		}
 		.siyaram-footer__text {
 			font-family: "Cinzel", "Tiro Devanagari Hindi", serif !important;
-			font-size: 12px !important;
+			font-size: 13px !important;
 			font-weight: 700 !important;
-			color: #5f250f !important;
+			color: var(--siyaram-color-brown, #4b0f16) !important;
 			margin: 0 !important;
-			letter-spacing: 0.04em !important;
+			letter-spacing: 0.03em !important;
 		}
 		.siyaram-footer__sub {
-			font-family: "Montserrat", sans-serif !important;
-			font-size: 10.5px !important;
+			font-family: "Montserrat", "Noto Serif Devanagari", sans-serif !important;
+			font-size: 11.5px !important;
 			font-weight: 600 !important;
-			color: #934c26 !important;
-			margin: 0 !important;
-			letter-spacing: 0.05em !important;
+			color: var(--siyaram-color-brown, #4b0f16) !important;
+			opacity: .85;
+			margin: 6px 0 0 !important;
+			letter-spacing: 0.03em !important;
 		}
 
 		/* ============ HINDI REGAL TYPOGRAPHY ============ */
@@ -406,6 +391,21 @@
 		html[lang="hi"] .siyaram-hero__connector { font-size:clamp(20px, 5.8vw, 30px) !important; font-style:normal !important; rotate:0deg !important; }
 		html[lang="hi"] .siyaram-details__name { text-transform:none !important; letter-spacing:normal !important; }
 		html[lang="hi"] .siyaram-details__connector { rotate:-9deg !important; }
+
+		/* Details panel names: always shrink to fit inside the panel */
+		.siyaram-invitation .siyaram-details__stack .siyaram-details__name {
+			--fit-w: 240;
+			font-size: calc(var(--siyaram-u) * 32 * var(--siyaram-fit, 1)) !important;
+			white-space: nowrap;
+			max-width: 86%;
+		}
+		@media (min-width: 1024px) {
+			.siyaram-invitation .siyaram-details__stack .siyaram-details__name {
+				--fit-w: 620;
+				font-size: calc(var(--siyaram-u) * 80 * var(--siyaram-fit, 1)) !important;
+			}
+		}
+		.siyaram-rsvp__wishes { margin-bottom: 4px !important; }
 
 		/* Common Component Styles */
 		.intro-overlay { cursor:pointer; background:#34100f; }
@@ -607,6 +607,8 @@
 		<section class="siyaram-flow siyaram-rsvp-section" id="siyaram-rsvp" aria-label="RSVP">
 			<div class="siyaram-rsvp__container siyaram-reveal" data-siyaram-reveal="rise">
 				<div class="siyaram-rsvp__header">
+					<img class="siyaram-rsvp__ornament" src="./assets/siyaram/images/decorations/lotus-ornament-mobile.webp" alt="" draggable="false">
+					<h2 class="siyaram-flow__heading siyaram-rsvp__wishes" data-i18n="rsvp_wishes_heading">Send Your Warm Wishes</h2>
 					<span class="siyaram-rsvp__eyebrow" data-i18n="rsvp_eyebrow">RSVP</span>
 					<h2 class="siyaram-rsvp__title" data-i18n="rsvp_title">Will You Grace the Occasion?</h2>
 					<p class="siyaram-rsvp__sub" data-i18n="rsvp_sub">Kindly confirm your presence by sending your warm wishes to the family.</p>
@@ -645,9 +647,9 @@
 				</form>
 			</div>
 		</section>
-		<div class="siyaram-page siyaram-page--b"><section class="siyaram-location" id="siyaram-location" aria-label="Countdown to Celebrations"><picture class="siyaram-pos siyaram-location__scene"><source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/countdown-scene-desktop.webp"><img src="./assets/siyaram/images/backgrounds/countdown-scene-mobile.webp" alt="" draggable="false"></picture><h2 class="siyaram-pos siyaram-countdown__heading siyaram-reveal" data-siyaram-reveal="zoom" data-i18n="cd_heading">Wedding Countdown</h2><p class="siyaram-pos siyaram-countdown__text siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="100" data-i18n="cd_text">Mama Swagat • Tuesday, 1st December 2026 • 03:50 PM</p><img class="siyaram-pos siyaram-countdown__divider siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="160" src="./assets/siyaram/images/decorations/divider-mobile.webp" alt="" draggable="false" data-siyaram-desktop-src="./assets/siyaram/images/decorations/divider-desktop.webp"><div class="siyaram-pos siyaram-countdown siyaram-reveal" data-siyaram-reveal="pop" data-siyaram-delay="220" role="timer" aria-live="off" data-siyaram-date="2026-12-01T15:50:00+05:30"><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="days">00</span><span class="siyaram-countdown__label" data-i18n="cd_days">DAYS</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="hours">00</span><span class="siyaram-countdown__label" data-i18n="cd_hours">HOURS</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="minutes">00</span><span class="siyaram-countdown__label" data-i18n="cd_mins">MINS</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="seconds">00</span><span class="siyaram-countdown__label" data-i18n="cd_secs">SECS</span></div></div><footer class="siyaram-pos siyaram-footer siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="300"><div class="siyaram-footer__pill"><p class="siyaram-footer__text" data-i18n="footer_text1">Jasveer Singh & Lata • 1–3 December 2026</p><p class="siyaram-footer__sub" data-i18n="footer_text2">The Bhardwaj Family • InvCraft Media</p></div></footer></section></div>
+		<div class="siyaram-page siyaram-page--b"><section class="siyaram-location" id="siyaram-location" aria-label="Countdown to Celebrations"><picture class="siyaram-pos siyaram-location__scene"><source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/countdown-scene-desktop.webp"><img src="./assets/siyaram/images/backgrounds/countdown-scene-mobile.webp" alt="" draggable="false"></picture><h2 class="siyaram-pos siyaram-countdown__heading siyaram-reveal" data-siyaram-reveal="zoom" data-i18n="cd_heading">Wedding Countdown</h2><p class="siyaram-pos siyaram-countdown__text siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="100" data-i18n="cd_text">Mama Swagat • Tuesday, 1st December 2026 • 03:50 PM</p><img class="siyaram-pos siyaram-countdown__divider siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="160" src="./assets/siyaram/images/decorations/divider-mobile.webp" alt="" draggable="false" data-siyaram-desktop-src="./assets/siyaram/images/decorations/divider-desktop.webp"><div class="siyaram-pos siyaram-countdown siyaram-reveal" data-siyaram-reveal="pop" data-siyaram-delay="220" role="timer" aria-live="off" data-siyaram-date="2026-12-01T15:50:00+05:30"><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="days">00</span><span class="siyaram-countdown__label" data-i18n="cd_days">DAYS</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="hours">00</span><span class="siyaram-countdown__label" data-i18n="cd_hours">HOURS</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="minutes">00</span><span class="siyaram-countdown__label" data-i18n="cd_mins">MINS</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="seconds">00</span><span class="siyaram-countdown__label" data-i18n="cd_secs">SECS</span></div></div><footer class="siyaram-pos siyaram-footer siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="300"><p class="siyaram-footer__text" data-i18n="footer_text1">Jasveer Singh & Lata • 1–3 December 2026</p><p class="siyaram-footer__text siyaram-footer__sub" data-i18n="footer_text2">The Bhardwaj Family • InvCraft Media</p></footer></section></div>
 	</div>
 	<script src="./assets/siyaram/jquery.min.js"></script>
-	<script src="./script.js?v=4"></script>
+	<script src="./script.js?v=5"></script>
 </body>
 </html>
