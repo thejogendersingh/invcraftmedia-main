@@ -23,7 +23,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="./style.css?v=2">
+	<link rel="stylesheet" href="./style.css?v=3">
 	<style>
 		html[lang="hi"] .siyaram-invitation :is(h1,h2,h3,p,span,small,button,figcaption,a) {
 			font-family: "Noto Serif Devanagari", "Nirmala UI", "Mangal", serif;
@@ -50,13 +50,13 @@
 </head>
 <body class="siyaram-body">
 	<div class="intro-overlay" id="intro-overlay" role="button" tabindex="0" aria-label="Tap to open wedding invitation">
-		<video id="intro-video" class="intro-video" src="./assets/intro-video.mp4" poster="./assets/intro-poster.jpg" playsinline webkit-playsinline preload="metadata"></video>
+		<video id="intro-video" class="intro-video" src="./assets/intro-video.mp4?v=3" poster="./assets/intro-poster.jpg?v=3" playsinline webkit-playsinline preload="metadata"></video>
 		<div id="intro-tap-cue" class="intro-tap-cue" aria-hidden="true"><p class="intro-tap-heading">Tap to Open</p><span class="intro-tap-sub">✦ निमंत्रण पत्र खोलें ✦</span></div>
 	</div>
 	<div id="intro-white-flash" class="intro-white-flash" aria-hidden="true"></div>
 	<div class="siyaram-music-wrap">
 		<button type="button" class="siyaram-music" id="musicToggle" aria-label="संगीत चालू या बंद करें" aria-pressed="false"><span class="siyaram-music__bars"><i></i><i></i><i></i></span></button>
-		<audio class="siyaram-music__audio" loop preload="none" src="./assets/intro-bgm.mp3"></audio>
+		<audio class="siyaram-music__audio" loop preload="none" src="./assets/intro-bgm.mp3?v=3"></audio>
 	</div>
 	<div class="siyaram-invitation siyaram-skin-siyaram-raghukul siyaram-is-ready" id="siyaram-invitation" data-siyaram-events="4" data-siyaram-venues="0">
 		<button type="button" class="siyaram-scrollcue" id="siyaram-scrollcue" aria-label="Scroll to explore invitation"><svg class="siyaram-scrollcue__arrow" viewBox="0 0 26 32" fill="none" stroke="currentColor" aria-hidden="true"><path class="siyaram-scrollcue__c1" d="M3 5 L13 14 L23 5"/><path class="siyaram-scrollcue__c2" d="M3 15 L13 24 L23 15"/></svg><span class="siyaram-scrollcue__text">Scroll Down</span></button>
@@ -97,7 +97,7 @@
 				<picture class="siyaram-pos siyaram-couple__backdrop siyaram-shift-2"><source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/couple-section-desktop.webp"><img src="./assets/siyaram/images/backgrounds/couple-section-mobile.webp" alt="" draggable="false"></picture>
 				<img class="siyaram-pos siyaram-couple__mandala siyaram-couple__mandala--left siyaram-shift-2 siyaram-reveal" data-siyaram-reveal="mandala" src="./assets/siyaram/images/decorations/mandala.webp" alt="" draggable="false"><img class="siyaram-pos siyaram-couple__mandala siyaram-couple__mandala--right siyaram-shift-2 siyaram-reveal" data-siyaram-reveal="mandala" src="./assets/siyaram/images/decorations/mandala.webp" alt="" draggable="false">
 				<div class="siyaram-pos siyaram-date siyaram-shift-2" id="siyaramDate"><svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><clipPath id="siyaramHeartClip" clipPathUnits="objectBoundingBox"><path d="M0.5,0.94 C0.5,0.94 0.04,0.62 0.04,0.31 C0.04,0.11 0.21,0 0.36,0 C0.45,0 0.5,0.07 0.5,0.07 C0.5,0.07 0.55,0 0.64,0 C0.79,0 0.96,0.11 0.96,0.31 C0.96,0.62 0.5,0.94 0.5,0.94 Z"/></clipPath></defs></svg><canvas class="siyaram-date__fireworks siyaram-date__fireworks--left" id="siyaramFireworksLeft" aria-hidden="true"></canvas><canvas class="siyaram-date__fireworks siyaram-date__fireworks--right" id="siyaramFireworksRight" aria-hidden="true"></canvas><div class="siyaram-date__inner"><p class="siyaram-date__eyebrow siyaram-reveal" data-siyaram-reveal="rise">शुभ विवाहोत्सव</p><div class="siyaram-date__hearts siyaram-reveal" data-siyaram-reveal="pop" role="group" aria-label="विवाह के कार्यक्रम की तिथियां"><div class="siyaram-date__heart"><span class="siyaram-date__label">दिन</span><span class="siyaram-date__value">01</span></div><div class="siyaram-date__heart"><span class="siyaram-date__label">माह</span><span class="siyaram-date__value">दिस</span></div><div class="siyaram-date__heart"><span class="siyaram-date__label">वर्ष</span><span class="siyaram-date__value">2026</span></div></div><p class="siyaram-date__hint siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="80">मंगलवार, 1 दिसंबर से गुरुवार, 3 दिसंबर 2026</p><p class="siyaram-date__msg siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="120">आपकी गरिमामयी उपस्थिति और आशीर्वाद हमारे लिए अनमोल होंगे।</p></div><div class="siyaram-date__cursor" id="siyaramScratchCursor" aria-hidden="true"></div></div>
-				<div class="siyaram-pos siyaram-couple__photo siyaram-shift-2 siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="60"><img src="./assets/couple.png" alt="विवाह के परिधान में जसवीर सिंह और लता" draggable="false" class="siyaram-couple__photo-img"></div>
+				<div class="siyaram-pos siyaram-couple__photo siyaram-shift-2 siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="60"><img src="./assets/couple.png?v=3" alt="विवाह के परिधान में जसवीर सिंह और लता" draggable="false" class="siyaram-couple__photo-img"></div>
 				<h2 class="siyaram-pos siyaram-couple__heading siyaram-shift-2 siyaram-reveal" data-siyaram-reveal="zoom"><span>सादर निमंत्रण</span></h2>
 				<div class="siyaram-pos siyaram-couple__card siyaram-shift-2"><p class="siyaram-couple__message" style="white-space:pre-line">कृपया पधार कर नवयुगल को अपना स्नेह एवं आशीर्वाद प्रदान करें।</p></div>
 			</section>
@@ -134,6 +134,6 @@
 		<div class="siyaram-page siyaram-page--b"><section class="siyaram-location" id="siyaram-location" aria-label="कार्यक्रम आरंभ होने में शेष समय"><picture class="siyaram-pos siyaram-location__scene"><source media="(min-width:1024px)" srcset="./assets/siyaram/images/backgrounds/countdown-scene-desktop.webp"><img src="./assets/siyaram/images/backgrounds/countdown-scene-mobile.webp" alt="" draggable="false"></picture><h2 class="siyaram-pos siyaram-countdown__heading siyaram-reveal" data-siyaram-reveal="zoom">शुभारंभ तक</h2><p class="siyaram-pos siyaram-countdown__text siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="100">मामा स्वागत • मंगलवार, 1 दिसंबर 2026 • 03.50 बजे सायं</p><img class="siyaram-pos siyaram-countdown__divider siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="160" src="./assets/siyaram/images/decorations/divider-mobile.webp" alt="" draggable="false" data-siyaram-desktop-src="./assets/siyaram/images/decorations/divider-desktop.webp"><div class="siyaram-pos siyaram-countdown siyaram-reveal" data-siyaram-reveal="pop" data-siyaram-delay="220" role="timer" aria-live="off" data-siyaram-date="2026-12-01T15:50:00+05:30"><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="days">00</span><span class="siyaram-countdown__label">दिन</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="hours">00</span><span class="siyaram-countdown__label">घंटे</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="minutes">00</span><span class="siyaram-countdown__label">मिनट</span></div><div class="siyaram-countdown__cell"><span class="siyaram-countdown__value" data-siyaram-unit="seconds">00</span><span class="siyaram-countdown__label">सेकंड</span></div></div><footer class="siyaram-pos siyaram-footer siyaram-reveal" data-siyaram-reveal="rise" data-siyaram-delay="300"><p class="siyaram-footer__text">जसवीर सिंह एवं लता • 1–3 दिसंबर 2026</p><p class="siyaram-footer__text" style="margin-top:6px;font-size:12px;opacity:.8">सादर आमंत्रित • InvCraft Media</p></footer></section></div>
 	</div>
 	<script src="./assets/siyaram/jquery.min.js"></script>
-	<script src="./script.js?v=2"></script>
+	<script src="./script.js?v=3"></script>
 </body>
 </html>

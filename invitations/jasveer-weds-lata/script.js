@@ -1,7 +1,7 @@
 window.inviteutsavSiyaramData = {
   "bride": { "name": "Lata", "shortName": "Lata", "father": "Shri Tulsi Ram", "mother": "Smt. Kamlesh" },
   "groom": { "name": "Jasveer Singh", "shortName": "Jasveer Singh", "father": "Shri Bhagat Ram", "mother": "Smt. Tripta Devi" },
-  "wedding": { "dateISO": "2026-12-01T15:50:00+05:30", "hasDate": true, "dateDisplay": "1 December 2026", "dateNum": "01", "month": "DEC", "year": "2026", "city": "Mahlera, Krishangarh (Kuthar), Solan, Himachal Pradesh", "musicSrc": "./assets/intro-bgm.mp3" },
+  "wedding": { "dateISO": "2026-12-01T15:50:00+05:30", "hasDate": true, "dateDisplay": "1 December 2026", "dateNum": "01", "month": "DEC", "year": "2026", "city": "Mahlera, Krishangarh (Kuthar), Solan, Himachal Pradesh", "musicSrc": "./assets/intro-bgm.mp3?v=3" },
   "events": [],
   "venues": [],
   "journey": [],
