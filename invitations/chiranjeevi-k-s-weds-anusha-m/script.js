@@ -27,28 +27,11 @@
     }
   }
 
-  function playMusicNow(){
+  function startMusicAfterIntro(){
     if (muted) setMusicState(false);
     musicCommand('unMute');
-    musicCommand('setVolume', [60]);
+    musicCommand('setVolume', [70]);
     musicCommand('playVideo');
-  }
-
-  function startMusic(){
-    if (muted) return;
-    if (!musicStarted) {
-      musicStarted = true;
-      if (!audioFrame.getAttribute('src')) {
-        audioFrame.src = 'https://www.youtube.com/embed/' + track + '?enablejsapi=1&autoplay=1&controls=0&loop=1&playlist=' + track + '&playsinline=1';
-      } else {
-        musicCommand('unMute');
-        musicCommand('setVolume', [60]);
-        musicCommand('playVideo');
-      }
-    } else {
-      musicCommand('unMute');
-      musicCommand('playVideo');
-    }
   }
 
   function revealHome(){
@@ -69,14 +52,22 @@
     welcome.classList.add('gone');
     window.setTimeout(function(){ welcome.style.display = 'none'; }, 1250);
     revealHome();
+    startMusicAfterIntro();
   }
 
   function openInvitation(){
     if (opened) return;
     opened = true;
+    var hint = document.getElementById('wHint');
+    if (hint) {
+      hint.classList.remove('show');
+      hint.classList.add('hide');
+    }
+    // Preload YouTube player muted while intro plays
+    if (audioFrame && !audioFrame.getAttribute('src')) {
+      audioFrame.src = 'https://www.youtube.com/embed/' + track + '?enablejsapi=1&autoplay=1&mute=1&controls=0&loop=1&playlist=' + track + '&playsinline=1';
+    }
     intro.loop = false;
-    setMusicState(false);
-    playMusicNow();
     try { intro.currentTime = 0; } catch(error) {}
     var playPromise = intro.play();
     if (playPromise && playPromise.catch) {
@@ -108,9 +99,9 @@
     });
   }
 
-  // Pre-unmute on user interaction
+  // Ensure music plays after intro finishes if browser needs interaction
   var handleGlobalGesture = function(){
-    if (opened && !muted) {
+    if (finished && !muted) {
       musicCommand('unMute');
       musicCommand('playVideo');
     }
@@ -121,10 +112,12 @@
 
   if (audioFrame) {
     audioFrame.addEventListener('load', function(){
-      if (!muted) {
-        musicCommand('unMute');
-        musicCommand('setVolume', [60]);
-        musicCommand('playVideo');
+      if (finished && !muted) {
+        setTimeout(function(){
+          musicCommand('unMute');
+          musicCommand('setVolume', [70]);
+          musicCommand('playVideo');
+        }, 300);
       }
     });
   }
