@@ -8,6 +8,7 @@
   var playerStarted = false;
   var playerPaused = true;
   var userManuallyMuted = false;
+  var userTouchedScreen = false;
 
   function isOriginalMusic(element) {
     if (!(element instanceof HTMLAudioElement)) return false;
@@ -24,25 +25,27 @@
   function createPlayerIframe() {
     if (player) return;
     player = document.createElement('iframe');
-    player.title = 'Tushar and Shruti wedding music';
+    player.title = 'Shruti and Tushar wedding music';
     player.setAttribute('aria-hidden', 'true');
     player.setAttribute('allow', 'autoplay; encrypted-media');
     player.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
     player.style.cssText = 'position:fixed;width:200px;height:200px;left:-10000px;bottom:0;opacity:0;pointer-events:none;border:0;';
     player.addEventListener('load', function () {
       sendPlayerCommand('setVolume', [60]);
-      if (!userManuallyMuted && !playerPaused) {
+      // Only play if the user has ALREADY touched/interacted with the screen
+      if (userTouchedScreen && !userManuallyMuted && !playerPaused) {
         sendPlayerCommand('unMute');
         sendPlayerCommand('playVideo');
       }
     });
-    player.src = 'https://www.youtube.com/embed/' + videoId + '?enablejsapi=1&autoplay=1&start=8&controls=0&loop=1&playlist=' + videoId + '&playsinline=1&rel=0';
+    // autoplay=0 strictly ensures it NEVER starts on link open
+    player.src = 'https://www.youtube.com/embed/' + videoId + '?enablejsapi=1&autoplay=0&start=8&controls=0&loop=1&playlist=' + videoId + '&playsinline=1&rel=0';
     document.body.appendChild(player);
     playerStarted = true;
   }
 
-  function ensurePlayer() {
-    if (userManuallyMuted) return;
+  function startMusicAfterTouch() {
+    if (!userTouchedScreen || userManuallyMuted) return;
     playerPaused = false;
     if (!player) {
       createPlayerIframe();
@@ -58,7 +61,7 @@
     sendPlayerCommand('pauseVideo');
   }
 
-  // Preload player iframe as soon as DOM is ready so it plays instantly without delay
+  // Pre-create iframe in DOM with autoplay=0 so it's loaded and ready, but completely SILENT until touched
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', createPlayerIframe);
   } else {
@@ -70,8 +73,10 @@
 
   HTMLMediaElement.prototype.play = function () {
     if (isOriginalMusic(this)) {
-      userManuallyMuted = false;
-      ensurePlayer();
+      if (userTouchedScreen) {
+        userManuallyMuted = false;
+        startMusicAfterTouch();
+      }
       return Promise.resolve();
     }
     return nativePlay.apply(this, arguments);
@@ -123,15 +128,15 @@
     removeOriginalAudio();
   }
 
-  // Auto-play music on any first user interaction anywhere on the screen
-  function handleFirstInteraction() {
-    if (!userManuallyMuted) {
-      ensurePlayer();
-    }
+  // ONLY start music when the screen is physically touched or clicked
+  function onFirstScreenTouch() {
+    if (userTouchedScreen) return;
+    userTouchedScreen = true;
+    startMusicAfterTouch();
   }
 
-  ['click', 'touchstart', 'touchend', 'pointerdown', 'scroll', 'keydown'].forEach(function (evt) {
-    window.addEventListener(evt, handleFirstInteraction, { passive: true });
+  ['touchstart', 'touchend', 'pointerdown', 'click'].forEach(function (evt) {
+    window.addEventListener(evt, onFirstScreenTouch, { passive: true });
   });
 
   if (root) {
@@ -140,8 +145,9 @@
     updateInvitation();
 
     document.addEventListener('visibilitychange', function () {
-      if (document.hidden) pausePlayer();
-      else if (player && !playerPaused && !userManuallyMuted) {
+      if (document.hidden) {
+        pausePlayer();
+      } else if (player && !playerPaused && !userManuallyMuted && userTouchedScreen) {
         sendPlayerCommand('unMute');
         sendPlayerCommand('playVideo');
       }
