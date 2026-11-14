@@ -6,10 +6,8 @@ export async function onRequest(context) {
   const aliasRedirects = {
     '/sanchita-weds-dharmendra': '/sanchita-weds-dharmendhra/',
     '/sanchita-weds-dharmendra/': '/sanchita-weds-dharmendhra/',
-    '/dharmendra-weds-sanchita': '/sanchita-weds-dharmendhra/',
-    '/dharmendra-weds-sanchita/': '/sanchita-weds-dharmendhra/',
-    '/dharmendhra-weds-sanchita': '/sanchita-weds-dharmendhra/',
-    '/dharmendhra-weds-sanchita/': '/sanchita-weds-dharmendhra/',
+    '/dharmendhra-weds-sanchita': '/dharmendra-weds-sanchita/',
+    '/dharmendhra-weds-sanchita/': '/dharmendra-weds-sanchita/',
     '/kirti-weds-arpan': '/arpan-weds-kirti/',
     '/kirti-weds-arpan/': '/arpan-weds-kirti/',
     '/sneha-weds-shouvik': '/shouvik-weds-sneha/',
@@ -26,11 +24,10 @@ export async function onRequest(context) {
     return Response.redirect(new URL(aliasRedirects[pathname], url.origin).toString(), 302);
   }
 
-  // Handle alias assets (e.g. /dharmendra-weds-sanchita/assets/xyz -> /invitations/sanchita-weds-dharmendhra/assets/xyz)
+  // Handle alias assets
   for (const [aliasPrefix, targetPrefix] of [
     ['/sanchita-weds-dharmendra/', '/invitations/sanchita-weds-dharmendhra/'],
-    ['/dharmendra-weds-sanchita/', '/invitations/sanchita-weds-dharmendhra/'],
-    ['/dharmendhra-weds-sanchita/', '/invitations/sanchita-weds-dharmendhra/']
+    ['/dharmendhra-weds-sanchita/', '/invitations/dharmendra-weds-sanchita/']
   ]) {
     if (pathname.startsWith(aliasPrefix)) {
       const subpath = pathname.slice(aliasPrefix.length);
@@ -80,3 +77,4 @@ export async function onRequest(context) {
   // Fallback to static asset serving or default 404
   return context.next();
 }
+

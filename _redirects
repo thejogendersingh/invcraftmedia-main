@@ -14,7 +14,7 @@
 # ACTIVE PRIORITY CLIENTS
 # ==========================================
 
-# Client: sanchita-weds-dharmendhra (Sanchita Kakwani & Dharmendra Ahuja - Active Live Client)
+# Client: sanchita-weds-dharmendhra (Bride Side - Sanchita & Dharmendra)
 /sanchita-weds-dharmendhra         /sanchita-weds-dharmendhra/                               302
 /sanchita-weds-dharmendhra/        /invitations/sanchita-weds-dharmendhra/index.html         200
 /sanchita-weds-dharmendhra/*       /invitations/sanchita-weds-dharmendhra/:splat             200
@@ -24,15 +24,15 @@
 /sanchita-weds-dharmendra/         /sanchita-weds-dharmendhra/                               302
 /sanchita-weds-dharmendra/*        /invitations/sanchita-weds-dharmendhra/:splat             200
 
-# Client alias: dharmendra-weds-sanchita
-/dharmendra-weds-sanchita          /sanchita-weds-dharmendhra/                               302
-/dharmendra-weds-sanchita/         /sanchita-weds-dharmendhra/                               302
-/dharmendra-weds-sanchita/*        /invitations/sanchita-weds-dharmendhra/:splat             200
+# Client: dharmendra-weds-sanchita (Groom Side - Dharmendra & Sanchita)
+/dharmendra-weds-sanchita          /dharmendra-weds-sanchita/                               302
+/dharmendra-weds-sanchita/         /invitations/dharmendra-weds-sanchita/index.html         200
+/dharmendra-weds-sanchita/*        /invitations/dharmendra-weds-sanchita/:splat             200
 
 # Client alias: dharmendhra-weds-sanchita
-/dharmendhra-weds-sanchita         /sanchita-weds-dharmendhra/                               302
-/dharmendhra-weds-sanchita/        /sanchita-weds-dharmendhra/                               302
-/dharmendhra-weds-sanchita/*       /invitations/sanchita-weds-dharmendhra/:splat             200
+/dharmendhra-weds-sanchita         /dharmendra-weds-sanchita/                               302
+/dharmendhra-weds-sanchita/        /dharmendra-weds-sanchita/                               302
+/dharmendhra-weds-sanchita/*       /invitations/dharmendra-weds-sanchita/:splat             200
 
 # Client: jasveer-weds-lata
 /jasveer-weds-lata         /jasveer-weds-lata/                               302

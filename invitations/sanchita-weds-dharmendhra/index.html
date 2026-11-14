@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" href="assets/logo.png" />
   <link rel="apple-touch-icon" href="assets/logo.png" />
   <meta property="og:title" content="Sanchita weds Dharmendra — Royal Indian Wedding Invitation" />
-  <meta property="og:description" content="You are cordially invited to celebrate the royal matrimony of Sanchita weds Dharmendra at Prasang Lawn." />
+  <meta property="og:description" content="You are cordially invited to celebrate the royal matrimony of Sanchita weds Dharmendra at Shubh Prasang." />
   <meta property="og:image" content="assets/logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="assets/logo.png" />
@@ -111,7 +111,7 @@
     </div>
 
     <!-- PERFECT UNIFIED OVERLAY CONTAINER (Framed Gracefully Inside Upper Palace Arch with Royal Proportions) -->
-    <div class="absolute inset-0 z-10 flex flex-col items-center justify-center max-w-[310px] sm:max-w-[380px] md:max-w-[420px] w-full mx-auto px-2 sm:px-4 text-center pointer-events-auto my-auto -mt-28 sm:-mt-36 py-2 space-y-2.5 sm:space-y-4">
+    <div class="absolute inset-0 z-10 flex flex-col items-center justify-center max-w-[310px] sm:max-w-[380px] md:max-w-[420px] w-full mx-auto px-2 sm:px-4 text-center pointer-events-auto my-auto -mt-8 sm:-mt-12 py-2 space-y-2.5 sm:space-y-4">
       
       <!-- 1. Blessing line -->
       <div class="text-[9.5px] sm:text-[11px] uppercase tracking-[0.16em] text-[#C5A059] font-serif font-bold hero-anim-mantra">
@@ -189,45 +189,38 @@
         </p>
       </div>
 
-      <!-- ROYAL LUXURY SCRATCH CARD BOX -->
-      <div class="relative rounded-3xl p-4 sm:p-7 bg-gradient-to-b from-[#FFFDF9] via-white to-[#FAF6ED] border-2 border-[#C5A059] shadow-[0_14px_45px_rgba(197,160,89,0.18)] max-w-lg mx-auto scroll-reveal">
+      <!-- ROYAL LUXURY SCRATCH CARD BOX (Clean & Aesthetic) -->
+      <div class="relative rounded-3xl p-3 sm:p-5 bg-gradient-to-b from-[#FFFDF9] via-white to-[#FAF6ED] border border-[#C5A059]/30 shadow-[0_10px_35px_rgba(197,160,89,0.12)] max-w-lg mx-auto scroll-reveal">
         
-        <!-- Inner Inset Frame & Corner Stars -->
-        <div class="absolute inset-2 sm:inset-2.5 rounded-[22px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
-        <span class="absolute top-2 left-3 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
-        <span class="absolute top-2 right-3 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
-        <span class="absolute bottom-2 left-3 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
-        <span class="absolute bottom-2 right-3 text-[#C5A059] text-xs pointer-events-none z-10">✦</span>
-
         <!-- Scratch Canvas Container Wrapper -->
-        <div id="scratch-card-wrapper" class="relative w-full rounded-2xl overflow-hidden min-h-[110px] sm:min-h-[130px] flex items-center justify-center border border-[#C5A059]/50 bg-white/95 shadow-inner">
+        <div id="scratch-card-wrapper" class="relative w-full rounded-2xl overflow-hidden min-h-[105px] sm:min-h-[125px] flex items-center justify-center bg-transparent">
           
           <!-- MATTE CHAMPAGNE METALLIC SCRATCH CANVAS OVERLAY -->
           <canvas id="scratch-canvas" class="absolute inset-0 w-full h-full z-20 cursor-pointer rounded-2xl touch-none transition-opacity duration-700"></canvas>
           
           <!-- REVEALED TICKER GRID UNDERNEATH (Spacious, Clear & Elegant) -->
-          <div class="relative z-10 grid grid-cols-4 gap-2 sm:gap-3 w-full text-center p-2 sm:p-3">
+          <div class="relative z-10 grid grid-cols-4 gap-2 sm:gap-3 w-full text-center p-1 sm:p-2">
             
             <!-- Days Tile -->
-            <div class="py-2.5 sm:py-3.5 px-1 rounded-xl bg-gradient-to-b from-[#FFFDF9] to-[#FAF6ED] border border-[#C5A059]/40 flex flex-col items-center shadow-sm">
+            <div class="py-2.5 sm:py-3.5 px-1 rounded-xl bg-white/75 flex flex-col items-center shadow-sm">
               <span id="cnt-days" class="font-serif text-2xl sm:text-4xl font-bold text-[#0D3B3E] tracking-tight leading-none">00</span>
               <span data-trans="days" class="font-sans text-[7.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#C5A059] font-bold mt-1">DAYS</span>
             </div>
 
             <!-- Hours Tile -->
-            <div class="py-2.5 sm:py-3.5 px-1 rounded-xl bg-gradient-to-b from-[#FFFDF9] to-[#FAF6ED] border border-[#C5A059]/40 flex flex-col items-center shadow-sm">
+            <div class="py-2.5 sm:py-3.5 px-1 rounded-xl bg-white/75 flex flex-col items-center shadow-sm">
               <span id="cnt-hours" class="font-serif text-2xl sm:text-4xl font-bold text-[#0D3B3E] tracking-tight leading-none">00</span>
               <span data-trans="hours" class="font-sans text-[7.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#C5A059] font-bold mt-1">HOURS</span>
             </div>
 
             <!-- Mins Tile -->
-            <div class="py-2.5 sm:py-3.5 px-1 rounded-xl bg-gradient-to-b from-[#FFFDF9] to-[#FAF6ED] border border-[#C5A059]/40 flex flex-col items-center shadow-sm">
+            <div class="py-2.5 sm:py-3.5 px-1 rounded-xl bg-white/75 flex flex-col items-center shadow-sm">
               <span id="cnt-mins" class="font-serif text-2xl sm:text-4xl font-bold text-[#0D3B3E] tracking-tight leading-none">00</span>
               <span data-trans="mins" class="font-sans text-[7.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#C5A059] font-bold mt-1">MINUTES</span>
             </div>
 
             <!-- Secs Tile -->
-            <div class="py-2.5 sm:py-3.5 px-1 rounded-xl bg-gradient-to-b from-[#FFFDF9] to-[#FAF6ED] border border-[#C5A059]/40 flex flex-col items-center shadow-sm">
+            <div class="py-2.5 sm:py-3.5 px-1 rounded-xl bg-white/75 flex flex-col items-center shadow-sm">
               <span id="cnt-secs" class="font-serif text-2xl sm:text-4xl font-bold text-[#8A2E40] tracking-tight leading-none">00</span>
               <span data-trans="secs" class="font-sans text-[7.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#C5A059] font-bold mt-1">SECONDS</span>
             </div>
@@ -236,7 +229,7 @@
         </div>
 
         <!-- Gentle Interactive Hint -->
-        <p class="font-sans text-[9px] sm:text-[10px] text-[#C5A059] font-semibold tracking-[0.25em] uppercase pt-3 select-none">
+        <p class="font-sans text-[9px] sm:text-[10px] text-[#C5A059] font-semibold tracking-[0.25em] uppercase pt-2 select-none">
           ✨ Scratch the golden card to reveal the timer ✨
         </p>
 
@@ -249,6 +242,29 @@
         <div class="flex-1 h-[1px] bg-gradient-to-l from-transparent via-[#C5A059]/30 to-[#C5A059]/60"></div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- FAMILY BUSINESS / FIRM DETAILS (Graceful & Elegant Placement After Countdown) -->
+  <section id="firm" class="py-10 sm:py-14 px-4 sm:px-8 bg-[#FAF9F6] relative z-10 border-t border-[#E5E5EA]">
+    <div class="max-w-xl mx-auto text-center scroll-reveal">
+      <div class="mb-4 sm:mb-6">
+        <h2 class="font-cursive text-4xl sm:text-5xl text-[#8A3E4E] font-medium tracking-wide">Firm</h2>
+        <div class="flex items-center justify-center gap-3 pt-1">
+          <div class="w-8 sm:w-14 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60"></div>
+          <span class="text-[#C5A059] text-xs select-none" aria-hidden="true">&#10022;</span>
+          <div class="w-8 sm:w-14 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60"></div>
+        </div>
+      </div>
+
+      <div class="relative w-full rounded-2xl sm:rounded-3xl px-5 py-6 sm:px-8 sm:py-8 bg-gradient-to-b from-[#FFFDF9] via-white to-[#FAF6ED] border border-[#C5A059]/40 shadow-[0_10px_35px_rgba(197,160,89,0.10)]">
+        <h3 class="font-sans text-sm sm:text-lg md:text-xl font-bold tracking-[0.06em] leading-snug text-[#6E5424] uppercase">MUKESH JEWELLERS &amp; GENERAL STORES</h3>
+        <div class="mt-3.5 space-y-1.5 font-serif text-sm sm:text-base leading-relaxed text-[#6E5424]">
+          <p>1) Ganj Bazar, Gondia</p>
+          <p>2) Near Bhawani Mandir, Sindhi Colony, Gondia</p>
+        </div>
+        <p class="mt-3.5 font-sans text-sm sm:text-base font-bold tracking-wider text-[#8A3E4E]">9673253130, 9370453030</p>
+      </div>
     </div>
   </section>
 
@@ -270,7 +286,60 @@
       <!-- Pure Event Invitation Poster Cards (Theme Background + Frosted Invitation Plaque + Bottom Couple Cutout) -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-4xl mx-auto">
         
-        <!-- Event Card 1: Saath and Telbuki -->
+        <!-- Event Card 1: Hare Madhav Satsang -->
+        <div class="group relative aspect-[9/15] sm:aspect-[9/14] min-h-[540px] rounded-[30px] overflow-hidden shadow-2xl border-2 border-[#C5A059] scroll-reveal transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_20px_50px_rgba(197,160,89,0.25)] flex flex-col justify-between">
+          <!-- Themed Background Image (Gurudev / Sacred Satsang Darbar) -->
+          <img src="assets/event-satsang.png" alt="Hare Madhav Satsang Background" class="absolute inset-0 w-full h-full object-cover object-top z-0 pointer-events-none transform group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+          
+          <!-- Inner Decorative Gold Inset Frame -->
+          <div class="absolute inset-2 sm:inset-2.5 rounded-[24px] border border-[#C5A059]/40 pointer-events-none z-10"></div>
+
+          <!-- Floating Petals Decorative Layer -->
+          <div class="absolute inset-0 pointer-events-none z-20 overflow-hidden select-none">
+            <span class="absolute top-10 left-3 text-base opacity-75 animate-float-slow">✨</span>
+            <span class="absolute top-28 right-4 text-xs opacity-80 animate-float-mid">🌼</span>
+            <span class="absolute top-44 left-6 text-sm opacity-85 animate-float-fast">🌹</span>
+            <span class="absolute bottom-24 right-5 text-sm opacity-80 animate-float-slow">🌼</span>
+            <span class="absolute bottom-36 left-4 text-base opacity-75 animate-float-mid">✨</span>
+          </div>
+
+          <!-- Top Frosted Glass Invitation Plaque -->
+          <div class="relative z-20 mx-2.5 sm:mx-4 mt-6 sm:mt-8 p-3.5 sm:p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-[#C5A059]/60 shadow-[0_8px_30px_rgba(0,0,0,0.08)] text-center space-y-1.5">
+            <h3 class="font-cursive text-4xl sm:text-5xl text-[#8A3E4E] font-medium tracking-wide leading-tight">
+              Hare Madhav Satsang
+            </h3>
+            <p class="font-serif italic text-[13px] sm:text-[14.5px] text-charcoal-muted leading-snug max-w-[280px] mx-auto">
+              Divine spiritual satsang invoked by the infinite grace of Hazira Huzoor Satguru Baba Ishwarshah Sahib Ji
+            </p>
+            
+            <!-- Floral Gold Divider -->
+            <div class="flex items-center justify-center gap-2 py-0.5">
+              <div class="w-10 sm:w-14 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60"></div>
+              <span class="text-[#C5A059] text-xs select-none">✿</span>
+              <div class="w-10 sm:w-14 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60"></div>
+            </div>
+
+            <!-- Two-Column Date, Time & Venue Block -->
+            <div class="inline-block w-full max-w-[320px] sm:max-w-[350px] px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl border border-[#C5A059]/60 bg-[#FAF6ED]/95 shadow-sm text-center">
+              <div class="grid grid-cols-2 gap-2 border-b border-[#C5A059]/30 pb-2 mb-2">
+                <div class="border-r border-[#C5A059]/30 pr-2">
+                  <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">DATE</span>
+                  <span class="font-serif text-[15px] sm:text-[16.5px] font-bold text-[#8A3E4E] block">Sat · 28 Nov. 2026</span>
+                </div>
+                <div class="pl-2">
+                  <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">TIME</span>
+                  <span class="font-serif text-[15px] sm:text-[16.5px] font-bold text-[#8A3E4E] block">07:00 PM onwards</span>
+                </div>
+              </div>
+              <div>
+                <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">VENUE</span>
+                <span class="font-serif text-[12px] sm:text-[13.5px] font-bold text-[#8A3E4E] block leading-snug">At Own Residence (Mukesh Kakwani, A-7, Seth Surajmal Bagicha, Adarsh Colony, Gondia, Maharashtra 441601)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event Card 2: Saath and Telbuki -->
         <div class="group relative aspect-[9/15] sm:aspect-[9/14] min-h-[540px] rounded-[30px] overflow-hidden shadow-2xl border-2 border-[#C5A059] scroll-reveal transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_20px_50px_rgba(197,160,89,0.25)] flex flex-col justify-between">
           <!-- Themed Background Image (Toran and garlands at top) -->
           <img src="assets/g-haldi-bg-CB-4YaJG.png" alt="Saath and Telbuki Background" class="absolute inset-0 w-full h-full object-cover object-top z-0 pointer-events-none transform group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
@@ -373,7 +442,7 @@
               </div>
               <div>
                 <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">VENUE</span>
-                <span class="font-serif text-[12.5px] sm:text-[14px] font-bold text-[#8A3E4E] block leading-snug">At Prasang Lawn, Kudwa, Gondia, Maharashtra 441614</span>
+                <span class="font-serif text-[12.5px] sm:text-[14px] font-bold text-[#8A3E4E] block leading-snug">At Shubh Prasang, Kudwa, Gondia, Maharashtra 441614</span>
               </div>
             </div>
           </div>
@@ -429,7 +498,7 @@
               </div>
               <div>
                 <span class="font-sans text-[11px] sm:text-[12px] uppercase tracking-wider text-[#C5A059] font-bold block">VENUE</span>
-                <span class="font-serif text-[12.5px] sm:text-[14px] font-bold text-[#8A3E4E] block leading-snug">At Prasang Lawn, Kudwa, Gondia, Maharashtra 441614</span>
+                <span class="font-serif text-[12.5px] sm:text-[14px] font-bold text-[#8A3E4E] block leading-snug">At Shubh Prasang, Kudwa, Gondia, Maharashtra 441614</span>
               </div>
             </div>
           </div>
@@ -858,30 +927,6 @@
         </a>
       </div>
 
-    </div>
-  </section>
-
-  <!-- FAMILY BUSINESS / FIRM DETAILS -->
-  <section id="firm" class="py-16 sm:py-20 px-4 sm:px-8 bg-[#FAF9F6] relative z-10 border-t border-[#E5E5EA]">
-    <div class="max-w-3xl mx-auto text-center scroll-reveal" style="width:100%;max-width:768px;box-sizing:border-box">
-      <div class="mb-6 sm:mb-8">
-        <h2 class="font-cursive text-5xl sm:text-6xl text-[#8A3E4E] font-medium tracking-wide">Firm</h2>
-        <div class="flex items-center justify-center gap-3 pt-1">
-          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60"></div>
-          <span class="text-[#C5A059] text-xs select-none" aria-hidden="true">&#10022;</span>
-          <div class="w-8 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60"></div>
-        </div>
-      </div>
-
-      <div class="relative w-full max-w-2xl mx-auto rounded-2xl sm:rounded-3xl px-5 py-7 sm:px-10 sm:py-10 bg-gradient-to-b from-[#FFFDF9] via-white to-[#FAF6ED] border-2 border-[#C5A059]/70 shadow-[0_14px_45px_rgba(197,160,89,0.14)]" style="width:100%;max-width:min(640px,100%);box-sizing:border-box">
-        <div class="absolute inset-2 sm:inset-2.5 rounded-xl sm:rounded-[22px] border border-[#C5A059]/35 pointer-events-none" aria-hidden="true"></div>
-        <h3 class="relative w-full whitespace-normal break-words font-sans text-sm sm:text-2xl md:text-3xl font-semibold tracking-[0.04em] leading-snug text-[#6E5424]" style="width:100%;max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:center">MUKESH JEWELLERS &amp; GENERAL STORES</h3>
-        <ol class="relative mt-4 space-y-2 font-serif text-sm sm:text-xl md:text-2xl leading-relaxed text-[#6E5424] whitespace-normal break-words" style="width:100%;max-width:100%;box-sizing:border-box;white-space:normal;overflow-wrap:anywhere;text-align:center">
-          <li>1) Ganj Bazar, Gondia</li>
-          <li>2) Near Bhawani Mandir, Sindhi Colony, Gondia</li>
-        </ol>
-        <p class="relative mt-4 font-sans text-sm sm:text-base font-semibold tracking-wide text-[#8A3E4E]">9673253130, 9370453030</p>
-      </div>
     </div>
   </section>
 
