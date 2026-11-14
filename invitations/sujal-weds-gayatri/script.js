@@ -146,7 +146,7 @@ const TRANSLATIONS = {
     heroFamiliesText: "Together with their families",
     scrollCueText: "Scroll To Celebrate",
 
-    messageLead: "With the supreme grace of Almighty and the divine blessings of our revered elders, we cordially invite you to celebrate the wedding ceremony of",
+    messageLead: "With the divine blessings of our elders, we cordially invite you to celebrate the wedding ceremony of",
     groomFullName: "Chi. Sujal",
     groomLineage: "Son of Smt. Madhu Devi & Shri Mukesh Kumar Ji Lawat",
     groomGrandparents: "Grandson of Late Smt. Sulochna Devi & Late Shri Durgadutt Ji Lawat",
@@ -255,7 +255,7 @@ const TRANSLATIONS = {
     heroFamiliesText: "सपरिवार आपका हार्दिक स्वागत करते हैं",
     scrollCueText: "उत्सव दर्शन हेतु नीचे स्क्रॉल करें",
 
-    messageLead: "परमपिता परमेश्वर की असीम अनुकम्पा एवं पूज्य बड़े-बुजुर्गों के पावन आशीर्वाद से, हम आपको हमारे वैवाहिक उत्सव में सादर आमंत्रित करते हैं",
+    messageLead: "पूज्य बड़े-बुजुर्गों के पावन आशीर्वाद से, हम आपको वैवाहिक उत्सव में सादर आमंत्रित करते हैं",
     groomFullName: "चि. सुजल",
     groomLineage: "सुपुत्र: श्रीमती मधु देवी एवं श्री मुकेश कुमार जी लावट",
     groomGrandparents: "सुपौत्र: स्व. श्रीमती सुलोचना देवी एवं स्व. श्री दुर्गादत्त जी लावट",

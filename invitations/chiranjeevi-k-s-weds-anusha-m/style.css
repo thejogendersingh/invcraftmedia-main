@@ -30,7 +30,7 @@
     --fdrive: 4200ms;
 
     --envelope-w: 440px;
-    --wei-bg: var(--ivory);
+    --wei-bg: #4A1218;
   }
 
   *{ box-sizing:border-box; margin:0; padding:0; }
@@ -42,7 +42,7 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
-  body.locked{ overflow:hidden; height:100%; }
+  body.locked{ overflow:hidden; height:100%; background:#4A1218; }
 
   /* ===================== HOME (pinned hero) ===================== */
   .hero{ position:relative; height:100vh; height:100lvh; overflow:hidden; background:var(--ivory); }
@@ -294,7 +294,7 @@
   padding-top:0;
 }
 
-/* video defines the footer's size — 1536×1024 = 3:2 */
+/* video defines the footer's size â€” 1536Ã—1024 = 3:2 */
 .site-footer__video{
   display:block;
   position:relative;
@@ -386,7 +386,7 @@
 .rsvp-envelope{
   --env-w:min(94vw, 520px);
   --s:calc(var(--env-w) / 941);   /* px per source pixel */
-  --t:1.28;                        /* content scale — tune this */
+  --t:1.28;                        /* content scale â€” tune this */
   --u:calc(var(--s) * var(--t));
 
   position:relative;
@@ -403,7 +403,7 @@
   display:flex; flex-direction:column;
   align-items:center; justify-content:center;
   text-align:center;
-  padding-top:calc(110 * var(--u));   /* the nudge — raise to move further down */
+  padding-top:calc(110 * var(--u));   /* the nudge â€” raise to move further down */
 }
 
 .rsvp-eyebrow{
@@ -658,7 +658,7 @@
   .welcome{
     position:fixed; left:0; right:0; top:0;
     height:100dvh; height:var(--app-h, 100dvh);
-    z-index:50; overflow:hidden; background:var(--wei-bg);
+    z-index:50; overflow:hidden; background:#4A1218;
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     cursor:pointer; -webkit-tap-highlight-color:transparent; user-select:none;
     transition:opacity 1.2s ease;
@@ -705,7 +705,7 @@
    .w-video-wrap{
     position:fixed; inset:0; z-index:51;
     display:flex; align-items:center; justify-content:center;
-    background:var(--wei-bg);
+    background:#4A1218;
     opacity:0; pointer-events:none;
     transition:opacity .8s ease;
   }
@@ -722,7 +722,7 @@
     right:clamp(18px, 4vw, 28px);
     z-index:200;
 
-    /* circular pill — matches btn border-radius idiom */
+    /* circular pill â€” matches btn border-radius idiom */
     width:46px; height:46px; border-radius:50%;
     border:1px solid rgba(200,169,110,.55);
     background:rgba(253,248,240,.88);
@@ -733,7 +733,7 @@
     cursor:pointer;
     box-shadow:0 6px 22px -6px rgba(139,74,58,.22), 0 1px 4px rgba(139,74,58,.10);
 
-    /* enter animation — slides up from below after invitation opens */
+    /* enter animation â€” slides up from below after invitation opens */
     opacity:0; transform:translateY(12px);
     transition:
       opacity  .55s ease,
@@ -766,7 +766,7 @@
   }
   .music-toggle:active{ transform:scale(.93); }
 
-  /* icon layers — only one visible at a time */
+  /* icon layers â€” only one visible at a time */
   .mt-icon{
     position:absolute; inset:0;
     display:flex; align-items:center; justify-content:center;
@@ -811,7 +811,7 @@
   .music-toggle[data-muted="false"] .icon-muted { opacity:0; }
   .music-toggle[data-muted="false"] .icon-playing{ opacity:1; }
   
-  /* equaliser — runs only while playing (data-muted="false") */
+  /* equaliser â€” runs only while playing (data-muted="false") */
 .music-toggle .icon-playing .bar{
   transform-box:fill-box; transform-origin:bottom;
   transform:scaleY(.4);
