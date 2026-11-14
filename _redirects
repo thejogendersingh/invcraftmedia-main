@@ -14,6 +14,36 @@
 # ACTIVE PRIORITY CLIENTS
 # ==========================================
 
+# Client: Chiranjeevi K S weds Anusha M
+/chiranjeevi-k-s-weds-anusha-m                 /chiranjeevi-k-s-weds-anusha-m/                                      302
+/chiranjeevi-k-s-weds-anusha-m/                /invitations/chiranjeevi-k-s-weds-anusha-m/index.html                200
+/chiranjeevi-k-s-weds-anusha-m/*               /invitations/chiranjeevi-k-s-weds-anusha-m/:splat                    200
+
+# Client alias: chiranjeevi-weds-anusha
+/chiranjeevi-weds-anusha                       /chiranjeevi-k-s-weds-anusha-m/                                      302
+/chiranjeevi-weds-anusha/                      /chiranjeevi-k-s-weds-anusha-m/                                      302
+/chiranjeevi-weds-anusha/*                     /invitations/chiranjeevi-k-s-weds-anusha-m/:splat                    200
+
+# Client: sujal-weds-gayatri (Sujal Lawat & Gayatri Chhaparwal)
+/sujal-weds-gayatri         /sujal-weds-gayatri/                               302
+/sujal-weds-gayatri/        /invitations/sujal-weds-gayatri/index.html         200
+/sujal-weds-gayatri/*       /invitations/sujal-weds-gayatri/:splat             200
+
+# Client alias: gayatri-weds-sujal
+/gayatri-weds-sujal         /sujal-weds-gayatri/                               302
+/gayatri-weds-sujal/        /sujal-weds-gayatri/                               302
+/gayatri-weds-sujal/*       /invitations/sujal-weds-gayatri/:splat             200
+
+# Client: Tushar weds Shruti
+/tushar-weds-shruti         /tushar-weds-shruti/                               302
+/tushar-weds-shruti/        /invitations/tushar-weds-shruti/index.html         200
+/tushar-weds-shruti/*       /invitations/tushar-weds-shruti/:splat             200
+
+# Client alias: shruti-weds-tushar
+/shruti-weds-tushar         /tushar-weds-shruti/                               302
+/shruti-weds-tushar/        /tushar-weds-shruti/                               302
+/shruti-weds-tushar/*       /invitations/tushar-weds-shruti/:splat             200
+
 # Client: sanchita-weds-dharmendhra (Bride Side - Sanchita & Dharmendra)
 /sanchita-weds-dharmendhra         /sanchita-weds-dharmendhra/                               302
 /sanchita-weds-dharmendhra/        /invitations/sanchita-weds-dharmendhra/index.html         200
@@ -303,4 +333,7 @@
 /singh-parivaar-mahotsav         /amrita-abhishek-wedding/                               302
 /singh-parivaar-mahotsav/        /amrita-abhishek-wedding/                               302
 /singh-parivaar-mahotsav/*       /amrita-abhishek-wedding/:splat                         302
+
+# Client assets: Tushar weds Shruti
+/tushar-weds-shruti/*       /invitations/tushar-weds-shruti/:splat             200
 

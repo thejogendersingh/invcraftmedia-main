@@ -6,6 +6,12 @@ export async function onRequest(context) {
   const aliasRedirects = {
     '/sanchita-weds-dharmendra': '/sanchita-weds-dharmendhra/',
     '/sanchita-weds-dharmendra/': '/sanchita-weds-dharmendhra/',
+    '/gayatri-weds-sujal': '/sujal-weds-gayatri/',
+    '/gayatri-weds-sujal/': '/sujal-weds-gayatri/',
+    '/shruti-weds-tushar': '/tushar-weds-shruti/',
+    '/shruti-weds-tushar/': '/tushar-weds-shruti/',
+    '/chiranjeevi-weds-anusha': '/chiranjeevi-k-s-weds-anusha-m/',
+    '/chiranjeevi-weds-anusha/': '/chiranjeevi-k-s-weds-anusha-m/',
     '/dharmendhra-weds-sanchita': '/dharmendra-weds-sanchita/',
     '/dharmendhra-weds-sanchita/': '/dharmendra-weds-sanchita/',
     '/kirti-weds-arpan': '/arpan-weds-kirti/',
@@ -27,7 +33,10 @@ export async function onRequest(context) {
   // Handle alias assets
   for (const [aliasPrefix, targetPrefix] of [
     ['/sanchita-weds-dharmendra/', '/invitations/sanchita-weds-dharmendhra/'],
-    ['/dharmendhra-weds-sanchita/', '/invitations/dharmendra-weds-sanchita/']
+    ['/dharmendhra-weds-sanchita/', '/invitations/dharmendra-weds-sanchita/'],
+    ['/gayatri-weds-sujal/', '/invitations/sujal-weds-gayatri/'],
+    ['/shruti-weds-tushar/', '/invitations/tushar-weds-shruti/'],
+    ['/chiranjeevi-weds-anusha/', '/invitations/chiranjeevi-k-s-weds-anusha-m/']
   ]) {
     if (pathname.startsWith(aliasPrefix)) {
       const subpath = pathname.slice(aliasPrefix.length);

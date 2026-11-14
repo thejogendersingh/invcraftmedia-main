@@ -11,6 +11,42 @@
 /sanchita-weds-dharmendhra
   Cache-Control: no-cache, no-store, must-revalidate
 
+/sujal-weds-gayatri
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/sujal-weds-gayatri/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/sujal-weds-gayatri/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/invitations/sujal-weds-gayatri/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/tushar-weds-shruti
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/tushar-weds-shruti/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/tushar-weds-shruti/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/invitations/tushar-weds-shruti/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/chiranjeevi-k-s-weds-anusha-m
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/chiranjeevi-k-s-weds-anusha-m/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/chiranjeevi-k-s-weds-anusha-m/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/invitations/chiranjeevi-k-s-weds-anusha-m/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
 /sanchita-weds-dharmendhra/
   Cache-Control: no-cache, no-store, must-revalidate
 
