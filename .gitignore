@@ -21,4 +21,5 @@ yarn-debug.log*
 
 # Cloudflare Pages local preview cache
 .wrangler/
+.sanchita-cdp-*/
 

@@ -8,6 +8,36 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
 
+/sanchita-weds-dharmendhra
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/sanchita-weds-dharmendhra/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/sanchita-weds-dharmendhra/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/invitations/sanchita-weds-dharmendhra/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/sanchita-weds-dharmendra
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/sanchita-weds-dharmendra/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/sanchita-weds-dharmendra/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/dharmendra-weds-sanchita
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/dharmendra-weds-sanchita/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/dharmendra-weds-sanchita/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
 /jasveer-weds-lata
   Cache-Control: no-cache, no-store, must-revalidate
 
