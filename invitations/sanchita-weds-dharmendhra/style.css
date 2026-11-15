@@ -535,3 +535,21 @@ body.is-revealed .hero-anim-btn {
   font-weight: 800 !important;
 }
 
+
+/* Global text bolding across all sections */
+#countdown-section, #firm, #events, #gallery, #hosts, #venue, footer {
+  font-feature-settings: "kern" 1;
+}
+
+#events .font-serif.italic {
+  font-weight: 700 !important;
+  color: #111111 !important;
+}
+
+#events .font-sans {
+  font-weight: 800 !important;
+}
+
+#hosts .font-serif {
+  font-weight: 700 !important;
+}
