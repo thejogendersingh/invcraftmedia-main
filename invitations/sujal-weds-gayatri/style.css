@@ -128,7 +128,7 @@ body.scroll-locked {
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   -webkit-user-select: none;
-  transition: opacity 0.4s ease-out;
+  transition: opacity 0.6s ease-out;
 }
 
 .entrance-overlay.dissolving {
@@ -136,20 +136,20 @@ body.scroll-locked {
   pointer-events: none;
 }
 
-/* Full-Screen Envelope Stage: covers 100% of device screen so hero is completely hidden */
+/* Full-Screen Envelope Stage: 105% bleed ensures zero hero peeking on any notch/aspect ratio */
 .envelope-intro-stage {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: max(100vw, calc(100dvh * (1024 / 1536)));
-  height: max(100dvh, calc(100vw * (1536 / 1024)));
+  width: max(105vw, calc(105dvh * (1024 / 1536)));
+  height: max(105dvh, calc(105vw * (1536 / 1024)));
   aspect-ratio: 1024 / 1536;
   overflow: visible;
   pointer-events: auto;
 }
 
-/* Lower Floral Envelope Body - Moves DOWNWARD smoothly on touch */
+/* Lower Floral Envelope Body - Moves DOWNWARD gracefully on touch */
 .envelope-layer-bottom {
   position: absolute;
   top: 0;
@@ -161,10 +161,10 @@ body.scroll-locked {
   z-index: 1;
   pointer-events: none;
   will-change: transform;
-  transition: transform 1.25s cubic-bezier(0.25, 1, 0.35, 1);
+  transition: transform 2.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Upper V-Shaped Flap with S&G Pearl Locket - Moves UPWARD smoothly on touch */
+/* Upper V-Shaped Flap with S&G Pearl Locket - Moves UPWARD gracefully on touch */
 .envelope-top-wrapper {
   position: absolute;
   top: 0;
@@ -175,7 +175,7 @@ body.scroll-locked {
   z-index: 2;
   will-change: transform;
   pointer-events: none;
-  transition: transform 1.25s cubic-bezier(0.25, 1, 0.35, 1);
+  transition: transform 2.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .envelope-layer-top {
@@ -186,13 +186,13 @@ body.scroll-locked {
   pointer-events: none;
 }
 
-/* Parting Motion on Tap: Top moves UPWARD, Bottom moves DOWNWARD */
+/* Parting Motion on Tap: Half-speed royal slow animation */
 .entrance-overlay.envelope-opening .envelope-top-wrapper {
-  transform: translate(-50%, -135%);
+  transform: translate(-50%, -140%);
 }
 
 .entrance-overlay.envelope-opening .envelope-layer-bottom {
-  transform: translateY(115%);
+  transform: translateY(120%);
 }
 
 
