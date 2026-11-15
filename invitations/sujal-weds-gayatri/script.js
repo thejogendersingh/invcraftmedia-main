@@ -47,7 +47,7 @@ const CONFIG = {
   // Assets Mapping
   entranceVideo: "Assets/entrance_video.mp4",
   entrancePoster: "Assets/Entrance_first_frame.webp",
-  backgroundMusic: "Assets/ReelAudio-7073.mp3",
+  backgroundMusic: "Assets/wedding-song.mp3",
 
   // Section Backgrounds Mapping
   sectionBackgrounds: {
@@ -83,6 +83,17 @@ const CONFIG = {
       desc: "A musical evening of traditional folk tunes, dance performances, and vibrant celebrations.",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Maheshwari+Bhawan,+Sardarshahar",
       image: "Assets/Events/Sangeet-event.webp"
+    },
+    {
+      title: "Mehandi Ceremony",
+      dateStr: "Wednesday, 25 Nov 2026 • 01:15 PM Onwards",
+      startIso: "2026-11-25T13:15:00+05:30",
+      endIso: "2026-11-25T17:00:00+05:30",
+      venue: "Maheshwari Bhawan, Near Ganesh Mandir, Sardarshahar",
+      dressCode: "Festive Green & Traditional Ethnic",
+      desc: "Auspicious Mehandi celebrations with fragrant henna designs, festive music, and celebration.",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Maheshwari+Bhawan,+Sardarshahar",
+      image: "Assets/Events/mehndi-event.webp"
     },
     {
       title: "Hald Haath Baan",
@@ -130,7 +141,7 @@ const AppState = {
   currentStoryIdx: 0,
   currentEventIdx: 0,
   isMusicPlaying: false,
-  currentLang: 'en'
+  currentLang: 'hi'
 };
 
 /* -----------------------------------------------------------------------------
@@ -147,12 +158,12 @@ const TRANSLATIONS = {
     scrollCueText: "Scroll To Celebrate",
 
     messageLead: "With the divine blessings of our elders, we cordially invite you to celebrate the wedding ceremony of",
-    groomFullName: "Chi. Sujal",
+    groomFullName: "Sujal",
     groomLineage: "Son of Smt. Madhu Devi & Shri Mukesh Kumar Ji Lawat",
     groomGrandparents: "Grandson of Late Smt. Sulochna Devi & Late Shri Durgadutt Ji Lawat",
     groomNative: "Native of Alsisar (Currently Jaipur)",
     messageConnector: "&",
-    brideFullName: "Sau. Kaa. Gayatri",
+    brideFullName: "Gayatri",
     brideLineage: "Daughter of Smt. Sharda Devi & Sahji Shri Basant Kumar Ji Chhaparwal",
     brideGrandparents: "Granddaughter of Smt. Vimla Devi & Sahji Shri Babulal Ji Chhaparwal",
     brideNative: "Native of Sardarshahar (Churu)",
@@ -206,6 +217,11 @@ const TRANSLATIONS = {
     ev1Date: "Tuesday, 24 November 2026",
     ev1Time: "From 07:15 PM Onwards",
     ev1Venue: "Maheshwari Bhawan, Near Ganesh Mandir, Sardarshahar",
+    evMehndiPill: "25 Nov 2026 • Mehandi",
+    evMehndiTitle: "Mehandi Ceremony",
+    evMehndiDate: "Wednesday, 25 November 2026",
+    evMehndiTime: "Afternoon 01:15 PM Onwards",
+    evMehndiVenue: "Maheshwari Bhawan, Near Ganesh Mandir, Sardarshahar",
     ev2Pill: "25 Nov 2026 • Baan",
     ev2Title: "Hald Haath Baan",
     ev2Date: "Wednesday, 25 November 2026",
@@ -315,6 +331,11 @@ const TRANSLATIONS = {
     ev1Date: "मंगलवार, २४ नवम्बर २०२६",
     ev1Time: "सायं ०७:१५ बजे से",
     ev1Venue: "माहेश्वरी भवन, गणेश जी मन्दिर के पास, सरदारशहर",
+    evMehndiPill: "२५ नवम्बर २०२६ • मेहंदी",
+    evMehndiTitle: "मेहंदी रस्म",
+    evMehndiDate: "बुधवार, २५ नवम्बर २०२६",
+    evMehndiTime: "दोपहर ०१:१५ बजे से",
+    evMehndiVenue: "माहेश्वरी भवन, गणेश जी मन्दिर के पास, सरदारशहर",
     ev2Pill: "२५ नवम्बर २०२६ • बान",
     ev2Title: "हल्द हाथ बान",
     ev2Date: "बुधवार, २५ नवम्बर २०२६",
@@ -1723,9 +1744,9 @@ function initLanguageSwitcher() {
   if (!langBtn) return;
 
   // Retrieve saved language preference or default to English
-  let savedLang = 'en';
+  let savedLang = 'hi';
   try {
-    savedLang = localStorage.getItem('sujal_gayatri_lang') || 'en';
+    savedLang = localStorage.getItem('sujal_gayatri_lang') || 'hi';
   } catch (e) {}
 
   langBtn.addEventListener('click', (e) => {

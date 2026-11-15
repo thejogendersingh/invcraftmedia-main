@@ -43,7 +43,8 @@
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-caps: 'Cinzel', serif;
   --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-hindi: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', serif;
+  --font-hindi: 'Noto Serif Devanagari', 'Tiro Devanagari Hindi', serif;
+  --font-hindi-display: 'Rozha One', 'Noto Serif Devanagari', serif;
 
   /* Stage & Safe Zone Defaults (Arch Image Safe Dimensions) */
   --ar: 0.55815; /* Default 1075 / 1926 */
@@ -1333,21 +1334,21 @@ body.scroll-locked {
 .couple-arch-frame {
   position: relative;
   flex-shrink: 0;
-  width: 31cqw;
-  height: 40cqw;
-  max-width: 132px;
-  max-height: 162px;
-  border-radius: 50% 50% 14px 14px;
+  width: clamp(110px, 32cqw, 140px);
+  height: clamp(145px, 42cqw, 180px);
+  border-radius: 50% 50% 16px 16px;
   overflow: hidden;
   border: 2px solid var(--gold-bright);
-  box-shadow: 0 8px 22px rgba(74, 46, 53, 0.16);
-  margin-bottom: 4px;
+  box-shadow: 0 8px 24px rgba(74, 46, 53, 0.18);
+  margin-bottom: 6px;
+  background: #fbf6ec;
 }
 
 .couple-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
 }
 
@@ -3227,7 +3228,8 @@ body.scroll-locked {
    HINDI TYPOGRAPHY & LAYOUT ENHANCEMENTS
    ----------------------------------------------------------------------------- */
 body.lang-hindi {
-  --font-body: 'Tiro Devanagari Hindi', 'Montserrat', sans-serif;
+  --font-body: 'Noto Serif Devanagari', 'Tiro Devanagari Hindi', serif;
+  --font-hindi: 'Noto Serif Devanagari', 'Tiro Devanagari Hindi', serif;
 }
 
 body.lang-hindi .section-title,
@@ -3237,16 +3239,16 @@ body.lang-hindi .zigzag-title,
 body.lang-hindi .message-person-name,
 body.lang-hindi .footer-thank-you,
 body.lang-hindi .footer-names {
-  font-family: var(--font-hindi), serif;
-  font-weight: 500;
+  font-family: var(--font-hindi-display), var(--font-hindi), serif;
+  font-weight: 600;
   letter-spacing: 0.02em;
 }
 
 /* Hindi Hero Couple Names: Natural elegant weight & ample room for matras */
 body.lang-hindi .hero-names {
-  font-family: var(--font-hindi), serif;
+  font-family: var(--font-hindi-display), var(--font-hindi), serif;
   font-size: clamp(34px, 8.8cqw, 52px);
-  font-weight: 400; /* Regular Tiro Devanagari prevents faux-bold clumpiness */
+  font-weight: 500;
   line-height: 1.35;
   letter-spacing: 0.02em;
   overflow: visible;
