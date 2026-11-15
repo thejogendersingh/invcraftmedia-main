@@ -470,7 +470,7 @@ function applyConfigToDOM() {
 
 /* -----------------------------------------------------------------------------
    MODULE 2: FULL-DEVICE DUAL PARTING ENVELOPE INTRO SCREEN
-   Animates intro-top upward and intro-bottom downward smoothly over 2.4s.
+   Animates intro-top upward and intro-bottom downward gracefully over 4.2s.
    ----------------------------------------------------------------------------- */
 function initEntrance() {
   const overlay = document.getElementById('entranceOverlay');
@@ -489,7 +489,7 @@ function initEntrance() {
     const heroReveals = document.querySelectorAll('#hero .hero-line, #hero .reveal');
     heroReveals.forEach((el) => el.classList.add('in-view'));
 
-    // After parting animation finishes (2.4s), dissolve overlay cleanly
+    // After parting animation finishes (4.2s), dissolve overlay cleanly
     setTimeout(() => {
       overlay.classList.add('dissolving');
       document.body.classList.remove('scroll-locked');
@@ -501,8 +501,8 @@ function initEntrance() {
         overlay.style.display = 'none';
         overlay.setAttribute('aria-hidden', 'true');
         resetScrollToTop();
-      }, 500);
-    }, 2400);
+      }, 600);
+    }, 4200);
   };
 
   // Expose globally
