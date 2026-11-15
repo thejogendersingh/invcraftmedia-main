@@ -452,6 +452,7 @@ function applyConfigToDOM() {
   const groomGrandparents = document.querySelector('#groomCard .couple-grandparents');
   const groomBio = document.querySelector('#groomCard .couple-bio');
   const groomPhoto = document.querySelector('#groomCard .couple-photo');
+  const bridePhoto = document.querySelector('#brideCard .couple-photo');
 
   // Do not overwrite couple card with hardcoded English strings during init
   if (groomPhoto && CONFIG.groom.photo) groomPhoto.src = CONFIG.groom.photo;
@@ -1666,20 +1667,20 @@ function initLanguageSwitcher() {
    INITIALIZATION LIFECYCLE
    ----------------------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
-  resetScrollToTop();
-  initStage();
-  applyConfigToDOM();
-  initMusicPlayer();
-  initEntrance();
-  initReveal();
-  initHeroParticles();
-  initScratchCard();
-  initCountdown();
-  initCoupleSwitcher();
-  initCoupleSparkButton();
-  initStoryCarousel();
-  initWeddingEvents();
-  initShareAndHashtag();
-  initLanguageSwitcher();
-  setLanguage(AppState.currentLang || 'hi');
+  try { resetScrollToTop(); } catch(e) { console.error(e); }
+  try { initEntrance(); } catch(e) { console.error(e); }
+  try { initStage(); } catch(e) { console.error(e); }
+  try { applyConfigToDOM(); } catch(e) { console.error(e); }
+  try { initMusicPlayer(); } catch(e) { console.error(e); }
+  try { initReveal(); } catch(e) { console.error(e); }
+  try { initHeroParticles(); } catch(e) { console.error(e); }
+  try { initScratchCard(); } catch(e) { console.error(e); }
+  try { initCountdown(); } catch(e) { console.error(e); }
+  try { initCoupleSwitcher(); } catch(e) { console.error(e); }
+  try { initCoupleSparkButton(); } catch(e) { console.error(e); }
+  try { initStoryCarousel(); } catch(e) { console.error(e); }
+  try { initWeddingEvents(); } catch(e) { console.error(e); }
+  try { initShareAndHashtag(); } catch(e) { console.error(e); }
+  try { initLanguageSwitcher(); } catch(e) { console.error(e); }
+  try { setLanguage(AppState.currentLang || 'hi'); } catch(e) { console.error(e); }
 });
