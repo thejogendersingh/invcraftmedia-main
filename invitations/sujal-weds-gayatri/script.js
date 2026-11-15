@@ -469,8 +469,8 @@ function applyConfigToDOM() {
 }
 
 /* -----------------------------------------------------------------------------
-   MODULE 2: REALISTIC TOP-FLAP ENVELOPE INTRO SCREEN
-   Animates ONLY intro-top upward smoothly over 1.15s, then seamlessly reveals hero.
+   MODULE 2: FULL-DEVICE DUAL PARTING ENVELOPE INTRO SCREEN
+   Animates intro-top upward and intro-bottom downward smoothly over 1.25s.
    ----------------------------------------------------------------------------- */
 function initEntrance() {
   const overlay = document.getElementById('entranceOverlay');
@@ -480,7 +480,7 @@ function initEntrance() {
     if (AppState.entranceOpening || AppState.entrancePassed) return;
     AppState.entranceOpening = true;
 
-    // Animate ONLY upper V-flap upward
+    // Trigger dual parting: top moves upward, bottom moves downward
     overlay.classList.add('envelope-opening');
 
     // Trigger reveal of hero section content underneath
@@ -489,7 +489,7 @@ function initEntrance() {
     const heroReveals = document.querySelectorAll('#hero .hero-line, #hero .reveal');
     heroReveals.forEach((el) => el.classList.add('in-view'));
 
-    // After flap finishes upward translation (1.15s), fade out overlay with lower image
+    // After parting animation finishes (1.25s), dissolve overlay cleanly
     setTimeout(() => {
       overlay.classList.add('dissolving');
       document.body.classList.remove('scroll-locked');
@@ -501,8 +501,8 @@ function initEntrance() {
         overlay.style.display = 'none';
         overlay.setAttribute('aria-hidden', 'true');
         resetScrollToTop();
-      }, 450);
-    }, 1150);
+      }, 400);
+    }, 1250);
   };
 
   // Expose globally
