@@ -77,7 +77,7 @@
   <!-- =========================================================================
        1. ENTRANCE SCREEN OVERLAY (Cinematic Video Curtain)
        ========================================================================= -->
-  <div id="entranceOverlay" class="entrance-overlay" role="dialog" aria-modal="true"
+  <div id="entranceOverlay" class="entrance-overlay" role="dialog" aria-modal="true" onclick="if(window.dissolveEntrance)window.dissolveEntrance();"
     aria-label="Wedding Invitation Envelope">
     <div class="entrance-video-container">
       <video id="entranceVideo" class="entrance-video" playsinline webkit-playsinline preload="auto" muted
@@ -88,7 +88,7 @@
     </div>
 
     <!-- Centred "Tap to Open" Prompt -->
-    <button id="entrancePrompt" class="entrance-prompt" type="button" aria-label="Tap to Open Wedding Invitation">
+    <button id="entrancePrompt" class="entrance-prompt" type="button" onclick="if(window.dissolveEntrance)window.dissolveEntrance();" aria-label="Tap to Open Wedding Invitation">
       <div class="entrance-pill">
         <span class="entrance-pill-sparkle">✦</span>
         <span class="entrance-btn-label" data-i18n="entrancePrompt">Tap to Open Invitation</span>

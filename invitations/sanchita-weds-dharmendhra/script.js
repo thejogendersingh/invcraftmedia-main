@@ -14,7 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let fallbackTimeout = null;
 
   function openRoyalDoor() {
-    if (!doorOverlay || doorOverlay.classList.contains('is-opened') || videoStarted) return;
+    if (!doorOverlay || doorOverlay.classList.contains('is-opened')) return;
+    if (videoStarted) {
+      finishOpening();
+      return;
+    }
     
     videoStarted = true;
 
@@ -32,12 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
       // Force reload metadata just in case, and play
       envelopeVideo.preload = "auto";
       
-      // Calculate safety fallback timer (max 4.5s or video duration + 0.2s)
-      let duration = envelopeVideo.duration || 3.5;
-      if (isNaN(duration) || duration <= 0) duration = 3.5;
-      
       fallbackTimeout = setTimeout(() => {
-        console.log('Video play safety timeout reached.');
+        finishOpening();
+      }, 1800);
         finishOpening();
       }, (duration * 1000) + 200);
 

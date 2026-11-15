@@ -472,19 +472,11 @@ function applyConfigToDOM() {
    ----------------------------------------------------------------------------- */
 function initEntrance() {
   const overlay = document.getElementById('entranceOverlay');
-  const video = document.getElementById('entranceVideo');
   const promptBtn = document.getElementById('entrancePrompt');
-  const skipBtn = document.getElementById('entranceSkip');
   const bloom = document.getElementById('entranceBloom');
 
   if (!overlay) return;
 
-  // Lock scroll only while entrance overlay is actively showing
-  if (!AppState.entrancePassed) {
-    document.body.classList.add('scroll-locked');
-  }
-
-  // Smooth cinematic dissolve transition into hero
   const dissolveIntoHero = () => {
     if (AppState.entrancePassed) return;
     AppState.entrancePassed = true;
@@ -507,7 +499,7 @@ function initEntrance() {
     const heroReveals = document.querySelectorAll('#hero .hero-line, #hero .reveal');
     heroReveals.forEach((el) => el.classList.add('in-view'));
 
-    // Ensure background music continues smoothly
+    // Start background music
     playBackgroundMusic().catch(() => {});
 
     // Complete removal of overlay
@@ -515,105 +507,23 @@ function initEntrance() {
       overlay.style.display = 'none';
       overlay.setAttribute('aria-hidden', 'true');
       resetScrollToTop();
-    }, 700);
+    }, 650);
   };
 
-  if (!video) {
-    if (promptBtn) promptBtn.addEventListener('click', dissolveIntoHero);
-    overlay.addEventListener('click', dissolveIntoHero);
-    return;
-  }
+  // Expose globally for instant inline HTML click fallback
+  window.dissolveEntrance = dissolveIntoHero;
 
-  // Always keep entrance video muted
-  video.muted = true;
-  video.playsInline = true;
-
-  // Set video poster and source from CONFIG
-  if (CONFIG.entrancePoster && !video.getAttribute('poster')) {
-    video.poster = CONFIG.entrancePoster;
-  }
-
-  let videoPlayTimeout = null;
-
-  const handleOpenTap = (e) => {
-    if (e) {
-      if (e.type === 'touchend' && e.cancelable) {
-        e.preventDefault();
-      }
-      if (e.stopPropagation) {
-        e.stopPropagation();
-      }
-    }
-
-    // 1. Immediately trigger background music
-    playBackgroundMusic().catch(() => {});
-
-    // 2. If already tapped once, ANY second tap immediately opens into hero
-    if (AppState.entranceTapStarted) {
-      if (videoPlayTimeout) clearTimeout(videoPlayTimeout);
-      dissolveIntoHero();
-      return;
-    }
-    AppState.entranceTapStarted = true;
-
-    // 3. Hide prompt button immediately
-    if (promptBtn) promptBtn.classList.add('hidden');
-
-    // 4. Maximum fallback timer: after 3.8s, ALWAYS dissolve automatically
-    videoPlayTimeout = setTimeout(() => {
-      dissolveIntoHero();
-    }, 3800);
-
-    // 5. Play entrance video (muted)
-    video.muted = true;
-    try {
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            // Video playing smoothly
-          })
-          .catch((err) => {
-            console.warn("Video playback issue, falling back to instant dissolve:", err);
-            dissolveIntoHero();
-          });
-      }
-    } catch (err) {
-      console.warn("Video play exception:", err);
-      dissolveIntoHero();
-    }
-  };
-
-  // Attach tap handlers (both button and entire overlay)
-  if (promptBtn) {
-    promptBtn.addEventListener('touchend', handleOpenTap, { passive: false });
-    promptBtn.addEventListener('click', handleOpenTap);
-  }
-  overlay.addEventListener('touchend', handleOpenTap, { passive: false });
-  overlay.addEventListener('click', handleOpenTap);
-
-  // Dissolve on video ended or near end
-  video.addEventListener('ended', dissolveIntoHero);
-  video.addEventListener('timeupdate', () => {
-    if (video.duration && video.currentTime >= video.duration - 0.25) {
-      dissolveIntoHero();
-    }
-  });
-
-  // Direct skip fallback
-  if (skipBtn) {
-    skipBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (videoPlayTimeout) clearTimeout(videoPlayTimeout);
-      video.pause();
-      dissolveIntoHero();
-    });
-  }
-
-  // Video error handling fallback
-  video.addEventListener('error', () => {
+  // Click & touch handlers (instant open on touch/click)
+  const handleOpen = (e) => {
     dissolveIntoHero();
-  });
+  };
+
+  if (promptBtn) {
+    promptBtn.addEventListener('click', handleOpen);
+    promptBtn.addEventListener('touchend', handleOpen);
+  }
+  overlay.addEventListener('click', handleOpen);
+  overlay.addEventListener('touchend', handleOpen);
 }
 
 /* -----------------------------------------------------------------------------

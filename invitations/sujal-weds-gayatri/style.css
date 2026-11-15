@@ -120,9 +120,9 @@ body.scroll-locked {
   justify-content: center;
   background: radial-gradient(circle at center, #FDF8EC 30%, #F4E5CC 100%);
   overflow: hidden;
-  transition: opacity 2s var(--ease-smooth),
-              transform 2s var(--ease-smooth),
-              filter 2s var(--ease-smooth);
+  transition: opacity 0.65s var(--ease-smooth),
+              transform 0.65s var(--ease-smooth),
+              filter 0.65s var(--ease-smooth);
 }
 
 .entrance-overlay.dissolving {
