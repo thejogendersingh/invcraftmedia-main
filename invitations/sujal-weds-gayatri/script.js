@@ -477,35 +477,21 @@ function initEntrance() {
   const skipBtn = document.getElementById('entranceSkip');
   const bloom = document.getElementById('entranceBloom');
 
-  if (!overlay || !video) return;
+  if (!overlay) return;
 
-  // Always keep entrance video muted
-  video.muted = true;
-
-  // Set video poster and source from CONFIG
-  if (CONFIG.entrancePoster && !video.getAttribute('poster')) {
-    video.poster = CONFIG.entrancePoster;
+  // Lock scroll only while entrance overlay is actively showing
+  if (!AppState.entrancePassed) {
+    document.body.classList.add('scroll-locked');
   }
-  if (CONFIG.entranceVideo) {
-    const source = video.querySelector('source');
-    if (source) source.src = CONFIG.entranceVideo + '#t=0.001';
-    video.load();
-  }
-
-  // Ensure first frame is displayed by seeking to start as soon as metadata is loaded
-  video.addEventListener('loadedmetadata', () => {
-    try {
-      video.muted = true;
-      video.currentTime = 0.001;
-    } catch (e) {
-      // Ignore if not permitted
-    }
-  });
 
   // Smooth cinematic dissolve transition into hero
   const dissolveIntoHero = () => {
     if (AppState.entrancePassed) return;
     AppState.entrancePassed = true;
+
+    // Immediately remove scroll lock so user can interact and scroll freely
+    document.body.classList.remove('scroll-locked');
+    overlay.style.pointerEvents = 'none';
 
     // Trigger bloom flash
     if (bloom) bloom.classList.add('bloom-active');
@@ -522,21 +508,32 @@ function initEntrance() {
     heroReveals.forEach((el) => el.classList.add('in-view'));
 
     // Ensure background music continues smoothly
-    playBackgroundMusic();
+    playBackgroundMusic().catch(() => {});
 
-
-
-    // Unlock body scroll after transition completes
+    // Complete removal of overlay
     setTimeout(() => {
-      document.body.classList.remove('scroll-locked');
       overlay.style.display = 'none';
       overlay.setAttribute('aria-hidden', 'true');
       resetScrollToTop();
-    }, 2200);
+    }, 700);
   };
 
-  // Play background music instantly and muted video upon tap (iPhone & Android optimized)
-  let entranceTapStarted = false;
+  if (!video) {
+    if (promptBtn) promptBtn.addEventListener('click', dissolveIntoHero);
+    overlay.addEventListener('click', dissolveIntoHero);
+    return;
+  }
+
+  // Always keep entrance video muted
+  video.muted = true;
+  video.playsInline = true;
+
+  // Set video poster and source from CONFIG
+  if (CONFIG.entrancePoster && !video.getAttribute('poster')) {
+    video.poster = CONFIG.entrancePoster;
+  }
+
+  let videoPlayTimeout = null;
 
   const handleOpenTap = (e) => {
     if (e) {
@@ -548,36 +545,36 @@ function initEntrance() {
       }
     }
 
-    // 1. Immediately play background music on user tap/click
-    playBackgroundMusic().catch(() => {
-      // Retry once on next user interaction if somehow deferred
-      const retryAudio = () => {
-        playBackgroundMusic().finally(() => {
-          document.removeEventListener('click', retryAudio);
-          document.removeEventListener('touchend', retryAudio);
-        });
-      };
-      document.addEventListener('click', retryAudio, { once: true });
-      document.addEventListener('touchend', retryAudio, { once: true });
-    });
+    // 1. Immediately trigger background music
+    playBackgroundMusic().catch(() => {});
 
-    if (entranceTapStarted) return;
-    entranceTapStarted = true;
+    // 2. If already tapped once, ANY second tap immediately opens into hero
+    if (AppState.entranceTapStarted) {
+      if (videoPlayTimeout) clearTimeout(videoPlayTimeout);
+      dissolveIntoHero();
+      return;
+    }
+    AppState.entranceTapStarted = true;
 
-    // 2. Hide prompt button immediately
+    // 3. Hide prompt button immediately
     if (promptBtn) promptBtn.classList.add('hidden');
 
-    // 3. Play entrance video (strictly muted so it never competes for audio context)
+    // 4. Maximum fallback timer: after 3.8s, ALWAYS dissolve automatically
+    videoPlayTimeout = setTimeout(() => {
+      dissolveIntoHero();
+    }, 3800);
+
+    // 5. Play entrance video (muted)
     video.muted = true;
     try {
       const playPromise = video.play();
       if (playPromise !== undefined) {
         playPromise
           .then(() => {
-            // Video playing smoothly (muted)
+            // Video playing smoothly
           })
           .catch((err) => {
-            console.warn("Video playback issue, falling back to dissolve:", err);
+            console.warn("Video playback issue, falling back to instant dissolve:", err);
             dissolveIntoHero();
           });
       }
@@ -587,38 +584,35 @@ function initEntrance() {
     }
   };
 
-  // Attach strictly to user activation gesture events (click & touchend)
-  // Note: touchstart and pointerdown are NOT user activation gestures in browsers and cause play() to be blocked
-  const attachTapHandler = (el) => {
-    if (!el) return;
-    el.addEventListener('touchend', handleOpenTap, { passive: false });
-    el.addEventListener('click', handleOpenTap);
-  };
+  // Attach tap handlers (both button and entire overlay)
+  if (promptBtn) {
+    promptBtn.addEventListener('touchend', handleOpenTap, { passive: false });
+    promptBtn.addEventListener('click', handleOpenTap);
+  }
+  overlay.addEventListener('touchend', handleOpenTap, { passive: false });
+  overlay.addEventListener('click', handleOpenTap);
 
-  attachTapHandler(promptBtn);
-  attachTapHandler(overlay);
-
-  // Dissolve on video ended
+  // Dissolve on video ended or near end
   video.addEventListener('ended', dissolveIntoHero);
+  video.addEventListener('timeupdate', () => {
+    if (video.duration && video.currentTime >= video.duration - 0.25) {
+      dissolveIntoHero();
+    }
+  });
 
-  // Skip / direct open fallback button
+  // Direct skip fallback
   if (skipBtn) {
     skipBtn.addEventListener('click', (e) => {
       e.stopPropagation();
+      if (videoPlayTimeout) clearTimeout(videoPlayTimeout);
       video.pause();
-      playBackgroundMusic();
       dissolveIntoHero();
     });
   }
 
   // Video error handling fallback
   video.addEventListener('error', () => {
-    console.warn("Video unable to load; displaying direct open fallback.");
-    promptBtn.querySelector('.entrance-btn-label').textContent = "Open Invitation";
-    promptBtn.addEventListener('click', () => {
-      playBackgroundMusic();
-      dissolveIntoHero();
-    }, { once: true });
+    dissolveIntoHero();
   });
 }
 
