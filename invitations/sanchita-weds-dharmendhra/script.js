@@ -80,30 +80,33 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Hide door overlay after smooth 2.0s transition completes
+    // Hide door overlay after smooth transition completes
     setTimeout(() => {
       doorOverlay.style.display = 'none';
-      setTimeout(() => {
-        startSlowAutoScroll();
-      }, 600);
-    }, 2000);
+    }, 1500);
+
+    // Start auto-scroll smoothly right after door opens!
+    setTimeout(() => {
+      startSlowAutoScroll();
+    }, 1200);
 
     // Start Indian Classical Ambient Raga Music
     startIndianRagaMusic();
   }
 
-  // ULTRA-SMOOTH SLOW AUTO-SCROLL (CINEMATIC GLIDE, STOPS ON ANY SCREEN TOUCH)
+  // ULTRA-SMOOTH AUTO-SCROLL (CINEMATIC GLIDE, STOPS ON ANY SCREEN TOUCH)
   let autoScrollEnabled = false;
   let autoScrollCancelled = false;
   let autoScrollRaf = null;
 
   function stopAutoScroll() {
     if (!autoScrollEnabled) return;
+    autoScrollEnabled = false;
+    autoScrollCancelled = true;
     if (autoScrollRaf) {
       cancelAnimationFrame(autoScrollRaf);
       autoScrollRaf = null;
     }
-    autoScrollCancelled = true;
   }
 
   function startSlowAutoScroll() {
@@ -111,13 +114,13 @@ document.addEventListener('DOMContentLoaded', () => {
     autoScrollEnabled = true;
 
     let lastTimestamp = null;
-    // Ultra-smooth slow glide: ~34px per second
-    const speed = 34;
+    // Normal smooth speed: ~75px per second (~1.25px per frame at 60fps)
+    const speed = 75;
 
     function step(timestamp) {
-      if (autoScrollCancelled) return;
+      if (!autoScrollEnabled || autoScrollCancelled) return;
       if (!lastTimestamp) lastTimestamp = timestamp;
-      const elapsed = (timestamp - lastTimestamp) / 1000;
+      const elapsed = Math.min((timestamp - lastTimestamp) / 1000, 0.1);
       lastTimestamp = timestamp;
 
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
@@ -131,15 +134,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     autoScrollRaf = requestAnimationFrame(step);
-  }
 
-  ['touchstart', 'pointerdown', 'wheel', 'keydown', 'mousedown'].forEach(evt => {
-    window.addEventListener(evt, () => {
-      if (autoScrollEnabled) {
+    // Attach user interaction listeners with a short delay (400ms) after autoscroll begins
+    // to prevent any residual tap/touch events from the door click from immediately stopping it
+    setTimeout(() => {
+      const stopEvents = ['touchstart', 'pointerdown', 'wheel', 'keydown', 'mousedown'];
+      const handleUserTouch = () => {
         stopAutoScroll();
-      }
-    }, { passive: true, capture: true });
-  });
+        stopEvents.forEach(e => window.removeEventListener(e, handleUserTouch));
+      };
+      stopEvents.forEach(e => window.addEventListener(e, handleUserTouch, { passive: true, capture: true }));
+    }, 400);
+  }
 
   // Expose globally for inline HTML onclick binding
   window.openRoyalDoor = openRoyalDoor;
