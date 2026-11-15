@@ -483,6 +483,11 @@ function initEntrance() {
     // Trigger dual parting: top moves upward, bottom moves downward
     overlay.classList.add('envelope-opening');
 
+    // Start background music on user touch/click gesture
+    try {
+      playBackgroundMusic().catch(() => {});
+    } catch (e) {}
+
     // Trigger reveal of hero section content underneath
     const heroSection = document.getElementById('hero');
     if (heroSection) heroSection.classList.add('hero-revealed');
