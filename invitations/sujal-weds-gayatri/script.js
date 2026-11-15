@@ -21,7 +21,7 @@ const CONFIG = {
     native: "Native of Alsisar (Currently Jaipur)",
     tagline: "Lawat Family",
     bio: "Her steadfast anchor, warmest smile, and constant support in every walk of life.",
-    photo: ""
+    photo: "Assets/Couple IMages/groom-single.jpeg"
   },
   bride: {
     name: "Gayatri",
@@ -31,7 +31,7 @@ const CONFIG = {
     native: "Native of Sardarshahar (Churu)",
     tagline: "Chhaparwal Family",
     bio: "His joyful grace, brightest laughter, and the soul behind every happy moment.",
-    photo: ""
+    photo: "Assets/Couple IMages/bride-single.jpeg"
   },
 
   // Wedding Date & Time (Main Ceremony - 26 Nov 2026, 7:00 PM IST)
