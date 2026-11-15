@@ -83,25 +83,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hide door overlay after smooth transition completes
     setTimeout(() => {
       doorOverlay.style.display = 'none';
-    }, 1500);
-
-    // Start auto-scroll smoothly right after door opens!
-    setTimeout(() => {
+      // Start auto-scroll smoothly right after door is completely hidden and hero is visible
       startSlowAutoScroll();
-    }, 1200);
+    }, 1400);
 
     // Start Indian Classical Ambient Raga Music
     startIndianRagaMusic();
   }
 
-  // ULTRA-SMOOTH AUTO-SCROLL (CINEMATIC GLIDE, STOPS ON ANY SCREEN TOUCH)
-  let autoScrollEnabled = false;
+  // ULTRA-SMOOTH AUTO-SCROLL (CINEMATIC GLIDE, STOPS ON SECOND TOUCH ON HERO/PAGE)
+  let autoScrollStarted = false;
+  let autoScrollRunning = false;
   let autoScrollCancelled = false;
   let autoScrollRaf = null;
 
   function stopAutoScroll() {
-    if (!autoScrollEnabled) return;
-    autoScrollEnabled = false;
+    if (!autoScrollRunning) return;
+    autoScrollRunning = false;
     autoScrollCancelled = true;
     if (autoScrollRaf) {
       cancelAnimationFrame(autoScrollRaf);
@@ -110,15 +108,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function startSlowAutoScroll() {
-    if (autoScrollCancelled || autoScrollRaf) return;
-    autoScrollEnabled = true;
+    if (autoScrollCancelled || autoScrollRunning) return;
+    autoScrollStarted = true;
+    autoScrollRunning = true;
 
     let lastTimestamp = null;
-    // Normal smooth speed: ~75px per second (~1.25px per frame at 60fps)
-    const speed = 75;
+    // Normal smooth speed: ~80px per second (~1.3px per frame at 60fps)
+    const speed = 80;
 
     function step(timestamp) {
-      if (!autoScrollEnabled || autoScrollCancelled) return;
+      if (!autoScrollRunning || autoScrollCancelled) return;
       if (!lastTimestamp) lastTimestamp = timestamp;
       const elapsed = Math.min((timestamp - lastTimestamp) / 1000, 0.1);
       lastTimestamp = timestamp;
@@ -135,16 +134,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     autoScrollRaf = requestAnimationFrame(step);
 
-    // Attach user interaction listeners with a short delay (400ms) after autoscroll begins
-    // to prevent any residual tap/touch events from the door click from immediately stopping it
+    // Stop ONLY on the SECOND touch (when user touches hero/page while actively scrolling)
+    // 1-second delay ensures no residual tap from opening the intro envelope can EVER stop it
     setTimeout(() => {
+      if (!autoScrollRunning) return;
       const stopEvents = ['touchstart', 'pointerdown', 'wheel', 'keydown', 'mousedown'];
-      const handleUserTouch = () => {
-        stopAutoScroll();
-        stopEvents.forEach(e => window.removeEventListener(e, handleUserTouch));
+      const onSecondTouch = () => {
+        if (autoScrollRunning) {
+          stopAutoScroll();
+          stopEvents.forEach(e => window.removeEventListener(e, onSecondTouch, { capture: true }));
+        }
       };
-      stopEvents.forEach(e => window.addEventListener(e, handleUserTouch, { passive: true, capture: true }));
-    }, 400);
+      stopEvents.forEach(e => window.addEventListener(e, onSecondTouch, { passive: true, capture: true }));
+    }, 1000);
   }
 
   // Expose globally for inline HTML onclick binding
