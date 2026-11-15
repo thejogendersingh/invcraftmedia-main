@@ -121,14 +121,18 @@ body.scroll-locked {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
+  background: #fbf6ee; /* Completely covers screen: prevents any peek of hero before tap */
   overflow: hidden;
   cursor: pointer;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   -webkit-user-select: none;
-  transition: opacity 0.6s ease-out;
+  transition: opacity 1.2s ease-out, background 1.5s ease-out;
+}
+
+.entrance-overlay.envelope-opening {
+  background: transparent;
 }
 
 .entrance-overlay.dissolving {
@@ -136,14 +140,14 @@ body.scroll-locked {
   pointer-events: none;
 }
 
-/* Full-Screen Envelope Stage: 105% bleed ensures zero hero peeking on any notch/aspect ratio */
+/* Full-Screen Envelope Stage: 112% bleed ensures 100% full device coverage on all screens & notches */
 .envelope-intro-stage {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: max(105vw, calc(105dvh * (1024 / 1536)));
-  height: max(105dvh, calc(105vw * (1536 / 1024)));
+  width: max(112vw, calc(112dvh * (1024 / 1536)));
+  height: max(112dvh, calc(112vw * (1536 / 1024)));
   aspect-ratio: 1024 / 1536;
   overflow: visible;
   pointer-events: auto;
@@ -161,7 +165,7 @@ body.scroll-locked {
   z-index: 1;
   pointer-events: none;
   will-change: transform;
-  transition: transform 4.2s cubic-bezier(0.35, 0, 0.25, 1);
+  transition: transform 6.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 /* Upper V-Shaped Flap with S&G Pearl Locket - Moves UPWARD gracefully on touch */
@@ -175,7 +179,7 @@ body.scroll-locked {
   z-index: 2;
   will-change: transform;
   pointer-events: none;
-  transition: transform 4.2s cubic-bezier(0.35, 0, 0.25, 1);
+  transition: transform 6.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .envelope-layer-top {
@@ -186,7 +190,7 @@ body.scroll-locked {
   pointer-events: none;
 }
 
-/* Parting Motion on Tap: Half-speed royal slow animation */
+/* Parting Motion on Tap: Half-speed royal slow animation (6.8s smooth glide) */
 .entrance-overlay.envelope-opening .envelope-top-wrapper {
   transform: translate(-50%, -140%);
 }

@@ -36,9 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Force reload metadata just in case, and play
       envelopeVideo.preload = "auto";
       
+      const duration = envelopeVideo.duration || 1.8;
       fallbackTimeout = setTimeout(() => {
-        finishOpening();
-      }, 1800);
         finishOpening();
       }, (duration * 1000) + 200);
 

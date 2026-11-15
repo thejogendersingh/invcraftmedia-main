@@ -85,17 +85,6 @@ const CONFIG = {
       image: "Assets/Events/Sangeet-event.webp"
     },
     {
-      title: "Mehandi Ceremony",
-      dateStr: "Wednesday, 25 Nov 2026 • 01:15 PM Onwards",
-      startIso: "2026-11-25T13:15:00+05:30",
-      endIso: "2026-11-25T17:00:00+05:30",
-      venue: "Maheshwari Bhawan, Near Ganesh Mandir, Sardarshahar",
-      dressCode: "Festive Green & Traditional Ethnic",
-      desc: "Auspicious Mehandi celebrations with fragrant henna designs, festive music, and celebration.",
-      mapUrl: "https://www.google.com/maps/search/?api=1&query=Maheshwari+Bhawan,+Sardarshahar",
-      image: "Assets/Events/mehndi-final.webp"
-    },
-    {
       title: "Hald Haath Baan",
       dateStr: "Wednesday, 25 Nov 2026 • 11:00 AM Onwards",
       startIso: "2026-11-25T11:00:00+05:30",
@@ -105,6 +94,17 @@ const CONFIG = {
       desc: "Sacred turmeric rituals, auspicious blessings, and joyful celebration with family.",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Maheshwari+Bhawan,+Sardarshahar",
       image: "Assets/Events/Haldi-mehndi-event.webp"
+    },
+    {
+      title: "Mehandi Ceremony",
+      dateStr: "Wednesday, 25 Nov 2026 • 01:15 PM Onwards",
+      startIso: "2026-11-25T13:15:00+05:30",
+      endIso: "2026-11-25T17:00:00+05:30",
+      venue: "Maheshwari Bhawan, Near Ganesh Mandir, Sardarshahar",
+      dressCode: "Festive Green & Traditional Ethnic",
+      desc: "Auspicious Mehandi celebrations with fragrant henna designs, festive music, and celebration.",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Maheshwari+Bhawan,+Sardarshahar",
+      image: "Assets/Events/mehndi-final.webp"
     },
     {
       title: "Chaak-Bhaat Ceremony",
@@ -248,13 +248,13 @@ const TRANSLATIONS = {
     sehraPaksh: "Sehra Paksh: Lawat (Alsisar/Jaipur)",
     chunariPaksh: "Chunari Paksh: Chhaparwal (Sardarshahar)",
     firmsHeader: "✦ Business Establishments (Groom Side) ✦",
-    darshanabhilashi: "Well-Wishers: Shri Ramratan, Ramgopal Ji, Ramotar, Sitaram, Manohar Lal, Rajkumar, Vijay & All Lawat Family",
-    swagatkarta: "Welcomers: Komal-Yogesh Lawat, Manisha-Yash Lawat",
-    vineet: "Solicited By: Shri Gopal Lawat",
-    nanihalPaksh: "Maternal Family: Shri Shiv Prasad Ji, Shri Jugal Ji, Shri Vinod Ji, Shri Manoj Ji, Shri Deepak Ji & All Baberwal Family (Ramgarh Shekhawati)",
-    jamaiPaksh: "Sister & Brother-in-Law: Sarita Bai - Bhawani Shankar Ji Sankhat (Kolkata)",
+    darshanabhilashi: '<span style="color: var(--gold-dark); font-weight: 800;">Well-Wishers:</span> <strong>Shri Ramratan, Ramgopal Ji, Ramotar, Sitaram, Manohar Lal, Rajkumar, Vijay & All Lawat Family</strong>',
+    swagatkarta: '<span style="color: var(--gold-dark); font-weight: 800;">Welcomers:</span> <strong>Komal-Yogesh Lawat, Manisha-Yash Lawat</strong>',
+    vineet: '<span style="color: var(--gold-dark); font-weight: 800;">Solicited By:</span> <strong>Shri Gopal Lawat</strong>',
+    nanihalPaksh: '<span style="color: var(--gold-dark); font-weight: 800;">Maternal Family:</span> <strong>Shri Shiv Prasad Ji, Shri Jugal Ji, Shri Vinod Ji, Shri Manoj Ji, Shri Deepak Ji & All Baberwal Family (Ramgarh Shekhawati)</strong>',
+    jamaiPaksh: '<span style="color: var(--gold-dark); font-weight: 800;">Sister & Brother-in-Law:</span> <strong>Sarita Bai - Bhawani Shankar Ji Sankhat (Kolkata)</strong>',
     balManuharTitle: "🌸 Bal Manuhar 🌸",
-    balManuharText: "“Hamare Bhaiya Ki Shaadi Mein Zaroor-Zaroor Aana - Medha, Khanak”<br>“Mere Chachu Ki Shaadi Mein Zaroor-Zaroor Aana - Kartik”",
+    balManuharText: "<strong>“Hamare Bhaiya Ki Shaadi Mein Zaroor-Zaroor Aana - Medha, Khanak”</strong><br><strong>“Mere Chachu Ki Shaadi Mein Zaroor-Zaroor Aana - Kartik”</strong>",
     womenNote: "Note: Kindly accept ladies' invitation through this card.",
 
     footerThankYou: "Thank You",
@@ -363,13 +363,13 @@ const TRANSLATIONS = {
     sehraPaksh: "सेहरा पक्ष: लावट (अलसीसर/जयपुर)",
     chunariPaksh: "चुनरी पक्ष: छापरवाल (सरदारशहर)",
     firmsHeader: "✦ प्रतिष्ठान वर पक्ष ✦",
-    darshanabhilashi: "दर्शनाभिलाषी: श्री रामरतन, रामगोपाल जी, रामोतार, सीताराम, मनोहरलाल, राजकुमार, विजय एवं समस्त लावट परिवार",
-    swagatkarta: "स्वागतकर्ता: कोमल-योगेश लावट, मनीषा-यश लावट",
-    vineet: "विनीत: श्री गोपाल लावट",
-    nanihalPaksh: "ननिहाल पक्ष: श्री शिव प्रसाद जी, श्री जुगल जी, श्री विनोद जी, श्री मनोज जी, श्री दीपक जी एवं समस्त बबेरवाल परिवार (रामगढ़ शेखावाटी)",
-    jamaiPaksh: "जंवाई पक्ष: सरिता बाई - भवानी शंकर जी सणखत (कलकत्ता)",
+    darshanabhilashi: '<span style="color: var(--gold-dark); font-weight: 800;">दर्शनाभिलाषी:</span> <strong>श्री रामरतन, रामगोपाल जी, रामोतार, सीताराम, मनोहरलाल, राजकुमार, विजय एवं समस्त लावट परिवार</strong>',
+    swagatkarta: '<span style="color: var(--gold-dark); font-weight: 800;">स्वागतकर्ता:</span> <strong>कोमल-योगेश लावट, मनीषा-यश लावट</strong>',
+    vineet: '<span style="color: var(--gold-dark); font-weight: 800;">विनीत:</span> <strong>श्री गोपाल लावट</strong>',
+    nanihalPaksh: '<span style="color: var(--gold-dark); font-weight: 800;">ननिहाल पक्ष:</span> <strong>श्री शिव प्रसाद जी, श्री जुगल जी, श्री विनोद जी, श्री मनोज जी, श्री दीपक जी एवं समस्त बबेरवाल परिवार (रामगढ़ शेखावाटी)</strong>',
+    jamaiPaksh: '<span style="color: var(--gold-dark); font-weight: 800;">जंवाई पक्ष:</span> <strong>सरिता बाई - भवानी शंकर जी सणखत (कलकत्ता)</strong>',
     balManuharTitle: "🌸 बाल मनुहार 🌸",
-    balManuharText: "“हमारे भैया की शादी में जरूर-जरूर आना - मेधा, खनक”<br>“मेरे चाचू की शादी में जरूर-जरूर आना - कार्तिक”",
+    balManuharText: "<strong>“हमारे भैया की शादी में जरूर-जरूर आना - मेधा, खनक”</strong><br><strong>“मेरे चाचू की शादी में जरूर-जरूर आना - कार्तिक”</strong>",
     womenNote: "नोट: कृपया महिलाओं का निमंत्रण इसी पत्रिका द्वारा स्वीकार करें।",
 
     footerThankYou: "हार्दिक आभार",
@@ -494,7 +494,7 @@ function initEntrance() {
     const heroReveals = document.querySelectorAll('#hero .hero-line, #hero .reveal');
     heroReveals.forEach((el) => el.classList.add('in-view'));
 
-    // After parting animation finishes (4.2s), dissolve overlay cleanly
+    // After parting animation finishes (6.8s), dissolve overlay cleanly
     setTimeout(() => {
       overlay.classList.add('dissolving');
       document.body.classList.remove('scroll-locked');
@@ -506,8 +506,8 @@ function initEntrance() {
         overlay.style.display = 'none';
         overlay.setAttribute('aria-hidden', 'true');
         resetScrollToTop();
-      }, 600);
-    }, 4200);
+      }, 1000);
+    }, 6800);
   };
 
   // Expose globally
@@ -1612,7 +1612,11 @@ function setLanguage(lang) {
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
       if (dict[key] !== undefined) {
-        el.textContent = dict[key];
+        if (typeof dict[key] === 'string' && (dict[key].includes('<') || dict[key].includes('&'))) {
+          el.innerHTML = dict[key];
+        } else {
+          el.textContent = dict[key];
+        }
       }
     });
   }
