@@ -519,3 +519,19 @@ body.is-revealed .hero-anim-btn {
   font-size: 0.75em;
   opacity: 0.85;
 }
+
+/* Hero section text boldness enhancement */
+.hero-anim-mantra > div {
+  font-weight: 800 !important;
+  text-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.08);
+}
+
+.hero-anim-sub p {
+  font-weight: 800 !important;
+}
+
+#firm h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 800 !important;
+}
+
