@@ -43,7 +43,7 @@
               gold: '#C5A059' // Warm Gold
             },
             burgundy: '#8A3E4E',
-            charcoal: { DEFAULT: '#111111', muted: '#555555' }
+            charcoal: { DEFAULT: '#111111', muted: '#2C2416' }
           },
           fontFamily: {
             serif: ['Cormorant Garamond', 'serif'],
@@ -86,6 +86,16 @@
       </video>
     </div>
 
+    <!-- Top Blessing Text on Envelope Arch (Highlighted Area) -->
+    <div id="envelope-top-blessing" class="absolute top-[8%] sm:top-[10%] left-0 right-0 w-full text-center z-10 pointer-events-none envelope-text-top px-4 space-y-1">
+      <p class="font-serif font-bold text-xs sm:text-sm md:text-base text-[#5E222F] tracking-[0.18em] uppercase drop-shadow-[0_1px_4px_rgba(255,255,255,0.95)]">
+        || Shree Ganeshaya Namah ||
+      </p>
+      <p class="font-serif font-bold text-[11px] sm:text-xs md:text-sm text-[#8A3E4E] tracking-[0.15em] uppercase drop-shadow-[0_1px_4px_rgba(255,255,255,0.95)]">
+        || Hare Madhav Dayal ki Daya ||
+      </p>
+    </div>
+
     <!-- Bottom Tap to Open Text -->
     <div id="overlay-cta" class="absolute bottom-[14%] left-0 right-0 w-full text-center z-10 opacity-0 envelope-text-bottom">
       <p class="font-cursive text-4xl sm:text-5xl text-white font-medium tracking-wide drop-shadow-md">
@@ -114,8 +124,13 @@
     <div class="absolute inset-0 z-10 flex flex-col items-center justify-center max-w-[310px] sm:max-w-[380px] md:max-w-[420px] w-full mx-auto px-2 sm:px-4 text-center pointer-events-auto my-auto -mt-8 sm:-mt-12 py-2 space-y-2.5 sm:space-y-4">
       
       <!-- 1. Blessing line -->
-      <div class="text-[9.5px] sm:text-[11px] uppercase tracking-[0.16em] text-[#C5A059] font-serif font-bold hero-anim-mantra">
-        || HARE MADHAV DAYAL KI DAYA ||
+      <div class="space-y-1 text-center hero-anim-mantra">
+        <div class="text-[11px] sm:text-[12.5px] uppercase tracking-[0.18em] text-[#8A3E4E] font-serif font-bold drop-shadow-sm">
+          || SHREE GANESHAYA NAMAH ||
+        </div>
+        <div class="text-[9.5px] sm:text-[11px] uppercase tracking-[0.16em] text-[#C5A059] font-serif font-bold">
+          || HARE MADHAV DAYAL KI DAYA ||
+        </div>
       </div>
 
       <!-- 2. Subtitle & Grand Royal Couple Names with Parents Details -->
@@ -123,7 +138,7 @@
         <div class="w-full max-w-[360px] space-y-1 sm:space-y-1.5 text-center leading-snug hero-anim-sub">
           <p class="font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.12em] text-[#8A3E4E] font-bold">BY THE INFINITE GRACE OF</p>
           <p class="font-serif text-[10px] sm:text-[11.5px] font-bold uppercase tracking-[0.04em] text-[#8A3E4E]">HAZIRA HUZOOR SATGURU BABA ISHWARSHAH<br class="sm:hidden"> SAHIB JI</p>
-          <p class="font-serif text-[9px] sm:text-[10.5px] font-semibold uppercase tracking-[0.02em] text-[#6E5424]">LT. SMT. KAMLADEVI &amp; LT. SHRI GEHIMAL KAKWANI</p>
+          <p class="font-serif text-[9px] sm:text-[10.5px] font-semibold uppercase tracking-[0.02em] text-[#5E222F] font-bold">LT. SMT. KAMLADEVI &amp; LT. SHRI GEHIMAL KAKWANI</p>
           <p class="font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.1em] text-[#164E40] font-bold pt-1">YOU ARE CORDIALLY INVITED TO CELEBRATE</p>
           <p class="font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.12em] text-[#164E40] font-bold">THE WEDDING OF</p>
         </div>
@@ -133,7 +148,7 @@
           <h1 class="font-cursive text-5xl sm:text-6xl md:text-[50px] font-normal tracking-wide text-[#8A3E4E] drop-shadow-md leading-none whitespace-nowrap">
             <span data-trans="bride">Sanchita</span><span class="font-sans text-[10px] sm:text-xs font-semibold tracking-wide text-[#8A3E4E] ml-1">(Preeti)</span>
           </h1>
-          <div class="font-serif italic text-[11px] sm:text-[13px] text-charcoal/85 font-medium tracking-wide pt-0.5 leading-snug">
+          <div class="font-serif italic text-[11.5px] sm:text-[13px] text-[#1A1A1A] font-bold tracking-wide pt-0.5 leading-snug">
             D/O Mrs. Bharti &amp; Mr. Mukesh Kakwani, Gondia
           </div>
         </div>
@@ -150,7 +165,7 @@
           <h2 class="font-cursive text-5xl sm:text-6xl md:text-[50px] font-normal tracking-wide text-[#8A3E4E] drop-shadow-md leading-none whitespace-nowrap">
             <span data-trans="groom">Dharmendra</span><span class="font-sans text-[10px] sm:text-xs font-semibold tracking-wide text-[#8A3E4E] ml-1">(Monu)</span>
           </h2>
-          <div class="font-serif italic text-[11px] sm:text-[13px] text-charcoal/85 font-medium tracking-wide pt-0.5 leading-snug">
+          <div class="font-serif italic text-[11.5px] sm:text-[13px] text-[#1A1A1A] font-bold tracking-wide pt-0.5 leading-snug">
             S/O Late Mrs. Mamta &amp; Late Mr. Choithmal Ahuja, Betul
           </div>
         </div>
@@ -163,7 +178,7 @@
           <span class="px-2 py-1 font-sans text-[10px] sm:text-xs font-medium border-r border-white/40">02</span>
           <span class="px-2 py-1 font-sans text-[10px] sm:text-xs font-medium">DEC</span>
         </div>
-        <span class="font-sans text-[9.5px] sm:text-[10.5px] font-bold tracking-[0.16em] text-[#C5A059] uppercase">
+        <span class="font-sans text-[10px] sm:text-[11px] font-bold tracking-[0.16em] text-[#5E222F] uppercase">
           AT ACCORD WILDLIFE, PENCH
         </span>
       </div>
@@ -257,13 +272,18 @@
         </div>
       </div>
 
-      <div class="relative w-full rounded-2xl sm:rounded-3xl px-5 py-6 sm:px-8 sm:py-8 bg-gradient-to-b from-[#FFFDF9] via-white to-[#FAF6ED] border border-[#C5A059]/40 shadow-[0_10px_35px_rgba(197,160,89,0.10)]">
-        <h3 class="font-sans text-sm sm:text-lg md:text-xl font-bold tracking-[0.06em] leading-snug text-[#6E5424] uppercase">MUKESH JEWELLERS &amp; GENERAL STORES</h3>
-        <div class="mt-3.5 space-y-1.5 font-serif text-sm sm:text-base leading-relaxed text-[#6E5424]">
+      <div class="relative w-full rounded-2xl sm:rounded-3xl px-5 py-6 sm:px-8 sm:py-8 bg-gradient-to-b from-[#FFFDF9] via-white to-[#FAF6ED] border-2 border-[#C5A059]/60 shadow-[0_12px_40px_rgba(197,160,89,0.15)] space-y-3.5">
+        <div class="absolute inset-2 sm:inset-2.5 rounded-[20px] border border-[#C5A059]/30 pointer-events-none"></div>
+        <h3 class="font-cinzel text-base sm:text-lg md:text-xl font-bold tracking-[0.08em] leading-snug text-[#8A3E4E] uppercase relative z-10">MUKESH JEWELLERS &amp; GENERAL STORES</h3>
+        <div class="space-y-1.5 font-sans text-sm sm:text-base font-bold leading-relaxed text-[#1A1A1A] relative z-10">
           <p>1) Ganj Bazar, Gondia</p>
           <p>2) Near Bhawani Mandir, Sindhi Colony, Gondia</p>
         </div>
-        <p class="mt-3.5 font-sans text-sm sm:text-base font-bold tracking-wider text-[#8A3E4E]">9673253130, 9370453030</p>
+        <div class="pt-1 relative z-10">
+          <a href="tel:9673253130" class="inline-block font-sans text-base sm:text-lg font-bold tracking-widest text-[#8A3E4E] hover:text-[#5E222F] transition-colors">9673253130</a>
+          <span class="text-[#C5A059] mx-1.5 font-bold">,</span>
+          <a href="tel:9370453030" class="inline-block font-sans text-base sm:text-lg font-bold tracking-widest text-[#8A3E4E] hover:text-[#5E222F] transition-colors">9370453030</a>
+        </div>
       </div>
     </div>
   </section>
@@ -904,21 +924,47 @@
         <span class="absolute bottom-2.5 left-3 text-[#C5A059] text-sm pointer-events-none">✦</span>
         <span class="absolute bottom-2.5 right-3 text-[#C5A059] text-sm pointer-events-none">✦</span>
 
-        <!-- Single Centered Column (Respected Family Members) -->
-        <div class="py-2 max-w-md mx-auto relative z-10">
-          <div class="space-y-4">
-            <span class="font-sans text-[8px] uppercase tracking-[0.2em] text-royal-gold font-bold block">SOLICITED BY</span>
-            <div class="space-y-2 font-serif text-base sm:text-lg text-black font-light leading-relaxed tracking-wide">
-              <div class="transition-all hover:text-royal-gold duration-300">Mrs. Pushpa &amp; Mr. Dunichand Kakwani</div>
-              <div class="transition-all hover:text-royal-gold duration-300">Mrs. Mona &amp; Mr. Bhagchand (Doni) Kakwani</div>
-              <div class="transition-all hover:text-royal-gold duration-300">Mrs. Kajal &amp; Mr. Dharmendra Kakwani</div>
-              <div class="transition-all hover:text-royal-gold duration-300">Mrs. Komal &amp; Mr. Gokuldas Kakwani</div>
-              <div class="transition-all hover:text-royal-gold duration-300">Mrs. Meeta &amp; Mr. Manoj Kakwani</div>
-              <div class="transition-all hover:text-royal-gold duration-300">Mrs. Prisha &amp; Mr. Vishal Kakwani</div>
-              <div class="transition-all hover:text-royal-gold duration-300">Mrs. Ankita &amp; Mr. Sagar Anand</div>
-              <div class="transition-all hover:text-royal-gold duration-300">Mrs. Diya &amp; Mr. Nitesh Kakwani</div>
+        <!-- Respected Family Members -->
+        <div class="py-2 max-w-md mx-auto relative z-10 space-y-6">
+          
+          <!-- 1. Awaiting Your Gracious Presence -->
+          <div class="space-y-3">
+            <h3 class="font-cursive text-3xl sm:text-4xl text-[#8A3E4E] font-medium tracking-wide">Awaiting Your Gracious Presence</h3>
+            <div class="space-y-2 font-serif text-sm sm:text-base md:text-[17px] text-[#2C2416] font-semibold leading-relaxed tracking-wide">
+              <div class="transition-all hover:text-[#8A3E4E] duration-300">Mrs. Pushpa &amp; Mr. Dunichand Kakwani</div>
+              <div class="transition-all hover:text-[#8A3E4E] duration-300">Mrs. Mona &amp; Mr. Bhagchand (Doni) Kakwani</div>
+              <div class="transition-all hover:text-[#8A3E4E] duration-300">Mrs. Kajal &amp; Mr. Dharmendra Kakwani</div>
+              <div class="transition-all hover:text-[#8A3E4E] duration-300">Mrs. Komal &amp; Mr. Gokuldas Kakwani</div>
+              <div class="transition-all hover:text-[#8A3E4E] duration-300">Mrs. Meeta &amp; Mr. Manoj Kakwani</div>
+              <div class="transition-all hover:text-[#8A3E4E] duration-300">Mrs. Prisha &amp; Mr. Vishal Kakwani</div>
+              <div class="transition-all hover:text-[#8A3E4E] duration-300">Mrs. Ankita &amp; Mr. Sagar Anand</div>
+              <div class="transition-all hover:text-[#8A3E4E] duration-300">Mrs. Diya &amp; Mr. Nitesh Kakwani</div>
             </div>
           </div>
+
+          <!-- Divider -->
+          <div class="flex items-center justify-center gap-3 pt-1">
+            <div class="w-10 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]/60"></div>
+            <span class="text-[#C5A059] text-xs select-none">✦</span>
+            <div class="w-10 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]/60"></div>
+          </div>
+
+          <!-- 2. Solicited By -->
+          <div class="space-y-2">
+            <h4 class="font-cursive text-3xl sm:text-4xl text-[#8A3E4E] font-medium tracking-wide">Solicited By</h4>
+            <p class="font-serif text-sm sm:text-base font-bold text-[#2C2416] tracking-wide">
+              Abhishek, Aashish, Pratik, Soham, Divyam
+            </p>
+          </div>
+
+          <!-- 3. Sweet Smile -->
+          <div class="space-y-2 pt-1">
+            <h4 class="font-cursive text-3xl sm:text-4xl text-[#8A3E4E] font-medium tracking-wide">Sweet Smile</h4>
+            <p class="font-serif text-sm sm:text-base font-bold text-[#2C2416] tracking-wide">
+              Annie, Vansh, Laksh, Vanya
+            </p>
+          </div>
+
         </div>
 
         <!-- Bottom Poetic Greeting Note -->

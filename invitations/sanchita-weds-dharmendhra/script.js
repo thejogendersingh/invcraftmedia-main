@@ -83,11 +83,63 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hide door overlay after smooth 2.0s transition completes
     setTimeout(() => {
       doorOverlay.style.display = 'none';
+      setTimeout(() => {
+        startSlowAutoScroll();
+      }, 600);
     }, 2000);
 
     // Start Indian Classical Ambient Raga Music
     startIndianRagaMusic();
   }
+
+  // ULTRA-SMOOTH SLOW AUTO-SCROLL (CINEMATIC GLIDE, STOPS ON ANY SCREEN TOUCH)
+  let autoScrollEnabled = false;
+  let autoScrollCancelled = false;
+  let autoScrollRaf = null;
+
+  function stopAutoScroll() {
+    if (!autoScrollEnabled) return;
+    if (autoScrollRaf) {
+      cancelAnimationFrame(autoScrollRaf);
+      autoScrollRaf = null;
+    }
+    autoScrollCancelled = true;
+  }
+
+  function startSlowAutoScroll() {
+    if (autoScrollCancelled || autoScrollRaf) return;
+    autoScrollEnabled = true;
+
+    let lastTimestamp = null;
+    // Ultra-smooth slow glide: ~34px per second
+    const speed = 34;
+
+    function step(timestamp) {
+      if (autoScrollCancelled) return;
+      if (!lastTimestamp) lastTimestamp = timestamp;
+      const elapsed = (timestamp - lastTimestamp) / 1000;
+      lastTimestamp = timestamp;
+
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (window.scrollY >= maxScroll - 4) {
+        stopAutoScroll();
+        return;
+      }
+
+      window.scrollBy(0, speed * elapsed);
+      autoScrollRaf = requestAnimationFrame(step);
+    }
+
+    autoScrollRaf = requestAnimationFrame(step);
+  }
+
+  ['touchstart', 'pointerdown', 'wheel', 'keydown', 'mousedown'].forEach(evt => {
+    window.addEventListener(evt, () => {
+      if (autoScrollEnabled) {
+        stopAutoScroll();
+      }
+    }, { passive: true, capture: true });
+  });
 
   // Expose globally for inline HTML onclick binding
   window.openRoyalDoor = openRoyalDoor;
