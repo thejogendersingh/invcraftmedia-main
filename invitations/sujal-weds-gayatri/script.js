@@ -21,7 +21,7 @@ const CONFIG = {
     native: "Native of Alsisar (Currently Jaipur)",
     tagline: "Lawat Family",
     bio: "Her steadfast anchor, warmest smile, and constant support in every walk of life.",
-    photo: "Assets/Couple IMages/Couple_image.webp"
+    photo: ""
   },
   bride: {
     name: "Gayatri",
@@ -31,7 +31,7 @@ const CONFIG = {
     native: "Native of Sardarshahar (Churu)",
     tagline: "Chhaparwal Family",
     bio: "His joyful grace, brightest laughter, and the soul behind every happy moment.",
-    photo: "Assets/Couple IMages/Couple_image1.webp"
+    photo: ""
   },
 
   // Wedding Date & Time (Main Ceremony - 26 Nov 2026, 7:00 PM IST)
@@ -93,7 +93,7 @@ const CONFIG = {
       dressCode: "Festive Green & Traditional Ethnic",
       desc: "Auspicious Mehandi celebrations with fragrant henna designs, festive music, and celebration.",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Maheshwari+Bhawan,+Sardarshahar",
-      image: "Assets/Events/mehndi-event.webp"
+      image: "Assets/Events/mehndi-final.webp"
     },
     {
       title: "Hald Haath Baan",
@@ -183,6 +183,7 @@ const TRANSLATIONS = {
     cdExpiredMsg: "🎉 The Auspicious Day Is Here! 🎉",
 
     coupleSectionTitle: "Meet The Couple",
+    couplePlaceholderTag: "Couple Image",
     groomRoleTag: "The Groom",
     groomCardName: "Sujal",
     groomTagline: "Lawat Family",
@@ -297,6 +298,7 @@ const TRANSLATIONS = {
     cdExpiredMsg: "🎉 मंगलमय शुभ दिन आ गया है! 🎉",
 
     coupleSectionTitle: "वर एवं वधू",
+    couplePlaceholderTag: "कपल फोटो",
     groomRoleTag: "वर",
     groomCardName: "सुजल",
     groomTagline: "लावट परिवार",
@@ -451,25 +453,8 @@ function applyConfigToDOM() {
   const groomBio = document.querySelector('#groomCard .couple-bio');
   const groomPhoto = document.querySelector('#groomCard .couple-photo');
 
-  if (groomName && CONFIG.groom.fullName) groomName.textContent = CONFIG.groom.fullName;
-  if (groomTagline && CONFIG.groom.tagline) groomTagline.textContent = CONFIG.groom.tagline;
-  if (groomParents && CONFIG.groom.parents) groomParents.textContent = CONFIG.groom.parents;
-  if (groomGrandparents && CONFIG.groom.grandparents) groomGrandparents.textContent = CONFIG.groom.grandparents;
-  if (groomBio && CONFIG.groom.bio) groomBio.textContent = `“${CONFIG.groom.bio}”`;
+  // Do not overwrite couple card with hardcoded English strings during init
   if (groomPhoto && CONFIG.groom.photo) groomPhoto.src = CONFIG.groom.photo;
-
-  const brideName = document.querySelector('#brideCard .couple-name');
-  const brideTagline = document.querySelector('#brideCard .couple-tagline');
-  const brideParents = document.querySelector('#brideCard .couple-parents');
-  const brideGrandparents = document.querySelector('#brideCard .couple-grandparents');
-  const brideBio = document.querySelector('#brideCard .couple-bio');
-  const bridePhoto = document.querySelector('#brideCard .couple-photo');
-
-  if (brideName && CONFIG.bride.fullName) brideName.textContent = CONFIG.bride.fullName;
-  if (brideTagline && CONFIG.bride.tagline) brideTagline.textContent = CONFIG.bride.tagline;
-  if (brideParents && CONFIG.bride.parents) brideParents.textContent = CONFIG.bride.parents;
-  if (brideGrandparents && CONFIG.bride.grandparents) brideGrandparents.textContent = CONFIG.bride.grandparents;
-  if (brideBio && CONFIG.bride.bio) brideBio.textContent = `“${CONFIG.bride.bio}”`;
   if (bridePhoto && CONFIG.bride.photo) bridePhoto.src = CONFIG.bride.photo;
 
   const hashtagText = document.querySelector('.hashtag-text');
@@ -1702,10 +1687,10 @@ function initMusicPlayer() {
    MODULE 17: BILINGUAL LANGUAGE SWITCHER (ENGLISH <-> HINDI)
    ----------------------------------------------------------------------------- */
 function setLanguage(lang) {
-  if (lang !== 'en' && lang !== 'hi') lang = 'en';
+  if (lang !== 'en' && lang !== 'hi') lang = 'hi';
   AppState.currentLang = lang;
   try {
-    localStorage.setItem('sujal_gayatri_lang', lang);
+    localStorage.setItem('sujal_gayatri_lang_v3', lang);
   } catch (e) {}
 
   document.documentElement.lang = lang;
@@ -1743,11 +1728,18 @@ function initLanguageSwitcher() {
   const langBtn = document.getElementById('langToggleBtn');
   if (!langBtn) return;
 
-  // Retrieve saved language preference or default to English
+  // Default strictly to Hindi (hi) unless user explicitly clicks EN
   let savedLang = 'hi';
   try {
-    savedLang = localStorage.getItem('sujal_gayatri_lang') || 'hi';
-  } catch (e) {}
+    const cached = localStorage.getItem('sujal_gayatri_lang_v3');
+    if (cached === 'en' || cached === 'hi') {
+      savedLang = cached;
+    } else {
+      savedLang = 'hi';
+    }
+  } catch (e) {
+    savedLang = 'hi';
+  }
 
   langBtn.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -1785,4 +1777,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initWeddingEvents();
   initShareAndHashtag();
   initLanguageSwitcher();
+  setLanguage(AppState.currentLang || 'hi');
 });
