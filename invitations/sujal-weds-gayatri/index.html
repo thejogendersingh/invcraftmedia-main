@@ -62,8 +62,9 @@
     }
   </script>
 
-  <!-- Preload Entrance First Frame for Instant Loading -->
-  <link rel="preload" as="image" href="Assets/Entrance_first_frame.webp" fetchpriority="high">
+  <!-- Preload Envelope Intro Assets for Instant Loading -->
+  <link rel="preload" as="image" href="Assets/intro-bottom.png" fetchpriority="high">
+  <link rel="preload" as="image" href="Assets/intro-top.png" fetchpriority="high">
 
   <!-- Preload Critical Hero Asset -->
   <link rel="preload" as="image" href="Assets/bg_images/bg_hero_mobile.webp">
@@ -75,29 +76,19 @@
 <body class="lang-hindi">
 
   <!-- =========================================================================
-       1. ENTRANCE SCREEN OVERLAY (Cinematic Video Curtain)
+       1. ENTRANCE SCREEN OVERLAY (Premium Realistic Top-Flap Envelope Intro)
        ========================================================================= -->
-  <div id="entranceOverlay" class="entrance-overlay" role="dialog" aria-modal="true" onclick="if(window.dissolveEntrance){window.dissolveEntrance();}else{this.style.display='none';document.body.classList.remove('scroll-locked');}"
+  <div id="entranceOverlay" class="entrance-overlay" role="dialog" aria-modal="true"
     aria-label="Wedding Invitation Envelope">
-    <div class="entrance-video-container">
-      <video id="entranceVideo" class="entrance-video" playsinline webkit-playsinline preload="auto" muted
-        poster="Assets/Entrance_first_frame.webp">
-        <source src="Assets/entrance_video.mp4#t=0.001" type="video/mp4">
-        Your browser does not support HTML5 video.
-      </video>
-    </div>
+    <div class="envelope-intro-stage" id="envelopeStage">
+      <!-- Stationary Lower Floral Envelope Body -->
+      <img src="Assets/intro-bottom.png" alt="Wedding Invitation Envelope" class="envelope-layer envelope-layer-bottom" draggable="false" fetchpriority="high">
 
-    <!-- Centred "Tap to Open" Prompt -->
-    <button id="entrancePrompt" class="entrance-prompt" type="button" onclick="if(window.dissolveEntrance){window.dissolveEntrance();}else{const o=document.getElementById('entranceOverlay');if(o)o.style.display='none';document.body.classList.remove('scroll-locked');}" aria-label="Tap to Open Wedding Invitation">
-      <div class="entrance-pill">
-        <span class="entrance-pill-sparkle">✦</span>
-        <span class="entrance-btn-label" data-i18n="entrancePrompt">Tap to Open Invitation</span>
-        <span class="entrance-pill-sparkle">✦</span>
+      <!-- Animated Upper V-Flap with S&G Pearl Locket -->
+      <div class="envelope-top-wrapper" id="envelopeTopWrapper">
+        <img src="Assets/intro-top.png" alt="Envelope Flap with S&G Locket" class="envelope-layer envelope-layer-top" draggable="false" fetchpriority="high">
       </div>
-    </button>
-
-    <!-- Warm Cinematic Flash Bloom on Dissolve -->
-    <div id="entranceBloom" class="entrance-bloom" aria-hidden="true"></div>
+    </div>
   </div>
 
 

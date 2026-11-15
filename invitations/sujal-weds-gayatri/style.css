@@ -109,7 +109,7 @@ body.scroll-locked {
 }
 
 /* -----------------------------------------------------------------------------
-   3. ENTRANCE SCREEN (Cinematic Video Curtain Overlay)
+   3. ENTRANCE SCREEN: REALISTIC TOP-FLAP ENVELOPE INTRO
    ----------------------------------------------------------------------------- */
 .entrance-overlay {
   position: fixed;
@@ -118,157 +118,72 @@ body.scroll-locked {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at center, #FDF8EC 30%, #F4E5CC 100%);
+  background: transparent;
   overflow: hidden;
-  transition: opacity 0.65s var(--ease-smooth),
-              transform 0.65s var(--ease-smooth),
-              filter 0.65s var(--ease-smooth);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: opacity 0.45s ease-out;
 }
 
 .entrance-overlay.dissolving {
   opacity: 0;
-  transform: scale(1.08);
-  filter: blur(10px);
   pointer-events: none;
 }
 
-.entrance-video-container {
+/* 9:16 / 2:3 Vertical Envelope Container maintaining exact aspect ratio without cropping/stretching */
+.envelope-intro-stage {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--ivory);
-}
-
-.entrance-video {
-  height: 100vh;
-  height: 100dvh;
-  max-height: 100%;
-  width: auto;
+  width: min(100vw, calc(100dvh * (1024 / 1536)));
+  height: min(100dvh, calc(100vw * (1536 / 1024)));
   max-width: 100vw;
-  object-fit: contain;
+  max-height: 100dvh;
+  aspect-ratio: 1024 / 1536;
+  margin: auto;
+  overflow: visible; /* Flap smoothly moves upward out of envelope bounds */
+  pointer-events: auto;
+}
+
+/* Stationary Lower Floral Envelope Body */
+.envelope-layer-bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
   display: block;
-  margin: 0 auto;
+  z-index: 1;
   pointer-events: none;
 }
 
-/* Centred "Tap to Open" Prompt (shifted 100px downwards) */
-.entrance-prompt {
+/* Animated Upper V-Shaped Flap with S&G Pearl Locket */
+.envelope-top-wrapper {
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, calc(-50% + 100px));
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 20px;
-  transition: transform 0.3s var(--ease-smooth), opacity 0.6s ease;
-}
-
-.entrance-prompt:hover {
-  transform: translate(-50%, calc(-50% + 100px)) scale(1.04);
-}
-
-.entrance-prompt.hidden {
-  opacity: 0;
+  width: 150%;
+  height: 66.6667%;
+  transform: translateX(-50%);
+  z-index: 2;
+  will-change: transform;
   pointer-events: none;
-  transform: translate(-50%, calc(-50% + 100px)) scale(0.92);
+  transition: transform 1.15s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.entrance-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 14px 34px;
-  /* Soft white texture radial fade behind text (seamlessly fades out at edges, no hard borders) */
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 100%);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: none;
-  border-radius: 50px;
-  box-shadow: none;
-  transition: transform 0.3s var(--ease-smooth), opacity 0.3s ease;
-}
-
-.entrance-prompt:hover .entrance-pill {
-  transform: scale(1.06);
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0.25) 75%, transparent 100%);
-  box-shadow: none;
-}
-
-.entrance-pill-sparkle {
-  color: #7A5515;
-  font-size: 11px;
-  animation: sparkleTwinkle 2s ease-in-out infinite alternate;
-  filter: drop-shadow(0 1px 3px rgba(253, 248, 236, 0.9));
-}
-
-@keyframes sparkleTwinkle {
-  0% { transform: scale(0.9); opacity: 0.7; }
-  100% { transform: scale(1.2); opacity: 1; }
-}
-
-.entrance-btn-label {
-  font-family: var(--font-caps);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #3E242B; /* Rich darker plum-brown for crystal clarity */
-  text-shadow: 0 1px 4px rgba(253, 248, 236, 0.95), 0 0 10px rgba(255, 255, 255, 0.8);
-}
-
-/* Skip direct fallback button */
-.entrance-skip {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
-  z-index: 10;
-  background: rgba(253, 248, 236, 0.85);
-  backdrop-filter: blur(6px);
-  border: 1px solid var(--border-gold-subtle);
-  color: var(--text-secondary);
-  font-family: var(--font-caps);
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.entrance-skip:hover {
-  background: var(--gold-bright);
-  color: #FFFFFF;
-}
-
-/* Cinematic Flash Bloom Overlay */
-.entrance-bloom {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(255, 246, 224, 0.95) 0%, rgba(217, 182, 90, 0.4) 70%, transparent 100%);
-  opacity: 0;
+.envelope-layer-top {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
   pointer-events: none;
-  z-index: 20;
 }
 
-.entrance-bloom.bloom-active {
-  animation: bloomFlash 1.6s ease-out forwards;
-}
-
-@keyframes bloomFlash {
-  0% { opacity: 0; }
-  25% { opacity: 1; }
-  100% { opacity: 0; }
+/* Upward Translation on Tap (Lifting top flap only) */
+.entrance-overlay.envelope-opening .envelope-top-wrapper {
+  transform: translate(-50%, -125%);
 }
 
 

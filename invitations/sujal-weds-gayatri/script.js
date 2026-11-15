@@ -136,6 +136,7 @@ const CONFIG = {
    ----------------------------------------------------------------------------- */
 const AppState = {
   entrancePassed: false,
+  entranceOpening: false,
   scratchDone: false,
   heroParticlesActive: true,
   currentStoryIdx: 0,
@@ -468,63 +469,51 @@ function applyConfigToDOM() {
 }
 
 /* -----------------------------------------------------------------------------
-   MODULE 2: CINEMATIC ENTRANCE SCREEN
-   Full-screen video curtain with "Tap to Open", unmuted playback, and 2s dissolve.
+   MODULE 2: REALISTIC TOP-FLAP ENVELOPE INTRO SCREEN
+   Animates ONLY intro-top upward smoothly over 1.15s, then seamlessly reveals hero.
    ----------------------------------------------------------------------------- */
 function initEntrance() {
   const overlay = document.getElementById('entranceOverlay');
-  const promptBtn = document.getElementById('entrancePrompt');
-  const bloom = document.getElementById('entranceBloom');
-
   if (!overlay) return;
 
-  const dissolveIntoHero = () => {
-    if (AppState.entrancePassed) return;
-    AppState.entrancePassed = true;
+  const openEnvelope = () => {
+    if (AppState.entranceOpening || AppState.entrancePassed) return;
+    AppState.entranceOpening = true;
 
-    // Immediately remove scroll lock so user can interact and scroll freely
-    document.body.classList.remove('scroll-locked');
-    overlay.style.pointerEvents = 'none';
+    // Animate ONLY upper V-flap upward
+    overlay.classList.add('envelope-opening');
 
-    // Trigger bloom flash
-    if (bloom) bloom.classList.add('bloom-active');
-
-    // Add dissolve CSS classes
-    overlay.classList.add('dissolving');
-
-    // Trigger Cinematic Dolly Zoom on Hero background & line-by-line reveal
+    // Trigger reveal of hero section content underneath
     const heroSection = document.getElementById('hero');
     if (heroSection) heroSection.classList.add('hero-revealed');
-
-    // Reveal hero content lines with staggered timings
     const heroReveals = document.querySelectorAll('#hero .hero-line, #hero .reveal');
     heroReveals.forEach((el) => el.classList.add('in-view'));
 
-    // Start background music
-    playBackgroundMusic().catch(() => {});
-
-    // Complete removal of overlay
+    // After flap finishes upward translation (1.15s), fade out overlay with lower image
     setTimeout(() => {
-      overlay.style.display = 'none';
-      overlay.setAttribute('aria-hidden', 'true');
-      resetScrollToTop();
-    }, 650);
+      overlay.classList.add('dissolving');
+      document.body.classList.remove('scroll-locked');
+      overlay.style.pointerEvents = 'none';
+      AppState.entrancePassed = true;
+
+      // Fully hide overlay after fade out completes
+      setTimeout(() => {
+        overlay.style.display = 'none';
+        overlay.setAttribute('aria-hidden', 'true');
+        resetScrollToTop();
+      }, 450);
+    }, 1150);
   };
 
-  // Expose globally for instant inline HTML click fallback
-  window.dissolveEntrance = dissolveIntoHero;
+  // Expose globally
+  window.dissolveEntrance = openEnvelope;
 
-  // Click & touch handlers (instant open on touch/click)
-  const handleOpen = (e) => {
-    dissolveIntoHero();
-  };
-
-  if (promptBtn) {
-    promptBtn.addEventListener('click', handleOpen);
-    promptBtn.addEventListener('touchend', handleOpen);
-  }
-  overlay.addEventListener('click', handleOpen);
-  overlay.addEventListener('touchend', handleOpen);
+  // Single tap / click anywhere on the envelope
+  overlay.addEventListener('click', openEnvelope);
+  overlay.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    openEnvelope();
+  }, { passive: false });
 }
 
 /* -----------------------------------------------------------------------------
