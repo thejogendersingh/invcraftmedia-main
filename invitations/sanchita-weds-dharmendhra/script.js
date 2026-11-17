@@ -80,18 +80,21 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Hide door overlay after smooth transition completes
+    // Start silky smooth auto-scroll as soon as hero is in view
+    setTimeout(() => {
+      startSlowAutoScroll();
+    }, 600);
+
+    // Fully hide door overlay after transition
     setTimeout(() => {
       doorOverlay.style.display = 'none';
-      // Start auto-scroll smoothly right after door is completely hidden and hero is visible
-      startSlowAutoScroll();
-    }, 1400);
+    }, 1200);
 
     // Start Indian Classical Ambient Raga Music
     startIndianRagaMusic();
   }
 
-  // ULTRA-SMOOTH AUTO-SCROLL (STARTS ON HERO OPEN, STOPS INSTANTLY ON ANY SCREEN TOUCH)
+  // ULTRA-SMOOTH AUTO-SCROLL (BULLETPROOF ACROSS ALL MOBILES / INSTANT STOP ON TOUCH)
   let autoScrollStarted = false;
   let autoScrollRunning = false;
   let autoScrollCancelled = false;
@@ -105,6 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
       cancelAnimationFrame(autoScrollRaf);
       autoScrollRaf = null;
     }
+    // Restore smooth scroll behavior for manual user navigation
+    try {
+      document.documentElement.style.scrollBehavior = '';
+    } catch(e) {}
   }
 
   function startSlowAutoScroll() {
@@ -112,41 +119,54 @@ document.addEventListener('DOMContentLoaded', () => {
     autoScrollStarted = true;
     autoScrollRunning = true;
 
+    // Temporarily bypass CSS smooth-scroll to prevent frame fighting on mobile WebKit/Blink
+    try {
+      document.documentElement.style.scrollBehavior = 'auto';
+    } catch(e) {}
+
+    const scroller = document.scrollingElement || document.documentElement || document.body;
     let lastTimestamp = null;
-    // Elegant smooth glide: ~75px per second
-    const speed = 75;
+    // Silky luxury glide: 70px per second (~1.15px per frame)
+    const speed = 70;
 
     function step(timestamp) {
       if (!autoScrollRunning || autoScrollCancelled) return;
       if (!lastTimestamp) lastTimestamp = timestamp;
-      const elapsed = Math.min((timestamp - lastTimestamp) / 1000, 0.1);
+      const elapsed = Math.min((timestamp - lastTimestamp) / 1000, 0.05);
       lastTimestamp = timestamp;
 
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      if (window.scrollY >= maxScroll - 4) {
+      const maxScroll = (scroller.scrollHeight || document.documentElement.scrollHeight) - window.innerHeight;
+      const currentScroll = window.scrollY || window.pageYOffset || scroller.scrollTop || 0;
+
+      if (currentScroll >= maxScroll - 6) {
         stopAutoScroll();
         return;
       }
 
-      window.scrollBy(0, speed * elapsed);
+      const nextScroll = currentScroll + (speed * elapsed);
+      scroller.scrollTop = nextScroll;
+      if (Math.abs((window.scrollY || scroller.scrollTop) - nextScroll) > 1) {
+        window.scrollTo(0, nextScroll);
+      }
+
       autoScrollRaf = requestAnimationFrame(step);
     }
 
     autoScrollRaf = requestAnimationFrame(step);
 
-    // Stop IMMEDIATELY on any touch, pointer, or scroll interaction on the screen
-    const stopEvents = ['touchstart', 'pointerdown', 'mousedown', 'wheel', 'keydown', 'touchmove'];
+    // INSTANT STOP ON USER TOUCH / INTERACTION
+    const stopEvents = ['touchstart', 'pointerdown', 'mousedown', 'wheel', 'keydown'];
     const onUserInteract = () => {
       stopAutoScroll();
       stopEvents.forEach(e => window.removeEventListener(e, onUserInteract, { capture: true }));
     };
 
-    // 100ms grace period so opening gesture doesn't prematurely trigger stop
+    // Attach listener with capture so any touch on screen immediately freezes scroll
     setTimeout(() => {
       if (autoScrollRunning) {
         stopEvents.forEach(e => window.addEventListener(e, onUserInteract, { passive: true, capture: true }));
       }
-    }, 120);
+    }, 150);
   }
 
   if (doorOverlay) {
