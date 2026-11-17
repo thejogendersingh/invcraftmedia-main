@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startIndianRagaMusic();
   }
 
-  // ULTRA-SMOOTH AUTO-SCROLL (CINEMATIC GLIDE, STOPS ON SECOND TOUCH ON HERO/PAGE)
+  // ULTRA-SMOOTH AUTO-SCROLL (STARTS ON HERO OPEN, STOPS INSTANTLY ON ANY SCREEN TOUCH)
   let autoScrollStarted = false;
   let autoScrollRunning = false;
   let autoScrollCancelled = false;
@@ -113,8 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
     autoScrollRunning = true;
 
     let lastTimestamp = null;
-    // Normal smooth speed: ~80px per second (~1.3px per frame at 60fps)
-    const speed = 80;
+    // Elegant smooth glide: ~75px per second
+    const speed = 75;
 
     function step(timestamp) {
       if (!autoScrollRunning || autoScrollCancelled) return;
@@ -134,23 +134,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     autoScrollRaf = requestAnimationFrame(step);
 
-    // Stop ONLY on the SECOND touch (when user touches hero/page while actively scrolling)
-    // 1-second delay ensures no residual tap from opening the intro envelope can EVER stop it
-    setTimeout(() => {
-      if (!autoScrollRunning) return;
-      const stopEvents = ['touchstart', 'pointerdown', 'wheel', 'keydown', 'mousedown'];
-      const onSecondTouch = () => {
-        if (autoScrollRunning) {
-          stopAutoScroll();
-          stopEvents.forEach(e => window.removeEventListener(e, onSecondTouch, { capture: true }));
-        }
-      };
-      stopEvents.forEach(e => window.addEventListener(e, onSecondTouch, { passive: true, capture: true }));
-    }, 1000);
-  }
+    // Stop IMMEDIATELY on any touch, pointer, or scroll interaction on the screen
+    const stopEvents = ['touchstart', 'pointerdown', 'mousedown', 'wheel', 'keydown', 'touchmove'];
+    const onUserInteract = () => {
+      stopAutoScroll();
+      stopEvents.forEach(e => window.removeEventListener(e, onUserInteract, { capture: true }));
+    };
 
-  // Expose globally for inline HTML onclick binding
-  window.openRoyalDoor = openRoyalDoor;
+    // 100ms grace period so opening gesture doesn't prematurely trigger stop
+    setTimeout(() => {
+      if (autoScrollRunning) {
+        stopEvents.forEach(e => window.addEventListener(e, onUserInteract, { passive: true, capture: true }));
+      }
+    }, 120);
+  }
 
   if (doorOverlay) {
     doorOverlay.addEventListener('click', openRoyalDoor);
