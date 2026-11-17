@@ -336,4 +336,6 @@
 
 # Client assets: Tushar weds Shruti
 /tushar-weds-shruti/*       /invitations/tushar-weds-shruti/:splat             200
-
+# Client assets: David weds Ranjena
+/david-weds-ranjena/*       /invitations/david-weds-ranjena/:splat             200
+/david-weds-ranjena         /invitations/david-weds-ranjena/                   301
