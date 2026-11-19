@@ -96,3 +96,5 @@ button[type="submit"]:hover {
 img[src*="hero-bg"], img[src*="families-bg"], img[src*="wedding-bg"], img[src*="reception-bg"], img[src*="rsvp-bg"], img[src*="story-bg"] {
   filter: sepia(0.42) saturate(1.2) hue-rotate(-24deg) brightness(1.02) !important;
 }
+
+@keyframes customBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}.animate-scroll-bounce{animation:customBounce 1.5s ease-in-out infinite}
