@@ -358,3 +358,17 @@
 /leema-and-fresin/         /leema-weds-fresin/                               302
 /leema-and-fresin/*        /invitations/leema-weds-fresin/:splat             200
 
+# Client: Nisarga weds Vikas
+/nisarga-weds-vikas         /nisarga-weds-vikas/                               302
+/nisarga-weds-vikas/        /invitations/nisarga-weds-vikas/index.html         200
+/nisarga-weds-vikas/*       /invitations/nisarga-weds-vikas/:splat             200
+
+# Client alias: nisarga-and-vikas
+/nisarga-and-vikas          /nisarga-weds-vikas/                               302
+/nisarga-and-vikas/         /nisarga-weds-vikas/                               302
+/nisarga-and-vikas/*        /invitations/nisarga-weds-vikas/:splat             200
+
+# Client alias: vikas-weds-nisarga
+/vikas-weds-nisarga         /nisarga-weds-vikas/                               302
+/vikas-weds-nisarga/        /nisarga-weds-vikas/                               302
+/vikas-weds-nisarga/*       /invitations/nisarga-weds-vikas/:splat             200
