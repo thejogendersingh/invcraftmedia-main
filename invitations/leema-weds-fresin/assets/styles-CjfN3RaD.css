@@ -22,3 +22,4 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; width: 
 }
 
 @keyframes customBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}.animate-scroll-bounce{animation:customBounce 1.5s ease-in-out infinite}
+@keyframes scratchFloat{0%,100%{transform:translateY(0px) scale(1);opacity:.92}50%{transform:translateY(-5px) scale(1.04);opacity:1;filter:drop-shadow(0 0 10px rgba(245,215,142,.7))}}.animate-scratch-float{animation:scratchFloat 2s ease-in-out infinite}
