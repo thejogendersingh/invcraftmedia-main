@@ -11,14 +11,17 @@
     <meta property="og:url" content="https://invcraftmedia.com/nisarga-weds-vikas/" />
     <meta property="og:title" content="Dr. Nisarga &amp; Dr. Vikas - Wedding Invitation">
     <meta property="og:description" content="Join us to celebrate Dr. Nisarga and Dr. Vikas, December 2–3, 2026, at Shree D. Veerendra Heggade Kalakshetra, Dharwad.">
-    <meta property="og:image" content="https://invcraftmedia.com/nisarga-weds-vikas/assets/IMG_1107-hmv0Lgfl.PNG">
+    <meta property="og:image" content="https://invcraftmedia.com/nisarga-weds-vikas/assets/og-preview.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:alt" content="Dr. Nisarga and Dr. Vikas wedding invitation hero artwork">
     <meta property="og:image:width" content="941">
     <meta property="og:image:height" content="1672">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Dr. Nisarga &amp; Dr. Vikas - Wedding Invitation">
     <meta name="twitter:description" content="Join us to celebrate Dr. Nisarga and Dr. Vikas, December 2–3, 2026, at Shree D. Veerendra Heggade Kalakshetra, Dharwad.">
-    <meta name="twitter:image" content="https://invcraftmedia.com/nisarga-weds-vikas/assets/IMG_1107-hmv0Lgfl.PNG">
+    <meta name="twitter:image" content="https://invcraftmedia.com/nisarga-weds-vikas/assets/og-preview.jpg" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,5 +58,42 @@
 
   <body>
     <div id="root"></div>
+  
+    <!-- Background Audio -->
+    <audio id="wedding-audio" src="./assets/audio.mp3" loop preload="auto"></audio>
+    <script>
+      (function() {
+        var audio = document.getElementById('wedding-audio');
+        window.__weddingAudio = audio;
+        var hasStarted = false;
+
+        function playMusic() {
+          if (!audio) return;
+          audio.volume = 0.6;
+          var p = audio.play();
+          if (p !== undefined) {
+            p.then(function() {
+              hasStarted = true;
+            }).catch(function(e) {
+              console.log('Audio wait user gesture', e);
+            });
+          }
+        }
+
+        window.__playInvitationSong = playMusic;
+
+        // Start on first tap anywhere
+        var unlock = function() {
+          playMusic();
+          document.removeEventListener('pointerdown', unlock);
+          document.removeEventListener('touchstart', unlock);
+          document.removeEventListener('click', unlock);
+        };
+        document.addEventListener('pointerdown', unlock, { once: true });
+        document.addEventListener('touchstart', unlock, { once: true, passive: true });
+        document.addEventListener('click', unlock, { once: true });
+      })();
+    </script>
+
   </body>
 </html>
