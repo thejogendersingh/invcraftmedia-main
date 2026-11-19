@@ -68,30 +68,31 @@
         var hasStarted = false;
 
         function playMusic() {
-          if (!audio) return;
+          if (!audio || hasStarted) return;
           audio.volume = 0.6;
           var p = audio.play();
           if (p !== undefined) {
             p.then(function() {
               hasStarted = true;
             }).catch(function(e) {
-              console.log('Audio wait user gesture', e);
+              console.log('Audio gesture needed', e);
             });
           }
         }
 
         window.__playInvitationSong = playMusic;
 
-        // Start on first tap anywhere
-        var unlock = function() {
-          playMusic();
-          document.removeEventListener('pointerdown', unlock);
-          document.removeEventListener('touchstart', unlock);
-          document.removeEventListener('click', unlock);
-        };
-        document.addEventListener('pointerdown', unlock, { once: true });
-        document.addEventListener('touchstart', unlock, { once: true, passive: true });
-        document.addEventListener('click', unlock, { once: true });
+        // ONLY start audio when user touches/clicks anywhere to open
+        function onUserInteraction() {
+          if (window.__weddingAudio && !hasStarted) {
+            playMusic();
+          }
+          window.removeEventListener('click', onUserInteraction);
+          window.removeEventListener('touchend', onUserInteraction);
+        }
+
+        window.addEventListener('click', onUserInteraction, { once: true });
+        window.addEventListener('touchend', onUserInteraction, { once: true });
       })();
     </script>
 
