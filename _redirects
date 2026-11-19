@@ -336,11 +336,16 @@
 
 # Client assets: Tushar weds Shruti
 /tushar-weds-shruti/*       /invitations/tushar-weds-shruti/:splat             200
-/__l5e/*   /invitations/david-weds-ranjena/__l5e/:splat  200
-/david-weds-ranjena/__l5e/*   /invitations/david-weds-ranjena/__l5e/:splat  200
-# Client assets: David weds Ranjena
+# Client: David weds Ranjena
+/david-weds-ranjena         /david-weds-ranjena/                               302
+/david-weds-ranjena/        /invitations/david-weds-ranjena/index.html         200
 /david-weds-ranjena/*       /invitations/david-weds-ranjena/:splat             200
-/david-weds-ranjena         /invitations/david-weds-ranjena/                   301
+
+# Client alias: david-and-ranjena
+/david-and-ranjena          /david-weds-ranjena/                               302
+/david-and-ranjena/         /david-weds-ranjena/                               302
+/david-and-ranjena/*        /invitations/david-weds-ranjena/:splat             200
+/__l5e/*                    /invitations/david-weds-ranjena/__l5e/:splat       200
 
 # Client: leema-weds-fresin
 /leema-weds-fresin         /leema-weds-fresin/                               302
