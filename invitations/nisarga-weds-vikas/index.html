@@ -1,16 +1,16 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dr. Nisarga &amp; Dr. Vikas - Wedding Invitation</title>
-    <meta name="description" content="Join us to celebrate Dr. Nisarga and Dr. Vikas, December 2–3, 2026, at Shree D. Veerendra Heggade Kalakshetra, Dharwad.">
+    <meta name="description" content="Join us to celebrate Dr. Nisarga and Dr. Vikas, December 2 and 3, 2026, at Shree D. Veerendra Heggade Kalakshetra, Dharwad.">
     <meta name="author" content="Invitation Media" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://invcraftmedia.com/nisarga-weds-vikas/" />
     <meta property="og:title" content="Dr. Nisarga &amp; Dr. Vikas - Wedding Invitation">
-    <meta property="og:description" content="Join us to celebrate Dr. Nisarga and Dr. Vikas, December 2–3, 2026, at Shree D. Veerendra Heggade Kalakshetra, Dharwad.">
+    <meta property="og:description" content="Join us to celebrate Dr. Nisarga and Dr. Vikas, December 2 and 3, 2026, at Shree D. Veerendra Heggade Kalakshetra, Dharwad.">
     <meta property="og:image" content="https://invcraftmedia.com/nisarga-weds-vikas/assets/og-preview.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -20,13 +20,18 @@
     <meta property="og:image:height" content="1672">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Dr. Nisarga &amp; Dr. Vikas - Wedding Invitation">
-    <meta name="twitter:description" content="Join us to celebrate Dr. Nisarga and Dr. Vikas, December 2–3, 2026, at Shree D. Veerendra Heggade Kalakshetra, Dharwad.">
+    <meta name="twitter:description" content="Join us to celebrate Dr. Nisarga and Dr. Vikas, December 2 and 3, 2026, at Shree D. Veerendra Heggade Kalakshetra, Dharwad.">
     <meta name="twitter:image" content="https://invcraftmedia.com/nisarga-weds-vikas/assets/og-preview.jpg" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="./assets/index-BEMyjfVt.js"></script>
+    <link rel="preconnect" href="https://www.youtube.com" crossorigin>
+    <link rel="preconnect" href="https://www.google.com" crossorigin>
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+    <link rel="preconnect" href="https://www.youtube-nocookie.com" crossorigin>
+    <script src="https://www.youtube.com/iframe_api" async></script>
+    <script type="module" crossorigin src="./assets/index-BEMyjfVt.js?v=music46instant"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-k2LJ8-VF.css">
     <style>
       /* Ensure counting digits (0-9) render with crystal-clear numerals where '1' is 100% unmistakably 1 */
@@ -58,43 +63,5 @@
 
   <body>
     <div id="root"></div>
-  
-    <!-- Background Audio -->
-    <audio id="wedding-audio" src="./assets/audio.mp3" loop preload="auto"></audio>
-    <script>
-      (function() {
-        var audio = document.getElementById('wedding-audio');
-        window.__weddingAudio = audio;
-        var hasStarted = false;
-
-        function playMusic() {
-          if (!audio || hasStarted) return;
-          audio.volume = 0.6;
-          var p = audio.play();
-          if (p !== undefined) {
-            p.then(function() {
-              hasStarted = true;
-            }).catch(function(e) {
-              console.log('Audio gesture needed', e);
-            });
-          }
-        }
-
-        window.__playInvitationSong = playMusic;
-
-        // ONLY start audio when user touches/clicks anywhere to open
-        function onUserInteraction() {
-          if (window.__weddingAudio && !hasStarted) {
-            playMusic();
-          }
-          window.removeEventListener('click', onUserInteraction);
-          window.removeEventListener('touchend', onUserInteraction);
-        }
-
-        window.addEventListener('click', onUserInteraction, { once: true });
-        window.addEventListener('touchend', onUserInteraction, { once: true });
-      })();
-    </script>
-
-  </body>
+</body>
 </html>
