@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cormorant+SC:wght@400;500;600&family=Great+Vibes&display=swap">
+    <title>Bride Asset Generator</title>
+</head>
+<body style="background:#f0ede6; font-family:'Cormorant Garamond', serif; padding:20px;">
+    <h2>Bride Asset Generator</h2>
+    <canvas id="cMonogram" width="588" height="640" style="border:1px solid #ccc; max-width:200px;"></canvas>
+    <canvas id="cSchedule" width="576" height="1024" style="border:1px solid #ccc; max-width:200px;"></canvas>
+    <canvas id="cReception" width="872" height="984" style="border:1px solid #ccc; max-width:200px;"></canvas>
+
+    <script>
+        window.results = {};
+
+        async function init() {
+            await document.fonts.ready;
+
+            // 1. Monogram L | F
+            const imgMono = new Image();
+            imgMono.src = './assets/monogram-DluBM9hV.webp';
+            await new Promise(r => imgMono.onload = r);
+
+            const cm = document.getElementById('cMonogram');
+            const ctxM = cm.getContext('2d');
+            ctxM.drawImage(imgMono, 0, 0);
+
+            // Clear center area
+            ctxM.save();
+            ctxM.globalCompositeOperation = 'destination-out';
+            ctxM.beginPath();
+            ctxM.ellipse(cm.width/2, cm.height/2 - 25, 140, 100, 0, 0, Math.PI * 2);
+            ctxM.fill();
+            ctxM.restore();
+
+            // Draw L | F in center
+            ctxM.fillStyle = '#1e2d42';
+            ctxM.font = '500 130px "Cormorant Garamond", serif';
+            ctxM.textAlign = 'center';
+            ctxM.textBaseline = 'middle';
+            
+            // L on left
+            ctxM.fillText('L', cm.width/2 - 70, cm.height/2 - 20);
+            
+            // Divider line
+            ctxM.strokeStyle = '#1e2d42';
+            ctxM.lineWidth = 3;
+            ctxM.beginPath();
+            ctxM.moveTo(cm.width/2, cm.height/2 - 105);
+            ctxM.lineTo(cm.width/2, cm.height/2 + 65);
+            ctxM.stroke();
+            
+            // F on right
+            ctxM.fillText('F', cm.width/2 + 70, cm.height/2 - 20);
+            window.results.monogram = cm.toDataURL('image/png');
+
+            // 2. Schedule Card (Engagement / Betrothal)
+            const imgSched = new Image();
+            imgSched.src = './assets/schedule-card-1-DVLF0AQy.webp';
+            await new Promise(r => imgSched.onload = r);
+
+            const cs = document.getElementById('cSchedule');
+            const ctxS = cs.getContext('2d');
+            ctxS.drawImage(imgSched, 0, 0);
+
+            // Patch top date: 27TH DECEMBER, 2026
+            ctxS.fillStyle = '#f4efe4';
+            ctxS.fillRect(140, 165, 300, 40);
+            ctxS.fillStyle = '#1a2c5b';
+            ctxS.font = '600 24px "Cormorant Garamond", serif';
+            ctxS.textAlign = 'center';
+            ctxS.fillText('27TH DECEMBER, 2026', cs.width/2, 192);
+
+            // Patch title: "Engagement / Betrothal"
+            ctxS.fillRect(60, 475, 456, 85);
+            ctxS.fillStyle = '#1a2c5b';
+            ctxS.font = 'italic 500 50px "Cormorant Garamond", serif';
+            ctxS.fillText('Engagement / Betrothal', cs.width/2, 535);
+
+            // Patch time: "4:30 PM"
+            ctxS.fillRect(210, 580, 160, 30);
+            ctxS.fillStyle = '#1a2c5b';
+            ctxS.font = '600 22px "Cormorant SC", serif';
+            ctxS.fillText('4:30 PM', cs.width/2, 600);
+
+            // Patch venue: "VENUE : ST. JOSEPH CHURCH , KODUSSERY"
+            ctxS.fillRect(60, 620, 456, 55);
+            ctxS.fillStyle = '#7a6744';
+            ctxS.font = '600 16px "Cormorant SC", serif';
+            ctxS.fillText('VENUE :', cs.width/2, 638);
+            ctxS.fillStyle = '#1a2c5b';
+            ctxS.font = '600 17px "Cormorant SC", serif';
+            ctxS.fillText('ST. JOSEPH CHURCH , KODUSSERY', cs.width/2, 660);
+
+            window.results.schedule = cs.toDataURL('image/png');
+
+            // 3. Reception Card
+            const imgRecep = new Image();
+            imgRecep.src = './assets/reception-content-BM7GeP99.webp';
+            await new Promise(r => imgRecep.onload = r);
+
+            const cr = document.getElementById('cReception');
+            const ctxR = cr.getContext('2d');
+            ctxR.drawImage(imgRecep, 0, 0);
+
+            // Patch top date: 27TH DECEMBER, 2026
+            ctxR.fillStyle = '#ebe6dc';
+            ctxR.fillRect(180, 85, 510, 65);
+            ctxR.fillStyle = '#1a2c5b';
+            ctxR.font = '600 38px "Cormorant Garamond", serif';
+            ctxR.textAlign = 'center';
+            ctxR.fillText('27TH DECEMBER, 2026', cr.width/2, 134);
+
+            // Patch time / details: "FOLLOWING BETROTHAL SERVICE"
+            ctxR.fillRect(180, 690, 510, 55);
+            ctxR.fillStyle = '#1a2c5b';
+            ctxR.font = '600 28px "Cormorant SC", serif';
+            ctxR.fillText('FOLLOWING BETROTHAL SERVICE', cr.width/2, 730);
+
+            // Patch venue: "KODUSSERY MATHA HALL"
+            ctxR.fillRect(100, 795, 672, 70);
+            ctxR.fillStyle = '#1a2c5b';
+            ctxR.font = '600 30px "Cormorant SC", serif';
+            ctxR.fillText('KODUSSERY MATHA HALL', cr.width/2, 840);
+
+            window.results.reception = cr.toDataURL('image/png');
+            
+            // Post results to local saver
+            try {
+                await fetch('/save-generated-assets', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(window.results)
+                });
+            } catch(e) {}
+            
+            window.done = true;
+        }
+
+        init();
+    </script>
+</body>
+</html>

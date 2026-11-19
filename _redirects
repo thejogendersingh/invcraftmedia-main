@@ -341,3 +341,14 @@
 # Client assets: David weds Ranjena
 /david-weds-ranjena/*       /invitations/david-weds-ranjena/:splat             200
 /david-weds-ranjena         /invitations/david-weds-ranjena/                   301
+
+# Client: leema-weds-fresin
+/leema-weds-fresin         /leema-weds-fresin/                               302
+/leema-weds-fresin/        /invitations/leema-weds-fresin/index.html         200
+/leema-weds-fresin/*       /invitations/leema-weds-fresin/:splat             200
+
+# Client alias: leema-and-fresin
+/leema-and-fresin          /leema-weds-fresin/                               302
+/leema-and-fresin/         /leema-weds-fresin/                               302
+/leema-and-fresin/*        /invitations/leema-weds-fresin/:splat             200
+
