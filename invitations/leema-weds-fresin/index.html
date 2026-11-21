@@ -29,6 +29,8 @@
     opened = true;
     window.__introOpened = true;
     if (b) b.style.display = "none";
+    var sp = document.getElementById("static-intro-poster");
+    if (sp) { sp.style.opacity = "0"; setTimeout(function(){ sp.style.display = "none"; }, 220); }
     v.style.opacity = "1";
 
     v.muted = true;
