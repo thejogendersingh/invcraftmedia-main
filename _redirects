@@ -372,3 +372,13 @@
 /vikas-weds-nisarga         /nisarga-weds-vikas/                               302
 /vikas-weds-nisarga/        /nisarga-weds-vikas/                               302
 /vikas-weds-nisarga/*       /invitations/nisarga-weds-vikas/:splat             200
+
+# Client: Chirag weds Ayushi (Chirag Garg & Ayushi Agrawal)
+/chirag-weds-ayushi         /chirag-weds-ayushi/                               302
+/chirag-weds-ayushi/        /invitations/chirag-weds-ayushi/index.html         200
+/chirag-weds-ayushi/*       /invitations/chirag-weds-ayushi/:splat             200
+
+# Client alias: ayushi-weds-chirag
+/ayushi-weds-chirag         /chirag-weds-ayushi/                               302
+/ayushi-weds-chirag/        /chirag-weds-ayushi/                               302
+/ayushi-weds-chirag/*       /invitations/chirag-weds-ayushi/:splat             200
