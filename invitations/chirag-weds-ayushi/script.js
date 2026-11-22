@@ -162,7 +162,7 @@ const TRANSLATIONS = {
     brideFullName: "Ayushi Agrawal",
     brideGrandparents: "Granddaughter of Late Smt. Ram Dulari Devi & Late Shri Kishan Lalji Agrawal",
     brideLineage: "Daughter of Smt. Sangeeta & Shri Satish Agrawal",
-    brideNative: "Agrawal Family, Ambikapur (C.G.)",
+    brideNative: "Agrawal Family",
     messageConnector: "&",
     groomFullName: "Chirag Garg",
     groomGrandparents: "Grandson of Late Smt. Roshni Garg & Late Shri Ram Lal Garg",
@@ -246,16 +246,16 @@ const TRANSLATIONS = {
 
     familySigLabel: "With Best Compliments & Warm Regards",
     familySigTitle: "Agrawal & Garg Family",
-    chunariPaksh: "Bride Side: Agrawal Family (Ambikapur)",
-    sehraPaksh: "Groom Side: Garg Family (Ambikapur)",
+    chunariPaksh: "Bride Side: Agrawal Family",
+    sehraPaksh: "Groom Side: Garg Family",
     brideFirmsHeader: "✦ Bride Side Firms (Agrawal Family) ✦",
     groomFirmsHeader: "✦ Groom Side Firms (Garg Family) ✦",
     brideCompTitle: "✦ With Best Compliments — Bride Side (Agrawal Family) ✦",
     brideCompNames: "Shri Prayagraj Agrawal · Shri Makhan Agrawal · Shri Satish Agrawal · Shri Bajrang Agrawal · Shri Ramesh Agrawal · Late Shri Sanjay Agrawal · Shri Rinku Agrawal · Shri Mukesh Agrawal",
     groomCompTitle: "✦ With Best Compliments — Groom Side (Garg Family) ✦",
     groomCompNames: "Shri Premchand Garg · Shri Sanjay Garg · Shri Parveen Garg · Shri Deepak Garg · Late Aashish Garg · Shri Amit Garg · Shri Suyash Garg · Shri Harsh Garg",
-    darshanTitle: "✦ Desire Your Presence ✦",
-    darshanNames: "Shri Premchand Garg · Shri Sanjay Garg & Garg Family",
+    swagatTitle: "✦ Swagatotsuk ✦",
+    swagatNames: "Shri Satish Agrawal · Shri Bajrang Agrawal · Shri Ramesh Agrawal",
     contactHeader: "✦ Contact ✦",
 
     footerThankYou: "Thank You",
@@ -278,7 +278,7 @@ const TRANSLATIONS = {
     brideFullName: "सौ. कां. आयुषी अग्रवाल",
     brideGrandparents: "सुपौत्री: स्व. श्रीमती राम दुलारी देवी एवं स्व. श्री किशनलाल जी अग्रवाल",
     brideLineage: "सुपुत्री: श्रीमती संगीता एवं श्री सतीश अग्रवाल",
-    brideNative: "अग्रवाल परिवार, अंबिकापुर (छ.ग.)",
+    brideNative: "अग्रवाल परिवार",
     messageConnector: "संग",
     groomFullName: "चि. चिराग गर्ग",
     groomGrandparents: "सुपौत्र: स्व. श्रीमती रोशनी गर्ग एवं स्व. श्री रामलाल गर्ग",
@@ -362,16 +362,16 @@ const TRANSLATIONS = {
 
     familySigLabel: "सादर स्नेह एवं मंगलकामनाएं",
     familySigTitle: "अग्रवाल एवं गर्ग परिवार",
-    chunariPaksh: "वधू पक्ष: अग्रवाल परिवार (अंबिकापुर)",
-    sehraPaksh: "वर पक्ष: गर्ग परिवार (अंबिकापुर)",
+    chunariPaksh: "वधू पक्ष: अग्रवाल परिवार",
+    sehraPaksh: "वर पक्ष: गर्ग परिवार",
     brideFirmsHeader: "✦ प्रतिष्ठान — वधू पक्ष (अग्रवाल परिवार) ✦",
     groomFirmsHeader: "✦ प्रतिष्ठान — वर पक्ष (गर्ग परिवार) ✦",
     brideCompTitle: "✦ स्नेहाकांक्षी — वधू पक्ष (अग्रवाल परिवार) ✦",
     brideCompNames: "श्री प्रयागराज अग्रवाल · श्री माखन अग्रवाल · श्री सतीश अग्रवाल · श्री बजरंग अग्रवाल · श्री रमेश अग्रवाल · स्व. श्री संजय अग्रवाल · श्री रिंकू अग्रवाल · श्री मुकेश अग्रवाल",
     groomCompTitle: "✦ स्नेहाकांक्षी — वर पक्ष (गर्ग परिवार) ✦",
     groomCompNames: "श्री प्रेमचंद गर्ग · श्री संजय गर्ग · श्री प्रवीण गर्ग · श्री दीपक गर्ग · स्व. आशीष गर्ग · श्री अमित गर्ग · श्री सुयश गर्ग · श्री हर्ष गर्ग",
-    darshanTitle: "✦ दर्शनाभिलाषी ✦",
-    darshanNames: "श्री प्रेमचंद गर्ग · श्री संजय गर्ग एवं समस्त गर्ग परिवार",
+    swagatTitle: "✦ स्वागतोत्सुक ✦",
+    swagatNames: "श्री सतीश अग्रवाल · श्री बजरंग अग्रवाल · श्री रमेश अग्रवाल",
     contactHeader: "✦ संपर्क सूत्र ✦",
 
     footerThankYou: "हार्दिक आभार",
@@ -519,13 +519,13 @@ function initEntrance() {
 
     // Start background wedding music on user gesture
     try {
-      playBackgroundMusic().catch(() => {});
-    } catch (e) {}
+      playBackgroundMusic().catch(() => { });
+    } catch (e) { }
 
     // Play entrance video smoothly from start
     if (video) {
       video.muted = true;
-      try { video.currentTime = 0; } catch (e) {}
+      try { video.currentTime = 0; } catch (e) { }
       const p = video.play();
       if (p && p.catch) {
         p.catch(() => setTimeout(finishEntrance, 300));
@@ -835,7 +835,7 @@ function initScratchCard() {
   canvas.addEventListener('pointercancel', stopScratching);
 
   setupFoil();
-  window.redrawScratchFoil = function() {
+  window.redrawScratchFoil = function () {
     if (!AppState.scratchDone && canvas && canvas.getContext) {
       setupFoil();
     }
@@ -917,7 +917,7 @@ function launchFestiveConfettiCelebration() {
   // 5 Consecutive, Staggered Bursts across the screen:
   const bursts = [
     // Burst 1 (t = 0ms): Center-left fountain firing up & towards center
-    { delay: 0,   x: w * 0.28, y: h * 0.65, count: 55, spread: 65, speed: 18, angle: -65 },
+    { delay: 0, x: w * 0.28, y: h * 0.65, count: 55, spread: 65, speed: 18, angle: -65 },
     // Burst 2 (t = 220ms): Center-right fountain firing up & towards center
     { delay: 220, x: w * 0.72, y: h * 0.65, count: 55, spread: 65, speed: 18, angle: -115 },
     // Burst 3 (t = 440ms): Grand central aerial explosion right over the auspicious date
@@ -1616,7 +1616,7 @@ function setLanguage(lang) {
   AppState.currentLang = lang;
   try {
     localStorage.setItem('ayushi_chirag_lang_v3', lang);
-  } catch (e) {}
+  } catch (e) { }
 
   document.documentElement.lang = lang;
   document.body.classList.toggle('lang-hindi', lang === 'hi');
@@ -1691,20 +1691,20 @@ function initLanguageSwitcher() {
    INITIALIZATION LIFECYCLE
    ----------------------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
-  try { resetScrollToTop(); } catch(e) { console.error(e); }
-  try { initEntrance(); } catch(e) { console.error(e); }
-  try { initStage(); } catch(e) { console.error(e); }
-  try { applyConfigToDOM(); } catch(e) { console.error(e); }
-  try { initMusicPlayer(); } catch(e) { console.error(e); }
-  try { initReveal(); } catch(e) { console.error(e); }
-  try { initHeroParticles(); } catch(e) { console.error(e); }
-  try { initScratchCard(); } catch(e) { console.error(e); }
-  try { initCountdown(); } catch(e) { console.error(e); }
-  try { initCoupleSwitcher(); } catch(e) { console.error(e); }
-  try { initCoupleSparkButton(); } catch(e) { console.error(e); }
-  try { initStoryCarousel(); } catch(e) { console.error(e); }
-  try { initWeddingEvents(); } catch(e) { console.error(e); }
-  try { initShareAndHashtag(); } catch(e) { console.error(e); }
-  try { initLanguageSwitcher(); } catch(e) { console.error(e); }
-  try { setLanguage(AppState.currentLang || 'hi'); } catch(e) { console.error(e); }
+  try { resetScrollToTop(); } catch (e) { console.error(e); }
+  try { initEntrance(); } catch (e) { console.error(e); }
+  try { initStage(); } catch (e) { console.error(e); }
+  try { applyConfigToDOM(); } catch (e) { console.error(e); }
+  try { initMusicPlayer(); } catch (e) { console.error(e); }
+  try { initReveal(); } catch (e) { console.error(e); }
+  try { initHeroParticles(); } catch (e) { console.error(e); }
+  try { initScratchCard(); } catch (e) { console.error(e); }
+  try { initCountdown(); } catch (e) { console.error(e); }
+  try { initCoupleSwitcher(); } catch (e) { console.error(e); }
+  try { initCoupleSparkButton(); } catch (e) { console.error(e); }
+  try { initStoryCarousel(); } catch (e) { console.error(e); }
+  try { initWeddingEvents(); } catch (e) { console.error(e); }
+  try { initShareAndHashtag(); } catch (e) { console.error(e); }
+  try { initLanguageSwitcher(); } catch (e) { console.error(e); }
+  try { setLanguage(AppState.currentLang || 'hi'); } catch (e) { console.error(e); }
 });
