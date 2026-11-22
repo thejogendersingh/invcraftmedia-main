@@ -382,3 +382,8 @@
 /ayushi-weds-chirag         /chirag-weds-ayushi/                               302
 /ayushi-weds-chirag/        /chirag-weds-ayushi/                               302
 /ayushi-weds-chirag/*       /invitations/chirag-weds-ayushi/:splat             200
+
+# Sample: Hindu Wedding Sample (Sujal & Gayatri template with video intro)
+/hindu-sample               /hindu-sample/                                     302
+/hindu-sample/              /invitations/hindu-sample/index.html               200
+/hindu-sample/*             /invitations/hindu-sample/:splat                   200
