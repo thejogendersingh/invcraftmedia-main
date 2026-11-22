@@ -23,15 +23,17 @@ export async function onRequest(context) {
     '/suman-weds-nitin': '/nitin-weds-suman/',
     '/suman-weds-nitin/': '/nitin-weds-suman/',
     '/priyanka-weds-aniket': '/aniket-weds-priyanka/',
-    '/priyanka-weds-aniket/': '/aniket-weds-priyanka/'
+    '/priyanka-weds-aniket/': '/aniket-weds-priyanka/',
+    '/ayushi-weds-chirag': '/ayushi-weds-chirag/'
   };
 
   if (aliasRedirects[pathname]) {
     return Response.redirect(new URL(aliasRedirects[pathname], url.origin).toString(), 302);
   }
 
-  // Handle alias assets
+  // Handle direct alias pages & assets (keeps alias URL in address bar)
   for (const [aliasPrefix, targetPrefix] of [
+    ['/ayushi-weds-chirag/', '/invitations/chirag-weds-ayushi/'],
     ['/sanchita-weds-dharmendra/', '/invitations/sanchita-weds-dharmendhra/'],
     ['/dharmendhra-weds-sanchita/', '/invitations/dharmendra-weds-sanchita/'],
     ['/gayatri-weds-sujal/', '/invitations/sujal-weds-gayatri/'],
@@ -39,8 +41,15 @@ export async function onRequest(context) {
     ['/chiranjeevi-weds-anusha/', '/invitations/chiranjeevi-k-s-weds-anusha-m/']
   ]) {
     if (pathname.startsWith(aliasPrefix)) {
-      const subpath = pathname.slice(aliasPrefix.length);
-      return context.env.ASSETS.fetch(new URL(targetPrefix + subpath, url.origin));
+      const subpath = pathname.slice(aliasPrefix.length) || 'index.html';
+      const assetRes = await context.env.ASSETS.fetch(new URL(targetPrefix + subpath, url.origin));
+      if (subpath === 'index.html' && assetRes.status === 200) {
+        const newHeaders = new Headers(assetRes.headers);
+        newHeaders.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+        newHeaders.set('X-Content-Type-Options', 'nosniff');
+        return new Response(assetRes.body, { status: 200, headers: newHeaders });
+      }
+      return assetRes;
     }
   }
 
