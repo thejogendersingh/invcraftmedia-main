@@ -119,7 +119,12 @@ const server = http.createServer((req, res) => {
   if (range && (ext === '.mp4' || ext === '.webm' || ext === '.mp3')) {
     const parts = range.replace(/bytes=/, '').split('-');
     const start = parseInt(parts[0], 10);
-    const end = parts[1] ? parseInt(parts[1], 10) : totalSize - 1;
+    const end = parts[1] ? Math.min(parseInt(parts[1], 10), totalSize - 1) : totalSize - 1;
+    if (isNaN(start) || start >= totalSize || start > end) {
+      res.writeHead(416, { 'Content-Range': `bytes */${totalSize}` });
+      res.end();
+      return;
+    }
     const chunksize = (end - start) + 1;
     const file = fs.createReadStream(filePath, { start, end });
     res.writeHead(206, {

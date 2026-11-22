@@ -378,9 +378,9 @@
 /chirag-weds-ayushi/        /invitations/chirag-weds-ayushi/index.html         200
 /chirag-weds-ayushi/*       /invitations/chirag-weds-ayushi/:splat             200
 
-# Client alias: ayushi-weds-chirag
-/ayushi-weds-chirag         /chirag-weds-ayushi/                               302
-/ayushi-weds-chirag/        /chirag-weds-ayushi/                               302
+# Client alias: ayushi-weds-chirag (direct Bride-first URL)
+/ayushi-weds-chirag         /ayushi-weds-chirag/                               302
+/ayushi-weds-chirag/        /invitations/chirag-weds-ayushi/index.html         200
 /ayushi-weds-chirag/*       /invitations/chirag-weds-ayushi/:splat             200
 
 # Sample: Hindu Wedding Sample (Sujal & Gayatri template with video intro)
