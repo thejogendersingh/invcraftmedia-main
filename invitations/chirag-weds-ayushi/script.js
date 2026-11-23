@@ -271,7 +271,7 @@ const TRANSLATIONS = {
     brideFirstName: "आयुषी",
     andConnector: "संग",
     groomFirstName: "चिराग",
-    heroFamiliesText: "अग्रवाल परिवार एवं समस्त माँ नेहरू परिवार आपका हार्दिक स्वागत करता है",
+    heroFamiliesText: "अग्रवाल परिवार एवं समस्त मानहेरू परिवार आपका हार्दिक स्वागत करता है",
     scrollCueText: "उत्सव दर्शन हेतु नीचे स्क्रॉल करें",
 
     messageLead: "परमपिता परमात्मा की असीम कृपा एवं पूर्वजों के पावन आशीर्वाद से, अग्रवाल एवं गर्ग परिवार आपको शुभ परिणय उत्सव में सपरिवार सादर आमंत्रित करते हैं",
@@ -376,7 +376,7 @@ const TRANSLATIONS = {
 
     footerThankYou: "हार्दिक आभार",
     footerNames: "आयुषी एवं चिराग",
-    footerBlessingText: "अग्रवाल परिवार एवं समस्त माँ नेहरू परिवार आपका हार्दिक स्वागत करता है।",
+    footerBlessingText: "अग्रवाल परिवार एवं समस्त मानहेरू परिवार आपका हार्दिक स्वागत करता है।",
     btnShare: "निमंत्रण शेयर करें",
     btnBackToTop: "शीर्ष पर जाएं",
     footerCredit: "हमारे इस पावन दिन के लिए सस्नेह समर्पित • दिसंबर 2026"
@@ -1407,8 +1407,8 @@ function initShareAndHashtag() {
       const shareUrl = CONFIG.websiteUrl || window.location.href;
       if (navigator.share) {
         navigator.share({
-          title: `${CONFIG.groom.name} & ${CONFIG.bride.name} Wedding Invitation`,
-          text: `Agrawal and Soni Family invite you to celebrate the wedding of ${CONFIG.groom.name} & ${CONFIG.bride.name} on ${CONFIG.weddingDateDisplay} in ${CONFIG.weddingCity}!`,
+          title: `${CONFIG.bride.name} & ${CONFIG.groom.name} Wedding Invitation`,
+          text: `Agrawal and Garg Family invite you to celebrate the wedding of ${CONFIG.bride.name} & ${CONFIG.groom.name} on ${CONFIG.weddingDateDisplay} in ${CONFIG.weddingCity}!`,
           url: shareUrl
         }).catch((err) => console.log('Share dismissed:', err));
       } else {
