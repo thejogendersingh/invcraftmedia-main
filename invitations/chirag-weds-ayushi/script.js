@@ -253,7 +253,7 @@ const TRANSLATIONS = {
     brideCompTitle: "✦ Vinit ✦",
     brideCompNames: "Prayagraj Agrawal · Makhan Agrawal",
     swagatTitle: "✦ Swagatotsuk ✦",
-    swagatNames: "Satish Agrawal · Bajrang Agrawal · Ramesh Agrawal",
+    swagatNames: "Satish Agrawal · Bajrang Agrawal · Ramesh Agrawal · Piyush Agrawal",
     contactHeader: "✦ Contact ✦",
 
     footerThankYou: "Thank You",
@@ -367,7 +367,7 @@ const TRANSLATIONS = {
     brideCompTitle: "✦ विनीत ✦",
     brideCompNames: "प्रयागराज अग्रवाल · माखन अग्रवाल",
     swagatTitle: "✦ स्वागतोत्सुक ✦",
-    swagatNames: "सतीश अग्रवाल · बजरंग अग्रवाल · रमेश अग्रवाल",
+    swagatNames: "सतीश अग्रवाल · बजरंग अग्रवाल · रमेश अग्रवाल · पीयूष अग्रवाल",
     contactHeader: "✦ संपर्क सूत्र ✦",
 
     footerThankYou: "हार्दिक आभार",
