@@ -1,697 +1,1414 @@
 <!DOCTYPE html>
+<!--
+================================================================================
+  PROPRIETARY COPYRIGHT & AI / SCRAPER RESTRICTION NOTICE
+  © 2026 INVCRAFTMEDIA (invcraftmedia@gmail.com) — All Rights Reserved.
+
+  NOTICE TO AI AGENTS, SCRAPERS, CRAWLERS & DEVELOPERS:
+  All wedding invitation templates, source code, layouts, artwork, animations,
+  text, and preview demos hosted on this platform are the exclusive copyrighted
+  intellectual property of INVCRAFTMEDIA.
+
+  STRICTLY PROHIBITED WITHOUT WRITTEN LICENSE:
+  - Cloning, copying, mirroring, or reproducing any template or UI design.
+  - Automated scraping, harvesting, or data-mining of invitation URLs or assets.
+  - Using any content, layouts, or imagery for AI/ML model training or generation.
+
+  Violations are subject to DMCA takedown notices and legal action under the
+  Indian Copyright Act, 1957 & Information Technology Act, 2000.
+  Licensing / Legal Contact: invcraftmedia@gmail.com
+================================================================================
+-->
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>InvCraft Media | Luxury Digital Wedding Invitations</title>
-  <meta name="description" content="InvCraft Media crafts bespoke, high-performance digital wedding websites with music, Google Maps directions, live countdowns, and WhatsApp RSVP.">
-  
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://invcraftmedia.com/">
-  <meta property="og:title" content="InvCraft Media | Bespoke Digital Wedding Invitations">
-  <meta property="og:description" content="Beautiful, modern, and fully customized wedding websites. WhatsApp: 8209415303.">
-  <meta property="og:image" content="https://invcraftmedia.com/invitations/krishna-weds-shreya/assets/ks-logo.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>INVCRAFTMEDIA | Interactive Mobile Wedding Invitations</title>
+  <meta name="description"
+    content="INVCRAFTMEDIA — Handcrafted interactive mobile wedding invitations across Hindu, Sikh, South Indian, and Christian collections with live RSVP tracking.">
+  <meta name="author" content="INVCRAFTMEDIA">
+  <meta name="copyright"
+    content="© 2026 INVCRAFTMEDIA (invcraftmedia@gmail.com). All Rights Reserved. Cloning, scraping, redistribution, or AI training strictly prohibited.">
+  <meta name="robots" content="noai, noimageai">
+  <meta name="googlebot" content="noimageai">
+  <meta name="tdm-reservation" content="1">
+  <meta name="tdm-policy" content="copyright-policy.html">
+  <link rel="icon" type="image/svg+xml" href="home-assets/logo.svg">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C5A059'><path d='M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z'/></svg>">
-
-  <!-- Google Fonts: Cormorant Garamond (Royal Editorial) + Plus Jakarta Sans (Clean Modern) -->
+  <!-- Premium Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Great+Vibes&display=swap"
+    rel="stylesheet">
 
-  <style>
-    :root {
-      --gold-foil-light: #fef1db;
-      --gold-foil-main: #dfb264;
-      --gold-foil-deep: #b38230;
-      --gold-gradient: linear-gradient(135deg, #fef1db 0%, #dfb264 45%, #b38230 100%);
-      --gold-border: rgba(223, 178, 100, 0.28);
-      --bg-midnight: #0d0a0c;
-      --bg-midnight-card: #151014;
-      --bg-card-cream: #faf7f2;
-      --text-maroon: #4a1520;
-      --text-dark: #1f1b1d;
-      --text-muted: #6e6468;
-      --whatsapp-green: #25d366;
-      --font-serif: 'Cormorant Garamond', Georgia, serif;
-      --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    html, body {
-      height: 100%;
-      height: 100dvh;
-      overflow: hidden;
-    }
-
-    body {
-      background-color: var(--bg-midnight);
-      color: #ffffff;
-      font-family: var(--font-sans);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      background-image: 
-        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(223, 178, 100, 0.18) 0%, transparent 70%),
-        radial-gradient(circle 350px at 90% 25%, rgba(179, 130, 48, 0.12) 0%, transparent 60%),
-        radial-gradient(circle 350px at 10% 35%, rgba(255, 107, 0, 0.08) 0%, transparent 60%);
-    }
-
-    /* Subtle Architectural Grain Overlay */
-    .film-grain {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.035;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    }
-
-    /* Screen-Fitted App Container */
-    .app-screen {
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      max-width: 440px;
-      height: 100%;
-      height: 100dvh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    /* Top Hero Region */
-    .hero-region {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: clamp(0.75rem, 2vh, 1.3rem) 1.25rem 0;
-    }
-
-    /* Brand Header */
-    .brand-wrap {
-      margin-bottom: clamp(0.5rem, 1.4vh, 0.85rem);
-    }
-
-    .brand-logo-text {
-      font-family: var(--font-serif);
-      font-size: clamp(1.75rem, 5.5vw, 2.15rem);
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      color: #ffffff;
-      line-height: 1;
-      display: inline-block;
-    }
-
-    .brand-motif {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 0.35rem;
-    }
-
-    .brand-motif .motif-line {
-      width: 28px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold-foil-main), transparent);
-    }
-
-    .brand-motif svg {
-      width: 12px;
-      height: 12px;
-      fill: var(--gold-foil-main);
-    }
-
-    /* Minimalist Intertwined Rings Motif */
-    .rings-emblem {
-      width: clamp(34px, 4.6vh, 40px);
-      height: clamp(34px, 4.6vh, 40px);
-      margin-bottom: clamp(0.25rem, 0.8vh, 0.5rem);
-      color: var(--gold-foil-main);
-      filter: drop-shadow(0 2px 8px rgba(223, 178, 100, 0.4));
-    }
-
-    /* Typographic Hierarchy */
-    .eyebrow-text {
-      font-family: var(--font-serif);
-      font-size: clamp(1.15rem, 3.6vw, 1.35rem);
-      font-style: italic;
-      color: rgba(255, 255, 255, 0.9);
-      letter-spacing: 0.04em;
-      margin-bottom: 0.1rem;
-    }
-
-    h1.hero-headline {
-      font-family: var(--font-serif);
-      font-size: clamp(2.7rem, 8.5vw, 3.6rem);
-      font-weight: 700;
-      font-style: italic;
-      line-height: 1.05;
-      letter-spacing: -0.01em;
-      background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.25rem;
-      filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.8));
-    }
-
-    .sub-headline {
-      font-family: var(--font-serif);
-      font-size: clamp(1rem, 3.2vw, 1.15rem);
-      font-style: italic;
-      color: var(--gold-foil-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      margin-bottom: clamp(0.5rem, 1.3vh, 0.85rem);
-    }
-
-    .sub-headline .hairline {
-      width: 22px;
-      height: 1px;
-      background: var(--gold-foil-main);
-      opacity: 0.6;
-    }
-
-    p.lead-copy {
-      font-size: clamp(0.78rem, 2.5vw, 0.85rem);
-      color: rgba(255, 255, 255, 0.76);
-      line-height: 1.55;
-      font-weight: 400;
-      max-width: 330px;
-      margin: 0 auto clamp(0.75rem, 1.8vh, 1.25rem);
-      letter-spacing: 0.01em;
-    }
-
-    /* Buttons Container */
-    .cta-stack {
-      width: 100%;
-      max-width: 300px;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      align-items: center;
-      margin-bottom: clamp(0.6rem, 1.5vh, 1rem);
-    }
-
-    /* 1. Champagne Gold Pill Button */
-    .btn-demos {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.55rem;
-      padding: clamp(0.72rem, 1.6vh, 0.85rem) 1.25rem;
-      background: linear-gradient(135deg, #fef1db 0%, #dfb264 50%, #b38230 100%);
-      color: #1a1207;
-      font-family: var(--font-sans);
-      font-size: clamp(0.82rem, 2.6vw, 0.88rem);
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      border-radius: 40px;
-      box-shadow: 0 4px 18px rgba(223, 178, 100, 0.38);
-      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-      cursor: pointer;
-    }
-
-    .btn-demos:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(223, 178, 100, 0.5);
-    }
-
-    .btn-demos svg {
-      width: 12px;
-      height: 12px;
-      fill: #1a1207;
-    }
-
-    /* 2. WhatsApp Glowing Obsidian Pill */
-    .btn-whatsapp {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      padding: clamp(0.62rem, 1.4vh, 0.75rem) 1.25rem;
-      background: rgba(13, 10, 12, 0.95);
-      color: #ffffff;
-      font-family: var(--font-sans);
-      font-size: clamp(1.02rem, 3.4vw, 1.15rem);
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-decoration: none;
-      border-radius: 40px;
-      border: 1.8px solid var(--whatsapp-green);
-      box-shadow: 0 0 16px rgba(37, 211, 102, 0.35), inset 0 0 8px rgba(37, 211, 102, 0.15);
-      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-      cursor: pointer;
-    }
-
-    .btn-whatsapp:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 22px rgba(37, 211, 102, 0.55), inset 0 0 12px rgba(37, 211, 102, 0.25);
-    }
-
-    .wa-badge {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--whatsapp-green);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .wa-badge svg {
-      width: 17px;
-      height: 17px;
-      fill: #ffffff;
-    }
-
-    .wa-pipe {
-      width: 1px;
-      height: 20px;
-      background: rgba(255, 255, 255, 0.25);
-    }
-
-    /* Lower Section: Royal Arch Canopy Card */
-    .arch-canopy {
-      width: 100%;
-      background: var(--bg-card-cream);
-      color: var(--text-dark);
-      border-radius: 36px 36px 0 0;
-      padding: clamp(1rem, 2.3vh, 1.35rem) 1.15rem clamp(0.7rem, 1.6vh, 1rem);
-      box-shadow: 0 -12px 35px rgba(0, 0, 0, 0.45);
-      border-top: 2px solid var(--gold-border);
-      position: relative;
-    }
-
-    /* Sculpted Crown Arch Notch */
-    .arch-canopy::before {
-      content: '';
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 62px;
-      height: 12px;
-      background: var(--bg-card-cream);
-      border-radius: 12px 12px 0 0;
-      border-top: 2px solid var(--gold-border);
-      border-left: 2px solid var(--gold-border);
-      border-right: 2px solid var(--gold-border);
-    }
-
-    .canopy-heading-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      margin-bottom: 0.15rem;
-    }
-
-    .canopy-heading-wrap svg {
-      width: 18px;
-      height: 18px;
-      color: var(--gold-foil-deep);
-    }
-
-    .arch-canopy h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(1.4rem, 4.4vw, 1.7rem);
-      font-weight: 700;
-      color: var(--text-maroon);
-      line-height: 1.15;
-    }
-
-    .heart-motif {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      margin: 0.2rem 0 clamp(0.65rem, 1.6vh, 0.95rem);
-    }
-
-    .heart-motif .h-rule {
-      width: 24px;
-      height: 1px;
-      background: rgba(179, 130, 48, 0.35);
-    }
-
-    .heart-motif svg {
-      width: 11px;
-      height: 11px;
-      fill: none;
-      stroke: var(--gold-foil-deep);
-      stroke-width: 2;
-    }
-
-    /* 3 Architectural Feature Cards */
-    .feature-trio {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.55rem;
-      margin-bottom: clamp(0.6rem, 1.4vh, 0.85rem);
-    }
-
-    .trio-card {
-      background: #ffffff;
-      border: 1px solid rgba(223, 178, 100, 0.24);
-      border-radius: 14px;
-      padding: clamp(0.65rem, 1.4vh, 0.85rem) 0.35rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-    }
-
-    .trio-icon-well {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: #faeef1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.45rem;
-    }
-
-    .trio-icon-well svg {
-      width: 18px;
-      height: 18px;
-      color: #7b1c34;
-    }
-
-    .trio-card span {
-      font-size: clamp(0.68rem, 2.2vw, 0.74rem);
-      font-weight: 700;
-      color: var(--text-dark);
-      line-height: 1.3;
-    }
-
-    /* Minimalist Copyright Footer */
-    footer {
-      font-size: 0.7rem;
-      color: #8c8277;
-      line-height: 1.4;
-    }
-
-    /* Elegant Sliding Demos Drawer */
-    .demos-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      z-index: 999;
-      align-items: flex-end;
-      justify-content: center;
-      backdrop-filter: blur(5px);
-    }
-
-    .demos-overlay.active {
-      display: flex;
-    }
-
-    .demos-sheet {
-      width: 100%;
-      max-width: 440px;
-      background: #ffffff;
-      color: var(--text-dark);
-      border-radius: 26px 26px 0 0;
-      padding: 1.5rem 1.25rem 2.2rem;
-      max-height: 72vh;
-      overflow-y: auto;
-      text-align: left;
-      box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
-    }
-
-    .demos-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-    }
-
-    .demos-header h3 {
-      font-family: var(--font-serif);
-      font-size: 1.45rem;
-      color: var(--text-maroon);
-      font-weight: 700;
-    }
-
-    .sheet-close-btn {
-      background: #f5f5f5;
-      border: none;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      font-size: 1.3rem;
-      cursor: pointer;
-      color: #444;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .demos-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    .demo-link-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.85rem 1.1rem;
-      background: #fbf8f4;
-      border: 1px solid rgba(223, 178, 100, 0.25);
-      border-radius: 12px;
-      text-decoration: none;
-      color: var(--text-dark);
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: all 0.2s ease;
-    }
-
-    .demo-link-card:hover {
-      background: #faeef1;
-      border-color: var(--gold-foil-main);
-      transform: translateX(2px);
-    }
-
-    .demo-link-card .arrow {
-      color: var(--gold-foil-main);
-      font-size: 1.1rem;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- Film Grain Overlay -->
-  <div class="film-grain"></div>
+  <!-- Top Editorial Promo Strip (No SVG) -->
+  <div class="top-promo-bar">
+    <a href="#catalogSection" class="top-promo-link">
+      <span><strong>WEDDING SEASON:</strong> Flat 57% OFF &middot; Custom Invites at &#8377;1,499 &rarr;</span>
+    </a>
+  </div>
 
-  <!-- Screen-Fitted App Container (100dvh) -->
-  <div class="app-screen">
-    
-    <!-- Top Hero Section -->
-    <div class="hero-region">
-      
-      <!-- Brand Header -->
-      <header class="brand-wrap">
-        <div class="brand-logo-text">InvCraftMedia</div>
-        <div class="brand-motif">
-          <span class="motif-line"></span>
-          <svg viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-          </svg>
-          <span class="motif-line"></span>
+  <!-- ========================================================================
+       LUXURY EDITORIAL STICKY NAVBAR & LEFT SLIDE-IN DRAWER
+       ======================================================================== -->
+  <header class="top-nav" id="topNav">
+    <div class="nav-container">
+      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Menu" aria-expanded="false">
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+      </button>
+
+      <a href="#" class="logo-wrap" id="brandLogoLink" aria-label="InvCraftMedia Home">
+        <span class="brand-editorial-name">INVCRAFT MEDIA</span>
+      </a>
+
+      <div class="nav-lang-wrap" id="langMenuWrap">
+        <button type="button" class="nav-lang-btn" id="langToggleBtn" aria-expanded="false" aria-haspopup="listbox"
+          aria-label="Select Language">
+          <span class="lang-code-text" id="activeLangCode">EN</span>
+          <span class="lang-caret">&#9662;</span>
+        </button>
+        <div class="nav-lang-dropdown" id="langDropdown" role="listbox">
+          <button type="button" class="lang-opt active" data-lang="en"><span>English</span><small>EN</small></button>
+          <button type="button" class="lang-opt" data-lang="hi"><span>हिन्दी</span><small>HI</small></button>
+          <button type="button" class="lang-opt" data-lang="mr"><span>मराठी</span><small>MR</small></button>
         </div>
-      </header>
+      </div>
+    </div>
+  </header>
 
-      <!-- Intertwined Wedding Rings with Diamond SVG -->
-      <svg class="rings-emblem" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="26" cy="38" r="16" />
-        <circle cx="42" cy="34" r="16" />
-        <!-- Diamond on right ring -->
-        <path d="M42 18 L46 14 L42 10 L38 14 Z" fill="currentColor" stroke="none" />
-        <path d="M52 14 L55 14 M53.5 12.5 L53.5 15.5" stroke-width="2" />
-        <path d="M30 18 L32 18 M31 17 L31 19" stroke-width="2" />
-      </svg>
+  <!-- Left Slide-In Full-Height Half-Screen Drawer -->
+  <div class="nav-drawer-backdrop" id="navDrawerBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <span class="drawer-brand-title">INVCRAFT MEDIA</span>
+      <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close Menu">&times;</button>
+    </div>
 
-      <div class="eyebrow-text">Digital Wedding</div>
-      <h1 class="hero-headline">Invitations</h1>
-      
-      <div class="sub-headline">
-        <span class="hairline"></span>
-        That Feel Personal
-        <span class="hairline"></span>
+    <nav class="drawer-nav-list">
+      <a href="#catalogSection" class="drawer-menu-item" data-close-drawer data-drawer-filter="all">
+        <span>All Invitations</span>
+        <span class="drawer-arrow">&rarr;</span>
+      </a>
+      <a href="#catalogSection" class="drawer-menu-item" data-close-drawer data-drawer-filter="hindu">
+        <span>Hindu Invitations</span>
+        <span class="drawer-arrow">&rarr;</span>
+      </a>
+      <a href="#catalogSection" class="drawer-menu-item" data-close-drawer data-drawer-filter="sikh">
+        <span>Sikh &amp; Punjabi</span>
+        <span class="drawer-arrow">&rarr;</span>
+      </a>
+      <a href="#catalogSection" class="drawer-menu-item" data-close-drawer data-drawer-filter="south-indian">
+        <span>South Indian</span>
+        <span class="drawer-arrow">&rarr;</span>
+      </a>
+      <a href="#catalogSection" class="drawer-menu-item" data-close-drawer data-drawer-filter="christian">
+        <span>Christian Weddings</span>
+        <span class="drawer-arrow">&rarr;</span>
+      </a>
+      <div class="drawer-divider"></div>
+      <a href="#testimonialsSection" class="drawer-menu-item" data-close-drawer>
+        <span>Client Reviews</span>
+        <span class="drawer-arrow">&rarr;</span>
+      </a>
+      <a href="#faqSection" class="drawer-menu-item" data-close-drawer>
+        <span>FAQs</span>
+        <span class="drawer-arrow">&rarr;</span>
+      </a>
+    </nav>
+
+    <div class="drawer-cta-box">
+      <a href="https://wa.me/918209415303?text=Hello%20InvCraftMedia%2C%20I%20want%20to%20customize%20a%20wedding%20invitation"
+        target="_blank" rel="noopener noreferrer" class="drawer-primary-btn drawer-wa-btn">
+        <span>Customize on WhatsApp</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content Layout -->
+  <main class="main-content">
+
+    <!-- ======================================================================
+         1. LUXURY EDITORIAL HERO SECTION (NO SVGs)
+         ====================================================================== -->
+    <section class="hero-section">
+      <div class="hero-rating-row">
+        <span class="hero-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <strong class="hero-score">4.9/5</strong>
+        <span class="hero-rating-sep">&middot;</span>
+        <span>79 reviews</span>
+        <span class="hero-rating-sep">&middot;</span>
+        <span>200+ couples</span>
       </div>
 
-      <p class="lead-copy">
-        Beautiful, modern and fully customized wedding invitation websites for your special day.
+      <p class="hero-eyebrow">DIGITAL WEDDING INVITATIONS</p>
+
+      <h1 class="hero-title">
+        We bring your dream digital wedding invitation to life.
+      </h1>
+
+      <p class="hero-subtitle">
+        Choose a design you love. Our team personalises it with your names, photos and wedding details, ready to share
+        with your guests.
       </p>
 
-      <!-- Action Buttons -->
-      <div class="cta-stack">
-        <!-- Button 1: Gold Demo Button -->
-        <a href="#demos" class="btn-demos" id="btnShowDemos">
-          <svg viewBox="0 0 24 24">
-            <path d="M8 5v14l11-7z"/>
+      <div class="hero-cta-wrap">
+        <a href="#catalogSection" class="btn-primary-hero">
+          EXPLORE DESIGNS &nbsp;&rarr;
+        </a>
+      </div>
+
+      <div class="hero-sub-cta">
+        <span id="heroPriceNote">From &#8377;1,499 &middot; One-time payment</span>
+        <a href="https://wa.me/918209415303?text=Hello%20InvCraftMedia!%20I%20want%20to%20customize%20a%20wedding%20invitation."
+          target="_blank" rel="noopener noreferrer" class="hero-compare-link" id="heroWhatsappBtn">Customize on
+          WhatsApp</a>
+      </div>
+
+      <div class="hero-showcase">
+        <img src="home-assets/hero-swans.jpg" alt="" class="hero-deco deco-swans" aria-hidden="true">
+        <img src="home-assets/hero-hearts.jpg" alt="" class="hero-deco deco-hearts" aria-hidden="true">
+        <img src="home-assets/hero-envelope.jpg" alt="" class="hero-deco deco-envelope" aria-hidden="true">
+        <img src="home-assets/hero-rings.jpg" alt="" class="hero-deco deco-rings" aria-hidden="true">
+
+        <div class="hero-phone-frame" id="heroPhoneDevice" aria-label="Live Interactive Wedding Invitation Preview">
+          <div class="hero-phone-island"></div>
+          <div class="hero-phone-screen">
+            <iframe src="https://invcraftmedia.com/samples/roopa-and-anoop/" class="hero-phone-iframe"
+              title="Roopa &amp; Anoop Live Interactive Wedding Invitation" loading="eager"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+            </iframe>
+            <div class="hero-phone-home-bar"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ======================================================================
+         3. CATALOG SECTION: SEARCH, CATEGORIES & 20 LIVE TEMPLATES
+         (NO PRICE ON CARDS — PRICE SHOWN ONLY AT PURCHASE)
+         ====================================================================== -->
+    <div id="catalogSection" class="catalog-anchor"></div>
+
+    <div class="catalog-editorial-head">
+      <h2 class="catalog-editorial-title">Wedding invitations</h2>
+      <span class="catalog-editorial-count" id="activeCountPill">26</span>
+    </div>
+
+    <section class="search-section">
+      <div class="search-input-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" class="search-input"
+          placeholder="Search couple name or code (e.g. Sheetal, Arjun, 001, 012...)" autocomplete="off"
+          spellcheck="false">
+        <button type="button" id="searchClearBtn" class="search-clear-btn" aria-label="Clear search">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
-          View Invitation Demos
-        </a>
+        </button>
+      </div>
+    </section>
 
-        <!-- Button 2: WhatsApp Glowing Obsidian Button -->
-        <a href="https://wa.me/918209415303?text=Namaste%20InvCraft%20Media!%20I%20am%20interested%20in%20creating%20a%20digital%20wedding%20invitation." 
-           class="btn-whatsapp" 
-           target="_blank" 
-           rel="noopener"
-           aria-label="Contact InvCraft Media on WhatsApp at 8209415303">
-          <div class="wa-badge">
-            <svg viewBox="0 0 24 24">
-              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.33C8.94 7.33 8.66 7.4 8.43 7.65C8.2 7.9 7.55 8.51 7.55 9.75C7.55 11 8.46 12.2 8.58 12.37C8.71 12.54 10.36 15.09 12.88 16.18C13.48 16.44 13.95 16.6 14.31 16.71C14.92 16.91 15.47 16.88 15.91 16.81C16.4 16.74 17.42 16.19 17.64 15.59C17.85 14.98 17.85 14.47 17.79 14.36C17.73 14.25 17.56 14.19 17.31 14.06C17.06 13.94 15.82 13.33 15.59 13.25C15.36 13.16 15.2 13.12 15.03 13.37C14.86 13.62 14.39 14.19 14.25 14.36C14.1 14.53 13.96 14.55 13.71 14.42C13.46 14.3 12.42 13.96 11.19 12.87C10.23 12.02 9.58 10.96 9.46 10.75C9.33 10.55 9.44 10.43 9.57 10.31C9.68 10.2 9.82 10.02 9.95 9.87C10.08 9.72 10.12 9.61 10.2 9.45C10.29 9.28 10.25 9.14 10.19 9.01C10.12 8.89 9.66 7.74 9.46 7.27C9.27 6.81 9.08 6.87 8.94 6.86C8.8 6.86 8.63 6.85 8.46 6.85"/>
+    <section class="category-scroll-wrapper">
+      <nav class="category-scroll" id="categoryScroll">
+        <button class="cat-chip active" data-filter="all">
+          <svg class="chip-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+          </svg>
+          All
+        </button>
+        <button class="cat-chip" data-filter="hindu">
+          <svg class="chip-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 6v6l4 2"></path>
+          </svg>
+          Hindu
+        </button>
+        <button class="cat-chip" data-filter="sikh">
+          <svg class="chip-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+            </polygon>
+          </svg>
+          Sikh
+        </button>
+        <button class="cat-chip" data-filter="south-indian">
+          <svg class="chip-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+            <path d="M2 17l10 5 10-5"></path>
+            <path d="M2 12l10 5 10-5"></path>
+          </svg>
+          South Indian
+        </button>
+        <button class="cat-chip" data-filter="christian">
+          <svg class="chip-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v20M7 7h10"></path>
+          </svg>
+          Christian
+        </button>
+        <button class="cat-chip" data-filter="royal">
+          <svg class="chip-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"></path>
+          </svg>
+          Royal
+        </button>
+        <button class="cat-chip" data-filter="modern">
+          <svg class="chip-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+            </polygon>
+          </svg>
+          Modern
+        </button>
+        <button class="cat-chip" data-filter="cinematic">
+          <svg class="chip-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+            <line x1="7" y1="2" x2="7" y2="22"></line>
+            <line x1="17" y1="2" x2="17" y2="22"></line>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <line x1="2" y1="7" x2="7" y2="7"></line>
+            <line x1="2" y1="17" x2="7" y2="17"></line>
+            <line x1="17" y1="17" x2="22" y2="17"></line>
+            <line x1="17" y1="7" x2="22" y2="7"></line>
+          </svg>
+          Cinematic
+        </button>
+        <button class="cat-chip" data-filter="traditional">
+          <svg class="chip-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          Traditional
+        </button>
+      </nav>
+    </section>
+
+    <div class="catalog-meta">
+      <div class="meta-left">
+        <span class="active-style-label" id="activeStyleLabel">All Invitations</span>
+        <span class="active-style-count" id="activeCount">26 Designs</span>
+      </div>
+
+      <div class="meta-right">
+        <div class="sort-filter-wrapper">
+          <button type="button" class="sort-filter-btn" id="sortFilterBtn" aria-expanded="false" aria-haspopup="listbox"
+            title="Sort Invitations">
+            <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M3 6h18M6 12h12M10 18h4"></path>
             </svg>
+            <span id="sortLabel">Recommended</span>
+            <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+
+          <div class="sort-dropdown-menu" id="sortDropdownMenu">
+            <div class="dropdown-header">Sort Invitations</div>
+            <button type="button" class="sort-option active" data-sort="recommended">
+              <span class="opt-bullet">✓</span>
+              <span>Recommended</span>
+            </button>
+            <button type="button" class="sort-option" data-sort="popular">
+              <span class="opt-bullet">✓</span>
+              <span>Most Popular</span>
+            </button>
+            <button type="button" class="sort-option" data-sort="newest">
+              <span class="opt-bullet">✓</span>
+              <span>Newest Added</span>
+            </button>
+            <button type="button" class="sort-option" data-sort="code-asc">
+              <span class="opt-bullet">✓</span>
+              <span>Code: 001 → 026</span>
+            </button>
+            <button type="button" class="sort-option" data-sort="name-asc">
+              <span class="opt-bullet">✓</span>
+              <span>Name: A to Z</span>
+            </button>
           </div>
-          <div class="wa-pipe"></div>
-          <span>8209415303</span>
-        </a>
+        </div>
       </div>
     </div>
 
-    <!-- Bottom Section: Royal Arch Canopy Card -->
-    <div class="arch-canopy">
-      <div class="canopy-heading-wrap">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22L6.66 19.7C7.14 19.87 7.64 20 8 20C19 20 22 3 22 3C21 5 14 5.25 9 6.25C4 7.25 2 11.5 2 13.5C2 15.5 3.75 17.25 3.75 17.25C7 11 11.5 9 17 8Z"/>
-        </svg>
-        <h2>Why Choose<br>InvCraftMedia?</h2>
-        <svg viewBox="0 0 24 24" fill="currentColor" style="transform: scaleX(-1);">
-          <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22L6.66 19.7C7.14 19.87 7.64 20 8 20C19 20 22 3 22 3C21 5 14 5.25 9 6.25C4 7.25 2 11.5 2 13.5C2 15.5 3.75 17.25 3.75 17.25C7 11 11.5 9 17 8Z"/>
-        </svg>
-      </div>
-
-      <div class="heart-motif">
-        <span class="h-rule"></span>
-        <svg viewBox="0 0 24 24">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-        </svg>
-        <span class="h-rule"></span>
-      </div>
-
-      <!-- 3 Minimalist Clean Tiles -->
-      <div class="feature-trio">
-        <div class="trio-card">
-          <div class="trio-icon-well">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-              <line x1="8" y1="21" x2="16" y2="21"></line>
-              <line x1="12" y1="17" x2="12" y2="21"></line>
-            </svg>
-          </div>
-          <span>Modern &amp;<br>Responsive</span>
-        </div>
-
-        <div class="trio-card">
-          <div class="trio-icon-well">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-            </svg>
-          </div>
-          <span>Fully<br>Customized</span>
-        </div>
-
-        <div class="trio-card">
-          <div class="trio-icon-well">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-            </svg>
-          </div>
-          <span>Fast, Secure<br>&amp; Reliable</span>
-        </div>
-      </div>
-
-      <footer>
-        <p>&copy; 2026 InvCraft Media.</p>
-      </footer>
+    <div class="empty-search-state" id="emptySearchState" style="display: none;">
+      <svg class="empty-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        <line x1="8" y1="11" x2="14" y2="11"></line>
+      </svg>
+      <h4 class="empty-title">No invitations found</h4>
+      <p class="empty-desc" id="emptyDesc">No invitation matches your filter.</p>
+      <button type="button" class="empty-reset-btn" id="emptyResetBtn">View All Invitations</button>
     </div>
 
+    <!-- 2 Cards Per Row Grid (Clean Cards — No Price Tag Clutter) -->
+    <div class="samples-grid" id="samplesGrid">
+
+      <!-- 1. Roopa & Anoop [CODE: #001] -->
+      <article class="sample-card" data-category="hindu" data-style="royal" data-code="001" data-order="1"
+        data-url="https://invcraftmedia.com/samples/roopa-and-anoop/" data-name="Roopa & Anoop"
+        data-theme="Royal Embroidered Pearl Floral" data-popular="true" data-new="true">
+        <div class="card-media">
+          <img src="home-assets/covers/roopa_anoop.jpg" alt="Roopa & Anoop Preview" loading="lazy" class="card-img">
+          <span class="style-badge royal">Royal</span>
+          <span class="template-code-badge">#001</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Roopa & Anoop">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Roopa & Anoop</h3>
+          <p class="card-sub">Royal Embroidered Pearl Floral</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. Tanya & Vikram [CODE: #002] -->
+      <article class="sample-card" data-category="hindu" data-style="modern" data-code="002" data-order="2"
+        data-url="https://invcraftmedia.com/samples/tanya-and-vikram/" data-name="Tanya & Vikram"
+        data-theme="Modern Kamal Lotus (Udaipur)" data-popular="true" data-new="true">
+        <div class="card-media">
+          <img src="home-assets/covers/tanya_vikram.jpg" alt="Tanya & Vikram Preview" loading="lazy" class="card-img">
+          <span class="style-badge modern">Modern</span>
+          <span class="template-code-badge">#002</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Tanya & Vikram">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Tanya & Vikram</h3>
+          <p class="card-sub">Modern Kamal Lotus (Udaipur)</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Mohit & Suman [CODE: #003] -->
+      <article class="sample-card" data-category="hindu" data-style="royal" data-code="003" data-order="3"
+        data-url="https://hindu-wedding-invcraftmedia.vercel.app/" data-name="Mohit & Suman"
+        data-theme="Luxury Royal Hindu (Stained Glass)" data-new="true">
+        <div class="card-media">
+          <img src="home-assets/covers/mohit_suman.jpg" alt="Mohit & Suman Preview" loading="lazy" class="card-img">
+          <span class="style-badge royal">Royal</span>
+          <span class="template-code-badge">#003</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Mohit & Suman">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Mohit & Suman</h3>
+          <p class="card-sub">Luxury Royal Hindu (Stained Glass)</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. Madhav & Madhu [CODE: #004] -->
+      <article class="sample-card" data-category="hindu" data-style="royal" data-code="004" data-order="4"
+        data-url="https://invcraftmedia.com/madhav-weds-madhu/" data-name="Madhav & Madhu"
+        data-theme="Royal Traditional Hindu Wedding" data-new="true">
+        <div class="card-media">
+          <img src="home-assets/covers/madhav_madhu.jpg" alt="Madhav & Madhu Preview" loading="lazy" class="card-img">
+          <span class="style-badge royal">Royal</span>
+          <span class="template-code-badge">#004</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Madhav & Madhu">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Madhav & Madhu</h3>
+          <p class="card-sub">Royal Traditional Hindu Wedding</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5. Ayushi & Chirag [CODE: #005] -->
+      <article class="sample-card" data-category="hindu" data-style="royal" data-code="005" data-order="5"
+        data-url="https://invcraftmedia.com/ayushi-weds-chirag/" data-name="Ayushi & Chirag"
+        data-theme="Royal Floral Hindu (Ribbon Envelope)" data-new="true">
+        <div class="card-media">
+          <img src="home-assets/covers/ayushi_chirag.jpg" alt="Ayushi & Chirag Preview" loading="lazy" class="card-img">
+          <span class="style-badge royal">Royal</span>
+          <span class="template-code-badge">#005</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Ayushi & Chirag">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Ayushi & Chirag</h3>
+          <p class="card-sub">Royal Floral Hindu (Ribbon Envelope)</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. Dr. Khushbu & Palkesh [CODE: #006] -->
+      <article class="sample-card" data-category="hindu" data-style="traditional" data-code="006" data-order="6"
+        data-url="https://khusbhu-weds-palkesh.vercel.app/" data-name="Dr. Khushbu & Palkesh"
+        data-theme="Traditional Rajputana Hindu">
+        <div class="card-media">
+          <img src="home-assets/covers/khushbu_palkesh.jpg" alt="Dr. Khushbu & Palkesh Preview" loading="lazy"
+            class="card-img">
+          <span class="style-badge traditional">Traditional</span>
+          <span class="template-code-badge">#006</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Dr. Khushbu & Palkesh">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Dr. Khushbu & Palkesh</h3>
+          <p class="card-sub">Traditional Rajputana Hindu</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. Aarav & Ananya [CODE: #007] -->
+      <article class="sample-card" data-category="hindu" data-style="modern" data-code="007" data-order="7"
+        data-url="https://ananya-weds-aarav.vercel.app/" data-name="Aarav & Ananya"
+        data-theme="Modern Minimal Hindu (Pink Lotus)">
+        <div class="card-media">
+          <img src="home-assets/covers/ananya_aarav.jpg" alt="Aarav & Ananya Preview" loading="lazy" class="card-img">
+          <span class="style-badge modern">Modern</span>
+          <span class="template-code-badge">#007</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Aarav & Ananya">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Aarav & Ananya</h3>
+          <p class="card-sub">Modern Minimal Hindu (Pink Lotus)</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8. Ankush & Muskan [CODE: #008] -->
+      <article class="sample-card" data-category="hindu" data-style="royal" data-code="008" data-order="8"
+        data-url="https://invcraftmedia.com/ankush-weds-muskan/" data-name="Ankush & Muskan"
+        data-theme="Royal Hindu (Blue Ganesha Seal)" data-new="true">
+        <div class="card-media">
+          <img src="home-assets/covers/ankush_muskan.jpg" alt="Ankush & Muskan Preview" loading="lazy" class="card-img">
+          <span class="style-badge royal">Royal</span>
+          <span class="template-code-badge">#008</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Ankush & Muskan">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Ankush & Muskan</h3>
+          <p class="card-sub">Royal Hindu (Blue Ganesha Seal)</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9. Aarav & Ananya (Beach) [CODE: #009] -->
+      <article class="sample-card" data-category="hindu" data-style="cinematic" data-code="009" data-order="9"
+        data-url="https://aarav-weds-ananya.vercel.app/" data-name="Aarav & Ananya (Beach)"
+        data-theme="Cinematic Beach Sunset Hindu">
+        <div class="card-media">
+          <img src="home-assets/covers/aarav_ananya_beach.jpg" alt="Aarav & Ananya (Beach) Preview" loading="lazy"
+            class="card-img">
+          <span class="style-badge cinematic">Cinematic</span>
+          <span class="template-code-badge">#009</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Aarav & Ananya (Beach)">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Aarav & Ananya (Beach)</h3>
+          <p class="card-sub">Cinematic Beach Sunset Hindu</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10. Unnati & Nisarg [CODE: #010] -->
+      <article class="sample-card" data-category="hindu" data-style="modern" data-code="010" data-order="10"
+        data-url="https://unnati-weds-nisarg.vercel.app" data-name="Unnati & Nisarg"
+        data-theme="Modern Hindu (Floral Gatefold)">
+        <div class="card-media">
+          <img src="home-assets/covers/unnati_nisarg.jpg" alt="Unnati & Nisarg Preview" loading="lazy" class="card-img">
+          <span class="style-badge modern">Modern</span>
+          <span class="template-code-badge">#010</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Unnati & Nisarg">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Unnati & Nisarg</h3>
+          <p class="card-sub">Modern Hindu (Floral Gatefold)</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 11. Fresin & Leema [CODE: #011] -->
+      <article class="sample-card" data-category="christian" data-style="cinematic" data-code="011" data-order="11"
+        data-url="https://invcraftmedia.com/fresin-weds-leema/" data-name="Fresin & Leema"
+        data-theme="Cinematic Christian Wedding" data-new="true">
+        <div class="card-media">
+          <img src="home-assets/covers/fresin_leema.jpg" alt="Fresin & Leema Preview" loading="lazy" class="card-img">
+          <span class="style-badge cinematic">Cinematic</span>
+          <span class="template-code-badge">#011</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Fresin & Leema">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Fresin & Leema</h3>
+          <p class="card-sub">Cinematic Christian Wedding</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 12. Dr. Arpan & Prof. Kirti [CODE: #012] -->
+      <article class="sample-card" data-category="hindu" data-style="traditional" data-code="012" data-order="12"
+        data-url="https://invcraftmedia.com/arpan-weds-kirti/" data-name="Dr. Arpan & Prof. Kirti"
+        data-theme="Elegant Floral Hindu Ceremony">
+        <div class="card-media">
+          <img src="home-assets/covers/arpan_kirti.jpg" alt="Dr. Arpan & Prof. Kirti Preview" loading="lazy"
+            class="card-img">
+          <span class="style-badge traditional">Traditional</span>
+          <span class="template-code-badge">#012</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Dr. Arpan & Prof. Kirti">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Dr. Arpan & Prof. Kirti</h3>
+          <p class="card-sub">Elegant Floral Hindu Ceremony</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 13. Catherine & James [CODE: #013] -->
+      <article class="sample-card" data-category="christian" data-style="cinematic" data-code="013" data-order="13"
+        data-url="https://premium-invcraftmedia.vercel.app/" data-name="Catherine & James"
+        data-theme="Christian Cinematic Wedding">
+        <div class="card-media">
+          <img src="home-assets/covers/catherine_james.jpg" alt="Catherine & James Preview" loading="lazy" class="card-img">
+          <span class="style-badge cinematic">Cinematic</span>
+          <span class="template-code-badge">#013</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Catherine & James">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Catherine & James</h3>
+          <p class="card-sub">Christian Cinematic Wedding</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 14. Alex & Jamie [CODE: #014] -->
+      <article class="sample-card" data-category="christian" data-style="cinematic" data-code="014" data-order="14"
+        data-url="https://alex-weds-jamie.vercel.app/" data-name="Alex & Jamie" data-theme="Luxury Christian Ceremony">
+        <div class="card-media">
+          <img src="home-assets/covers/alex_jamie.jpg" alt="Alex & Jamie Preview" loading="lazy" class="card-img">
+          <span class="style-badge cinematic">Cinematic</span>
+          <span class="template-code-badge">#014</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Alex & Jamie">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Alex & Jamie</h3>
+          <p class="card-sub">Luxury Christian Ceremony</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 15. Jasveer & Lata [CODE: #015] -->
+      <article class="sample-card" data-category="sikh" data-style="royal" data-code="015" data-order="15"
+        data-url="https://invcraftmedia.com/jasveer-weds-lata/" data-name="Jasveer & Lata"
+        data-theme="Royal Punjabi / Sikh Fusion">
+        <div class="card-media">
+          <img src="home-assets/covers/jasveer_lata.jpg" alt="Jasveer & Lata Preview" loading="lazy" class="card-img">
+          <span class="style-badge royal">Royal</span>
+          <span class="template-code-badge">#015</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Jasveer & Lata">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Jasveer & Lata</h3>
+          <p class="card-sub">Royal Punjabi / Sikh Fusion</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 16. Sanchita & Dharmendra [CODE: #016] -->
+      <article class="sample-card" data-category="sikh" data-style="modern" data-code="016" data-order="16"
+        data-url="https://sanchita-weds-dharmendhra.vercel.app/" data-name="Sanchita & Dharmendra"
+        data-theme="Modern Punjabi Anand Karaj">
+        <div class="card-media">
+          <img src="home-assets/covers/sanchita_dharmendra.jpg" alt="Sanchita & Dharmendra Preview" loading="lazy"
+            class="card-img">
+          <span class="style-badge modern">Modern</span>
+          <span class="template-code-badge">#016</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Sanchita & Dharmendra">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Sanchita & Dharmendra</h3>
+          <p class="card-sub">Modern Punjabi Anand Karaj</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 17. Gurpreet & Jashpreet [CODE: #017] -->
+      <article class="sample-card" data-category="sikh" data-style="traditional" data-code="017" data-order="17"
+        data-url="https://gurpreet-weds-jashpreet.netlify.app/" data-name="Gurpreet & Jashpreet"
+        data-theme="Traditional Royal Sikh">
+        <div class="card-media">
+          <img src="home-assets/covers/gurpreet_jashpreet.jpg" alt="Gurpreet & Jashpreet Preview" loading="lazy"
+            class="card-img">
+          <span class="style-badge traditional">Traditional</span>
+          <span class="template-code-badge">#017</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Gurpreet & Jashpreet">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Gurpreet & Jashpreet</h3>
+          <p class="card-sub">Traditional Royal Sikh</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 18. Navtinder & Shubham [CODE: #018] -->
+      <article class="sample-card" data-category="sikh" data-style="cinematic" data-code="018" data-order="18"
+        data-url="https://navtinder-weds-shubham.vercel.app/" data-name="Navtinder & Shubham"
+        data-theme="Premium Punjabi Fusion">
+        <div class="card-media">
+          <img src="home-assets/covers/navtinder_shubham.jpg" alt="Navtinder & Shubham Preview" loading="lazy"
+            class="card-img">
+          <span class="style-badge cinematic">Cinematic</span>
+          <span class="template-code-badge">#018</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Navtinder & Shubham">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Navtinder & Shubham</h3>
+          <p class="card-sub">Premium Punjabi Fusion</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 19. Arjun & Simran [CODE: #019] -->
+      <article class="sample-card" data-category="sikh" data-style="royal" data-code="019" data-order="19"
+        data-url="https://arjun-weds-simran.vercel.app/" data-name="Arjun & Simran" data-theme="Royal Sikh Anand Karaj">
+        <div class="card-media">
+          <img src="home-assets/covers/arjun_simran.jpg" alt="Arjun & Simran Preview" loading="lazy" class="card-img">
+          <span class="style-badge royal">Royal</span>
+          <span class="template-code-badge">#019</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Arjun & Simran">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Arjun & Simran</h3>
+          <p class="card-sub">Royal Sikh Anand Karaj</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 20. Chiranjeevi & Anusha [CODE: #020] -->
+      <article class="sample-card" data-category="south-indian" data-style="traditional" data-code="020" data-order="20"
+        data-url="https://invcraftmedia.com/chiranjeevi-weds-anusha/" data-name="Chiranjeevi & Anusha"
+        data-theme="Traditional South / Vedic Ceremony">
+        <div class="card-media">
+          <img src="home-assets/covers/chiranjeevi_anusha.jpg" alt="Chiranjeevi & Anusha Preview" loading="lazy"
+            class="card-img">
+          <span class="style-badge traditional">Traditional</span>
+          <span class="template-code-badge">#020</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Chiranjeevi & Anusha">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Chiranjeevi & Anusha</h3>
+          <p class="card-sub">Traditional South / Vedic Ceremony</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 21. Aarav & Ananya (South) [CODE: #021] -->
+      <article class="sample-card" data-category="south-indian" data-style="traditional" data-code="021" data-order="21"
+        data-url="https://aarav-weds-ananya-south-wedding.vercel.app/" data-name="Aarav & Ananya (South)"
+        data-theme="Traditional Temple / Muhurtham">
+        <div class="card-media">
+          <img src="home-assets/covers/aarav_ananya_south.jpg" alt="Aarav & Ananya (South) Preview" loading="lazy"
+            class="card-img">
+          <span class="style-badge traditional">Traditional</span>
+          <span class="template-code-badge">#021</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Aarav & Ananya (South)">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Aarav & Ananya (South)</h3>
+          <p class="card-sub">Traditional Temple / Muhurtham</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 22. Karthik & Meenakshi [CODE: #022] -->
+      <article class="sample-card" data-category="south-indian" data-style="traditional" data-code="022" data-order="22"
+        data-url="https://karthik-weds-meenakshi.netlify.app/" data-name="Karthik & Meenakshi"
+        data-theme="Authentic South Indian">
+        <div class="card-media">
+          <img src="home-assets/covers/karthik_meenakshi.jpg" alt="Karthik & Meenakshi Preview" loading="lazy"
+            class="card-img">
+          <span class="style-badge traditional">Traditional</span>
+          <span class="template-code-badge">#022</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Karthik & Meenakshi">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Karthik & Meenakshi</h3>
+          <p class="card-sub">Authentic South Indian</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 23. Aarav & Diya [CODE: #023] -->
+      <article class="sample-card" data-category="south-indian" data-style="modern" data-code="023" data-order="23"
+        data-url="https://aarav-weds-diya.vercel.app/" data-name="Aarav & Diya" data-theme="Modern South Indian">
+        <div class="card-media">
+          <img src="home-assets/covers/aarav_diya.jpg" alt="Aarav & Diya Preview" loading="lazy" class="card-img">
+          <span class="style-badge modern">Modern</span>
+          <span class="template-code-badge">#023</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Aarav & Diya">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Aarav & Diya</h3>
+          <p class="card-sub">Modern South Indian</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 24. Atishay & Shivani [CODE: #024] -->
+      <article class="sample-card" data-category="hindu" data-style="modern" data-code="024" data-order="24"
+        data-url="https://invcraftmedia.com/atishay-weds-shivani/" data-name="Atishay & Shivani"
+        data-theme="Modern Lace Hindu (Om Wax Seal)">
+        <div class="card-media">
+          <img src="home-assets/covers/atishay_shivani.jpg" alt="Atishay & Shivani Preview" loading="lazy" class="card-img">
+          <span class="style-badge modern">Modern</span>
+          <span class="template-code-badge">#024</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Atishay & Shivani">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Atishay & Shivani</h3>
+          <p class="card-sub">Modern Lace Hindu (Om Wax Seal)</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 25. Shreya & Krishna [CODE: #025] -->
+      <article class="sample-card" data-category="hindu" data-style="modern" data-code="025" data-order="25"
+        data-url="https://invcraftmedia.com/shreya-weds-krishna/" data-name="Shreya & Krishna"
+        data-theme="Modern Royal Hindu (#Krisha)">
+        <div class="card-media">
+          <img src="home-assets/covers/shreya_krishna.jpg" alt="Shreya & Krishna Preview" loading="lazy" class="card-img">
+          <span class="style-badge modern">Modern</span>
+          <span class="template-code-badge">#025</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Shreya & Krishna">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Shreya & Krishna</h3>
+          <p class="card-sub">Modern Royal Hindu (#Krisha)</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 26. Aarav & Anika [CODE: #026] -->
+      <article class="sample-card" data-category="hindu" data-style="modern" data-code="026" data-order="26"
+        data-url="https://shagun-weds-chakshu.vercel.app/" data-name="Aarav & Anika" data-theme="Modern Pastel Hindu">
+        <div class="card-media">
+          <img src="home-assets/covers/aarav_anika.jpg" alt="Aarav & Anika Preview" loading="lazy" class="card-img">
+          <span class="style-badge modern">Modern</span>
+          <span class="template-code-badge">#026</span>
+          <div class="play-action-wrap">
+            <button class="play-pill-btn" aria-label="Play Preview Aarav & Anika">
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+              </svg>
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Aarav & Anika</h3>
+          <p class="card-sub">Modern Pastel Hindu</p>
+          <div class="card-price-action-row">
+            <div class="card-pricing">
+              <del class="card-mrp">&#8377;3,499</del>
+              <strong class="card-price">&#8377;1,499</strong>
+            </div>
+            <span class="card-off-badge">57% OFF</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ======================================================================
+         4. COUPLE TESTIMONIALS SECTION
+         ====================================================================== -->
+    <section class="testimonials-section" id="testimonialsSection">
+      <div class="section-header-centered">
+        <span class="section-eyebrow">CLIENT STORIES</span>
+        <h2 class="section-main-title">Loved by Couples</h2>
+      </div>
+
+      <div class="testimonials-scroll">
+        <article class="testimonial-card">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote">"We previewed #001, entered our wedding details, and got our custom invite link with live
+            RSVP tracking immediately after payment."</p>
+          <div class="t-author">
+            <div>
+              <strong>Rohan & Kritika</strong>
+              <span>Udaipur</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote">"Sharing our custom link on WhatsApp and checking confirmed guest headcounts in the RSVP
+            dashboard made planning effortless."</p>
+          <div class="t-author">
+            <div>
+              <strong>Simran & Harman</strong>
+              <span>Chandigarh</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote">"Clean mobile experience, Google Maps integration, and instant link generation. Our guests
+            loved the interactive design."</p>
+          <div class="t-author">
+            <div>
+              <strong>Karthik & Divya</strong>
+              <span>Chennai</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. FREQUENTLY ASKED QUESTIONS (CLEAN ACCORDION)
+         ====================================================================== -->
+    <section class="faq-section" id="faqSection">
+      <div class="section-header-centered">
+        <span class="section-eyebrow">SUPPORT</span>
+        <h2 class="section-main-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-list" id="faqList">
+        <div class="faq-item active">
+          <button type="button" class="faq-question">
+            <span>How does the ordering flow work?</span>
+            <span class="faq-icon">−</span>
+          </button>
+          <div class="faq-answer">
+            <p>1. Preview any template live. 2. Tap <strong>Customize & Buy</strong> to enter your wedding details. 3.
+              Login and complete payment (<del>₹3,499</del> ₹1,499). 4. Your custom invitation link and RSVP Dashboard
+              unlock immediately.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>When do I get access to the RSVP Dashboard?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Your personal RSVP Dashboard and custom wedding link are unlocked right after you log in and complete the
+              payment for your selected invitation.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Can I update my venue or event timings later?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, once your invitation is active, you can edit your dates, timings, or venue details anytime from your
+              dashboard without changing your shared link.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       LUXURY EDITORIAL FOOTER WITH LOTUS EMBLEM & DEDICATED POLICY LINKS
+       ======================================================================== -->
+  <footer class="clean-editorial-footer" id="mainSiteFooter">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand-wrap">
+          <div class="footer-lotus-emblem">
+            <img src="home-assets/footer-lotus-logo.jpg" alt="InvCraftMedia Lotus Emblem" class="footer-lotus-img" draggable="false">
+          </div>
+          <div class="footer-brand-text">
+            <div class="footer-brand-name-row">
+              <span class="footer-brand-title">INVCRAFT</span>
+              <span class="footer-brand-media-pill">MEDIA</span>
+            </div>
+            <span class="footer-tagline">Premium Digital Wedding Invitations</span>
+          </div>
+        </div>
+        <p class="footer-summary">
+          Handcrafted interactive mobile wedding invitations designed exclusively by InvCraftMedia. Personalised with your
+          couple story, event itinerary, venue maps &amp; music — ready to share on WhatsApp.
+        </p>
+        <div class="footer-contact-line">
+          <span>Email: <a href="mailto:invcraftmedia@gmail.com">invcraftmedia@gmail.com</a></span>
+          <span>&middot;</span>
+          <span>WhatsApp: <a href="https://wa.me/918209415303" target="_blank" rel="noopener noreferrer">+91 82094 15303</a></span>
+        </div>
+      </div>
+
+      <div class="footer-nav-columns">
+        <div class="footer-nav-col">
+          <h5>Collections</h5>
+          <a href="#catalogSection" data-footer-filter="hindu">Hindu Invitations</a>
+          <a href="#catalogSection" data-footer-filter="sikh">Sikh &amp; Punjabi</a>
+          <a href="#catalogSection" data-footer-filter="south-indian">South Indian</a>
+          <a href="#catalogSection" data-footer-filter="christian">Christian Weddings</a>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5>Policies &amp; Legal</h5>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+          <a href="refund-policy.html">Refund &amp; Cancellation</a>
+          <a href="copyright-policy.html">Copyright &amp; AI Policy</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 InvCraftMedia. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="#testimonialsSection">Reviews</a>
+          <a href="#faqSection">FAQs</a>
+          <a href="mailto:invcraftmedia@gmail.com">Support</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Bottom Sticky 2-Button Burgundy Action Bar -->
+  <nav class="bottom-mobile-nav" id="bottomNav" aria-label="Quick Actions">
+    <a href="#catalogSection" class="bottom-bar-btn bottom-bar-samples" id="bottomAllSamplesBtn" data-filter="all">
+      <span>All Samples</span>
+    </a>
+    <span class="bottom-bar-divider" aria-hidden="true"></span>
+    <a href="https://wa.me/918209415303?text=Hello%20InvCraftMedia!%20I%20want%20to%20customize%20a%20wedding%20invitation."
+      target="_blank" rel="noopener noreferrer" class="bottom-bar-btn bottom-bar-customize" id="bottomWhatsappBtn">
+      <span>Customize Now &rarr;</span>
+    </a>
+  </nav>
+
+  <!-- ========================================================================
+       LUXURY EDITORIAL PREVIEW PAGE (HOME HEADER + PHONE DEVICE + PRICE/CTA + DETAILS + FOOTER)
+       ======================================================================== -->
+  <div class="preview-modal" id="previewModal" aria-hidden="true" role="dialog">
+    <div class="preview-page-shell" id="previewPageShell">
+
+      <!-- Same Home Top Promo Strip -->
+      <div class="top-promo-bar preview-promo-bar">
+        <span><strong>WEDDING SEASON:</strong> Flat 57% OFF &middot; Custom Invites at &#8377;1,499</span>
+      </div>
+
+      <!-- Same Home Sticky Editorial Navbar (No External Open Link — In-Site Preview Only) -->
+      <header class="preview-sticky-nav">
+        <button type="button" class="preview-nav-back" id="modalBackBtn" aria-label="Back to all designs">
+          &larr; Back
+        </button>
+        <span class="brand-editorial-name">INVCRAFT MEDIA</span>
+        <span class="preview-nav-spacer" aria-hidden="true"></span>
+      </header>
+
+      <!-- Main Editorial Preview Content -->
+      <div class="preview-page-body">
+        <!-- Centered Editorial Heading -->
+        <div class="preview-heading-block">
+          <span class="preview-design-eyebrow" id="sellBarCode">DESIGN #001</span>
+          <h2 class="preview-editorial-title" id="modalTitle">Wedding Sample</h2>
+          <p class="preview-editorial-sub" id="modalSubtitleText">Live Interactive Mobile Preview</p>
+        </div>
+
+        <!-- Centered Live Interactive Phone Device + Subtle Floating Brand Watermark -->
+        <div class="preview-device-stage">
+          <div class="preview-side-watermark" aria-hidden="true"
+            data-copyright="© 2026 INVCRAFTMEDIA Original Proprietary Wedding Invitation — Cloning & AI Scraping Strictly Prohibited">
+            <img src="home-assets/footer-lotus-logo.jpg" alt="© 2026 INVCRAFTMEDIA Copyright Protected Design" class="watermark-lotus-img" draggable="false">
+            <span class="watermark-brand-text">INVCRAFTMEDIA</span>
+          </div>
+
+          <div class="preview-phone-frame">
+            <div class="hero-phone-island"></div>
+            <div class="hero-phone-screen">
+              <div class="preview-loader" id="previewLoader">
+                <div class="spinner"></div>
+                <span>Loading Live Invite...</span>
+              </div>
+              <iframe id="previewIframe" src="about:blank" title="Wedding Live Demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+              <div class="hero-phone-home-bar"></div>
+            </div>
+          </div>
+          <p class="preview-tap-hint">Tap &amp; scroll inside the phone to experience the live invitation</p>
+        </div>
+
+        <!-- Price & WhatsApp Customize CTA (Above Details Text) -->
+        <div class="preview-purchase-block" id="previewSellBar">
+          <div class="preview-price-row">
+            <del class="preview-mrp">&#8377;3,499</del>
+            <strong class="preview-price">&#8377;1,499</strong>
+            <span class="preview-off-pill">57% OFF</span>
+          </div>
+          <p class="preview-price-caption">One-time payment &middot; Delivered ready-to-share within 24 hours</p>
+
+          <a href="https://wa.me/918209415303?text=Hello%20InvCraftMedia!%20I%20want%20to%20customize%20this%20wedding%20invitation."
+            target="_blank" rel="noopener noreferrer" class="preview-wa-cta-btn" id="startCustomizeFromPreviewBtn">
+            <span>CUSTOMIZE ON WHATSAPP &nbsp;&rarr;</span>
+          </a>
+        </div>
+
+        <!-- Well-Aligned Product Details & Inclusions -->
+        <div class="preview-details-card">
+          <span class="preview-details-kicker">WHAT&rsquo;S INCLUDED</span>
+          <h3 class="preview-details-heading">Handcrafted for your celebration</h3>
+          <p class="preview-details-desc">
+            Every detail of this digital invitation is thoughtfully personalised by our design team — from couple &amp;
+            family names to event schedules, venue directions, music and animations.
+          </p>
+          <ul class="preview-features-list">
+            <li>Personalised with Bride, Groom &amp; Parents&rsquo; names and photos</li>
+            <li>Complete multi-event itinerary (Haldi, Mehendi, Sangeet, Wedding &amp; Reception)</li>
+            <li>One-tap Google Maps venue directions &amp; live wedding countdown</li>
+            <li>Custom shareable WhatsApp link for unlimited family &amp; guests</li>
+            <li>Background music &amp; multilingual support (English, Hindi &amp; Regional)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Exact Home Footer Cloned Here Automatically -->
+      <div id="previewFooterMount"></div>
+
+    </div>
   </div>
 
-  <!-- Interactive Slide-Up Demos Sheet -->
-  <div class="demos-overlay" id="demosOverlay">
-    <div class="demos-sheet">
-      <div class="demos-header">
-        <h3>Live Wedding Invitations</h3>
-        <button class="sheet-close-btn" id="btnCloseSheet" aria-label="Close Demos">&times;</button>
-      </div>
-      <div class="demos-grid">
-        <a href="/krishna-weds-shreya/" class="demo-link-card">
-          <span>Krishna &amp; Shreya</span>
-          <span class="arrow">&rarr;</span>
-        </a>
-        <a href="/ankush-weds-muskan/" class="demo-link-card">
-          <span>Ankush &amp; Muskan</span>
-          <span class="arrow">&rarr;</span>
-        </a>
-        <a href="/manohar-weds-harshitha/" class="demo-link-card">
-          <span>Manohar &amp; Harshitha</span>
-          <span class="arrow">&rarr;</span>
-        </a>
-        <a href="/dharmendra-weds-sanchita/" class="demo-link-card">
-          <span>Dharmendra &amp; Sanchita</span>
-          <span class="arrow">&rarr;</span>
-        </a>
-        <a href="/apurva-weds-srishti/" class="demo-link-card">
-          <span>Apurva &amp; Srishti</span>
-          <span class="arrow">&rarr;</span>
-        </a>
-        <a href="/abhijit-weds-sumona/" class="demo-link-card">
-          <span>Abhijit &amp; Sumona</span>
-          <span class="arrow">&rarr;</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const btnShow = document.getElementById('btnShowDemos');
-    const btnClose = document.getElementById('btnCloseSheet');
-    const overlay = document.getElementById('demosOverlay');
-
-    btnShow?.addEventListener('click', (e) => {
-      e.preventDefault();
-      overlay.classList.add('active');
-    });
-
-    btnClose?.addEventListener('click', () => {
-      overlay.classList.remove('active');
-    });
-
-    overlay?.addEventListener('click', (e) => {
-      if (e.target === overlay) overlay.classList.remove('active');
-    });
-  </script>
+  <script src="app.js"></script>
 </body>
+
 </html>
