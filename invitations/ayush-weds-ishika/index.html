@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Ayush &amp; Ishika — Wedding Invitation · 27 January 2027</title>
+  <meta name="description" content="Kothari Kirtikumar Kantilalji Bagrecha Solanki cordially invites you to celebrate the wedding of Chi. Ayush &amp; Sau. Ka. Ishika on 25–27 January 2027 in Ahore, Rajasthan." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://invcraftmedia.com/ayush-weds-ishika/" />
+  <meta property="og:title" content="Ayush &amp; Ishika — Wedding Invitation (#Jashn-ऐ-इश्का)" />
+  <meta property="og:description" content="Join the Bagrecha Solanki family to celebrate the wedding of Chi. Ayush &amp; Sau. Ka. Ishika on 25–27 January 2027 in Ahore, Rajasthan." />
+  <meta property="og:image" content="https://invcraftmedia.com/ayush-weds-ishika/assets/pond-bg.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=5" />
+</head>
+<body class="gate-locked">
+  <!-- Subtle SVG paper grain filter definition -->
+  <svg class="svg-defs" aria-hidden="true" width="0" height="0">
+    <defs>
+      <filter id="paperGrain" x="0%" y="0%" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="4" stitchTiles="stitch" result="noise" />
+        <feColorMatrix type="matrix" values="
+          0.35 0 0 0 0.65
+          0 0.30 0 0 0.60
+          0 0 0.28 0 0.58
+          0 0 0 0.055 0" in="noise" result="coloredNoise" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Centered 460px Invitation Column -->
+  <main class="invite-shell" id="inviteShell">
+
+    <!-- =========================================================
+         SECTION 0 & 1: INTERACTIVE LOTUS POND GATE -> HERO CARD
+         ========================================================= -->
+    <section class="pond-hero" id="pondHero" aria-label="Opening Lotus Pond">
+      <div class="pond-art-layer" id="pondArtLayer"></div>
+      <div class="ripple-layer" id="rippleLayer" aria-hidden="true"></div>
+
+      <div class="flower-boat-wrap" id="flowerBoatWrap" aria-hidden="true">
+        <div class="flower-boat-inner" id="flowerBoatArt"></div>
+      </div>
+
+      <!-- Stage 0: Closed Pond Greeting & Hint -->
+      <div class="gate-overlay" id="gateOverlay">
+        <div class="gate-top-text">
+          <p class="gate-script foil-text" data-i18n="gate.invited">You're invited</p>
+          <p class="gate-sub tracked-caps" data-i18n="gate.sub">TO A WEDDING<br>IN AHORE, RAJASTHAN</p>
+        </div>
+        <button type="button" class="gate-tap-hint" id="gateTapHint" aria-label="Tap the water to open invitation">
+          <span data-i18n="gate.tap">Tap the water</span>
+        </button>
+      </div>
+
+      <!-- Stage 1: Opened Hero Overlay -->
+      <div class="hero-reveal" id="heroReveal" aria-hidden="true">
+        <div class="hero-names-block">
+          <p class="hero-welcome ks-line" style="--d: 0ms" data-i18n="hero.welcome">॥ Shri Ganeshaya Namah ॥</p>
+          <h1 class="hero-couple">
+            <span class="hero-name foil-text ks-line" style="--d: 220ms" data-i18n="couple.groomFirst">Ayush</span>
+            <span class="hero-amp foil-text ks-line" style="--d: 520ms">&amp;</span>
+            <span class="hero-name foil-text ks-line" style="--d: 700ms" data-i18n="couple.brideFirst">Ishika</span>
+          </h1>
+          <div class="lotus-divider hero-divider ks-line" style="--d: 960ms" data-artwork="divider"></div>
+          <p class="hero-hashtag ks-line" style="--d: 1060ms">#Jashn - ऐ - इश्का</p>
+          <p class="hero-city tracked-caps ks-line" style="--d: 1160ms" data-i18n="hero.city">27 · 01 · 2027 · AHORE</p>
+        </div>
+
+        <a href="#sectionDate" class="scroll-down-cue" id="scrollDownCue">
+          <span class="script-sm" data-i18n="hero.scroll">Scroll down</span>
+          <svg class="chevron-down" viewBox="0 0 20 12" width="16" height="10" aria-hidden="true">
+            <path d="M2 2L10 10L18 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="pond-bottom-fade" aria-hidden="true"></div>
+    </section>
+
+    <!-- Paper Content Body -->
+    <div class="paper-body" id="paperBody">
+
+      <!-- =========================================================
+           SECTION 2: THE DATE (INTERACTIVE GOLD FOIL SCRATCH-OFF)
+           ========================================================= -->
+      <section class="section section-date reveal-on-scroll" id="sectionDate">
+        <h2 class="section-title foil-text" data-i18n="date.title">The Date</h2>
+        <div class="lotus-divider" data-artwork="divider"></div>
+
+        <p class="scratch-prompt">
+          <span class="star-gold">✦</span>
+          <span data-i18n="date.scratchHint">Scratch to reveal the date</span>
+          <span class="star-gold">✦</span>
+        </p>
+
+        <div class="scratch-grid" id="scratchGrid">
+          <div class="scratch-item">
+            <div class="scratch-card" data-value-en="27" data-value-hi="२७">
+              <div class="scratch-underneath">
+                <span class="scratch-val" data-i18n="date.dayVal">27</span>
+              </div>
+              <canvas class="scratch-canvas" width="220" height="260" aria-label="Scratch to reveal day"></canvas>
+            </div>
+            <span class="scratch-label tracked-caps" data-i18n="date.dayLabel">DAY</span>
+          </div>
+
+          <div class="scratch-item">
+            <div class="scratch-card" data-value-en="January" data-value-hi="जनवरी">
+              <div class="scratch-underneath">
+                <span class="scratch-val scratch-val-month" data-i18n="date.monthVal">January</span>
+              </div>
+              <canvas class="scratch-canvas" width="220" height="260" aria-label="Scratch to reveal month"></canvas>
+            </div>
+            <span class="scratch-label tracked-caps" data-i18n="date.monthLabel">MONTH</span>
+          </div>
+
+          <div class="scratch-item">
+            <div class="scratch-card" data-value-en="2027" data-value-hi="२०२७">
+              <div class="scratch-underneath">
+                <span class="scratch-val" data-i18n="date.yearVal">2027</span>
+              </div>
+              <canvas class="scratch-canvas" width="220" height="260" aria-label="Scratch to reveal year"></canvas>
+            </div>
+            <span class="scratch-label tracked-caps" data-i18n="date.yearLabel">YEAR</span>
+          </div>
+        </div>
+
+        <div class="date-revealed-note" id="dateRevealedNote">
+          <p class="date-time-line" data-i18n="date.summaryTime">Budhwar (Wednesday), 7:00 pm onwards</p>
+          <p class="date-sub-line" data-i18n="date.summaryPlace">Samvat 2083 · Magh Vad 6 · Ahore, Rajasthan</p>
+          <button type="button" class="gold-link-btn" data-calendar="wedding" data-i18n="common.addToCalendar">Add to calendar</button>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           SECTION 3: FORMAL INVITATION CARD (SCALLOPED MUGHAL ARCH)
+           ========================================================= -->
+      <section class="section section-formal reveal-on-scroll" id="sectionFormal">
+        <div class="mughal-arch-card mughal-arch-tall">
+          <div class="mughal-arch-frame" data-artwork="mughalArch" aria-hidden="true"></div>
+          <div class="mughal-arch-content">
+            <p class="ganesh-invocation deva-text">॥ श्री गणेशाय नमः ॥</p>
+            <div class="lotus-divider lotus-divider-sm" data-artwork="divider"></div>
+
+            <p class="formal-lead italic-serif" data-i18n="formal.lead">
+              Shriman Manyavar,<br>Mangalmay Shri Jineshwar Bhagwan ki asim kripa se hamare yahan
+            </p>
+
+            <h3 class="formal-name foil-text" data-i18n="couple.groomFull">Chi. Ayush</h3>
+            <p class="parent-relation tracked-caps" data-i18n="formal.groomGrandLabel">SUPAUTRA</p>
+            <p class="parent-names parent-names-sm" data-i18n="formal.groomGrand">Smt. Manjula Devi – Late Kothari Kantilalji Motichandji Bagrecha Solanki</p>
+            <p class="parent-relation tracked-caps" data-i18n="formal.sonOf">SUPUTRA</p>
+            <p class="parent-names parent-names-sm" data-i18n="formal.groomParents">Smt. Veena Devi – Kothari Kirtikumarji Bagrecha Solanki</p>
+
+            <p class="formal-with" data-i18n="formal.with">sang</p>
+
+            <h3 class="formal-name foil-text" data-i18n="couple.brideFull">Sau. Ka. Ishika</h3>
+            <p class="parent-relation tracked-caps" data-i18n="formal.brideGrandLabel">SUPAUTRI</p>
+            <p class="parent-names parent-names-sm" data-i18n="formal.brideGrand">Smt. Sukhi Devi – Shri Vimalchandji Ghatmalji Tilesra Mutha</p>
+            <p class="parent-relation tracked-caps" data-i18n="formal.daughterOf">SUPUTRI</p>
+            <p class="parent-names parent-names-sm" data-i18n="formal.brideParents">Smt. Samata Devi – Shri Sanjayji Tilesra Mutha</p>
+
+            <div class="formal-date-block">
+              <p class="formal-invite-note italic-serif" data-i18n="formal.note">
+                ka shubh vivah Samvat 2083 Magh Vad 6, Budhwar, dinank 27-01-2027 ko hona nishchit hua hai. Is prasang par aap saparivar padharkar nav-dampati ko shubhashirvad pradan kar hamein anugrahit karein.
+              </p>
+              <p class="formal-hashtag-pill">#Jashn - ऐ - इश्का</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           SECTION 3B: COUPLE PHOTO GALLERY (SCALLOPED ARCH CAROUSEL)
+           ========================================================= -->
+      <section class="section section-gallery reveal-on-scroll" id="sectionGallery">
+        <h2 class="section-title foil-text" data-i18n="gallery.title">Ayush &amp; Ishika</h2>
+        <div class="lotus-divider" data-artwork="divider"></div>
+
+        <div class="gallery-track" id="galleryTrack" role="region" aria-label="Ayush and Ishika photo gallery">
+          <figure class="gallery-card"><div class="gallery-arch-frame" data-artwork="couple2"></div></figure>
+          <figure class="gallery-card"><div class="gallery-arch-frame" data-artwork="couple4"></div></figure>
+          <figure class="gallery-card"><div class="gallery-arch-frame" data-artwork="couple5"></div></figure>
+          <figure class="gallery-card"><div class="gallery-arch-frame" data-artwork="couple6"></div></figure>
+          <figure class="gallery-card"><div class="gallery-arch-frame" data-artwork="couple7"></div></figure>
+          <figure class="gallery-card"><div class="gallery-arch-frame" data-artwork="couple8"></div></figure>
+          <figure class="gallery-card"><div class="gallery-arch-frame" data-artwork="couple9"></div></figure>
+        </div>
+
+        <p class="gallery-hint italic-serif" data-i18n="gallery.swipe">Swipe to see more</p>
+      </section>
+
+      <!-- =========================================================
+           SECTION 4: THE CELEBRATIONS (ALL 5 EVENTS ON LOTUS TIMELINE)
+           ========================================================= -->
+      <section class="section section-celebrations" id="sectionCelebrations">
+        <h2 class="section-title foil-text" data-i18n="events.title">The celebrations</h2>
+        <div class="lotus-divider" data-artwork="divider"></div>
+
+        <div class="celebrations-stage" id="celebrationsStage">
+          <div class="lily-pad-float lily-top-left" id="lilyTopLeft" data-artwork="lilyCluster" aria-hidden="true"></div>
+          <div class="celebrations-axis" aria-hidden="true"></div>
+
+          <!-- Event 1: Mayra (Painting Left / Text Right) -->
+          <article class="event-row event-left-art">
+            <div class="event-medallion-col">
+              <div class="scalloped-medallion" data-artwork="medallionMayra"></div>
+            </div>
+            <div class="event-lotus-node" data-bloom-lotus="0" aria-hidden="true"></div>
+            <div class="event-info-col">
+              <p class="event-day tracked-caps" data-i18n="events.mayraDay">SOMVAR, 25 JAN</p>
+              <p class="event-time" style="--mood: var(--mood-mehendi)" data-i18n="events.mayraTime">Subah 10:00 baje se</p>
+              <h3 class="event-name" data-i18n="events.mayraName">Mayra</h3>
+              <p class="event-hindi deva-text">मायरा · माघ वद ३</p>
+              <p class="event-place italic-serif" data-i18n="events.mayraPlace">Sanghvi Nohra, Ahore, Rajasthan</p>
+              <button type="button" class="gold-link-btn" data-calendar="mayra" data-i18n="common.addToCalendar">Add to calendar</button>
+            </div>
+          </article>
+
+          <!-- Event 2: Bandoli (Text Left / Painting Right) -->
+          <article class="event-row event-right-art">
+            <div class="event-info-col event-info-right-align">
+              <p class="event-day tracked-caps" data-i18n="events.bandoliDay">SOMVAR, 25 JAN</p>
+              <p class="event-time" style="--mood: var(--mood-sangeet)" data-i18n="events.bandoliTime">Ratri 8:00 baje se</p>
+              <h3 class="event-name" data-i18n="events.bandoliName">Bandoli</h3>
+              <p class="event-hindi deva-text">बन्दोली · माघ वद ३</p>
+              <p class="event-place italic-serif" data-i18n="events.bandoliPlace">Ahore, Rajasthan</p>
+              <button type="button" class="gold-link-btn" data-calendar="bandoli" data-i18n="common.addToCalendar">Add to calendar</button>
+            </div>
+            <div class="event-lotus-node" data-bloom-lotus="1" aria-hidden="true"></div>
+            <div class="event-medallion-col">
+              <div class="scalloped-medallion" data-artwork="medallionBandoli"></div>
+            </div>
+          </article>
+
+          <!-- Event 3: Haldi Carnival (Painting Left / Text Right) -->
+          <article class="event-row event-left-art">
+            <div class="event-medallion-col">
+              <div class="scalloped-medallion" data-artwork="medallionHaldi"></div>
+            </div>
+            <div class="event-lotus-node" data-bloom-lotus="2" aria-hidden="true"></div>
+            <div class="event-info-col">
+              <p class="event-day tracked-caps" data-i18n="events.haldiDay">MANGALVAR, 26 JAN</p>
+              <p class="event-time" style="--mood: var(--mood-mehendi)" data-i18n="events.haldiTime">Dopahar 12:00 baje se</p>
+              <h3 class="event-name" data-i18n="events.haldiName">Haldi Carnival</h3>
+              <p class="event-hindi deva-text">हल्दी कार्निवल · माघ वद ५</p>
+              <p class="event-place italic-serif" data-i18n="events.haldiPlace">Ahore, Rajasthan</p>
+              <button type="button" class="gold-link-btn" data-calendar="haldi" data-i18n="common.addToCalendar">Add to calendar</button>
+            </div>
+          </article>
+
+          <!-- Event 4: Sangeet Sandhya (Text Left / Painting Right) -->
+          <article class="event-row event-right-art">
+            <div class="event-info-col event-info-right-align">
+              <p class="event-day tracked-caps" data-i18n="events.sangeetDay">MANGALVAR, 26 JAN</p>
+              <p class="event-time" style="--mood: var(--mood-sangeet)" data-i18n="events.sangeetTime">Ratri 8:00 baje se</p>
+              <h3 class="event-name" data-i18n="events.sangeetName">Sangeet Sandhya</h3>
+              <p class="event-hindi deva-text">संगीत संध्या · माघ वद ५</p>
+              <p class="event-place italic-serif" data-i18n="events.sangeetPlace">Ahore, Rajasthan</p>
+              <button type="button" class="gold-link-btn" data-calendar="sangeet" data-i18n="common.addToCalendar">Add to calendar</button>
+            </div>
+            <div class="event-lotus-node" data-bloom-lotus="3" aria-hidden="true"></div>
+            <div class="event-medallion-col">
+              <div class="scalloped-medallion" data-artwork="medallionSangeet"></div>
+            </div>
+          </article>
+
+          <!-- Event 5: Baraat Prasthan & Hasth Milaap evam Phere (Painting Left / Text Right) -->
+          <article class="event-row event-left-art">
+            <div class="event-medallion-col">
+              <div class="scalloped-medallion" data-artwork="medallionWedding"></div>
+            </div>
+            <div class="event-lotus-node" data-bloom-lotus="4" aria-hidden="true"></div>
+            <div class="event-info-col">
+              <p class="event-day tracked-caps" data-i18n="events.weddingDay">BUDHWAR, 27 JAN</p>
+              <p class="event-time" style="--mood: var(--mood-wedding)" data-i18n="events.weddingTime">Shaam 7:00 baje se</p>
+              <h3 class="event-name" data-i18n="events.weddingName">Baraat Prasthan</h3>
+              <p class="event-sub-ceremony italic-serif" data-i18n="events.weddingSub">tatpashchat Hasth Milaap evam Phere</p>
+              <p class="event-hindi deva-text">माघ वद ६ · संवत २०८३</p>
+              <p class="event-place italic-serif" data-i18n="events.weddingPlace">Ahore, Rajasthan</p>
+              <button type="button" class="gold-link-btn" data-calendar="wedding" data-i18n="common.addToCalendar">Add to calendar</button>
+            </div>
+          </article>
+
+          <div class="lily-pad-float lily-bottom-right" id="lilyBottomRight" data-artwork="lilyCluster" aria-hidden="true"></div>
+        </div>
+
+        <!-- Samdhi Pravar Highlight Box -->
+        <div class="samdhi-box reveal-on-scroll">
+          <p class="tracked-caps samdhi-kicker" data-i18n="events.samdhiTitle">SAMDHI PRAVAR</p>
+          <p class="samdhi-text" data-i18n="events.samdhiText">Sha Sanjayji Vimalchandji Tilesra Mutha ke yahan baraat jayegi</p>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           SECTION 5: LIVE COUNTDOWN
+           ========================================================= -->
+      <section class="section section-countdown reveal-on-scroll" id="sectionCountdown">
+        <h2 class="section-title foil-text" data-i18n="countdown.title">The celebration begins</h2>
+        <div class="lotus-divider" data-artwork="divider"></div>
+
+        <div class="countdown-row" id="countdownRow" aria-live="polite">
+          <div class="cd-unit">
+            <span class="cd-num" id="cdDays">00</span>
+            <span class="cd-label" data-i18n="countdown.days">Days</span>
+          </div>
+          <span class="cd-colon">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cdHours">00</span>
+            <span class="cd-label" data-i18n="countdown.hours">Hours</span>
+          </div>
+          <span class="cd-colon">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cdMins">00</span>
+            <span class="cd-label" data-i18n="countdown.minutes">Minutes</span>
+          </div>
+          <span class="cd-colon">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cdSecs">00</span>
+            <span class="cd-label" data-i18n="countdown.seconds">Seconds</span>
+          </div>
+        </div>
+
+        <p class="countdown-sub italic-serif" data-i18n="countdown.sub">
+          until the Mayra, on Monday, 25 January 2027
+        </p>
+      </section>
+
+      <!-- =========================================================
+           SECTION 6: LOCATION & SHUBHSTHAL
+           ========================================================= -->
+      <section class="section section-location reveal-on-scroll" id="sectionLocation">
+        <h2 class="section-title foil-text" data-i18n="location.title">Shubhsthal</h2>
+        <div class="lotus-divider" data-artwork="divider"></div>
+
+        <p class="location-city tracked-caps" data-i18n="location.city">AHORE, RAJASTHAN</p>
+        <p class="location-venue" data-i18n="location.venue">Moti Nivas, Dera ki Seri</p>
+        <p class="location-address" data-i18n="location.address">Kothari Vikramkumar, Kirtikumar, Amitkumar Kantilalji Motichandji Kothari<br>Ahore, Dist. Jalore (Rajasthan)</p>
+
+        <div class="venue-painting-wrap" data-artwork="venueHaveli" role="img" aria-label="Traditional Rajasthani Haveli artwork"></div>
+
+        <div class="map-card" id="mapCard">
+          <div class="stylized-map" id="stylizedMap">
+            <svg class="stylized-map-svg" viewBox="0 0 360 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="360" height="220" fill="#FAF2EE" />
+              <path d="M210 220 C215 170 250 138 305 145 C330 148 345 156 360 165 L360 220 Z" fill="#F1E7E2" />
+              <path d="M-10 48 C80 56 170 30 260 52 C305 64 335 55 370 42" fill="none" stroke="#E5DACF" stroke-width="2.2" />
+              <path d="M-10 152 C70 132 145 162 215 112 C265 76 315 74 370 86" fill="none" stroke="#E2D5C8" stroke-width="5" />
+              <path d="M105 -10 C102 65 82 110 128 156 C155 182 148 205 135 230" fill="none" stroke="#E5DACF" stroke-width="3.5" />
+              <path d="M222 -10 C228 60 260 95 232 148 C215 180 238 205 262 230" fill="none" stroke="#E8DDD3" stroke-width="2" />
+              <path d="M36 -10 L58 230" fill="none" stroke="#EAE0D7" stroke-width="1.4" />
+              <path d="M312 -10 L328 230" fill="none" stroke="#EAE0D7" stroke-width="1.4" />
+              <path d="M-10 198 L370 184" fill="none" stroke="#EAE0D7" stroke-width="1.4" />
+            </svg>
+            <div class="map-pin-wrap">
+              <div class="map-pin" aria-hidden="true"></div>
+              <button type="button" class="show-map-pill" id="showMapBtn" data-i18n="location.showMap">Show the map</button>
+            </div>
+          </div>
+          <div class="live-map-embed" id="liveMapEmbed" hidden>
+            <iframe
+              title="Ahore, Dist. Jalore, Rajasthan"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="about:blank"
+              data-src="https://www.openstreetmap.org/export/embed.html?bbox=72.7600%2C25.3550%2C72.8100%2C25.3880&layer=mapnik&marker=25.3712%2C72.7850">
+            </iframe>
+          </div>
+        </div>
+
+        <a
+          class="gold-pill-cta"
+          href="https://maps.google.com/?q=Moti+Nivas,+Dera+ki+Seri,+Ahore,+Jalore,+Rajasthan"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-i18n="location.openMaps">
+          OPEN IN GOOGLE MAPS
+        </a>
+      </section>
+
+      <!-- =========================================================
+           SECTION 7: OUR FAMILIES (EXACT PAGES 8 & 9)
+           ========================================================= -->
+      <section class="section section-families reveal-on-scroll" id="sectionFamilies">
+        <h2 class="section-title foil-text" data-i18n="families.title">Our Families</h2>
+        <div class="lotus-divider" data-artwork="divider"></div>
+
+        <div class="family-block">
+          <p class="tracked-caps family-kicker" data-i18n="families.visheshTitle">VISHESH PRARTHI</p>
+          <p class="family-names" data-i18n="families.visheshNames">Smt. Veena Devi Shantilalji Kundanmalji Folamutha (Salecha)<br>Kunal – Jainam Folamutha (Salecha)</p>
+        </div>
+
+        <div class="family-block">
+          <p class="tracked-caps family-kicker" data-i18n="families.nanihalTitle">NANIHAL PAKSH</p>
+          <p class="family-names" data-i18n="families.nanihalNames">Shriman Sha. Shripalji, Mahavirji, Gautamji, Manishji, Kumarpalji, Shrenikji, Rishabji, Adarshji evam samast Jugrajji Phoolchandji Kothari (Talavat) Parivar, Ahore</p>
+        </div>
+
+        <div class="family-block">
+          <p class="tracked-caps family-kicker" data-i18n="families.divyaTitle">DIVYASHISH</p>
+          <p class="family-names" data-i18n="families.divyaNames">
+            Late Smt. Panibai Motichandji Kothari<br>
+            Bhuasa Late Smt. Ratanbai Parasmalji Mishrimalji Bafna<br>
+            Late Smt. Shantibai Vagtavarmalji Kothari<br>
+            Late Kothari Kantilalji Motichandji (Bagrecha Solanki)<br>
+            Late Shri Kanrajji Kothari (Talavat)
+          </p>
+        </div>
+
+        <div class="family-block">
+          <p class="tracked-caps family-kicker" data-i18n="families.darshanTitle">AAPKE DARSHANABHILASHI</p>
+          <p class="family-names" data-i18n="families.darshanNames">Kothari Karanrajji, Ambalal, Sureshkumar, Jayantilal, Dilipkumar, Vikramkumar, Ambalal, Lalitkumar, Manojkumar, Amitkumar, Ajaykumar, Rajendrakumar, Harvish, Vishal, Abhishek, Pakshal, Rahul, Kalpesh, Moksh, Tanuj, Manas, Harsh, Jainam, Bhavik, Vihaan, Viyaan, Vyay evam samast Bagrecha Solanki Parivar, Ahore</p>
+        </div>
+
+        <div class="family-block">
+          <p class="tracked-caps family-kicker" data-i18n="families.swagatTitle">SWAGATOTSUK</p>
+          <div class="swagat-grid">
+            <div class="swagat-col">
+              <span>Smt. Valmibai – Karanrajji</span>
+              <span>Smt. Manjula Devi – Late Kantilalji</span>
+              <span>Smt. Sushila Devi – Ambalalji</span>
+              <span>Smt. Sushila Devi – Sureshkumarji</span>
+              <span>Smt. Seema Devi – Dilipkumarji</span>
+              <span>Smt. Asha Devi – Vikramkumarji</span>
+            </div>
+            <div class="swagat-col">
+              <span>Smt. Gunvanti Devi – Lalitkumarji</span>
+              <span>Smt. Rinku Devi – Amitkumarji</span>
+              <span>Ladli betiyan – Disha, Diva, Nishtha</span>
+              <span>evam hamari putra vadhuyein – Payal, Sona, Mittal, Neha, Kajal Kothari</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           SECTION 8: PRATISHTHAN & CONTACT (EXACT PAGE 10)
+           ========================================================= -->
+      <section class="section section-pratishthan reveal-on-scroll" id="sectionPratishthan">
+        <h2 class="section-title foil-text" data-i18n="firms.title">Pratishthan</h2>
+        <div class="lotus-divider" data-artwork="divider"></div>
+
+        <div class="firms-grid">
+          <div class="firm-card">
+            <h3 class="firm-name">SHA KOTHARI KANTILAL JAIN BANKERS</h3>
+            <p class="firm-addr">Rajaji Street, Kakinada</p>
+            <a class="firm-phone" href="tel:+919493109090">Cell: 9493109090</a>
+          </div>
+          <div class="firm-card">
+            <h3 class="firm-name">RAJKAMAL JEWELLERS</h3>
+            <p class="firm-addr">Rajaji Street, Kakinada</p>
+            <a class="firm-phone" href="tel:+919348893466">Cell: 9348893466</a>
+          </div>
+          <div class="firm-card">
+            <h3 class="firm-name">SRI PUMPS &amp; FITTINGS INDUSTRIAL CORPORATION</h3>
+            <p class="firm-addr">Morampudi, Rajahmundry</p>
+            <a class="firm-phone" href="tel:+919440868551">Cell: 9440868551</a>
+          </div>
+          <div class="firm-card">
+            <h3 class="firm-name">SS ENGINEERS &amp; CONSULTANTS PVT. LTD.</h3>
+            <p class="firm-addr">Morampudi, Rajahmundry</p>
+            <a class="firm-phone" href="tel:+919397903528">Cell: 9397903528</a>
+          </div>
+          <div class="firm-card firm-card-full">
+            <h3 class="firm-name">LAVAN INTERNATIONAL</h3>
+            <p class="firm-addr">Nalam Vari Street, Kakinada</p>
+            <a class="firm-phone" href="tel:+919001996969">Cell: 9001996969</a>
+          </div>
+        </div>
+
+        <div class="shubhsthal-highlight">
+          <p class="tracked-caps shubh-kicker" data-i18n="firms.shubhKicker">SHUBHSTHAL</p>
+          <p class="shubh-names">Kothari Vikramkumar, Kirtikumar, Amitkumar Kantilalji Motichandji Kothari</p>
+          <p class="shubh-addr">Moti Nivas, Dera ki Seri, Ahore, Dist. Jalore (Raj.)</p>
+          <a class="shubh-phone" href="tel:+919397903528">Cell: 9397903528</a>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           SECTION 9: RSVP FORM ("WILL YOU JOIN US?")
+           ========================================================= -->
+      <section class="section section-rsvp reveal-on-scroll" id="sectionRsvp">
+        <h2 class="section-title foil-text" data-i18n="rsvp.title">Will you join us?</h2>
+        <div class="lotus-divider" data-artwork="divider"></div>
+        <p class="section-subtitle" data-i18n="rsvp.sub">
+          Please let us know how many of you are joining each celebration in Ahore.
+        </p>
+
+        <form class="rsvp-form" id="rsvpForm" novalidate>
+          <label class="rsvp-label tracked-caps" for="guestName" data-i18n="rsvp.nameLabel">YOUR NAME</label>
+          <input
+            type="text"
+            id="guestName"
+            name="guestName"
+            class="rsvp-input"
+            placeholder="e.g. Rajesh Kothari"
+            data-i18n-placeholder="rsvp.namePlaceholder"
+            autocomplete="name" />
+
+          <div class="rsvp-counter-list">
+            <div class="rsvp-counter-row">
+              <div>
+                <p class="rsvp-fn-name" data-i18n="events.mayraName">Mayra</p>
+                <p class="rsvp-fn-date" data-i18n="rsvp.mayraDate">Mon, 25 Jan · 10:00 am</p>
+              </div>
+              <div class="stepper" data-fn="mayra">
+                <button type="button" class="stepper-btn" data-delta="-1" aria-label="Decrease Mayra guests">−</button>
+                <span class="stepper-count" data-count="mayra">1</span>
+                <button type="button" class="stepper-btn" data-delta="1" aria-label="Increase Mayra guests">+</button>
+              </div>
+            </div>
+
+            <div class="rsvp-counter-row">
+              <div>
+                <p class="rsvp-fn-name" data-i18n="events.bandoliName">Bandoli</p>
+                <p class="rsvp-fn-date" data-i18n="rsvp.bandoliDate">Mon, 25 Jan · 8:00 pm</p>
+              </div>
+              <div class="stepper" data-fn="bandoli">
+                <button type="button" class="stepper-btn" data-delta="-1" aria-label="Decrease Bandoli guests">−</button>
+                <span class="stepper-count" data-count="bandoli">1</span>
+                <button type="button" class="stepper-btn" data-delta="1" aria-label="Increase Bandoli guests">+</button>
+              </div>
+            </div>
+
+            <div class="rsvp-counter-row">
+              <div>
+                <p class="rsvp-fn-name" data-i18n="events.haldiName">Haldi Carnival</p>
+                <p class="rsvp-fn-date" data-i18n="rsvp.haldiDate">Tue, 26 Jan · 12:00 pm</p>
+              </div>
+              <div class="stepper" data-fn="haldi">
+                <button type="button" class="stepper-btn" data-delta="-1" aria-label="Decrease Haldi guests">−</button>
+                <span class="stepper-count" data-count="haldi">1</span>
+                <button type="button" class="stepper-btn" data-delta="1" aria-label="Increase Haldi guests">+</button>
+              </div>
+            </div>
+
+            <div class="rsvp-counter-row">
+              <div>
+                <p class="rsvp-fn-name" data-i18n="events.sangeetName">Sangeet Sandhya</p>
+                <p class="rsvp-fn-date" data-i18n="rsvp.sangeetDate">Tue, 26 Jan · 8:00 pm</p>
+              </div>
+              <div class="stepper" data-fn="sangeet">
+                <button type="button" class="stepper-btn" data-delta="-1" aria-label="Decrease Sangeet guests">−</button>
+                <span class="stepper-count" data-count="sangeet">1</span>
+                <button type="button" class="stepper-btn" data-delta="1" aria-label="Increase Sangeet guests">+</button>
+              </div>
+            </div>
+
+            <div class="rsvp-counter-row">
+              <div>
+                <p class="rsvp-fn-name" data-i18n="events.weddingName">Baraat &amp; Phere</p>
+                <p class="rsvp-fn-date" data-i18n="rsvp.weddingDate">Wed, 27 Jan · 7:00 pm</p>
+              </div>
+              <div class="stepper" data-fn="wedding">
+                <button type="button" class="stepper-btn" data-delta="-1" aria-label="Decrease Wedding guests">−</button>
+                <span class="stepper-count" data-count="wedding">1</span>
+                <button type="button" class="stepper-btn" data-delta="1" aria-label="Increase Wedding guests">+</button>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="gold-pill-cta rsvp-submit-btn">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              <path d="M9.5 9.5c.3 1.5 2 3.2 3.5 3.5l1.1-.8c.2-.1.5-.1.7 0l1.4.8c.2.1.3.4.2.7-.3.8-1.1 1.3-2 1.3-2.5 0-5.4-2.9-5.4-5.4 0-.9.5-1.7 1.3-2 .3-.1.6 0 .7.2l.8 1.4c.1.2.1.5 0 .7l-.8 1.1z" fill="currentColor" stroke="none" />
+            </svg>
+            <span data-i18n="rsvp.sendBtn">SEND ON WHATSAPP</span>
+          </button>
+
+          <p class="rsvp-helper italic-serif" data-i18n="rsvp.helper">
+            This opens WhatsApp with your reply written out. Nothing is sent until you press send.
+          </p>
+        </form>
+      </section>
+
+      <!-- =========================================================
+           CLOSING FOOTER
+           ========================================================= -->
+      <footer class="section section-footer">
+        <div class="lotus-divider" data-artwork="divider"></div>
+        <p class="tracked-caps footer-awaiting" data-i18n="footer.awaiting">AWAITING YOUR GRACIOUS PRESENCE</p>
+        <p class="footer-host" data-i18n="footer.host">Kothari Kirtikumar Kantilalji Bagrecha Solanki</p>
+        <p class="footer-addr">Moti Nivas, Dera ki Seri, Ahore · <a href="tel:+919440868551">Cell: 9440868551</a></p>
+        <p class="footer-couple foil-text" data-i18n="footer.couple">Ayush &amp; Ishika</p>
+        <p class="footer-hashtag">#Jashn - ऐ - इश्का</p>
+      </footer>
+
+    </div><!-- /.paper-body -->
+
+    <!-- Floating Controls -->
+    <div class="floating-controls" id="floatingControls">
+      <button type="button" class="lang-pill-btn" id="langToggleBtn" aria-label="Switch language between English and Hindi">
+        हिं
+      </button>
+      <button type="button" class="audio-circle-btn" id="audioToggleBtn" aria-label="Toggle ambient music">
+        <svg class="audio-icon-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <rect x="7" y="5" width="3.2" height="14" rx="1" />
+          <rect x="13.8" y="5" width="3.2" height="14" rx="1" />
+        </svg>
+        <svg class="audio-icon-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" hidden>
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Subtle Toast Notification -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  </main>
+
+  <script src="artwork.js?v=5"></script>
+  <script src="app.js?v=5"></script>
+</body>
+</html>

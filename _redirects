@@ -159,6 +159,11 @@
 # STANDARD CLIENT INVITATIONS
 # ==========================================
 
+# Client: ayush-weds-ishika
+/ayush-weds-ishika         /ayush-weds-ishika/                               302
+/ayush-weds-ishika/        /invitations/ayush-weds-ishika/index.html         200
+/ayush-weds-ishika/*       /invitations/ayush-weds-ishika/:splat             200
+
 # Client: abhijit-weds-sumona
 /abhijit-weds-sumona         /abhijit-weds-sumona/                               302
 /abhijit-weds-sumona/        /invitations/abhijit-weds-sumona/index.html         200
