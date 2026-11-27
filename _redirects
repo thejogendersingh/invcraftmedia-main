@@ -159,6 +159,11 @@
 # STANDARD CLIENT INVITATIONS
 # ==========================================
 
+# Client: akshee-weds-shalin (Akshee & Shalin)
+/akshee-weds-shalin         /akshee-weds-shalin/                               302
+/akshee-weds-shalin/        /invitations/akshee-weds-shalin/index.html         200
+/akshee-weds-shalin/*       /invitations/akshee-weds-shalin/:splat             200
+
 # Client: manisha-weds-jaysingh (Manisha Kumari & Jaysingh)
 /manisha-weds-jaysingh         /manisha-weds-jaysingh/                               302
 /manisha-weds-jaysingh/        /invitations/manisha-weds-jaysingh/index.html         200

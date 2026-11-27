@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const msg = `Hello InvCraftMedia! I want to customize this wedding invitation:
 📌 Design #${data.code} - ${data.name}
 🎨 Theme: ${data.theme}
-💰 Offer Price: ₹1,499 (Regular ₹3,499)
+💰 Offer Price: ₹750 (Regular ₹2,499)
 🔗 Live Demo: ${data.url}
 
 Please share how to add my wedding details!`;
@@ -427,7 +427,7 @@ Please share how to add my wedding details!`;
       title: 'We bring your dream digital wedding invitation to life.',
       sub: 'Choose a design you love. Our team personalises it with your names, photos and wedding details, ready to share with your guests.',
       cta: 'EXPLORE DESIGNS \u00A0\u2192',
-      priceNote: 'From \u20B91,499 \u00B7 One-time payment'
+      priceNote: 'From \u20B9750 \u00B7 One-time payment'
     },
     hi: {
       code: 'HI',
@@ -435,7 +435,7 @@ Please share how to add my wedding details!`;
       title: 'आपके सपनों का डिजिटल शादी कार्ड अब हकीकत में।',
       sub: 'अपना पसंदीदा डिज़ाइन चुनें। हमारी टीम आपके नाम, फोटो और शादी की जानकारी के साथ इसे तैयार करके देगी।',
       cta: 'डिज़ाइन देखें \u00A0\u2192',
-      priceNote: 'सिर्फ \u20B91,499 से \u00B7 वन-टाइम पेमेंट'
+      priceNote: 'सिर्फ \u20B9750 से \u00B7 वन-टाइम पेमेंट'
     },
     mr: {
       code: 'MR',
@@ -443,7 +443,7 @@ Please share how to add my wedding details!`;
       title: 'तुमच्या स्वप्नातील डिजिटल लग्नपत्रिका आता सत्यात.',
       sub: 'तुम्हाला आवडणारी डिझाइन निवडा. आमची टीम तुमच्या नावांसह आणि लग्नाच्या तपशीलांसह ती तयार करून देईल.',
       cta: 'डिझाइन पहा \u00A0\u2192',
-      priceNote: 'फक्त \u20B91,499 पासून \u00B7 वन-टाइम पेमेंट'
+      priceNote: 'फक्त \u20B9750 पासून \u00B7 वन-टाइम पेमेंट'
     }
   };
 
