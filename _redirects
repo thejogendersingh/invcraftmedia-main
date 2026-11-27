@@ -159,6 +159,11 @@
 # STANDARD CLIENT INVITATIONS
 # ==========================================
 
+# Client: manisha-weds-jaysingh (Manisha Kumari & Jaysingh)
+/manisha-weds-jaysingh         /manisha-weds-jaysingh/                               302
+/manisha-weds-jaysingh/        /invitations/manisha-weds-jaysingh/index.html         200
+/manisha-weds-jaysingh/*       /invitations/manisha-weds-jaysingh/:splat             200
+
 # Client: ayush-weds-ishika
 /ayush-weds-ishika         /ayush-weds-ishika/                               302
 /ayush-weds-ishika/        /invitations/ayush-weds-ishika/index.html         200
