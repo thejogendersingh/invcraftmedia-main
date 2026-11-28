@@ -159,6 +159,11 @@
 # STANDARD CLIENT INVITATIONS
 # ==========================================
 
+# Client: het-weds-khushi (Het Shah & Khushi Shah - Engagement Invitation)
+/het-weds-khushi         /het-weds-khushi/                               302
+/het-weds-khushi/        /invitations/het-weds-khushi/index.html         200
+/het-weds-khushi/*       /invitations/het-weds-khushi/:splat             200
+
 # Client: akshee-weds-shalin (Akshee & Shalin)
 /akshee-weds-shalin         /akshee-weds-shalin/                               302
 /akshee-weds-shalin/        /invitations/akshee-weds-shalin/index.html         200
