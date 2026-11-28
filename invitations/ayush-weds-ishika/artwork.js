@@ -154,13 +154,19 @@
           el.innerHTML = buildRealMedallion("mayra", "assets/medallion-mayra.jpg", 1.06);
           break;
         case "medallionBandoli":
-          el.innerHTML = buildRealMedallion("bandoli", "assets/medallion-bandoli.jpg", 1.06);
+          el.innerHTML = buildRealMedallion("bandoli", "assets/medallion-bandoli.jpg?v=2", 1.08);
           break;
         case "medallionHaldi":
           el.innerHTML = buildRealMedallion("haldi", "assets/medallion-mehendi.jpg", 1.12);
           break;
         case "medallionSangeet":
           el.innerHTML = buildRealMedallion("sangeet", "assets/medallion-sangeet.jpg", 1.08);
+          break;
+        case "medallionBaraat":
+          el.innerHTML = buildRealMedallion("baraat", "assets/medallion-baraat.jpg", 1.08);
+          break;
+        case "medallionVarmala":
+          el.innerHTML = buildRealMedallion("varmala", "assets/medallion-varmala.jpg", 1.08);
           break;
         case "medallionWedding":
           el.innerHTML = buildRealMedallion("wedding", "assets/medallion-wedding.jpg", 1.14);
