@@ -164,6 +164,15 @@
 /het-weds-khushi/        /invitations/het-weds-khushi/index.html         200
 /het-weds-khushi/*       /invitations/het-weds-khushi/:splat             200
 
+# Client: het-and-khushi (Het Shah & Khushi Shah - Roopa & Anoop Theme Engagement Invitation)
+/het-and-khushi          /het-and-khushi/                                302
+/het-and-khushi/         /invitations/het-and-khushi/index.html          200
+/het-and-khushi/*        /invitations/het-and-khushi/:splat              200
+/het-&-khushi            /het-and-khushi/                                302
+/het-&-khushi/           /het-and-khushi/                                302
+/Het-&-khushi            /het-and-khushi/                                302
+/Het-&-khushi/           /het-and-khushi/                                302
+
 # Client: akshee-weds-shalin (Akshee & Shalin)
 /akshee-weds-shalin         /akshee-weds-shalin/                               302
 /akshee-weds-shalin/        /invitations/akshee-weds-shalin/index.html         200
